@@ -2,6 +2,7 @@
 /**
  * Décrivez votre classe abstraite MagicalItem ici.
  *
+ *saluuuuuuuuuuuuuuuuut
  * @author  (votre nom)
  * @version (un numéro de version ou une date)
  */
