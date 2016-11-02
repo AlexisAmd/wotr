@@ -1,0 +1,76 @@
+import java.util.*;
+
+/**
+ * This class describes Non player characters
+ */
+public  class NPC
+{
+    // instance variables - replace the example below with your own
+    protected String name;
+    protected String description; //a short description of th player ex : dwarfs are sprinters, they fast on short discantes but long distances tires them
+
+   protected int corruptionPower;
+   protected int hpPower;
+   protected Player currentPlayer;
+   protected boolean alreadyUsed;
+
+
+    /**
+     * Constructor for objects of class Player
+     * @param name
+     */
+    public NPC(String name, String description, int corruptionPower, int hpPower, Player currentPlayer)
+    {
+        // initialise instance variables
+        this.name = name;
+        this.description = description;
+        this.corruptionPower = corruptionPower;
+        this.hpPower= hpPower;
+        this.currentPlayer = currentPlayer;
+        this.alreadyUsed = false;
+
+    }
+
+    
+    /**
+     * get name 
+     * @return 
+     */
+    public String getName()
+    {
+       return name;
+    }
+    
+        /**
+     * get name 
+     * @return 
+     */
+    public String getDescription()
+    {
+       return description;
+    }
+    
+
+    /**
+     * Print a NPC
+     * @return the name and the description of the NPC
+     */
+    public String toString()
+    {
+        return getName()+" : "+this.getDescription();
+    }
+    
+    public void use(){
+        if (!alreadyUsed){
+        currentPlayer.addHp(hpPower);
+        currentPlayer.addCorruption(corruptionPower);
+        alreadyUsed= true;}
+        else{
+            System.out.println("You already used the powers of "+ name);
+        }
+    }
+    
+    protected void restorePower(){
+        alreadyUsed=false;
+    }
+}
