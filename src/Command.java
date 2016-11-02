@@ -12,7 +12,7 @@
 * known) then the command word is <null>.
 *
 * If the command had only one word, then the second word is <null>.
-*
+* comm
 * @author  Michael Kolling and David J. Barnes
 * @version 2006.03.30
 */
