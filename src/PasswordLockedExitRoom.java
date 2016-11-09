@@ -1,4 +1,10 @@
 import java.util.Scanner;
+
+/** Put a really nice explanation of the class
+ * 
+ * @author G1
+ *
+ */
 public class PasswordLockedExitRoom extends LockedExitRoom{
     private String password; //the password to cross the door
 
