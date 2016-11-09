@@ -15,6 +15,7 @@
 * @version 2006.03.30
 */
 import java.util.HashMap;
+//commentaire
 
 public class Game {
     private Parser parser;
