@@ -1,8 +1,8 @@
 
 /**
- * Décrivez votre classe Key ici.
+ * Class Key, can unlock a LockedExit
  *
- * @author (votre nom)
+ * @author GR1
  * @version (un numéro de version ou une date)
  */
 public class Key extends Item{
