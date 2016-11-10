@@ -5,6 +5,7 @@
  * @author GR1
  * @version (un numéro de version ou une date)
  */
+package wotr;
 public class Food extends Item
 {
     // variables d'instance - remplacez l'exemple qui suit par le vôtre

@@ -1,4 +1,4 @@
-
+package wotr;
 
 import java.awt.EventQueue;
 

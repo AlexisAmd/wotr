@@ -1,3 +1,4 @@
+package wotr;
 import java.util.Scanner;
 
 /** Put a really nice explanation of the class

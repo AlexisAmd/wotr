@@ -17,6 +17,7 @@
 import java.util.HashMap;
 //commentaire
 
+package wotr;
 public class Game {
     private Parser parser;
     private Room currentRoom;

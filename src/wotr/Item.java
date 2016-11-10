@@ -4,6 +4,7 @@
 * @author (your name)
 * @version (a version number or a date)
 */
+package wotr;
 public abstract class Item {
     // instance variables - replace the example below with your own
     protected String name;

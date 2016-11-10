@@ -1,4 +1,4 @@
-
+package wotr;
 /**
  * Décrivez votre classe Magician ici.
  * A magician can restore powers of an other NPC

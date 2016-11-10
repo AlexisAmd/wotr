@@ -1,4 +1,4 @@
-
+package wotr;
 /**
  * Décrivez votre classe abstraite MagicalItem ici.
  *

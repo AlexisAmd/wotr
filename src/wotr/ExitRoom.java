@@ -10,6 +10,7 @@
  * 
 
  */
+package wotr;
 public class ExitRoom
 {
     protected Room nextRoom;
