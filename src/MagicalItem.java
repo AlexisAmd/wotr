@@ -27,8 +27,8 @@ public  class MagicalItem extends Item
 
     public void use(){
 
-        return corruptionPower;
+//SPECIFIC POWER ?
     }
 
-    //SPECIFIC POWER ?
+    
 }
