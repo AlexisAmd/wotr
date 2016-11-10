@@ -26,7 +26,7 @@ public class Magician extends NPC
 
     public void use(NPC npc){
         super.use();
-        npc.restorePower();
+        restorePower(npc);
     }
 
     /**
