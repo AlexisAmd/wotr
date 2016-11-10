@@ -89,13 +89,16 @@ public class Player
     /**
      * Add a friend to the player's fellowship
      * @param npc the non player character you just met
+     *@return true if added
      */
-    public void meetFriend(NPC npc){
+    public boolean addNPC(NPC npc){
         if (!hadNPC(npc)){    
             fellowship.add(npc); //add the this new friend to the fellowship
-            System.out.println(npc.getName()+" is now a member of the fellowship of the ring.");}
+            System.out.println(npc.getName()+" is now a member of the fellowship of the ring.");
+            return true;}
         else{
             System.out.println(npc.getName()+" is already a member of the fellowship of the ring.");
+            return false;
         }
     }
 
@@ -137,7 +140,7 @@ public class Player
     /**
      * Add the item to the player's list if th  object is not already present nd his weight is not superior to the maximum weight
      * @param newItem
-     * @return
+     * @return true if the item has been added to the inventoru
      */
     public boolean addItem(Item newItem){
         if(newItem.getWeight()+inventoryWeight>maximumInventoryWeight){
@@ -163,6 +166,7 @@ public class Player
         }
         return inventory.remove(item);//retrun false if not deleted
     }
+
 
 
 
