@@ -1,7 +1,6 @@
 package JUtest;
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import junit.framework.*;
+import wotr.*;
 
 public class ExitRoomTest extends TestCase {
 	private ExitRoom room;
@@ -16,4 +15,4 @@ public class ExitRoomTest extends TestCase {
 	}
 }
 
-}
+
