@@ -20,6 +20,7 @@ public class Room
     private String description; //description 
     private HashMap <String,ExitRoom> roomHM; //avaible exits for this room
     private ArrayList<Item> itemList=null; //items avaibles in this room
+    private ArrayList<Item> NPCList=null;
 
     /**
      * Create a room described "description". Initially, it has
@@ -32,6 +33,7 @@ public class Room
         this.description = description;
         this.roomHM = new HashMap<>();
         this.itemList=new ArrayList<>();
+        this.NPCList= new ArrayList<>();
     }
 
     /**
@@ -51,6 +53,19 @@ public class Room
     {
         itemList.add(i);
     }
+
+
+        /**
+     * Metho to add an NPC into the room list of items
+     * @param i the item we want to add
+     */
+    public void addNPC(NPC i)
+    {
+        NPCList.add(i);
+    }
+
+
+
 
     /**
      * Method to get the description of a room
@@ -74,6 +89,19 @@ public class Room
         else {System.out.println("No items here");}
     }
 
+        /**
+     * Print the items of the room
+     */
+    public void printNPC()
+    {
+        if (!NPCList.isEmpty()){
+            NPCList.stream().forEach((i) -> {
+                    System.out.println(i);
+                });
+        }
+        else {System.out.println("No friend/ennemies here");}
+    }
+
     /**
      * Method to get itemList
      * @return the array list of items
@@ -81,6 +109,15 @@ public class Room
     public ArrayList<Item> getItemList()
     {
         return itemList;
+    }
+
+    /**
+     * Method to get NPCList
+     * @return the array list of items
+     */
+    public ArrayList<Item> getNPCList()
+    {
+        return NPCList;
     }
 
     /**
