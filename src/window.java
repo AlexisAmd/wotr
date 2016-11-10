@@ -25,7 +25,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class window {
+public class Window {
 
 	private JFrame frmWorldOfTheRing;
 
@@ -36,8 +36,8 @@ public class window {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					window window = new window();
-					window.frmWorldOfTheRing.setVisible(true);
+					Window Window = new Window();
+					Window.frmWorldOfTheRing.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,7 +48,7 @@ public class window {
 	/**
 	 * Create the application.
 	 */
-	public window() {
+	public Window() {
 		initialize();
 	}
 
