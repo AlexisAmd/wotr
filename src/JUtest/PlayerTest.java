@@ -4,19 +4,25 @@ import org.junit.Test;
 
 public class PlayerTest {
 
-	@Test
-	public void testPlayer() {
-		fail("Not yet implemented");
+	private Player player;
+	
+	protected void setUp() {
+		player = new Player();
 	}
-
+	
+	@Test
+	public void testGame() {
+		assertNotNull("Instance is not created!", player);
+	}
+	
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		assertEquals("Player's name is not Frodo!", "Frodo", player.getName());
 	}
 
 	@Test
 	public void testGetHp() {
-		fail("Not yet implemented");
+		assertEquals("Player's HP does not match!", 100, player.getHp());
 	}
 
 	@Test
