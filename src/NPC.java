@@ -13,10 +13,11 @@ public  class NPC
    protected int hpPower;
    protected Player currentPlayer;
    protected boolean alreadyUsed;
+   protected ArrayList<Item> itemList;
 
 
     /**
-     * Constructor for objects of class Player
+     * Constructor for objects of class Players
      * @param name
      */
     public NPC(String name, String description, int corruptionPower, int hpPower, Player currentPlayer)
@@ -28,6 +29,7 @@ public  class NPC
         this.hpPower= hpPower;
         this.currentPlayer = currentPlayer;
         this.alreadyUsed = false;
+        this.itemList = new ArrayList<>();
 
     }
 
@@ -60,6 +62,9 @@ public  class NPC
         return getName()+" : "+this.getDescription();
     }
     
+    /**
+    *COmmon method use to all npc
+    */
     public void use(){
         if (!alreadyUsed){
         currentPlayer.addHp(hpPower);
@@ -70,7 +75,5 @@ public  class NPC
         }
     }
     
-    protected void restorePower(){
-        alreadyUsed=false;
-    }
+
 }

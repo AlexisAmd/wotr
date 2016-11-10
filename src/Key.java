@@ -15,8 +15,8 @@ public class Key extends Item{
   
     }
     
-    public int use(){
+    public void use(){
         door.setUnlocked();
-        return 0;//unused value...
+
     }
 }

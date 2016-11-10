@@ -24,13 +24,15 @@ public class Magician extends NPC
         this.npc = npc;
     }
 
-    public void use(){
-        if (!alreadyUsed){
-        currentPlayer.addCorruption(corruptionPower);
-        npc.alreadyUsed=false;
-        this.alreadyUsed= true;}
-        else{
-            System.out.println("You already used the powers of "+ name);
-        }
+    public void use(NPC npc){
+        super.use();
+        npc.restorePower();
+    }
+
+    /**
+    *Restore
+    */
+    private void restorePower(NPC npc){
+        npc.alreadyUsed=false:
     }
 }

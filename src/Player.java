@@ -6,7 +6,7 @@ import java.util.*;
 public class Player
 {
 
-    private String name;
+    private String name; //name of the player, st to frodo by default
     private int hp;//health points
     private int percentCorruption; //percentage of corruption, player's die if percentage is >=100
     private ArrayList<Item> inventory; //list of all items stored in the player's inventory
@@ -20,7 +20,7 @@ public class Player
     public Player()
     {
         // initialise instance variables
-        name = "Bilbo";
+        name = "Frodo";
         hp= 100;
         percentCorruption = 0;
         inventory = new ArrayList<>();
@@ -130,12 +130,12 @@ public class Player
      * @param item the item you want to check
      * @return true if the player have this item
      */
-    public boolean hadItem(Item item){
+    public boolean hasItem(Item item){
         return inventory.contains(item);
     }
 
     /**
-     * Add the item to the player's list
+     * Add the item to the player's list if th  object is not already present nd his weight is not superior to the maximum weight
      * @param newItem
      * @return
      */
@@ -167,21 +167,26 @@ public class Player
 
 
     
+    /**
+    * This fonction use an item.
+    */
     public void use(Item item){
-        this.hp+=item.use();//used for food
-        this.percentCorruption+=item.use();//used for magical object
+
         item.use();//usefull for keys
         
-        if (!item.getClass().getName().equals("Key")){//keys can be used more than one time
+        if (!item.getClass().getName().equals("Key")){//keys cannot be used more than one time
             dropItem(item);
         }
     }
     
+    /**
+    * Allow to use a npc
+    **/
     public void use(NPC npc){
         npc.use();
     }
 
-    //description : 
+ 
     /**
      * Return the player's informations
      * @return description of the player

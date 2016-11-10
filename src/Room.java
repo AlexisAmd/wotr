@@ -19,8 +19,8 @@ public class Room
 {
     private String description; //description 
     private HashMap <String,ExitRoom> roomHM; //avaible exits for this room
-    private ArrayList<Item> itemList=null; //items avaibles in this room
-    private ArrayList<Item> NPCList=null;
+    private ArrayList<Item> itemList; //items avaibles in this room
+    private ArrayList<NPC> ncpList;
 
     /**
      * Create a room described "description". Initially, it has
@@ -33,7 +33,7 @@ public class Room
         this.description = description;
         this.roomHM = new HashMap<>();
         this.itemList=new ArrayList<>();
-        this.NPCList= new ArrayList<>();
+        this.ncpList= new ArrayList<>();
     }
 
     /**
@@ -61,7 +61,7 @@ public class Room
      */
     public void addNPC(NPC i)
     {
-        NPCList.add(i);
+        ncpList.add(i);
     }
 
 
@@ -94,8 +94,8 @@ public class Room
      */
     public void printNPC()
     {
-        if (!NPCList.isEmpty()){
-            NPCList.stream().forEach((i) -> {
+        if (!ncpList.isEmpty()){
+            ncpList.stream().forEach((i) -> {
                     System.out.println(i);
                 });
         }
@@ -112,12 +112,12 @@ public class Room
     }
 
     /**
-     * Method to get NPCList
-     * @return the array list of items
+     * Method to get ncpList
+     * @return the array list of NCP
      */
-    public ArrayList<Item> getNPCList()
+    public ArrayList<NCP> getncpList()
     {
-        return NPCList;
+        return ncpList;
     }
 
     /**
@@ -127,12 +127,16 @@ public class Room
      */
     public Room getNextRoom(String direction){
         if(roomHM.containsKey(direction)){
+            
             return roomHM.get(direction).getNextRoom(this);
-        }
+            }
+        
         else {
             return null;
         }
     }
+
+
 
     /**
      * Print avaible exit rooms

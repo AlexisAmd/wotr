@@ -2,7 +2,7 @@
 /**
  * Décrivez votre classe Food ici.
  *
- * @author (votre nom)
+ * @author GR1
  * @version (un numéro de version ou une date)
  */
 public class Food extends Item
@@ -29,7 +29,8 @@ public class Food extends Item
         return this.calory;
     }
     
-    public int use(){
-        return this.calory;
+    //a faire
+    public void use(){
+        //currentPlayer.set etc etc
     }
 }
