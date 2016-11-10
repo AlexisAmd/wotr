@@ -14,9 +14,12 @@
 * @author  Michael Kolling and David J. Barnes
 * @version 2006.03.30
 */
-import java.util.HashMap;
+
+
 
 package wotr;
+import java.util.HashMap;
+
 public class Game {
     private Parser parser;
     private Room currentRoom;
@@ -61,8 +64,8 @@ public class Game {
         roomPub = new Room("campus pub");
         roomLab = new Room("computing lab");
         //create items
-        Key keyTheatre = new Key("KeyTheatre","Allow to go to theatre",1);
-        Food lambas = new Food("Lambas","miaaaam", 2, 30);
+        Key keyTheatre = new Key("KeyTheatre","Allow to go to theatre",1, currentPlayer);
+        Food lambas = new Food("Lambas","miaaaam", 2, 30, currentPlayer);
 
         //adding item to rooms
         roomPub.addItem(keyTheatre);
