@@ -33,6 +33,6 @@ public class Magician extends NPC
     *Restore
     */
     private void restorePower(NPC npc){
-        npc.alreadyUsed=false:
+        npc.alreadyUsed=false;
     }
 }

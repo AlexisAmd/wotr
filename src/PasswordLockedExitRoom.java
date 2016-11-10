@@ -27,7 +27,6 @@ public class PasswordLockedExitRoom extends LockedExitRoom{
     public  String inputUserPassword(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Type the password  to go  "+ super.getNextRoom(super.currentRoom)+" : "+ "\n");
-        
         return sc.nextLine();
         
     }
