@@ -10,8 +10,8 @@ public  class MagicalItem extends Item
 {
     protected int corruptionPower;
 
-    public MagicalItem(String name, String description, int weight, int corruptionPower) {
-        super(name, description, weight);
+    public MagicalItem(String name, String description, int weight, int corruptionPower,Player currentPlayer) {
+        super(name, description, weight, currentPlayer);
         this.corruptionPower=corruptionPower;
     }
     

@@ -13,9 +13,9 @@ public class Food extends Item
     /**
      * Constructeur d'objets de classe Food
      */
-    public Food(String name, String description, int weight, int calory)
+    public Food(String name, String description, int weight, int calory, Player currentPlayer)
     {
-        super(name, description,  weight);
+        super(name, description,  weight, currentPlayer);
         this.calory = calory;
     }
 
@@ -28,7 +28,7 @@ public class Food extends Item
     public int getCalory(){
         return this.calory;
     }
-    
+
     //a faire
     public void use(){
         //currentPlayer.set etc etc

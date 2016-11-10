@@ -9,6 +9,7 @@ public abstract class Item {
     protected String name;
     protected String description;
     protected int weight;
+    protected Player currentPlayer;
 
     /**
     * Constructor for objects of class Items
@@ -16,10 +17,11 @@ public abstract class Item {
     * @param description
     * @param weight
     */
-    public Item(String name, String description, int weight) {
+    public Item(String name, String description, int weight, Player currentPlayer) {
         this.name = name;
         this.description = description;
         this.weight = weight;
+        this.currentPlayer = currentPlayer;
     }
 
     /**

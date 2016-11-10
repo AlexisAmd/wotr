@@ -9,9 +9,9 @@ public class Key extends Item{
     //the key have to have an Lock attributes in order to have a bidirectionnal independance, like that only one key can open a lock and a locked can be unlocked by only one key
     private KeyLockedExitRoom door;
 
-    public Key(String name, String description, int weight)
+    public Key(String name, String description, int weight, Player currentPlayer)
     {
-        super(name, description, weight);
+        super(name, description, weight, currentPlayer);
   
     }
     
@@ -19,4 +19,6 @@ public class Key extends Item{
         door.setUnlocked();
 
     }
+
+    
 }
