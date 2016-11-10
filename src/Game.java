@@ -194,4 +194,42 @@ public class Game {
             return true; // signal that we want to quit
         }
     }
+
+       /**
+     * pickUp an Item, add it to the current player inventory, remove it from the room
+     * @param nameItem
+     */  
+    public void pickUpItem(Item item) 
+    {
+    Item moveItem=null;//temporary varaible to store the item
+    boolean itemAdded=false;
+    moveItem=item;
+    currentRoom.delItem(item);
+    if(moveItem!=null){
+  
+            if(!currentPlayer.addItem(moveItem)){
+                currentRoom.addItem(moveItem); //si item pas ajouter au perso on le remet dans la piece
+            }
+        }
+
+    }
+
+       /**
+     * pickUp an Item, add it to the current player inventory, remove it from the room
+     * @param nameItem
+     */  
+    public void pickUpNPC(NPC npc) 
+    {
+    NPC moveNPC=null;//temporary varaible to store the item
+    boolean NPCAdded=false;
+    moveNPC=npc;
+    currentRoom.delNPC(npc);
+    if(moveNPC!=null){
+  
+            if(!currentPlayer.addNPC(moveNPC)){
+                currentRoom.addNPC(moveNPC); //si item pas ajouté au perso on le remet dans la piece
+            }
+        }
+
+    }
 }
