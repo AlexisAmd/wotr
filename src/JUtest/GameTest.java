@@ -1,33 +1,36 @@
 package JUtest;
 import static org.junit.Assert.*;
+import wotr.*;
+import org.junit.Test;
 
 import org.junit.Test;
+
+
 import wotr.*;
+
 
 public class GameTest {
 
-	    private Parser parser;
-    private Room currentRoom;
-    private Player currentPlayer;
-    
-        Room roomOutside, roomTheatre, roomPub, roomLab;
+	//DECLARATION
 
-        ExitRoom doorOutsideLab, doorOutsidePub, doorLabOutside, doorOfficeLab;
+	 Room roomOutside, roomTheatre, roomPub, roomLab;
 
-        PasswordLockedExitRoom doorPubOutside;
+	        ExitRoom doorOutsideLab, doorOutsidePub, doorLabOutside, doorOfficeLab;
 
-        KeyLockedExitRoom doorOutsideTheatre, doorTheatreOutside;
+	        PasswordLockedExitRoom doorPubOutside;
+
+	        KeyLockedExitRoom doorOutsideTheatre, doorTheatreOutside;
 
         //INSTANCIATION
-
+	        GameTest(){
         // create the rooms
-        roomOutside = new Room("main entrance of the university");
+        roomOutside=new Room("main entrance of the university");
         roomTheatre = new Room("lecture theatre");
         roomPub = new Room("campus pub");
         roomLab = new Room("computing lab");
         //create items
-        Key keyTheatre = new Key("KeyTheatre","Allow to go to theatre",1);
-        Food lambas = new Food("Lambas","miaaaam", 2, 30);
+        Key keyTheatre = new Key("KeyTheatre","Allow to go to theatre",1, currentPlayer);
+        Food lambas = new Food("Lambas","miaaaam", 2, 30, currentPlayer);
 
         //adding item to rooms
         roomPub.addItem(keyTheatre);
@@ -51,6 +54,9 @@ public class GameTest {
 
         currentRoom = roomOutside; // start game outside
 
+        //add item to the current player
+
+	        }  
 
 	@Test
 	public void testGame() {
