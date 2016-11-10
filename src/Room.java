@@ -56,6 +56,18 @@ public class Room
 
 
         /**
+     * Metho to remove an item into the room list of items
+     * @param i the item we want to add
+     */
+    public void delItem(Item i)
+    {//should we have to check if the item is in the lsit before removing it ?
+        itemList.remove(i);
+    }
+
+
+
+
+        /**
      * Metho to add an NPC into the room list of items
      * @paradm i the item we want to add
      */
@@ -64,6 +76,14 @@ public class Room
         NPCList.add(i);
     }
 
+        /**
+     * Metho to remove a NPC into the room list of items
+     * @param npc the npc we want to delete
+     */
+    public void delNPC(NPC npc)
+    {//should we have to check if the item is in the lsit before removing it ?
+        NPCList.remove(npc);
+    }
 
 
     /**
