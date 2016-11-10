@@ -1,6 +1,6 @@
 package JUtest;
 import static org.junit.Assert.*;
-
+import wotr.*;
 import org.junit.Test;
 
 public class MagicalItemTest {
