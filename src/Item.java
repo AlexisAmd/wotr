@@ -51,7 +51,9 @@ public abstract class Item {
 
     }
     
-    public int use(){
-        return 0;
+    /**
+    *Common method to use item. When used, an item performs an action on a door or on a player or on a npc
+    */
+    public void use(){
     }
 }
