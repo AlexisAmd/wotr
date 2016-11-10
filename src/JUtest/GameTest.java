@@ -2,6 +2,7 @@ package JUtest;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import wotr.*;
 
 public class GameTest {
 
@@ -68,9 +69,10 @@ public class GameTest {
 
 	@Test
 	public void testGoRoom() {
+currentPlayer.goRoom("south");
+		assertSame(roomPub,currentPlayer.getRoom());
+        
 
-		goRoom("south");
-		fail("Not yet implemented");
 	}
 
 	@Test
