@@ -114,7 +114,7 @@ public class Room
      * Method to get NPCList
      * @return the array list of NCP
      */
-    public ArrayList<NCP> getNPCList()
+    public ArrayList<NPC> getNPCList()
     {
         return NPCList;
     }
