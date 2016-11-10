@@ -15,7 +15,6 @@
 * @version 2006.03.30
 */
 import java.util.HashMap;
-//commentaire
 
 package wotr;
 public class Game {
@@ -57,7 +56,7 @@ public class Game {
         //INSTANCIATION
 
         // create the rooms
-        roomOutside = new Room("main entrance of the university");
+        roomOutside=new Room("main entrance of the university");
         roomTheatre = new Room("lecture theatre");
         roomPub = new Room("campus pub");
         roomLab = new Room("computing lab");
