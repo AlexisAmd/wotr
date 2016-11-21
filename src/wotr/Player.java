@@ -145,7 +145,8 @@ public class Player
 
     /**
      * Add the item to the player's list if th  object is not already present and its weight is not superior to the maximum weight
-     * @param newItem
+     * The inventory is allowed to contains the same object many times (i.e it can contains 6 beers)
+     *@param newItem
      * @return true if the item has been added to the inventoru
      */
     public boolean addItem(Item newItem){
