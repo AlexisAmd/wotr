@@ -2,24 +2,32 @@ package wotr;
 import java.util.*;
 
 /**
- * Player class
+ * Player class stands for a World of the Ring player able to epxplore many differents world. This player is named FRODO.
+ * A player have health point and corruption points. When healt point is equal to 0 the player is dead. When the percentage of corruption of the player is equal to 100% the payer is dead.
+ *A player have an inventory wich contains itms and a fellowship which contains NPC.
+ *This inventory have a maximum weight.
+ *By default, the player have 100 hp and 0 % of corruption
+ *@author GR1
+ *@version 21/11/16
  */
 public class Player
 {
 
     private String name; //name of the player, st to frodo by default
-    private int hp;//health points
-    private int percentCorruption; //percentage of corruption, player's die if percentage is >=100
+    private int hp;//health points of the player, can be >100 but if <=0, the player is dead
+    private int percentCorruption; //percentage of corruption, cannot be <0, player's die if percentage is >=100
     private ArrayList<Item> inventory; //list of all items stored in the player's inventory
     private ArrayList<NPC> fellowship; //list of all friends of our hero
     private int inventoryWeight; //current weigh of the inventory
-    private int maximumInventoryWeight;
+    private int maximumInventoryWeight; //maximum weight of th inventory
 
     /**
      * Constructor for objects of class Player
+     * The player is named Fordo, have 100 hp and 0 corruption point. As his inventory, is fellowship is empty.
+     *
      */
     public Player()
-    {
+    { //constructeur sans parametres ?
         // initialise instance variables
         name = "Frodo";
         hp= 100;
@@ -29,13 +37,6 @@ public class Player
 
     }
 
-    /**
-     * getName
-     * @return
-     */
-    public String getName(){
-        return name;
-    }
 
     /**
      * getHp : return the number of healthpoints
@@ -54,22 +55,27 @@ public class Player
     }
 
     /**
-     * Manage the gain of one life
-     * @param nb the number of health points to gain, can be a negative value
+     * Manage the gain and the loose of player's healt point
+     * Hp can be >100 but if HP<= 0 the player is dead, the game is over
+     * @param nb the number of health points to gain, can be a negative
      */
     public void addHp(int nb){
+        //verify if <0 
         hp+=nb;
     }
 
     /**
-     * Manage the loose of  life
+     * Manage the loose and the of corruption
+     * If corruption reach 100%, then the game is over
+     * cannot be < 0
      * @param nb the number of corruption to loose, can be a negative value
      */
     public void addCorruption(int nb){
+        //verify if <0 or >100
         percentCorruption+=nb;
     }
 
-    //fellowship managment
+
     /**
      * Method to return the feelowship of the hero
      * @return the fellowship of the hero
@@ -95,15 +101,14 @@ public class Player
     public boolean addNPC(NPC npc){
         if (!hadNPC(npc)){    
             fellowship.add(npc); //add the this new friend to the fellowship
-            System.out.println(npc.getName()+" is now a member of the fellowship of the ring.");
+            //System.out.println(npc.getName()+" is now a member of the fellowship of the ring.");
             return true;}
         else{
-            System.out.println(npc.getName()+" is already a member of the fellowship of the ring.");
+            //System.out.println(npc.getName()+" is already a member of the fellowship of the ring.");
             return false;
         }
     }
 
-    //Item managment : 
 
     /**
      * getinventory : return the items's list
@@ -139,13 +144,13 @@ public class Player
     }
 
     /**
-     * Add the item to the player's list if th  object is not already present nd his weight is not superior to the maximum weight
+     * Add the item to the player's list if th  object is not already present and its weight is not superior to the maximum weight
      * @param newItem
      * @return true if the item has been added to the inventoru
      */
     public boolean addItem(Item newItem){
         if(newItem.getWeight()+inventoryWeight>maximumInventoryWeight){
-            System.out.println("Objet too heavy for your inventory (item weight : "+newItem.getWeight()+" ) !");
+            //System.out.println("Objet too heavy for your inventory (item weight : "+newItem.getWeight()+" ) !");
             return false;
         }
         else{
@@ -156,7 +161,7 @@ public class Player
     }
 
     /**
-     * Remove a specified item from the player's inventory
+     * Remove a specified item from the player's inventory. If the item is deleted the total weight of the inventory decrease according to the weight of the item.
      * @param item item to remove
      * @return false if not done
      */
@@ -173,7 +178,7 @@ public class Player
 
     
     /**
-    * This fonction use an item.
+    * Allow the player to use an item. Item can have an action on the world and/or on the player's hp and/or cp.
     */
     public void use(Item item){
 
@@ -185,7 +190,7 @@ public class Player
     }
     
     /**
-    * Allow to use a npc
+    * Allow the player to use a NPC. NPC can have an action on the world and/or on the player's hp and/or cp.
     **/
     public void use(NPC npc){
         npc.use();
@@ -193,7 +198,7 @@ public class Player
 
  
     /**
-     * Return the player's informations
+     * Return the player's informations as a string
      * @return description of the player
      */
     public String toString(){
