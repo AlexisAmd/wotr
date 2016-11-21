@@ -2,7 +2,9 @@ package wotr;
 import java.util.*;
 
 /**
- * This class describes Non player characters
+ * This class describes Non player characters. Non player characters can use their power on the player (frodo) by letting him loose or gain healt points and/or corruption points.
+ * They can use their power only one time except if their powers are restored (by a magician)
+ * they can have multiples items (i.e the ncp "dragon" own a key to unlock a door)
  */
 public  class NPC
 {
