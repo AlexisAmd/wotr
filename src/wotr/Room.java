@@ -4,17 +4,10 @@ import java.util.ArrayList;
 
 /**
  * Class Room - a room in an adventure game.
- *
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
- *
- * A "Room" represents one location in the scenery of the game.  It is 
- * connected to other rooms via exits.  The exits are labelled north, 
- * east, south, west.  For each direction, the room stores a reference
- * to the neighboring room, or null if there is no exit in that direction.
+ *here
  * 
- * @author  Michael Kolling and David J. Barnes
- * @version 2006.03.30
+ * @author  //here
+ * @version //here
  */
 public class Room 
 {
@@ -57,8 +50,8 @@ public class Room
 
 
         /**
-     * Metho to remove an item into the room list of items
-     * @param i the item we want to add
+     * Method to remove an item from the room' list of items
+     * @param i the item we want to remove
      */
     public void delItem(Item i)
     {//should we have to check if the item is in the lsit before removing it ?
