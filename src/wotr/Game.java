@@ -63,7 +63,7 @@ public class Game {
         roomTheatre = new Room("lecture theatre");
         roomPub = new Room("campus pub");
         roomLab = new Room("computing lab");
-        //create items
+        //create items //DEV info : move this lines to a method named 'creteItems' then call it here
         Key keyTheatre = new Key("KeyTheatre","Allow to go to theatre",1, currentPlayer);
         Food lambas = new Food("Lambas","miaaaam", 2, 30, currentPlayer);
 
@@ -199,7 +199,7 @@ public class Game {
     }
 
        /**
-     * pickUp an Item, add it to the current player inventory, remove it from the room
+     * pickUp an Item, add it to the current player inventory if possible then remove it from the room
      * @param nameItem
      */  
     public void pickUpItem(Item item) 
@@ -211,7 +211,7 @@ public class Game {
     if(moveItem!=null){
   
             if(!currentPlayer.addItem(moveItem)){
-                currentRoom.addItem(moveItem); //si item pas ajouter au perso on le remet dans la piece
+                currentRoom.addItem(moveItem); //si item pas ajouté au perso on le remet dans la piece
             }
         }
 
