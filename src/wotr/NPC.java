@@ -2,62 +2,80 @@ package wotr;
 import java.util.*;
 
 /**
- * This class describes Non player characters. Non player characters can use their power on the player (frodo) by letting him loose or gain healt points and/or corruption points.
+ * This class describes Non player characters. They can be added to a room of the WOTR (done in class room addNPC()) and join the fellowship of frodo (see class game pickUpNPC())
+ * Non player characters can use their power on the player (frodo) by letting him loose or gain healt points and/or corruption points.
  * They can use their power only one time except if their powers are restored (by a magician)
- * they can have multiples items (i.e the ncp "dragon" own a key to unlock a door)
+ * They can have multiples items (i.e the ncp "dragon" owns a key to unlock a door, the magican owns food and keys etc etc)
+ * Specifics NPC (see subclasses) can act with other objects (items, doors, other NPC ...)
  */
 public  class NPC
 {
-    // instance variables - replace the example below with your own
-    protected String name;
-    protected String description; //a short description of th player ex : dwarfs are sprinters, they fast on short discantes but long distances tires them
-
-   protected int corruptionPower;
-   protected int hpPower;
-   protected Player currentPlayer;
-   protected boolean alreadyUsed;
-   protected ArrayList<Item> itemList;
+    private String name; //name of the NPC
+    private String description; //a short description of th player ex : dwarfs are sprinters, they are fast on short distances but long distances tires them
+    private int corruptionPower;//corruption power owned by the NPC, they are used to give corruption points to frodo
+    private int hpPower;//health points wich will be given or retrieved to Frodo
+    private Player currentPlayer; //frodo
+    private boolean alreadyUsed;  //true if the npc hae already used his powers
+    private ArrayList<Item> itemList; //inventory of the NPC
 
 
     /**
-     * Constructor for objects of class Players
-     * @param name
+     * Constructor for objects of class NPC.
+     *@param name : of the NPC
+     *@param description : a short description of th player ex : "dwarfs are sprinters, they are fast on short distances but long distances tires them."
+     *@param corruptionPower : /corruption power owned by the NPC, they are used to give corruption points to frodo
+     *@param hpPower : health points wich will be given or retrieved to Frodo
+     *@param currentPlayer : //frodo
      */
     public NPC(String name, String description, int corruptionPower, int hpPower, Player currentPlayer)
     {
-        // initialise instance variables
         this.name = name;
         this.description = description;
         this.corruptionPower = corruptionPower;
         this.hpPower= hpPower;
         this.currentPlayer = currentPlayer;
         this.alreadyUsed = false;
-        this.itemList = new ArrayList<>();
-
+        this.itemList = new ArrayList<>(); //DEV : Useless ??
     }
 
     
     /**
      * get name 
-     * @return 
+     * @return  the name of the NPC
      */
     public String getName()
     {
        return name;
-    }
-    
+   }
+
         /**
-     * get name 
-     * @return 
+     * get description 
+     * @return the description of a NPC
      */
-    public String getDescription()
-    {
-       return description;
+        public String getDescription()
+        {
+           return description;
+       }
+
+        /**
+     * get alreadyUsed
+     * @return true if the NPC already used is powrers
+     *@return false, if the NPC never used is powers (or if they had been restored since the first time he used them)
+     */
+    public boolean getAlreadyUsed(){
+        return alreadyUsed;
     }
-    
+
+
+/**
+*Method to set the alreadyused attributes to true or false. Mostly used by object from class "Magician"
+*/
+    protected void setAlreadyUsed(boolean bool){
+        this.alreadyUsed=bool;
+    }
 
     /**
-     * Print a NPC
+     * Convert some NPC attributes (name and description) to a string
      * @return the name and the description of the NPC
      */
     public String toString()
@@ -66,17 +84,20 @@ public  class NPC
     }
     
     /**
-    *COmmon method use to all npc
+    *COmmon method use to all npc. A npc can at least, give or retrive hp or corruption points to Frodo
+    *@return true if the NPC is used
+    *@return false if the npc is  already used
     */
-    public void use(){
+    public boolean use(){
         if (!alreadyUsed){
-        currentPlayer.addHp(hpPower);
-        currentPlayer.addCorruption(corruptionPower);
-        alreadyUsed= true;}
-        else{
-            System.out.println("You already used the powers of "+ name);
-        }
-    }
-    
+            currentPlayer.addHp(hpPower);
+            currentPlayer.addCorruption(corruptionPower);
+            alreadyUsed= true;
+            return true;}
+            else{
+                return false;}
+            }
 
-}
+
+
+        }

@@ -1,38 +1,50 @@
 package wotr;
 /**
- * Décrivez votre classe Magician ici.
- * A magician can restore powers of an other NPC
+ * A magician can restore powers of an other NPC only one time. He can also give hps or corruption points (negative or positives ones) to frodo.
+ * For example Gandalf is a good magician, he decreases the corruption of frodo while saruman (the evil one) increase these corruption points but they can both restor the powers of an other npc.
  *
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author GR1
+ * @version 21/11/016
  */
 public class Magician extends NPC
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
+
     private NPC npc;
 
     /**
-     * Constructeur d'objets de classe Magician
+     * Constructor for Magicians.
+     *@param name : of the NPC
+     *@param description : a short description of th player ex : "dwarfs are sprinters, they are fast on short distances but long distances tires them."
+     *@param corruptionPower : /corruption power owned by the NPC, they are used to give corruption points to frodo
+     *@param hpPower : health points wich will be given or retrieved to Frodo
+     *@param currentPlayer : //frodo
      */
-    public Magician(String name, String description, int corruptionPower, int hpPower, Player currentPlayer, NPC npc)
+    public Magician(String name, String description, int corruptionPower, int hpPower, Player currentPlayer)
     {
         super(name, description, corruptionPower, hpPower,  currentPlayer);
-        this.alreadyUsed=false;
-        this.hpPower = 0;
-        this.corruptionPower = -10;
-        this.description = "Can restore the power of an other NPC,  decrease corruption";
-        this.npc = npc;
-    }
-
-    public void use(NPC npc){
-        super.use();
-        restorePower(npc);
     }
 
     /**
-    *Restore
+    *Use method, restore hp of frodo and restore power of zn other npc
+    *@return true if the power of the npc just have been used
+    *@return false if the powers cannot be used
+    */
+    public boolean use(NPC npc){
+        if (!this.getAlreadyUsed()){
+        super.use(); //verifier si le return contenu dans ce use n'est pas terminal...
+        restorePower(npc);
+        this.setAlreadyUsed(true);
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+    /**
+    *Restore the power of an other npc
     */
     private void restorePower(NPC npc){
-        npc.alreadyUsed=false;
+        npc.setAlreadyUsed(false);
     }
 }
