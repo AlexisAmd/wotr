@@ -15,6 +15,7 @@ public class PlayerTest {
 	public void testGame() {
 		assertNotNull("Instance is not created!", player);
 	}
+
 	
 	@Test
 	public void testGetName() {

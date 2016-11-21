@@ -3,7 +3,6 @@ import static org.junit.Assert.*;
 import wotr.*;
 import org.junit.Test;
 
-import org.junit.Test;
 
 
 import wotr.*;
