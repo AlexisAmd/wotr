@@ -8,8 +8,8 @@
 package wotr;
 public class Food extends Item
 {
-    // variables d'instance - remplacez l'exemple qui suit par le vôtre
-    private int calory;
+    
+    private int calory; //positive integer
 
     /**
      * Constructeur d'objets de classe Food
@@ -17,7 +17,7 @@ public class Food extends Item
     public Food(String name, String description, int weight, int calory, Player currentPlayer)
     {
         super(name, description,  weight, currentPlayer);
-        this.calory = calory;
+        this.calory = calory; //CANT BE A NEGATIVE VALUE
     }
 
     public String toString()
@@ -30,8 +30,8 @@ public class Food extends Item
         return this.calory;
     }
 
-    //a faire
+
     public void use(){
-        //currentPlayer.set etc etc
+        currentPlayer.addHp(calory)
     }
 }
