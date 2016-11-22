@@ -2,6 +2,7 @@ package wotr;
 import java.util.*;
 
 /**
+ * 
  * Player class stands for a World of the Ring player able to explore many differents world. This player is named Frodo.
  * A player have health point and corruption points.
  * When healt point is equal to 0 the player is dead.
