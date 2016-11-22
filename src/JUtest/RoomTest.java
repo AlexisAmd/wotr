@@ -12,14 +12,27 @@ import junit.framework.TestCase;
 //WORKINPROGRESS
 
 public class RoomTest extends TestCase {
-	
-	private RoomTest myRoom;
+	 
+	private ExitRoom myexitroom;
+	private Room myroom,nextroom;
+    private HashMap <String,ExitRoom> myroomHM; 
+    private ArrayList<Item> myitemList;
+    private ArrayList<NPC> myNPCList;
     
+    @Before
+	protected void setUp()
+	{
+		myexitroom = new ExitRoom(myroom, nextroom);
+		myitemList = new ArrayList<>();
+		myNPCList = new ArrayList<>();
+		myroomHM = new HashMap<>();
+		myroom = new Room("descrption");
+	}
 	
-	
-	@Before
+    //Test the constructor. 
+	@Test
 	public void testRoom() {
-		fail(" ");
+		assertEquals(this.getName(),"description");
 	}
 
 	@Test

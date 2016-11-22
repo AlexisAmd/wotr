@@ -1,44 +1,56 @@
-/*Work in progress*/
+/*Work in progress - Antoine*/
 
 
 package JUtest;
 import static org.junit.Assert.*;
 import wotr.*;
-import org.junit.Test;
+import org.junit.*;
 
 public class LockedExitRoomTest {
-
+	
 	private Room currentRoom, nextRoom;
-	private LockedExitRoomTest lockedExit;
+	private LockedExitRoom lockedExit;
 	
 	
 	@Before
-	public void 
-	
-	
-	@Test
-	public void testLockedExitRoom() {
-		fail("Not yet implemented");
+	/*
+	 * Initialise vriables used for tests
+	 */
+	public void setUp(){
+		
+		currentRoom = new Room("salle 1");
+		nextRoom = new Room("salle2");
+	    lockedExit = new LockedExitRoom(currentRoom, nextRoom);
 	}
 
 	@Test
+	/*
+	 * Test that the method return a true value for locked variable
+	 */
 	public void testGetLocked() {
-		fail("Not yet implemented");
+		assertEquals(true, lockedExit.getLocked());
 	}
 
 	@Test
+	/*
+	 * Test that the method which allow the modification of the lock status for the door works
+	 */
 	public void testSetLocked() {
-		fail("Not yet implemented");
+		lockedExit.setLocked(false);
+		assertEquals(false, lockedExit.getLocked());
 	}
 
 	@Test
-	public void testExitRoom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
+	/*
+	 * Test that the method return the next room 
+	 */
 	public void testGetNextRoom() {
-		fail("Not yet implemented");
+		assertNotNull("not null", lockedExit.getNextRoom(currentRoom));
 	}
+	
+	@Test
+	/*
+	 * 
+	 */
 
 }

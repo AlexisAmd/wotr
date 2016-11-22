@@ -1,4 +1,4 @@
-/*Work on progress */
+/*Work on progress - Antoine */
 
 package JUtest;
 import junit.framework.*;

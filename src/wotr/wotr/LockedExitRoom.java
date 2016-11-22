@@ -1,3 +1,5 @@
+// Work in progress - Antoine
+
 package wotr;
 /**
  * Décrivez votre classe LockedExitRoom ici.
