@@ -1,4 +1,4 @@
-
+//Work in progress - Antoine
 /**
  * Class wich describes ExitRooms
  * 
@@ -32,9 +32,9 @@ public class ExitRoom
      * @param currentRoom
      * @return the next room
      */
-    public Room getNextRoom(Room currentRoom)
+    public Room getNextRoom(Room nextRoom)
     {
-        if (this.currentRoom!=currentRoom){
+        if (this.currentRoom!=nextRoom){
             return this.currentRoom;
         }
         else{

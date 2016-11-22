@@ -1,4 +1,5 @@
 /**
+ * WORK IN PROGRESS - CAROLINE
 * Write a description of class Items here.
 *
 * @author (your name)
@@ -7,10 +8,10 @@
 package wotr;
 public abstract class Item {
     // instance variables - replace the example below with your own
-    protected String name;
-    protected String description;
-    protected int weight;
-    protected Player currentPlayer;
+    private String name;
+    private String description;
+    private int weight;
+    private Player currentPlayer;
 
     /**
     * Constructor for objects of class Items

@@ -1,3 +1,5 @@
+//WIP - Alexis
+
 package JUtest;
 import wotr.*;
 
@@ -46,7 +48,7 @@ public class NPCTest {
 	@Test
 	public void testUseNPC(){//a comment
 		npcSam.use();
-		assertEquals(102, Frodo.getHp());
+		assertEquals(100, Frodo.getHp()); //hp is limited to 100hp
 		assertEquals(5, Frodo.getPercentCorruption());
 		
 	}
