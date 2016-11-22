@@ -75,7 +75,7 @@ public class FoodTest {
 	 */
 	@Test
 	public void testToString() {
-		assertEquals("Name : Lambas"+"\n"+"Description : Yellow"+"\n"+"Weight : 12"+"\n" +"Calory : 100", food.toString());
+		assertEquals("Name : Lambas"+"\n"+"Description : Yellow"+"\n"+"Weight : 12"+"\n" +"Calory : 40", food.toString());
 	}
 
 	/*
