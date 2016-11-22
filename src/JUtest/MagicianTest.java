@@ -1,4 +1,4 @@
-//WIP Alexis
+
 package JUtest;
 
 import static org.junit.Assert.assertEquals;

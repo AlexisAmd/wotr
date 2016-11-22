@@ -1,4 +1,4 @@
-//WIP Alexis
+
 package wotr;
 
 public class Warrior extends NPC {

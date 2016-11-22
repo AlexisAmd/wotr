@@ -1,4 +1,4 @@
-//WIP Alexis
+
 package wotr;
 /**
  * A magician can restore powers of an other NPC only one time. He can also give hps or corruption points (negative or positives ones) to frodo.

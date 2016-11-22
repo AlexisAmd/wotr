@@ -1,5 +1,3 @@
-//WIP - Alexis
-
 package JUtest;
 import wotr.*;
 
