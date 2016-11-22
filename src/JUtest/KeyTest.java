@@ -23,27 +23,47 @@ public class KeyTest {
 		key = new Key("Key1", "open the door", 12, myPlayer);
 	}
 	
+	/*
+	 * Method testUse
+	 * Check if after use a key, the door is unlocked
+	 */
 	@Test
 	public void testUse() {
 		key.use();
 		assertEquals(false, locked.getLocked());
 	}
 
+	/*
+	 * Method testName
+	 * Check if the name given as parameter in the constructor is correctly set to the attribute
+	 */
 	@Test
 	public void testName() {
 		assertEquals("Key1", item.getName());
 	}
 
+	/*
+	 * Method testDescription
+	 * Check if the description given as parameter in the constructor is correctly set to the attribute
+	 */
 	@Test
 	public void testDescription() {
 		assertEquals("open the door", item.getDescription());
 	}
 
+	/*
+	 * Method testWeight
+	 * Check if the weight given as parameter in the constructor is correctly set to the attribute
+	 */
 	@Test
 	public void testWeight() {
 		assertEquals(12, item.getWeight());
 	}
 
+	/*
+	 * Method testPlayer
+	 * Check if the player given as parameter in the constructor is correctly set to the attribute
+	 */
 	@Test
 	public void testPlayer() {
 		assertEquals(myPlayer, item.getCurrentPlayer());
