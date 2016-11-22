@@ -152,7 +152,7 @@ public class Game {
     }
 
     
-  //COMMON METHODS
+  //COMMON METHODS - will be moved to Player class
 
        /**
      * pickUp an Item, add it to the current player inventory if possible then remove it from the room
