@@ -45,12 +45,15 @@ public class LockedExitRoomTest {
 	 * Test that the method return the next room 
 	 */
 	public void testGetNextRoom() {
-		assertNotNull("not null", lockedExit.getNextRoom(currentRoom));
+		assertNotNull("not null", lockedExit.getNextRoom(nextRoom));
 	}
 	
 	@Test
-	/*
+	/*Test that the getNextRoom return the current room if the nextroom is null
 	 * 
 	 */
-
+	public void testGetNextRoomBad(){
+		nextRoom = null;
+		assertNotNull("not null", lockedExit.getNextRoom(nextRoom));
+	}
 }
