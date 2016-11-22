@@ -12,7 +12,7 @@ public class FoodTest {
 	private Food food;
 	private Item item;
     
-	/*
+	/* 
 	 * Sets up the test fixture 
 	 * Initialize one food for each test, whose name is "Lambas", description is "Yellow", weight is "12", calory is "40" and currentPlayer is myPlayer
 	 */
