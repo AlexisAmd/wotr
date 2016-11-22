@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import wotr.*;
+
 /**
  * WIP
  * The test class PlyerTest.
@@ -17,7 +19,7 @@ public class PlayerTest {
 
 	private Player myPlayer;
 	private NPC myNPC;
-	private Item myItem;
+	private Food myFood;
 	
 	/**
 	 * Default constructor for the PlayerTest class.
@@ -37,7 +39,7 @@ public class PlayerTest {
 	{
 		myPlayer = new Player();
 		myNPC = new NPC("Gandalf", "Malicious magician", 0, 100, null);
-		myItem = new Item("Beer", "Tasty Beverage", 1, null);
+		myFood = new Food("Beer", "Tasty Beverage", 1, 30, null);
 	}
 	
 	/**
@@ -58,7 +60,7 @@ public class PlayerTest {
 	@Test
 	public void testIsAlive()
 	{
-		myPlayer.addHP(-101);
+		myPlayer.addHp(-101);
 		// Assuming that the player starts with 100 HP, the player should be considered dead.
 		assertEquals(false, myPlayer.isAlive());
 	}
@@ -172,7 +174,7 @@ public class PlayerTest {
 	{
 		myPlayer.addNPC(myNPC);
 		//The player should receive an NPC and hasNPC should return the value true.
-		assertEquals(true, myPlayer.hasNPC());
+		assertEquals(true, myPlayer.hasNPC(myNPC));
 	}
 	
 	/**
@@ -194,7 +196,7 @@ public class PlayerTest {
 	@Test
 	public void testAddItem()
 	{
-		myPlayer.addNPC(myItem);
+		myPlayer.addNPC(myNPC);
 		//When adding the same NPC, the addNPC method should return false.
 		assertEquals(false, myPlayer.addNPC(myNPC));
 	}

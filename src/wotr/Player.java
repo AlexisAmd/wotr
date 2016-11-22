@@ -48,7 +48,7 @@ public class Player
      * Player is dead if his HP reaches 0 or his corruption reaches 100.
      * @return true if the player's HP are strictly higher than 0.
      */
-    private boolean isAlive()
+    public boolean isAlive()
     {
     	return (hp != 0 || percentCorruption != 100);
     }
