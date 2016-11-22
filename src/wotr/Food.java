@@ -38,6 +38,6 @@ public class Food extends Item
 
     //When you use a food, your hp is upgraded depending on calories
     public void use(){
-        currentPlayer.addHp(calory)
+        currentPlayer.addHp(calory);
     }
 }
