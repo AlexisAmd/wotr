@@ -55,7 +55,7 @@ public abstract class Item {
     }
     
     /**
-     *Method to get the current player
+     *Method to get the current player 
      *@return
      */
      public Player getCurrentPlayer(){
