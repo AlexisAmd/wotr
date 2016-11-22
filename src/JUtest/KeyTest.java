@@ -1,5 +1,8 @@
 package JUtest;
 import static org.junit.Assert.*;
+
+import org.junit.Before;
+
 import wotr.*;
 import org.junit.Test;
 
@@ -43,6 +46,6 @@ public class KeyTest {
 
 	@Test
 	public void testPlayer() {
-		assertEquals(currentPlayer, item.getCurrentPlayer);
+		assertEquals(myPlayer, item.getCurrentPlayer());
 	}
 }
