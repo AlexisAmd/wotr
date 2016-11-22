@@ -1,22 +1,23 @@
 package JUtest;
 import static org.junit.Assert.*;
-import wotr.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * WIP
  * The test class PlyerTest.
  * Tests the methods of the clas "Player".
  * 
  * @author GR1
  * @version 22/11/2016
- * @param <myPlayer>
  */
 
-public class PlayerTest<myPlayer> {
+public class PlayerTest {
 
 	private Player myPlayer;
+	private NPC myNPC;
+	private Item myItem;
 	
 	/**
 	 * Default constructor for the PlayerTest class.
@@ -35,6 +36,8 @@ public class PlayerTest<myPlayer> {
 	public void setUp()
 	{
 		myPlayer = new Player();
+		myNPC = new NPC("Gandalf", "Malicious magician", 0, 100, null);
+		myItem = new Item("Beer", "Tasty Beverage", 1, null);
 	}
 	
 	/**
@@ -55,108 +58,145 @@ public class PlayerTest<myPlayer> {
 	@Test
 	public void testIsAlive()
 	{
-		myPlayer.addHp(-101);
+		myPlayer.addHP(-101);
 		// Assuming that the player starts with 100 HP, the player should be considered dead.
 		assertEquals(false, myPlayer.isAlive());
 	}
 	
+	/**
+	 * Method testing addHp in a healing context.
+	 */
 	@Test
-	public void testGetHp()
-	{
-		assertEquals("Player's HP does not match!", 100, player.getHp());
-	}
-	
-	@Test
-	public void testSetHp()
-	{
-		myPlayer.setHp(50);
-		assertEquals("Player's HP was not set correctly!", 50, player.getHp());
-	}
-	
-	@Test
-	public void testGetPercentCorruption()
-	{
-		assertEquals("Player's corruption does not match!", 0, player.getCorruption());
-	}
-	
-	@Test
-	public void testAddHp()
+	public void testAddHpHeal()
 	{
 		myPlayer.setHp(50);
 		myPlayer.addHp(10);
-		assertEquals("Healing does not work as intended", 60, player.getHp());
+		// Assuming healing works as intended, the player should have 50 + 10 HP.
+		assertEquals(60, myPlayer.getHp());
 	}
 
+	/**
+	 * Method testing addHp in a damaging context.
+	 */
 	@Test
-	public void testAddCorruption()
+	public void testAddHpDamage()
 	{
-		fail("Not yet implemented");
+		myPlayer.addHp(-10);
+		// Assuming addHp works as intended, the player should have 100 - 10 HP.
+		assertEquals(90, myPlayer.getHp());
 	}
-
+	
+	/**
+	 * Tests the gain of HP resulting in a HP value potentially superior to 100.
+	 * Player's HP starts at 100.
+	 * Healing from this point should have no effect.
+	 */
 	@Test
-	public void testGetFellowship()
+	public void testAddHpOver()
 	{
-		fail("Not yet implemented");
+		myPlayer.addHp(10);
+		// Assuming addHp works as intended, the player HP value should stay at 100.
+		assertEquals(100, myPlayer.getHp());
 	}
 
+	/**
+	 * Tests the loss of HP resulting in a HP value potentially inferior to 100.
+	 * Player's HP starts at 100.
+	 * Receiving more damage than 100 should set the HP to 0, no less.
+	 */
 	@Test
-	public void testHadNPC()
+	public void testAddHpUnder()
 	{
-		fail("Not yet implemented");
+		myPlayer.addHp(-150);
+		// Assuming addHp works as intended, the player HP value should stay at 100.
+		assertEquals(0, myPlayer.getHp());
 	}
-
+	
+	/**
+	 * Method testing addCorruption.
+	 * Gaining corruption in this case.
+	 */
+	@Test
+	public void testAddCorruptionGain()
+	{
+		myPlayer.setCorruption(50);
+		myPlayer.addCorruption(10);
+		// Assuming addCorruption works as intended, the player's corruption value should be 50 + 10.
+		assertEquals(60, myPlayer.getCorruption());
+	}
+	
+	/**
+	 * Testing addCorruption.
+	 * Loosing corruption in this case.
+	 */
+	@Test
+	public void testAddCorruptionLoss()
+	{
+		myPlayer.setCorruption(50);
+		myPlayer.addCorruption(-10);
+		// Assuming addCorruption works as intended, the player's corruption value should be 50 - 10.
+		assertEquals(40, myPlayer.getCorruption());
+	}
+	
+	/**
+	 * Testing addCorruption in a case where the player receives more corruption than needed to reach 100.
+	 * Player's percentCorruption starts at 0.
+	 * Corruption value should stay at 100.
+	 */
+	@Test
+	public void testAddCorruptionOver()
+	{
+		myPlayer.addCorruption(150);
+		// Assuming addCorruption works as intended, the player's corruption value should be 100.
+		assertEquals(100, myPlayer.getCorruption());
+	}
+	
+	/**
+	 * Testing addCorruption in a case where the player recovers more sanity than needed to reach 0.
+	 * Player's percentCorruption starts at 0.
+	 * Corruption value should stay at 0.
+	 */
+	@Test
+	public void testAddCorruptionUnder()
+	{
+		myPlayer.addCorruption(-50);
+		// Assuming addCorruption works as intended, the player's corruption value should be 0.
+		assertEquals(0, myPlayer.getCorruption());
+	}
+	
+	/**
+	 * Testing the addNPC method.
+	 */
 	@Test
 	public void testAddNPC()
 	{
-		fail("Not yet implemented");
+		myPlayer.addNPC(myNPC);
+		//The player should receive an NPC and hasNPC should return the value true.
+		assertEquals(true, myPlayer.hasNPC());
 	}
-
+	
+	/**
+	 * addNPC does not allow to add the same NPC twice.
+	 * It retuns the velue false if we try.
+	 */
 	@Test
-	public void testGetInventory()
+	public void testAddNPCSame()
 	{
-		fail("Not yet implemented");
+		myPlayer.addNPC(myNPC);
+		//When adding the same NPC, the addNPC method should return false.
+		assertEquals(false, myPlayer.addNPC(myNPC));
 	}
-
-	@Test
-	public void testGetInventoryWeight()
-	{
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetMaximumInventoryWeight()
-	{
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testHasItem()
-	{
-		fail("Not yet implemented");
-	}
-
+	
+	/**
+	 * Testing the addItem method.
+	 * 
+	 */
 	@Test
 	public void testAddItem()
 	{
-		fail("Not yet implemented");
+		myPlayer.addNPC(myItem);
+		//When adding the same NPC, the addNPC method should return false.
+		assertEquals(false, myPlayer.addNPC(myNPC));
 	}
-
-	@Test
-	public void testUseItem()
-	{
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testUseNPC()
-	{
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString()
-	{
-		fail("Not yet implemented");
-	}
-
+	
 }
