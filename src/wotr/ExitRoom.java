@@ -1,4 +1,4 @@
-//Work in progress - Antoine
+
 /**
  * Class wich describes ExitRooms
  * 
@@ -11,6 +11,11 @@
 
  */
 package wotr;
+
+/*
+ * This class represent a door. 
+ * This door is characterized by the current room (room where the player is) and the next room (room behind the door).
+ */
 public class ExitRoom
 {
     protected Room nextRoom;
