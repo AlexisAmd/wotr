@@ -1,4 +1,5 @@
 /**
+ * WORK IN PROGRESS - CAROLINE
 * Write a description of class Items here.
 *
 * @author (your name)
