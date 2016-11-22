@@ -9,7 +9,7 @@ package wotr;
 public class Magician extends NPC
 {
 
-    private NPC npc;
+    //private NPC npc;
 
     /**
      * Constructor for Magicians.
@@ -32,7 +32,7 @@ public class Magician extends NPC
     public boolean use(NPC npc){
         if (!this.getAlreadyUsed()){
         super.use(); //verifier si le return contenu dans ce use n'est pas terminal...
-        npc.restorePower());
+        npc.restorePower();
         this.setAlreadyUsed(true);
         return true;
     }

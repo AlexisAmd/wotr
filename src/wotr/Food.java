@@ -1,6 +1,8 @@
 
 /**
- * Décrivez votre classe Food ici.
+ * Food class
+ * This class allows the player to get hp when he is low
+ * The player has to eat food to up his hp 
  *
  * @author GR1
  * @version (un numéro de version ou une date)
@@ -21,11 +23,13 @@ public class Food extends Item
         this.calory = calory; //CANT BE A NEGATIVE VALUE
     }
 
-    //Get all the attributes of the food
+    /*
+     * Give all the attributes of the food(non-Javadoc)
+     * @return name (name of the food), description (its description), weight (its weight), calory (its calory) 
+     */
     public String toString()
     {
         return "Name : "+getName()+"\n"+"Description : "+getDescription()+"\n"+"Weight : "+getWeight()+"\n" +"Calory : "+getCalory();
-
     }
     
     /*

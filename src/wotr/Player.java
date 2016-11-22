@@ -2,12 +2,13 @@ package wotr;
 import java.util.*;
 
 /**
- * #WORK IN PROGRESS!!
- * 
  * 
  * Player class stands for a World of the Ring player able to explore many differents world. This player is named Frodo.
- * A player have health point and corruption points. When healt point is equal to 0 the player is dead. When the percentage of corruption of the player is equal to 100% the payer is dead.
- * A player have an inventory wich contains itms and a fellowship which contains NPC.
+ * A player have health point and corruption points.
+ * When healt point is equal to 0 the player is dead.
+ * When the percentage of corruption of the player is equal to 100% the payer is dead.
+ * Player can not have more than 100 HP.
+ * A player have an inventory wich contains items and a fellowship which contains NPCs.
  * This inventory have a maximum weight.
  * By default, the player have 100 hp and 0 % of corruption
  * @author GR1
@@ -49,7 +50,17 @@ public class Player
      */
     private boolean isAlive()
     {
-    	return hp > 0;
+    	return hp == 0;
+    }
+    
+    /**
+     * Checks if the player is corrupted.
+     * Player is considered dead if his corruption reaches 100%.
+     * @return true if the player's corruption is equal to 100%.
+     */
+    private boolean isCorrupted()
+    {
+    	return percentCorruption == 100;
     }
 
     /**
@@ -84,31 +95,33 @@ public class Player
 
     /**
 	 * Manages the gain or loss of health points.
-	 * This method prevents the player to gain more HP than 100
+	 * This method prevents the player to have more than 100 or less than 0 HP.
 	 * @param nb The number of health points to gain, can be a negative value.
 	 */
 	public void addHp(int nb)
 	{
-		if ((100 - hp) <= nb)
-		{
-			hp=100;
-		}
-		else
-		{
-			if ()
-		}
+		hp += nb;
+		
+		if (hp > 100) //Sets HP if it exceeds its range.
+			hp = 100;
+		else if (hp < 0)
+			hp = 0;
 	}
 
     /**
-     * Manage the loose and the of corruption
-     * If corruption reach 100%, then the game is over
-     * cannot be < 0
-     * @param nb The number of corruption to loose, can be a negative value
+     * Manages the gain or loss of corruption.
+     * If corruption reaches 100% the game is over.
+     * Corruption can not be under 0.
+     * @param nb The number of corruption to loose, can be a negative value.
      */
     public void addCorruption(int nb)
 	{
-        //verify if <0 or >100
-        percentCorruption+=nb;
+        percentCorruption += nb;
+        
+        if (percentCorruption > 100) ////Sets corruption if it exceeds its range.
+        	percentCorruption = 100;
+        else if (percentCorruption < 0)
+        	percentCorruption = 0;
     }
 
 

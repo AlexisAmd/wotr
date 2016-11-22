@@ -1,5 +1,6 @@
 package JUtest;
 import static org.junit.Assert.*;
+import wotr.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,9 +11,10 @@ import org.junit.Test;
  * 
  * @author GR1
  * @version 22/11/2016
+ * @param <myPlayer>
  */
 
-public class PlayerTest {
+public class PlayerTest<myPlayer> {
 
 	private Player myPlayer;
 	
@@ -32,7 +34,7 @@ public class PlayerTest {
 	@Before
 	public void setUp()
 	{
-		player = new Player();
+		myPlayer = new Player();
 	}
 	
 	/**
@@ -50,10 +52,12 @@ public class PlayerTest {
 	 * Player receives a big amount of damage.
 	 * testIsALive then check if he is considered as dead.
 	 */
+	@Test
 	public void testIsAlive()
 	{
-		myPlayer.addHP(-1000);
-		// Assuming that 
+		myPlayer.addHp(-101);
+		// Assuming that the player starts with 100 HP, the player should be considered dead.
+		assertEquals(false, myPlayer.isAlive());
 	}
 	
 	@Test
@@ -65,7 +69,7 @@ public class PlayerTest {
 	@Test
 	public void testSetHp()
 	{
-		player.setHp(50)
+		myPlayer.setHp(50);
 		assertEquals("Player's HP was not set correctly!", 50, player.getHp());
 	}
 	
@@ -78,8 +82,8 @@ public class PlayerTest {
 	@Test
 	public void testAddHp()
 	{
-		player.setHp(50);
-		player.addHp(10);
+		myPlayer.setHp(50);
+		myPlayer.addHp(10);
 		assertEquals("Healing does not work as intended", 60, player.getHp());
 	}
 
