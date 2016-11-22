@@ -3,7 +3,7 @@ package wotr;
 import java.util.*;
 
 /**
- * This class describes Non player characters. They can be added to a room of the WOTR (done in class room addNPC()) and join the fellowship of frodo (see class game pickUpNPC())
+ * This class describes Non player characters. They can be added to a room of the WOTR and joins the fellowship of frodo (see class game pickUpNPC())
  * Non player characters can use their power on the player (frodo) by letting him loose or gain healt points and/or corruption points.
  * They can use their power only one time except if their powers are restored (by a magician)
  * They can have multiples items (i.e the ncp "dragon" owns a key to unlock a door, the magican owns food and keys etc etc)
