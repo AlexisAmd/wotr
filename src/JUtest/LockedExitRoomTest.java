@@ -1,16 +1,15 @@
 /*Work in progress - Antoine*/
-
-
 package JUtest;
+import org.junit.Test;
+import static org.junit.Assert.*;
 import org.junit.*;
-
 import wotr.*;
 
 public class LockedExitRoomTest {
 	
 	private Room currentRoom, nextRoom;
 	private LockedExitRoom lockedExit;
-	
+
 	
 	@Before
 	/*
