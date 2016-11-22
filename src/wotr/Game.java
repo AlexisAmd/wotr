@@ -1,20 +1,16 @@
 //WIP Alexis
 /**
 
-* This class is the main class of the "World of Zuul" application.
-* "World of Zuul" is a very simple, text based adventure game.  Users
-* can walk around some scenery. That's all. It should really be extended
-* to make it more interesting!
+* This class is the main class of the "World of The ring" application.
+* "World of the ring" is a very simple adventure gamee.  
 *
-* To play this game, create an instance of this class and call the "play"
-* method.
+* You are Frodo Baggins of the Shire. You must bring the Ring to Mordor to destroy it into the flames of Orodruin, the volcano at the north east of the mordor, house of the evil Sauron. Our game is a basic survival game. You must explore Middle Earth in order to find your way to Orodruin. Their will be many foes and obstacles on your way. But you carry the Ring which grants you the ability to be invisible.
 *
 * This main class creates and initialises all the others: it creates all
-* rooms, creates the parser and starts the game.  It also evaluates and
-* executes the commands that the parser returns.
+* rooms, NPC, items and starts the game.  
 *
-* @author  Michael Kolling and David J. Barnes
-* @version 2006.03.30
+* @author  GR1
+* @version 22/11/2016
 */
 
 
@@ -23,7 +19,7 @@ package wotr;
 import java.util.HashMap;
 
 public class Game {
-    private Parser parser;
+    private Parser parser; //will be deleted soon
     private Room currentRoom;
     private Player currentPlayer;
 
@@ -91,7 +87,7 @@ public class Game {
 
         currentRoom = roomOutside; // start game outside
 
-        //add item to the current player
+        
 
     }
 
@@ -106,18 +102,18 @@ public class Game {
 
         boolean finished = false;
         while(!finished) {
-            Command command = parser.getCommand();
+            Command command = parser.getCommand(); //will be deleted
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing.  Good bye.");//will be deleted
     }
 
     /**
      * Print out the opening message for the player.
      */
-    private void printWelcome() {
+    private void printWelcome() { //will be deleted
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
+        System.out.println("Welcome to the World of the Ring!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type 'help' if you need help.");
         System.out.println();
@@ -132,7 +128,7 @@ public class Game {
      * @param command The command to be processed.
      * @return true If the command ends the game, false otherwise.
      */
-    private boolean processCommand(Command command) {
+    private boolean processCommand(Command command) { //will be deleted
         boolean wantToQuit = false;
 
         if(command.isUnknown()) {
@@ -199,6 +195,7 @@ public class Game {
             return true; // signal that we want to quit
         }
     }
+  //COMMON METHODS
 
        /**
      * pickUp an Item, add it to the current player inventory if possible then remove it from the room
