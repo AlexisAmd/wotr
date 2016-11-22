@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 /**
  * Class Room - a room in an adventure game.
- *here
+ * Initially, it has no exits. It can have 4 exits max (one in each cardinal direction, north, south, east, west)
+ *  "description" is something like "a kitchen" or
+     * "an open court yard".
+ * Rooms are connected to each others 
  * 
- * @author  //here
- * @version //here
+ * @author  Gr1 (math)
+ * @version 1
  */
 public class Room 
 {
@@ -103,7 +106,7 @@ public class Room
     }
 
         /**
-     * Print the items of the room
+     * Print the NPC(s) of the room
      */
     public void printNPC()
     {
