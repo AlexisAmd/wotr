@@ -72,23 +72,24 @@ public class RoomTest extends TestCase {
 	@Test
 	public void testDelItem() {
 		myRoom.delItem(myBeer);
-		assertEquals(myItemList,myRoom.getItemList());;
+		assertFalse(myRoom.getItemList().contains(myBeer));
 	}
 
 	@Test
 	public void testAddNPC() {
 		myRoom.addNPC(myNPC);
-		assertEquals(myNPCList,myRoom.getNPCList());
+		myRoom.getNPCList().contains(myNPC);
 	}
 
 	@Test
 	public void testDelNPC() {
-		fail("Not yet implemented");
+		myRoom.delNPC(myNPC);
+		assertFalse(myRoom.getNPCList().contains(myNPC));
 	}
 
 	@Test
 	public void testGetDescription() {
-		fail("Not yet implemented");
+		assertEquals("description",myRoom.getDescription());
 	}
 
 	@Test
