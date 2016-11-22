@@ -16,7 +16,7 @@ public class NPCTest {
 
 	@Before
 	public void setUp() {
-		npcSam = new NPC("Sam", "Best Friend of Frodo", -5, 2, Frodo);
+		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
 	}
 
 	@Test
@@ -45,6 +45,8 @@ public class NPCTest {
 	@Test
 	public void testUseNPC(){
 		npcSam.use();
+		assertEquals(102, Frodo.getHp());
+		assertEquals(5, Frodo.getPercentCorruption());
 		
 	}
 		
