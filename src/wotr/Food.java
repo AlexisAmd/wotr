@@ -37,7 +37,7 @@ public class Food extends Item
     
     /* 
      * get calory of food
-     * return calory
+     * @return calory
      */
     public int getCalory(){
         return this.calory;
