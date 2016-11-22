@@ -10,7 +10,9 @@ import junit.framework.TestCase;
 //WORKINPROGRESS Mathias
 
 public class RoomTest extends TestCase {
-	 
+	
+	private Item myBeer;
+	private Player currentPlayer;
 	private ExitRoom doorMyRoomNextRoom,doorNextRoomMyRoom;
 	private Room myRoom,nextRoom;
     private HashMap <String,ExitRoom> myroomHM; 
@@ -20,6 +22,8 @@ public class RoomTest extends TestCase {
     @Before
 	public void setUp()
 	{
+    	
+		myBeer = new Food("beer","dexcription",12,5,currentPlayer);
     	nextRoom = new Room("nextroomdescription");
     	myRoom = new Room("description");
     	myitemList = new ArrayList<>();
@@ -31,10 +35,8 @@ public class RoomTest extends TestCase {
 		doorNextRoomMyRoom = new ExitRoom(nextRoom, myRoom);
 
 		
-		//Add exit
-		myRoom.addExit("south",doorMyRoomNextRoom);
-		//Add item
-		//myRoom.addItem(
+		
+		
 	}
 	
     //Test the constructor. 
@@ -50,17 +52,23 @@ public class RoomTest extends TestCase {
 	    */
 	@Test
 	public void testAddExit() {
-		assertEquals(myroomHM,myRoom.getRoomHM());
+		//Add exit
+		myRoom.addExit("south",doorMyRoomNextRoom);
+		assertEquals(myroomHM,myRoom.getRoomHM()); //Marche pas. peut pas comparer 2 HashMap ?
 	}
 
 	@Test
 	public void testAddItem() {
-		fail("Not yet implemented");
+		//Add item
+		myRoom.addItem(myBeer);
+		assertEquals(myBeer, myRoom.getItemList());
 	}
+	
 
 	@Test
 	public void testDelItem() {
-		fail("Not yet implemented");
+		myRoom.delItem(myBeer);
+		assertEquals(myitemList,myRoom.getItemList());;
 	}
 
 	@Test

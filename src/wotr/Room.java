@@ -27,9 +27,9 @@ public class Room
     public Room(String description) 
     {
         this.description = description;
-        this.roomHM = new HashMap<>();
-        this.itemList=new ArrayList<>();
-        this.NPCList= new ArrayList<>();
+        this.roomHM = new HashMap<>(); //HashMap of all rooms with their direction
+        this.itemList=new ArrayList<>();//ItemList in each room containing the list of item
+        this.NPCList= new ArrayList<>();//
     }
 
     /**
@@ -91,7 +91,7 @@ public class Room
         return description;
     }
     
-    public HashMap getRoomHM() 
+    public HashMap<String,ExitRoom> getRoomHM() //Marche pas ?
     {
 		return this.roomHM;
     }
