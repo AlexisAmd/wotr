@@ -2,22 +2,26 @@
  * WORK IN PROGRESS - CAROLINE
 * Write a description of class Items here.
 *
-* @author (your name)
-* @version (a version number or a date)
+* @author Grp1
+* @version 22/11/2016
 */
 package wotr;
 public abstract class Item {
-    // instance variables - replace the example below with your own
+    // name of the item
     private String name;
+    // description of the item
     private String description;
+    // weight of the item
     private int weight;
+    // player who is owning the item
     private Player currentPlayer;
 
     /**
-    * Constructor for objects of class Items
+    * Constructor for objects of class Item
     * @param name
     * @param description
     * @param weight
+    * @param currentplayer
     */
     public Item(String name, String description, int weight, Player currentPlayer) {
         this.name = name;
@@ -27,44 +31,48 @@ public abstract class Item {
     }
 
     /**
-     * get name of item
-     * @return
+     * get the name of the item
+     * @return name of the item
      */
     public String getName() {
         return name;
     }
 
     /**
-     * get description of item
-     * @return
+     * get the description of the item
+     * @return description of the item
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * get weight of item
-     * @return
+     * get the weight of the item
+     * @return weight of the item
      */
     public int getWeight() {
         return weight;
     }
-
+    
+    /**
+     * displays name, description and weight of the item
+     * @return a string with the name, the description and the weight of the item
+     */
     public String toString() {
         return "Name : "+getName() + "\n"+"Description : "+getDescription() + "\n"+"Weight : "+getWeight() + "\n";
 
     }
     
     /**
-     *Method to get the current player  
-     *@return
+     * get the current player
+     * @return the current player
      */
      public Player getCurrentPlayer(){
     	 return currentPlayer;
      }
     
     /**
-    *Common method to use item. When used, an item performs an action on a door or on a player or on a npc
+    *Common method to use item. When used, an item performs an action on a door or on a player or on a NPC
     */
     public void use(){
     }
