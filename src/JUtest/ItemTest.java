@@ -1,7 +1,11 @@
-import static org.junit.Assert.*;
 package JUtest;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+
+import wotr.*;
 import org.junit.Test;
-import wort.*;
+
 
 public class ItemTest {
 
