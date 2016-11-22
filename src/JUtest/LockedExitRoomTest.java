@@ -38,13 +38,8 @@ public class LockedExitRoomTest {
 	}
 
 	@Test
-	public void testExitRoom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetNextRoom() {
-		AssertNotNull("not null", lockedExit.getNextRoom(currentRoom));
+		assertNotNull("not null", lockedExit.getNextRoom(currentRoom));
 	}
 
 }
