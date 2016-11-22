@@ -1,6 +1,6 @@
 /**
- * WORK IN PROGRESS - CAROLINE
-* Write a description of class Items here.
+* The Item class is an abstract class. An item can be food or key.
+* It is picked by the player in a room.
 *
 * @author Grp1
 * @version 22/11/2016
