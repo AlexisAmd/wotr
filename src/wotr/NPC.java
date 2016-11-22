@@ -98,7 +98,7 @@ public  class NPC
                 return false;}
             }
 /**
-    *Restore the power ofthis NPC (used by the magician)
+    *Restore the power of this NPC (used by the magician)
     */
     private void restorePower(){
         this.setAlreadyUsed(false);
