@@ -45,5 +45,4 @@ public class KeyTest {
 	public void testPlayer() {
 		assertEquals(currentPlayer, item.getCurrentPlayer);
 	}
-
 }
