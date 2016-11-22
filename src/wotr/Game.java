@@ -19,7 +19,6 @@ package wotr;
 import java.util.HashMap; //useless ?
 
 public class Game {
-    private Parser parser; //will be deleted soon
     private Room currentRoom; //will be moved tonight in the class player in order to have mutiple players in differents rooms
     private Player currentPlayer;
 
@@ -28,7 +27,6 @@ public class Game {
     */
     public Game() {
         createRooms();
-        parser = new Parser();
         currentPlayer = new Player();
         
     }
@@ -101,13 +99,6 @@ public class Game {
 
         // Enter the main command loop.  Here we repeatedly read commands and
         // execute them until the game is over.
-
-        boolean finished = false;
-        while(!finished) {
-            Command command = parser.getCommand(); //will be deleted
-            finished = processCommand(command);
-        }
-        System.out.println("Thank you for playing.  Good bye.");//will be deleted
     }
 
     /**
@@ -123,30 +114,6 @@ public class Game {
         System.out.println("Exits: ");
         currentRoom.printExits();
         System.out.println("\n");
-    }
-
-    /**
-     * Given a command, process (that is: execute) the command.
-     * @param command The command to be processed.
-     * @return true If the command ends the game, false otherwise.
-     */
-    private boolean processCommand(Command command) { //will be deleted
-        boolean wantToQuit = false;
-
-        if(command.isUnknown()) {
-            System.out.println("I don't know what you mean...");
-            return false;
-        }
-
-        String commandWord = command.getCommandWord();
-        if(commandWord.equals("help"))
-            printHelp();
-        else if(commandWord.equals("go"))
-            goRoom(command.toString());
-        else if((commandWord.equals("quit") | commandWord.equals("exit")))
-            wantToQuit = quit(command);
-
-        return wantToQuit;
     }
 
     /**
@@ -184,19 +151,7 @@ public class Game {
         System.out.println("go, quit, help");
     }
 
-    /**
-     * "Quit" was entered. Check the rest of the command to see
-     * whether we really quit the game.
-     * @return true, if this command quits the game, false otherwise.
-     */
-    private boolean quit(Command command) {
-        if(command.hasSecondWord()) {
-            System.out.println("Quit what?");
-            return false;
-        } else {
-            return true; // signal that we want to quit
-        }
-    }
+    
   //COMMON METHODS
 
        /**
@@ -206,7 +161,6 @@ public class Game {
     public void pickUpItem(Item item) 
     {
     Item moveItem=null;//temporary varaible to store the item
-    boolean itemAdded=false;
     moveItem=item;
     currentRoom.delItem(item);
     if(moveItem!=null){
@@ -225,7 +179,6 @@ public class Game {
     public void pickUpNPC(NPC npc) 
     {
     NPC moveNPC=null;//temporary varaible to store the item
-    boolean NPCAdded=false;
     moveNPC=npc;
     currentRoom.delNPC(npc);
     if(moveNPC!=null){
