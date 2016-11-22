@@ -1,5 +1,13 @@
 package wotr;
 
+/*
+ * This class represent a door locked by a key. 
+ * There are two cases:
+ * 	- the player has a key, the door is unlocked, then he can go to the next room
+ * 	- the player hasn't a key, he can't go to the next room
+ */
+
+
 public class KeyLockedExitRoom extends LockedExitRoom
 {   private Player player;
     private Key key;
