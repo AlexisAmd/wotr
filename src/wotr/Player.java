@@ -60,7 +60,7 @@ public class Player
      */
     private boolean isCorrupted()
     {
-    	return percentCorruption = 100;
+    	return percentCorruption == 100;
     }
 
     /**
