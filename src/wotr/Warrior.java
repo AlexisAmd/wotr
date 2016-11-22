@@ -1,4 +1,4 @@
-WIP
+//WIP Alexis
 package wotr;
 
 public class Warrior extends NPC {
@@ -28,14 +28,14 @@ public class Warrior extends NPC {
 	}
 	
 	/**
-	    *Use method, kill a npc. this dead npc leave the inventory of frodo
+	    *Use method, kill a npc. this dead npc leaves the inventory of frodo to stay in the current room
 	    *@return true if the npc is killed
 	    *@return false if the powers cannot be used
 	    */
 	    public boolean use(NPC npc){
 	        if (currentPlayer.hasNPC(npc)){
 	        npc.setAlreadyUsed(true); //in order to don't pick him again and use his powers because he is dead. Possible if a magician restoreshis powers
-	        currentPlayer.dropNPC(npc);
+	        currentPlayer.dropNPC(npc); //drop the n
 	        
 	        this.setAlreadyUsed(true);
 	        return true;
