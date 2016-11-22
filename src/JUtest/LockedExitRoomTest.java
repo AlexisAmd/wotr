@@ -1,4 +1,4 @@
-/*Work in progress*/
+/*Work in progress - Antoine*/
 
 
 package JUtest;
@@ -13,33 +13,44 @@ public class LockedExitRoomTest {
 	
 	
 	@Before
+	/*
+	 * Initialise vriables used for tests
+	 */
 	public void setUp(){
 		
 		currentRoom = new Room("salle 1");
 		nextRoom = new Room("salle2");
 	    lockedExit = new LockedExitRoom(currentRoom, nextRoom);
 	}
-	
-	
-	@Test
-	public void testLockedExitRoom() {
-		
-	}
 
 	@Test
+	/*
+	 * Test that the method return a true value for locked variable
+	 */
 	public void testGetLocked() {
 		assertEquals(true, lockedExit.getLocked());
 	}
 
 	@Test
+	/*
+	 * Test that the method which allow the modification of the lock status for the door works
+	 */
 	public void testSetLocked() {
 		lockedExit.setLocked(false);
 		assertEquals(false, lockedExit.getLocked());
 	}
 
 	@Test
+	/*
+	 * Test that the method return the next room 
+	 */
 	public void testGetNextRoom() {
 		assertNotNull("not null", lockedExit.getNextRoom(currentRoom));
 	}
+	
+	@Test
+	/*
+	 * 
+	 */
 
 }
