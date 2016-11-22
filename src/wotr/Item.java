@@ -55,6 +55,14 @@ public abstract class Item {
     }
     
     /**
+     *Method to get the current player  
+     *@return
+     */
+     public Player getCurrentPlayer(){
+    	 return currentPlayer;
+     }
+    
+    /**
     *Common method to use item. When used, an item performs an action on a door or on a player or on a npc
     */
     public void use(){

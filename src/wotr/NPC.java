@@ -70,7 +70,7 @@ public  class NPC
 /**
 *Method to set the alreadyused attributes to true or false. Mostly used by object from class "Magician"
 */
-    protected void setAlreadyUsed(boolean bool){
+    public void setAlreadyUsed(boolean bool){
         this.alreadyUsed=bool;
     }
 
@@ -97,7 +97,12 @@ public  class NPC
             else{
                 return false;}
             }
-
+/**
+    *Restore the power of this NPC (used by the magician)
+    */
+    public void restorePower(){
+        this.setAlreadyUsed(false);
+    }
 
 
         }
