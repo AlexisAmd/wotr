@@ -36,7 +36,6 @@ public class Warrior extends NPC {
 	        if (currentPlayer.hasNPC(npc)){
 	        npc.setAlreadyUsed(true); //in order to don't pick him again and use his powers because he is dead. Possible if a magician restoreshis powers
 	        currentPlayer.dropNPC(npc); //drop the n
-	        
 	        this.setAlreadyUsed(true);
 	        return true;
 	    }
