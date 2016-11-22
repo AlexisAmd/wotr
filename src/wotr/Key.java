@@ -12,7 +12,7 @@ public class Key extends Item{
     private KeyLockedExitRoom door;
 
     /* 
-     * The constructor of the key with different attributes : name, description, weight and the current player
+     * The constructor of the key with different attributes : name, description, weight and the current player 
      * 
      * @param name (the name of the key), description (its description), weight (its weight) and current player (the player associated)
      */

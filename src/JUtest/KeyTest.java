@@ -11,7 +11,7 @@ public class KeyTest {
 	private LockedExitRoom locked;
 	
 	/*
-	 * Sets up the test fixture
+	 * Sets up the test fixture 
 	 * Initialize one key for each test, whose name is "Key1", description is "open the door", weight is "12", currentPlayer is myPlayer
 	 */
 	@Before
