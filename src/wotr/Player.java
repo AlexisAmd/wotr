@@ -152,7 +152,7 @@ public class Player
      */
     public boolean addNPC(NPC npc)
     {
-        if (!hadNPC(npc))
+        if (!hasNPC(npc))
         {    
             fellowship.add(npc); //add the this new friend to the fellowship
             //System.out.println(npc.getName()+" is now a member of the fellowship of the ring.");
