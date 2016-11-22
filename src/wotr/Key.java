@@ -4,7 +4,7 @@
  * If the key is used, the key is removed of the inventory of the player
  *
  * @author GR1
- * @version (un numéro de version ou une date)
+ * @version (un numéro de version ou une date)   zerg
  */
 package wotr;
 public class Key extends Item{
