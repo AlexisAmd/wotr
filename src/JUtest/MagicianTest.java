@@ -27,7 +27,7 @@ public class MagicianTest {
 	
 	@Test
 	public void testUseNPC(){
-		npcSam.use(); //alreadyuse for sam goes to true
+		npcSam.use(); //boolean alreadyUsed for sam goes to true
 		magicianGandalf.use(npcSam); //should restore powers of sam
 		assertEquals(false, npcSam.getAlreadyUsed()); //verifying that the powers of sam are restored
 		

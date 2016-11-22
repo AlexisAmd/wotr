@@ -1,13 +1,25 @@
 package JUtest;
 import static org.junit.Assert.*;
 import wotr.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.junit.Before;
 import org.junit.Test;
 
-public class RoomTest {
+import junit.framework.TestCase;
 
-	@Test
+//WORKINPROGRESS
+
+public class RoomTest extends TestCase {
+	
+	private RoomTest myRoom;
+    
+	
+	
+	@Before
 	public void testRoom() {
-		fail("Not yet implemented");
+		fail(" ");
 	}
 
 	@Test
