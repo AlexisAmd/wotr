@@ -10,7 +10,7 @@
 package wotr;
 public class Food extends Item
 {
-    
+
     private int calory; //positive integer
 
     /**
