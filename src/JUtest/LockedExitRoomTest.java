@@ -4,31 +4,37 @@
 package JUtest;
 import static org.junit.Assert.*;
 import wotr.*;
-import org.junit.Test;
+import org.junit.*;
 
 public class LockedExitRoomTest {
-
+	
 	private Room currentRoom, nextRoom;
-	private LockedExitRoomTest lockedExit;
+	private LockedExitRoom lockedExit;
 	
 	
 	@Before
-	public void 
+	public void setUp(){
+		
+		currentRoom = new Room("salle 1");
+		nextRoom = new Room("salle2");
+	    lockedExit = new LockedExitRoom(currentRoom, nextRoom);
+	}
 	
 	
 	@Test
 	public void testLockedExitRoom() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testGetLocked() {
-		fail("Not yet implemented");
+		assertEquals(true, lockedExit.getLocked());
 	}
 
 	@Test
 	public void testSetLocked() {
-		fail("Not yet implemented");
+		lockedExit.setLocked(false);
+		assertEquals(false, lockedExit.getLocked());
 	}
 
 	@Test
@@ -38,7 +44,7 @@ public class LockedExitRoomTest {
 
 	@Test
 	public void testGetNextRoom() {
-		fail("Not yet implemented");
+		AssertNotNull("not null", lockedExit.getNextRoom(currentRoom));
 	}
 
 }
