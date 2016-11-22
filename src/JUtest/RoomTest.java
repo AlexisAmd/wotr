@@ -3,41 +3,54 @@ import static org.junit.Assert.*;
 import wotr.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import junit.framework.TestCase;
 
-//WORKINPROGRESS
+//WORKINPROGRESS Mathias
 
 public class RoomTest extends TestCase {
 	 
-	private ExitRoom myexitroom;
-	private Room myroom,nextroom;
+	private ExitRoom doorMyRoomNextRoom,doorNextRoomMyRoom;
+	private Room myRoom,nextRoom;
     private HashMap <String,ExitRoom> myroomHM; 
     private ArrayList<Item> myitemList;
     private ArrayList<NPC> myNPCList;
     
     @Before
-	protected void setUp()
+	public void setUp()
 	{
-		myexitroom = new ExitRoom(myroom, nextroom);
-		myitemList = new ArrayList<>();
+    	nextRoom = new Room("nextroomdescription");
+    	myRoom = new Room("description");
+    	myitemList = new ArrayList<>();
 		myNPCList = new ArrayList<>();
 		myroomHM = new HashMap<>();
-		myroom = new Room("descrption");
+		
+		//Doors
+		doorMyRoomNextRoom = new ExitRoom(myRoom, nextRoom);
+		doorNextRoomMyRoom = new ExitRoom(nextRoom, myRoom);
+
+		
+		//Add exit
+		myRoom.addExit("south",doorMyRoomNextRoom);
+		//Add item
+		//myRoom.addItem(
 	}
 	
     //Test the constructor. 
 	@Test
 	public void testRoom() {
-		assertEquals(this.getName(),"description");
+		assertEquals("description",myRoom.getDescription());
 	}
 
+	 /**
+	    * Add an exit in the roomHM
+	    * @param direction direction of the exit
+	    * @param exit next room after pass the door (exit room)
+	    */
 	@Test
 	public void testAddExit() {
-		fail("Not yet implemented");
+		assertEquals(myroomHM,myRoom.getRoomHM());
 	}
 
 	@Test

@@ -5,9 +5,8 @@ import java.util.ArrayList;
 /**
  * Class Room - a room in an adventure game.
  * Initially, it has no exits. It can have 4 exits max (one in each cardinal direction, north, south, east, west)
- *  "description" is something like "a kitchen" or
-     * "an open court yard".
- * Rooms are connected to each others 
+ * They represent rooms like "a kitchen" or "an open court yard".
+ * Rooms are connected to each others with ExitRoom.
  * 
  * @author  Gr1 (math)
  * @version 1
@@ -43,7 +42,7 @@ public class Room
     }
 
     /**
-     * Metho to add an item into the room list of items
+     * Method to add an item into the room list of items
      * @param i the item we want to add
      */
     public void addItem(Item i)
@@ -65,7 +64,7 @@ public class Room
 
 
         /**
-     * Metho to add an NPC into the room list of items
+     * Method to add an NPC into the room list of items
      * @paradm i the item we want to add
      */
     public void addNPC(NPC i)
@@ -74,7 +73,7 @@ public class Room
     }
 
         /**
-     * Metho to remove a NPC into the room list of items
+     * Method to remove a NPC into the room list of items
      * @param npc the npc we want to delete
      */
     public void delNPC(NPC npc)
@@ -91,11 +90,16 @@ public class Room
     {
         return description;
     }
+    
+    public HashMap getRoomHM() 
+    {
+		return this.roomHM;
+    }
 
     /**
      * Print the items of the room
      */
-    public void printItems()
+    public void printItems()//a modifier
     {
         if (!itemList.isEmpty()){
             itemList.stream().forEach((i) -> {
@@ -108,7 +112,7 @@ public class Room
         /**
      * Print the NPC(s) of the room
      */
-    public void printNPC()
+    public void printNPC() //a modifier
     {
         if (!NPCList.isEmpty()){
             NPCList.stream().forEach((i) -> {
