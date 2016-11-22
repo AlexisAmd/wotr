@@ -1,33 +1,56 @@
 package JUtest;
-import static org.junit.Assert.*;
 import wotr.*;
+
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import org.junit.*;
+
+
+
 
 public class NPCTest {
+	private NPC npcSam;
+	private Player Frodo;
+	
 
-	@Test
-	public void testNPC() {
-		fail("Not yet implemented");
+
+	@Before
+	public void setUp() {
+		npcSam = new NPC("Sam", "Best Friend of Frodo", -5, 2, Frodo);
 	}
 
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		assertEquals("Sam", npcSam.getName());
 	}
-
+	
 	@Test
-	public void testGetDescription() {
-		fail("Not yet implemented");
+	public void testAlreadyUsed(){
+		assertEquals(false, npcSam.getAlreadyUsed());
 	}
-
+	
 	@Test
-	public void testToString() {
-		fail("Not yet implemented");
+	public void testSetAlreadyUsed(){
+		npcSam.setAlreadyUsed(true);
+		assertEquals(true, npcSam.getAlreadyUsed());
 	}
-
+	
 	@Test
-	public void testUse() {
-		fail("Not yet implemented");
+	public void testRestorePower(){
+		npcSam.setAlreadyUsed(false);
+		npcSam.restorePower();
+		assertEquals(true, npcSam.getAlreadyUsed());
 	}
+	
+	@Test
+	public void testUseNPC(){
+		npcSam.use();
+		
+	}
+		
+	
+
+
+
 
 }
