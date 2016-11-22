@@ -1,6 +1,9 @@
 package wotr;
 
 public class Warrior extends NPC {
+	/**
+	 * Can kill a npc
+	 */
 	
 	private Player currentPlayer;
 
