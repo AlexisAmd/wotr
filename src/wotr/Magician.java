@@ -32,7 +32,7 @@ public class Magician extends NPC
     public boolean use(NPC npc){
         if (!this.getAlreadyUsed()){
         super.use(); //verifier si le return contenu dans ce use n'est pas terminal...
-        restorePower(npc);
+        npc.restorePower());
         this.setAlreadyUsed(true);
         return true;
     }
@@ -41,10 +41,5 @@ public class Magician extends NPC
     }
 }
 
-    /**
-    *Restore the power of an other npc
-    */
-    private void restorePower(NPC npc){
-        npc.setAlreadyUsed(false);
-    }
+    
 }

@@ -97,7 +97,12 @@ public  class NPC
             else{
                 return false;}
             }
-
+/**
+    *Restore the power ofthis NPC (used by the magician)
+    */
+    private void restorePower(){
+        this.setAlreadyUsed(false);
+    }
 
 
         }
