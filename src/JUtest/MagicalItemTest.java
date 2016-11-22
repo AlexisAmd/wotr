@@ -1,4 +1,4 @@
-//WIP Alexis
+
 package JUtest;
 import static org.junit.Assert.*;
 
@@ -21,7 +21,7 @@ public class MagicalItemTest {
 	public void setUp()
 	{
 		myPlayer = new Player();
-		myPlayer.setCorruption(30); //Set the hp of the player (se
+		myPlayer.setCorruption(30); //Set the hp of the player (set by default to 100)
 		magicalItem = new MagicalItem("Ring", "Dangerous", 12, 40, myPlayer);
 	}
 	
@@ -86,7 +86,7 @@ public class MagicalItemTest {
 	@Test
 	public void testUse() {
 		magicalItem.use();
-		assertEquals(70, myPlayer.getPercentCorruption());
+		assertEquals(70, myPlayer.getCorruption());
 	}
 	
 	/*
