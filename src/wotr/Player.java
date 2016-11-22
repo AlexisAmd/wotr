@@ -1,5 +1,5 @@
 
-
+//WIP ALEXIS
 package wotr;
 import java.util.*;
 
@@ -13,6 +13,7 @@ import java.util.*;
  * A player have an inventory wich contains items and a fellowship which contains NPCs.
  * This inventory have a maximum weight.
  * By default, the player have 100 hp and 0 % of corruption
+ * A player can pick an item in a room and add it to his inventory. He can drop it in a room. He can also add npc to his fellowship then leave them in a room (i.e if they are dead and/of and useless).
  * @author GR1
  * @version 21/11/16
  */
