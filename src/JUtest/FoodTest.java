@@ -19,8 +19,9 @@ public class FoodTest {
 	@Before
 	public void setUp()
 	{
+		myPlayer = new Player();
+		myPlayer.setHp(30); //Set the hp of the player
 		food = new Food("Lambas", "Yellow", 12, 40, myPlayer);
-		myPlayer.hp = 30;
 	}
 	
 	/*
@@ -74,7 +75,7 @@ public class FoodTest {
 	 */
 	@Test
 	public void testToString() {
-		assertEquals("Name : Lambas"+"\n"+"Description : Yellow"+"\n"+"Weight : 12"+"\n" +"Calory : 100", food.ToString());
+		assertEquals("Name : Lambas"+"\n"+"Description : Yellow"+"\n"+"Weight : 12"+"\n" +"Calory : 100", food.toString());
 	}
 
 	/*
