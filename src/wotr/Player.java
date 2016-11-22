@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Player class stands for a World of the Ring player able to epxplore many differents world. This player is named FRODO.
  * A player have health point and corruption points. When healt point is equal to 0 the player is dead. When the percentage of corruption of the player is equal to 100% the payer is dead.
- *A player have an inventory wich contains itms and a fellowship which contains NPC.
+ *A player have an inventory wich contains items and a fellowship which contains NPC.
  *This inventory have a maximum weight.
  *By default, the player have 100 hp and 0 % of corruption
  *@author GR1
@@ -28,7 +28,6 @@ public class Player
      */
     public Player()
     { //constructeur sans parametres ?
-        // initialise instance variables
         name = "Frodo";
         hp= 100;
         percentCorruption = 0;
