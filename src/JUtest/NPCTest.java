@@ -44,7 +44,7 @@ public class NPCTest {
 	}
 	
 	@Test
-	public void testUseNPC(){
+	public void testUseNPC(){//a comment
 		npcSam.use();
 		assertEquals(102, Frodo.getHp());
 		assertEquals(5, Frodo.getPercentCorruption());
