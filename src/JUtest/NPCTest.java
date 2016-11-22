@@ -16,6 +16,7 @@ public class NPCTest {
 
 	@Before
 	public void setUp() {
+		Frodo = new Player();
 		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
 	}
 
@@ -37,9 +38,9 @@ public class NPCTest {
 	
 	@Test
 	public void testRestorePower(){
-		npcSam.setAlreadyUsed(false);
+		npcSam.setAlreadyUsed(true);
 		npcSam.restorePower();
-		assertEquals(true, npcSam.getAlreadyUsed());
+		assertEquals(false, npcSam.getAlreadyUsed());
 	}
 	
 	@Test
