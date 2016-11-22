@@ -236,13 +236,24 @@ public class Player
      * @param item the item to remove
      * @return false if not done
      */
-    private boolean dropItem (Item item)
+    public boolean dropItem (Item item)
     {
         if (inventory.contains(item))
         {
             inventoryWeight-=item.getWeight();
         }
         return inventory.remove(item);//retrun false if not deleted
+    }
+    
+    private boolean dropNPC (NPC npc)
+    {
+        if (this.hasNPC(npc))
+        {
+            return fellowship.remove(npc);
+        }
+        else{
+        	return false;
+        }
     }
 
 
