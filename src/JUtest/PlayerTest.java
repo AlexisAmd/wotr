@@ -50,10 +50,12 @@ public class PlayerTest {
 	 * Player receives a big amount of damage.
 	 * testIsALive then check if he is considered as dead.
 	 */
+	@Test
 	public void testIsAlive()
 	{
-		myPlayer.addHP(-1000);
-		// Assuming that 
+		myPlayer.addHP(-101);
+		// Assuming that the player starts with 100 HP, the player should be considered dead.
+		assertEquals(false, myPlayer.isAlive());
 	}
 	
 	@Test
