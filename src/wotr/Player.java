@@ -2,6 +2,8 @@ package wotr;
 import java.util.*;
 
 /**
+ * #WORK IN PROGRESS!!
+ * 
  * Player class stands for a World of the Ring player able to explore many differents world. This player is named Frodo.
  * A player have health point and corruption points. When healt point is equal to 0 the player is dead. When the percentage of corruption of the player is equal to 100% the payer is dead.
  * A player have an inventory wich contains itms and a fellowship which contains NPC.
@@ -66,7 +68,7 @@ public class Player
     {
     	if ((newHpValue < 0) || (newHpValue > 100))
     		throw new IllegalArgumentException("Value is out of range for newHpValue");
-    	this.hp = newHpValue;
+    	hp = newHpValue;
     }
 	
 
@@ -80,15 +82,20 @@ public class Player
     }
 
     /**
-	 * Manage the gain of one life
+	 * Manages the gain or loss of health points.
+	 * This method prevents the player to gain more HP than 100
 	 * @param nb The number of health points to gain, can be a negative value.
 	 */
 	public void addHp(int nb)
 	{
 		if ((100 - hp) <= nb)
+		{
 			hp=100;
+		}
 		else
-			hp+=nb;
+		{
+			if ()
+		}
 	}
 
     /**
