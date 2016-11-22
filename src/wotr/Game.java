@@ -1,4 +1,4 @@
-//WIP Alexis
+
 /**
 
 * This class is the main class of the "World of The ring" application.
@@ -16,7 +16,7 @@
 
 
 package wotr;
-import java.util.HashMap;
+import java.util.HashMap; //useless ?
 
 public class Game {
     private Parser parser; //will be deleted soon
@@ -48,13 +48,13 @@ public class Game {
         //DECLARATION
         Room roomOutside, roomTheatre, roomPub, roomLab;
 
-        ExitRoom doorOutsideLab, doorOutsidePub, doorLabOutside, doorOfficeLab;
+        ExitRoom doorOutsideLab, doorOutsidePub, doorLabOutside;
 
         PasswordLockedExitRoom doorPubOutside;
 
         KeyLockedExitRoom doorOutsideTheatre, doorTheatreOutside;
 
-        //INSTANCIATION
+        //INSTANCIATION //THIS IS AN EXEMPLE (to define a syntax that we will use in the future)
 
         // create the rooms
         roomOutside=new Room("main entrance of the university");
@@ -76,6 +76,7 @@ public class Game {
         doorOutsideTheatre = new KeyLockedExitRoom(roomOutside, roomTheatre, keyTheatre);
         doorTheatreOutside = new KeyLockedExitRoom(roomTheatre, roomOutside, keyTheatre);
         doorOutsideLab = new ExitRoom(roomOutside, roomLab);
+        doorLabOutside = new ExitRoom(roomLab, roomOutside);
 
         //associating doors with rooms
         roomOutside.addExit("north", doorOutsideTheatre);
@@ -84,6 +85,7 @@ public class Game {
 
         roomTheatre.addExit("south",doorTheatreOutside);
         roomPub.addExit("north",doorPubOutside);
+        roomLab.addExit("west", doorLabOutside);
 
         currentRoom = roomOutside; // start game outside
 
