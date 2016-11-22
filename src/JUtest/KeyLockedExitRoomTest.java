@@ -15,7 +15,7 @@ public class KeyLockedExitRoomTest {
 
 	private Room currentRoom, nextRoom;
 	private Player player;
-	private Key key, badKey;
+	private Key key;
 	private KeyLockedExitRoom keyLocked;
 	
 	
@@ -28,18 +28,28 @@ public class KeyLockedExitRoomTest {
 		currentRoom = new Room("salle1");
 		nextRoom = new Room("salle2");
 		key = new Key("magique", "blabla", 1, player);
-		badKey = new Key("pourrie","blabla", 10, player);
 		keyLocked = new KeyLockedExitRoom(currentRoom, nextRoom, key);
 	}
 	
 	
 	@Test
 	/*
-	 * 
+	 * Verify that using a key unlock the door
 	 */
 	public void testSetUnlocked(){
+		keyLocked.setUnlocked();
+		assertEquals(false, keyLocked.getLocked());
 		
-		
+	}
+	
+	
+	@Test
+	/*
+	 *  This test verify that the method return the next Room when the door is unlocked.
+	 */
+	public void testGetNextRoom(){
+		keyLocked.setLocked(false);
+		assertNotNull("not null", keyLocked.getNextRoom(currentRoom));
 	}
 	
 }

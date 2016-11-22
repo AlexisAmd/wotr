@@ -52,8 +52,7 @@ public class KeyLockedExitRoom extends LockedExitRoom
     }
     
     public void setUnlocked(){
-        super.setLocked(false).
-        ;
+        super.setLocked(false) ;
         System.out.println(nextRoom.getDescription() + " is now unlock");
     }
 }
