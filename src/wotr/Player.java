@@ -1,8 +1,10 @@
+
+
 package wotr;
 import java.util.*;
 
 /**
- * 
+ 
  * Player class stands for a World of the Ring player able to explore many differents world. This player is named Frodo.
  * A player have health point and corruption points.
  * When healt point is equal to 0 the player is dead.
@@ -45,22 +47,12 @@ public class Player
     
     /**
      * Checks if the player is still alive.
-     * Player is alive only if his HP are strictly superior to 0.
+     * Player is dead if his HP reaches 0 or his corruption reaches 100.
      * @return true if the player's HP are strictly higher than 0.
      */
-    private boolean isAlive()
+    public boolean isAlive()
     {
-    	return hp == 0;
-    }
-    
-    /**
-     * Checks if the player is corrupted.
-     * Player is considered dead if his corruption reaches 100%.
-     * @return true if the player's corruption is equal to 100%.
-     */
-    private boolean isCorrupted()
-    {
-    	return percentCorruption == 100;
+    	return (hp != 0 || percentCorruption != 100);
     }
 
     /**
@@ -82,17 +74,7 @@ public class Player
     		throw new IllegalArgumentException("Value is out of range for newHpValue");
     	hp = newHpValue;
     }
-	
-
-    /**
-     * getHp : return the perentage of corruption of the player
-     * @return
-     */
-    public int getPercentCorruption()
-    {
-        return percentCorruption;
-    }
-
+    
     /**
 	 * Manages the gain or loss of health points.
 	 * This method prevents the player to have more than 100 or less than 0 HP.
@@ -107,8 +89,29 @@ public class Player
 		else if (hp < 0)
 			hp = 0;
 	}
+	
 
     /**
+     * Access the percentCorruption attribute
+     * @return the percentCorruption value.
+     */
+    public int getCorruption()
+    {
+        return percentCorruption;
+    }
+    
+    /**
+     * Sets a new number of corruption
+     * @param newCorruptionValue The new value of the player's corruption percentage.
+     */
+    public void setCorruption(int newCorruptionValue)
+    {
+    	if ((newCorruptionValue < 0) || (newCorruptionValue > 100))
+    		throw new IllegalArgumentException("Value is out of range for newCorruptionValue");
+    	percentCorruption = newCorruptionValue;
+    }
+
+    /** 
      * Manages the gain or loss of corruption.
      * If corruption reaches 100% the game is over.
      * Corruption can not be under 0.
@@ -139,7 +142,7 @@ public class Player
      * @param npc The npc you want to find.
      * @return true if the player have this npc
      */
-    public boolean hadNPC(NPC npc)
+    public boolean hasNPC(NPC npc)
     {
         return fellowship.contains(npc);
     }
@@ -151,7 +154,7 @@ public class Player
      */
     public boolean addNPC(NPC npc)
     {
-        if (!hadNPC(npc))
+        if (!hasNPC(npc))
         {    
             fellowship.add(npc); //add the this new friend to the fellowship
             //System.out.println(npc.getName()+" is now a member of the fellowship of the ring.");
@@ -221,7 +224,7 @@ public class Player
         else
         {
             inventory.add(newItem); //add the item to the inventory
-            inventoryWeight+=newItem.getWeight(); //update the actual weight of th inventory
+            inventoryWeight+=newItem.getWeight(); //update the actual weight of the inventory
             return true;
         }
     }

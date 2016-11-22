@@ -26,7 +26,7 @@ public class Magician extends NPC
     }
 
     /**
-    *Use method, restore hp of frodo and restore power of zn other npc
+    *Use method, restore hp of frodo (max = 100) and restore power of an other npc
     *@return true if the power of the npc just have been used
     *@return false if the powers cannot be used
     */

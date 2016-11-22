@@ -1,4 +1,4 @@
-
+//WIP Alexis
 /**
 
 * This class is the main class of the "World of The ring" application.
@@ -20,7 +20,7 @@ import java.util.HashMap; //useless ?
 
 public class Game {
     private Parser parser; //will be deleted soon
-    private Room currentRoom;
+    private Room currentRoom; //will be moved tonight in the class player in order to have mutiple players in differents rooms
     private Player currentPlayer;
 
     /**
