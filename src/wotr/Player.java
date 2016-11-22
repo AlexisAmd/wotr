@@ -109,7 +109,7 @@ public class Player
     	percentCorruption = newCorruptionValue;
     }
 
-    /**
+    /** 
      * Manages the gain or loss of corruption.
      * If corruption reaches 100% the game is over.
      * Corruption can not be under 0.
