@@ -13,7 +13,8 @@ public class Key extends Item{
 
     /* 
      * The constructor of the key with different attributes : name, description, weight and the current player
-     * @param name, description, weight and current player
+     * 
+     * @param name (the name of the key), description (its description), weight (its weight) and current player (the player associated)
      */
     public Key(String name, String description, int weight, Player currentPlayer)
     {
@@ -23,8 +24,6 @@ public class Key extends Item{
     //When you use a key, you unlock a lockedExit
     public void use(){
         door.setUnlocked();
-
     }
 
-    
 }
