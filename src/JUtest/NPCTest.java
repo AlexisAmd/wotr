@@ -80,7 +80,7 @@ public class NPCTest {
 	public void testUseNPC(){//a comment
 		npcSam.use();
 		assertEquals(100, Frodo.getHp()); //hp is limited to 100hp
-		assertEquals(5, Frodo.getPercentCorruption());
+		assertEquals(5, Frodo.getCorruption());
 		
 	}
 		
