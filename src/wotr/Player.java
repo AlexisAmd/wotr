@@ -245,7 +245,7 @@ public class Player
         return inventory.remove(item);//retrun false if not deleted
     }
     
-    private boolean dropNPC (NPC npc)
+    public boolean dropNPC (NPC npc)
     {
         if (this.hasNPC(npc))
         {
