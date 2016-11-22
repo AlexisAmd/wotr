@@ -1,3 +1,4 @@
+//WIP Antoine
 package wotr;
 
 /*
@@ -35,7 +36,7 @@ public class KeyLockedExitRoom extends LockedExitRoom
      */
     public Room getNextRoom(Room currentRoom)
     {
-        if(super.locked){
+        if(super.getLocked()){
   
                 System.out.println("Locked door ! You need to open it with the key :" +key.getName()+" before pass it");
                 return null;
@@ -51,7 +52,8 @@ public class KeyLockedExitRoom extends LockedExitRoom
     }
     
     public void setUnlocked(){
-        super.locked=false;
+        super.setLocked(false).
+        ;
         System.out.println(nextRoom.getDescription() + " is now unlock");
     }
 }
