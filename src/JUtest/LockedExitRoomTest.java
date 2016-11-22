@@ -2,9 +2,9 @@
 
 
 package JUtest;
-import static org.junit.Assert.*;
-import wotr.*;
 import org.junit.*;
+
+import wotr.*;
 
 public class LockedExitRoomTest {
 	
