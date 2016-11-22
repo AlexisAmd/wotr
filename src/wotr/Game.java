@@ -19,8 +19,9 @@ package wotr;
 import java.util.HashMap; //useless ?
 
 public class Game {
-    private Room currentRoom; //will be moved tonight in the class player in order to have mutiple players in differents rooms
+
     private Player currentPlayer;
+    private Room startRoom;
 
     /**
     * Create the game and initialise its internal map.
@@ -28,6 +29,7 @@ public class Game {
     public Game() {
         createRooms();
         currentPlayer = new Player();
+        currentPlayer.setCurrentRoom(startRoom);
         
     }
 
@@ -85,7 +87,7 @@ public class Game {
         roomPub.addExit("north",doorPubOutside);
         roomLab.addExit("west", doorLabOutside);
 
-        currentRoom = roomOutside; // start game outside
+        startRoom = roomOutside; // start game outside
 
         
 
@@ -110,31 +112,13 @@ public class Game {
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type 'help' if you need help.");
         System.out.println();
-        System.out.println("You are " + currentRoom.getDescription());
+        System.out.println("You are " + currentPlayer.getCurrentRoom().getDescription());
         System.out.println("Exits: ");
-        currentRoom.printExits();
+        currentPlayer.getCurrentRoom().printExits();
         System.out.println("\n");
     }
 
-    /**
-     * Try to go to one direction.
-     * If there is a room in this direction, go to this room
-     * Otherwise print an error message
-     * @param direction the direction of the move
-     */
-    public void goRoom(String direction) {
-        // Try to leave current room.
-        Room nextRoom = null;
 
-        nextRoom = currentRoom.getNextRoom(direction);
-        if(nextRoom == null) {
-            System.out.println("Can't move to "+direction + "\n");
-        } else {
-            currentRoom = nextRoom;
-            System.out.println("Moved to "+direction + "\n");
-
-        }
-    }
 
     /**
      * Print out some help information.
@@ -142,51 +126,17 @@ public class Game {
      * command words.
      */
     private void printHelp() {
-        System.out.println("You are  "+currentRoom.getDescription());
+        System.out.println("You are  "+currentPlayer.getCurrentRoom().getDescription());
         System.out.println("\n"+"Exits :");
-        currentRoom.printExits();
+        currentPlayer.getCurrentRoom().printExits();
         System.out.println("\n"+"Items :");
-        currentRoom.printItems();
+        currentPlayer.getCurrentRoom().printItems();
         System.out.println("\n"+ "Your command words are:");
         System.out.println("go, quit, help");
     }
 
     
-  //COMMON METHODS - will be moved to Player class
-
-       /**
-     * pickUp an Item, add it to the current player inventory if possible then remove it from the room
-     * @param nameItem
-     */  
-    public void pickUpItem(Item item) 
-    {
-    Item moveItem=null;//temporary varaible to store the item
-    moveItem=item;
-    currentRoom.delItem(item);
-    if(moveItem!=null){
   
-            if(!currentPlayer.addItem(moveItem)){
-                currentRoom.addItem(moveItem); //si item pas ajouté au perso on le remet dans la piece
-            }
-        }
 
-    }
-
-       /**
-     * pickUp an Item, add it to the current player inventory, remove it from the room
-     * @param nameItem
-     */  
-    public void pickUpNPC(NPC npc) 
-    {
-    NPC moveNPC=null;//temporary varaible to store the item
-    moveNPC=npc;
-    currentRoom.delNPC(npc);
-    if(moveNPC!=null){
-  
-            if(!currentPlayer.addNPC(moveNPC)){
-                currentRoom.addNPC(moveNPC); //si item pas ajouté au perso on le remet dans la piece
-            }
-        }
-
-    }
+      
 }
