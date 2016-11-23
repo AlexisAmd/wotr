@@ -20,22 +20,27 @@ public class Fellowship {
 		player = hero;
 	}
 	
-	/*
-	 * Return friends who follow the player
+	/**
+	 * Method to return the feelowship of the hero
+	 * @return the fellowship of the hero
 	 */
 	public ArrayList<NPC> getFellowship() {
 		return this.fellowship;
 	}
 	
-	/*
-	 * Verify if our fellowship contains a NPC
+	/**
+	 * Check if the player have this friend
+	 * @param npc The npc you want to find.
+	 * @return true if the player have this npc
 	 */
 	public boolean hasNPC(NPC npc) {
 		return fellowship.contains(npc);
 	}
 	
-	/*
-	 * Add an NPC to our fellowship only if he is not already in the fellowship
+	/**
+	 * Add a friend to the player's fellowship
+	 * @param npc The non player character you just met.
+	 * @return true if added
 	 */
 	public boolean addNPC(NPC npc) {
 		if (!hasNPC(npc)) {
@@ -48,8 +53,15 @@ public class Fellowship {
 	}
 	
 	
-	/*
-	 * Throw a NPC out of the fellowship
+	/**
+	 * Remove a specified NPC from the player's fellowship. The npc is droped in
+	 * the currentRoom of the player
+	 * 
+	 * @param npc
+	 *            the non player character that we want to drop
+	 * @return true if done
+	 * @return false if not donr
+	 * 
 	 */
 	public boolean dropNPC(NPC npc) {
 		NPC moveNPC;
@@ -65,8 +77,14 @@ public class Fellowship {
 						// in theory)
 	}
 	
-	/*
-	 * Pick up  NPC in the room and add it to the fellowship
+	
+	/**
+	 * pickUp an Item, add it to the current player inventory then remove it
+	 * from the room
+	 * 
+	 * @param nameItem
+	 * @return true if the item is pickedUp by the npc then removed from the
+	 *         current room
 	 */
 	public boolean pickUpNPC(NPC npc) {
 		if (this.addNPC(npc)) {
