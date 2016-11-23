@@ -25,5 +25,15 @@ public class Key extends Item{
     public void use(){
         door.setUnlocked();
     }
+    
+    /*
+     * Give all the attributes of the key (non-Javadoc)
+     * @return name (name of the key), description (its description), weight (its weight) 
+     */
+	public String toString() {
+		return "Name : "+getName() + "\n"+
+		        "Description : "+getDescription() + "\n"+
+		        "Weight : "+getWeight() + "\n";
+	}
 
 }
