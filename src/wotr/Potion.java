@@ -23,14 +23,15 @@ public class Potion extends Item
 	 * Method that check if the NPC already used its power.
 	 * If it already used its power, the boolean alreadyUsed is set to false.
 	 * If not, the boolean alreadyUsed is not changed (stays false).
+	 * On used the player drop item
 	 * @param npc (the NPC on which the player wants to use the potion)
 	 * @return true if the boolean alreadyUsed is set from true to false OR false if this boolean is not changed
 	 */
 	
 	public boolean use(NPC npc){ 
         if (npc.getAlreadyUsed()){
-        	npc.restorePower();
-        	return true;
+        	return npc.restorePower();
+     
         }
         else {
         	return false;
