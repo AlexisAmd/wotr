@@ -44,7 +44,7 @@ public class Player {
 		this.hp = 100;
 		this.percentCorruption = 0;
 		this.inventory = new Bag(); //devrait demander un string normalemment
-		this.fellowship = new Fellowship(this);
+		this.fellowship = new Fellowship();
 		this.currentRoom = null;
 		this.maximumInventoryWeight = 20;
 
