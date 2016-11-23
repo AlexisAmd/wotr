@@ -14,7 +14,20 @@ public class WorldExit extends ExitRoom {
 
 	}
 
-	
+	 /**
+     *Methods to get the future current room after moving, if the player has a magician and if his power was used, he recover his power.
+   * @param currentRoom
+   * @return the next room
+   */
+  public Room getNextRoom(Room nextRoom)
+  {
+      if (this.currentRoom!=nextRoom){
+          return this.currentRoom;
+      }
+      else{
+          return this.nextRoom;
+      }
+  }
 	
 	
 	
