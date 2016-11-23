@@ -181,6 +181,30 @@ public class Player {
 		else return false;
 
 	}
+	
+	/**
+	 * Remove a specified NPC from the player's fellowship. The npc is droped in
+	 * the currentRoom of the player
+	 * 
+	 * @param npc
+	 *            the non player character that we want to drop
+	 * @return true if done
+	 * @return false if not done
+	 * 
+	 */
+	public boolean dropNPC(NPC npc) {
+		NPC moveNPC;
+		moveNPC = npc;
+		if (fellowship.hasNPC(npc)) {
+			if (fellowship.getFellowship().remove(npc)) { // if the npc is removed
+				return getCurrentRoom().addNPC(moveNPC);// he is added to the
+													// currentRoom of the player
+			} else
+				return false; // if the player do not have this npc
+		} else
+			return false; // if it is impossible to remove the npc (impossible
+						// in theory)
+	}
 
 	
 	/**
@@ -235,6 +259,41 @@ public class Player {
 		return currentRoom;
 	}
 
+
+	/*
+	 * Method to set a room
+	 * @param currentRoom the room we want to et has currentRoom for the player
+	 */
+	public void setCurrentRoom(Room currentRoom) {
+		this.currentRoom = currentRoom;
+	}
+	
+	
+	/**
+	 * Method to return the feelowship of the hero
+	 * @return the fellowship of the hero
+	 */
+	public ArrayList<NPC> getFellowship() {
+		return fellowship.getFellowship();
+	}
+	
+	
+	
+	/**
+	 * pickUp an Item, add it to the current player inventory then remove it
+	 * from the room
+	 * 
+	 * @param nameItem
+	 * @return true if the item is pickedUp by the npc then removed from the
+	 *         current room
+	 */
+	public boolean pickUpNPC(NPC npc) {
+		if (fellowship.addNPC(npc)) {
+			return getCurrentRoom().delNPC(npc);
+		} else
+			return false;
+	}
+	
 	/**
 	 * pickUp an Item, add it to the current player bag if possible then
 	 * remove it from the room
@@ -250,14 +309,5 @@ public class Player {
 				return currentRoom.addItem(moveItem); // si item pas ajouté au perso on le remet dans la piece
 			}else return false;
 		}else return false;
-	}
-
-
-	/*
-	 * Method to set a room
-	 * @param currentRoom the room we want to et has currentRoom for the player
-	 */
-	public void setCurrentRoom(Room currentRoom) {
-		this.currentRoom = currentRoom;
 	}
 }
