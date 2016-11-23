@@ -146,9 +146,11 @@ public class Player {
 	}
 
 	/**
+	 * #See pickUpItem() for the complete method to pick an item from a room and adding it to the players bag
 	 * Add the item to the player's inventory. Only if its added weight does not
 	 * make the total inventory weight superior to the maximum weight. A player
 	 * can carry many items of the same type. (i.e it can contains 6 beers)
+	 * #Can't be moved to "Bag class" because is dependent of the maximum weight capacity of th e player
 	 * 
 	 * @param newItem the new item in the player's inventory
 	 * @return true if the item has been added to the inventoru
@@ -305,7 +307,7 @@ public class Player {
 		moveItem = item;
 		currentRoom.delItem(item);
 		if (moveItem != null) {
-			if (!this.addItem(moveItem)) {
+			if (!inventory.addItem(moveItem)) {
 				return currentRoom.addItem(moveItem); // si item pas ajouté au perso on le remet dans la piece
 			}else return false;
 		}else return false;

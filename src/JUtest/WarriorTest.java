@@ -33,7 +33,7 @@ public class WarriorTest {
 		Frodo = new Player(); //hp = 100, corruption = 0
 		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
 		Aragorn = new Warrior("Aragorn", "Brave", -2, 0, Frodo);
-		Frodo.addNPC(npcSam);
+		Frodo.getFellowship.addNPC(npcSam);
 		Forest = new Room("forest");
 
 	}
