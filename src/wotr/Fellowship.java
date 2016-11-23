@@ -14,7 +14,7 @@ public class Fellowship {
 	/*
 	 * Constructor for Fellowship class
 	 */
-	public Fellowship(Player hero){
+	public Fellowship(){
 		fellowship = new ArrayList<>(); 
 	}
 	
