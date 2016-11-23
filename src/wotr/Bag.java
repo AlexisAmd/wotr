@@ -14,6 +14,7 @@ public class Bag {
     private ArrayList<Item> inventory; // list of all items stored in the player's inventory
     private int currentWeight; // current weigh of the inventory
     private String description; // description the name of the bag (i.e. leather bag)
+ 
 
     /**
      * A bag contains Items and his weight is defined by the sum of the weights of all items. A player have only one bag at a moment
@@ -29,7 +30,7 @@ public class Bag {
      * 
      * @return Current weight of the iventory
      */
-    public int getInventoryWeight() {
+    public int getWeight() {
 	return currentWeight;
     }
 

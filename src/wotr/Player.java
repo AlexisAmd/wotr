@@ -127,8 +127,8 @@ public class Player {
      * Returns the total weight of the items the player carries.
      * @return weight of the inventory
      */
-    public int getInventoryWeight() {
-	return inventory.getInventoryWeight();
+    public int getWeight() {
+	return inventory.getWeight();
     }
 
     /**
@@ -139,7 +139,7 @@ public class Player {
     public boolean hasItem(Item item) {
 	return inventory.contains(item);
     }
-    
+
     /**
      * Check if the player have a specific npc.
      * @param npc you want to check
@@ -147,26 +147,6 @@ public class Player {
      */
     public boolean hasNPC(NPC npc) {
 	return fellowship.contains(npc);
-    }
-
-    /**
-     * #See pickUpItem() for the complete method to pick an item from a room and adding it to the players bag
-     * Add the item to the player's inventory. Only if its added weight does not
-     * make the total inventory weight superior to the maximum weight. A player
-     * can carry many items of the same type. (i.e it can contains 6 beers)
-     * #Can't be moved to "Bag class" because is dependent of the maximum weight capacity of th e player
-     * 
-     * @param newItem the new item in the player's inventory
-     * @return true if the item has been added to the inventoru
-     */
-    public boolean addItem(Item newItem) {
-	if (newItem.getWeight() + inventory.getInventoryWeight() > this.maximumInventoryWeight) {
-	    // System.out.println("Objet too heavy for your inventory (itemweight : "+newItem.getWeight()+" ) !");
-	    return false;
-	} else {
-	    inventory.addItem(newItem);
-	    return true;
-	}
     }
 
     /**
@@ -245,10 +225,10 @@ public class Player {
 	Room nextRoom = null;
 	nextRoom = currentRoom.getNextRoom(direction);
 	if (nextRoom == null) {
-	    //System.out.println("Can't move to " + direction + "\n");
+	    // System.out.println("Can't move to " + direction + "\n");
 	} else {
 	    currentRoom = nextRoom;
-	    //System.out.println("Moved to " + direction + "\n");
+	    // System.out.println("Moved to " + direction + "\n");
 	}
     }
 
@@ -294,18 +274,16 @@ public class Player {
     }
 
     /**
-     * pickUp an Item, add it to the current player bag if possible then
+     * pickUp an Item, add it to the current player bag if possible (i.e if the weigh is not superior to the maximumweight for the player) then
      * remove it from the room
      * 
      * @param nameItem
+     * @return true if the item is picked up and deleted
      */
     public boolean pickUpItem(Item item) {
-	Item moveItem;// temporary varaible to store the item
-	moveItem = item;
-	currentRoom.delItem(item);
-	if (moveItem != null) {
-	    if (!inventory.addItem(moveItem)) {
-		return currentRoom.addItem(moveItem); // si item pas ajouté au perso on le remet dans la piece
+	if (item.getWeight() + inventory.getWeight() <= this.maximumInventoryWeight) {
+	    if (inventory.addItem(item)) {
+		return currentRoom.delItem(item);
 	    } else
 		return false;
 	} else

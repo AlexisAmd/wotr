@@ -10,7 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author pc
+ * @author GR1
+ * @Version 23/11/2016
  *
  */
 public class BagTest {
