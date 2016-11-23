@@ -54,7 +54,7 @@ public class Player {
      * @return true if the player's HP are strictly higher than 0.
      */
     public boolean isAlive() {
-	return (hp != 0 || percentCorruption != 100);
+	return (hp != 0 && percentCorruption != 100);
     }
 
     /**
@@ -139,6 +139,15 @@ public class Player {
     public boolean hasItem(Item item) {
 	return inventory.contains(item);
     }
+    
+    /**
+     * Check if the player have a specific npc.
+     * @param npc you want to check
+     * @return true if the player has it
+     */
+    public boolean hasNPC(NPC npc) {
+	return fellowship.contains(npc);
+    }
 
     /**
      * #See pickUpItem() for the complete method to pick an item from a room and adding it to the players bag
@@ -191,7 +200,7 @@ public class Player {
     public boolean dropNPC(NPC npc) {
 	NPC moveNPC;
 	moveNPC = npc;
-	if (fellowship.hasNPC(npc)) {
+	if (this.hasNPC(npc)) {
 	    if (fellowship.getFellowship().remove(npc)) { // if the npc is removed
 		return getCurrentRoom().addNPC(moveNPC);// he is added to the
 							// currentRoom of the player

@@ -31,9 +31,12 @@ public class Fellowship {
 	 * @param npc The npc you want to find.
 	 * @return true if the player have this npc
 	 */
-	public boolean hasNPC(NPC npc) {
+	public boolean contains(NPC npc) {
 		return fellowship.contains(npc);
 	}
+	
+
+	
 	
 	/**
 	 * Add a friend to the player's fellowship
@@ -41,9 +44,9 @@ public class Fellowship {
 	 * @return true if added
 	 */
 	public boolean addNPC(NPC npc) {
-		if (!hasNPC(npc)) {
-			fellowship.add(npc); // add the this new friend to the fellowship  System.out.println(npc.getName()+" is now a member of thefellowship of the ring.");
-			return true;
+		if (!this.contains(npc)) {
+			return fellowship.add(npc); // add the this new friend to the fellowship  System.out.println(npc.getName()+" is now a member of thefellowship of the ring.");
+			
 		} else {
 			// System.out.println(npc.getName()+" is already a member of the fellowship of the ring.");
 			return false;
