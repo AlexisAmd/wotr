@@ -9,7 +9,7 @@ import java.util.*;
  * differents world. This player is named Frodo. A player have health point and
  * corruption points. When healt point is equal to 0 the player is dead. When
  * the percentage of corruption of the player is equal to 100% the payer is
- * dead. Player can not have more than 100 HP. A player have an inventory wich
+ * dead. Player can not have more than 100 HP. A player have bag wich
  * contains items and a fellowship which contains NPCs. This inventory have a
  * maximum weight. By default, the player have 100 hp and 0 % of corruption A
  * player can pick an item in a room and add it to his inventory. He can drop it
@@ -25,11 +25,10 @@ public class Player {
 					// player is dead
 	private int percentCorruption; // percentage of corruption, cannot be <0,
 									// player's die if percentage is >=100
-	private ArrayList<Item> inventory; // list of all items stored in the
-										// player's inventory
+
 	private ArrayList<NPC> fellowship; // list of all friends currently
 										// following the hero
-	private int inventoryWeight; // current weigh of the inventory
+	private Bag inventory; //Frodo's bag
 	private int maximumInventoryWeight; // maximum weight of th inventory
 	private Room currentRoom; // current room of a player will moves when frodo
 								// moves
@@ -41,12 +40,14 @@ public class Player {
 	 */
 	public Player() {
 		// constructeur sans parametres ?
-		name = "Frodo";
-		hp = 100;
-		percentCorruption = 0;
-		inventory = new ArrayList<>();
-		fellowship = new ArrayList<>();
+		this.name = "Frodo";
+		this.hp = 100;
+		this.percentCorruption = 0;
+		this.inventory = new Bag(); //devrait demander un string normalemment
+		this.fellowship = new ArrayList<>();
 		this.currentRoom = null;
+		this.maximumInventoryWeight = 20;
+
 	}
 
 	/**
@@ -156,29 +157,17 @@ public class Player {
 		}
 	}
 
-	/**
-	 * Returns the list of items
-	 * @return the inventory of our hero
-	 */
-	public ArrayList<Item> getInventory() {
-		return inventory;
-	}
+
 
 	/**
 	 * Returns the total weight of the items the player carries.
 	 * @return weight of the inventory
 	 */
 	public int getInventoryWeight() {
-		return inventoryWeight;
+		return inventory.getInventoryWeight();
 	}
 
-	/**
-	 * Returns the maximum weight that the player can carry.
-	 * @return the value of the maximum weight
-	 */
-	public int getMaximumInventoryWeight() {
-		return maximumInventoryWeight;
-	}
+
 
 	/**
 	 * Check if the player have a specific item.
@@ -198,12 +187,11 @@ public class Player {
 	 * @return true if the item has been added to the inventoru
 	 */
 	public boolean addItem(Item newItem) {
-		if (newItem.getWeight() + inventoryWeight > maximumInventoryWeight) {
+		if (newItem.getWeight() + inventory.getInventoryWeight() > this.maximumInventoryWeight) {
 			// System.out.println("Objet too heavy for your inventory (itemweight : "+newItem.getWeight()+" ) !");
 			return false;
 		} else {
-			inventory.add(newItem); // add the item to the inventory
-			inventoryWeight += newItem.getWeight(); // update the actual weight of the inventory
+			inventory.addItem(newItem);
 			return true;
 		}
 	}
@@ -211,24 +199,20 @@ public class Player {
 	/**
 	 * Remove a specified item from the player's inventory. If the item is
 	 * deleted the total weight of the inventory decrease according to the
-	 * weight of the item, then the item is drop in the currentRoom of the
+	 * weight of the item (see class bag), then the item is drop in the currentRoom of the
 	 * Player
 	 * 
-	 * @param item
-	 *            the item to remove
+	 * @param item the item to remove
 	 * @return false if not done
 	 */
 	public boolean dropItem(Item item) {
 		Item moveItem;
-		moveItem = item;
-		if (this.hasItem(item)) {
-			if (inventory.remove(item)) {// if the object is removed then
-				inventoryWeight -= moveItem.getWeight();// substract the weight of the object to the inventory
-				return currentRoom.addItem(item); // add the removed object to the room
-			} else
-				return false; // if the object can't be removed (impossible in theory)
-		} else
-			return false; // if frodo do not have the specified item
+		moveItem = item; //local temporary variable
+		if (inventory.delItem(item)){
+			return currentRoom.addItem(moveItem); // add the removed object to the room
+			}
+		else return false;
+
 	}
 
 	/**
@@ -257,48 +241,27 @@ public class Player {
 
 	/**
 	 * Allow the player to use an item. Items can have an action on the world
-	 * and/or on the player's HP and/or CP.
+	 * and/or on the player's HP and/or CP.  Once used the objected is droped in the current room
 	 * 
 	 * @param item
 	 *            the item that the player wants to use
 	 */
 	public void use(Item item) {
 		item.use(); // usefull for keys
-		if (!item.getClass().getName().equals("Key")) {
-			// keys cannot be used more than one time
-			dropItem(item);
-		}
+		inventory.delItem(item);
+
 	}
 
 	/**
 	 * Allow the player to use a NPC. NPC can have act on the world and/or on
 	 * the player's HP and/or CP.
 	 * 
-	 * @param npc
-	 *            the NPC that the player wants to use.
+	 * @param npc the NPC that the player wants to use.
 	 */
 	public void use(NPC npc) {
 		npc.use();
 	}
 
-	/**
-	 * Return the player's informations as a string
-	 * 
-	 * @return description of the player
-	 */
-	public String toString() {
-		String str;
-		str = " - " + name + " - " + "\n" + "Inventory capacity : " + inventoryWeight + "/" + maximumInventoryWeight
-				+ "\n" + "Item List : " + "\n";
-		for (Item item : inventory) {
-			str += " - " + item.toString() + "\n";
-		}
-		str += "Fellowship : " + "\n";
-		for (NPC npc : fellowship) {
-			str += " - " + npc.toString() + "\n";
-		}
-		return str;
-	}
 
 	/**
 	 * Try to go to one direction. If there is a room in this direction, go to
@@ -329,20 +292,20 @@ public class Player {
 	}
 
 	/**
-	 * pickUp an Item, add it to the current player inventory if possible then
+	 * pickUp an Item, add it to the current player bag if possible then
 	 * remove it from the room
 	 * 
 	 * @param nameItem
 	 */
-	public void pickUpItem(Item item) {
+	public boolean pickUpItem(Item item) {
 		Item moveItem;// temporary varaible to store the item
 		moveItem = item;
 		currentRoom.delItem(item);
 		if (moveItem != null) {
 			if (!this.addItem(moveItem)) {
-				currentRoom.addItem(moveItem); // si item pas ajouté au perso on le remet dans la piece
-			}
-		}
+				return currentRoom.addItem(moveItem); // si item pas ajouté au perso on le remet dans la piece
+			}else return false;
+		}else return false;
 	}
 
 	/**
