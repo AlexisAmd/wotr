@@ -1,3 +1,4 @@
+//WIP ALEXIS
 package JUtest;
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -7,7 +8,6 @@ import org.junit.Test;
 import wotr.*;
 
 /**
- * WIP
  * The test class PlyerTest.
  * Tests the methods of the clas "Player".
  * 
