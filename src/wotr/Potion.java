@@ -2,7 +2,7 @@ package wotr;
 /**
  * Class Potion
  * This class allows the player to use a potion.
- * Can give their life back to dead NPC
+ * Can give their power back to dead NPC
  * 
  * @author  G1
  * @version 23/11/2016
@@ -23,15 +23,15 @@ public class Potion extends Item
 	 * Method that check if the NPC already used its power.
 	 * If it already used its power, the boolean alreadyUsed is set to false.
 	 * If not, the boolean alreadyUsed is not changed (stays false).
+	 * On used the player drop item
 	 * @param npc (the NPC on which the player wants to use the potion)
 	 * @return true if the boolean alreadyUsed is set from true to false OR false if this boolean is not changed
 	 */
 	
-	public boolean use(NPC npc){
+	public boolean use(NPC npc){ 
         if (npc.getAlreadyUsed()){
-        	npc.restorePower();
-        	npc.setAlreadyUsed(false);
-        	return true;
+        	return npc.restorePower();
+     
         }
         else {
         	return false;
