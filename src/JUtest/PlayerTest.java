@@ -40,6 +40,7 @@ public class PlayerTest {
 		myNPC = new NPC("Gandalf", "Malicious magician", 0, 100, null);
 		myFood = new Food("Beer", "Tasty Beverage", 1, 30, null);
 		myRoom = new Room("kithen");
+		myRoom.addItem(myFood);
 		myPlayer.setCurrentRoom(myRoom);
 		
 	}
@@ -180,6 +181,21 @@ public class PlayerTest {
 	}
 	
 	/**
+	 * Add food
+	 */
+	
+	/**
+	 * Testing the addNPC method.
+	 */
+	@Test
+	public void testpickUpItem()
+	{
+		myPlayer.pickUpItem(myFood);
+		//The player should receive an NPC and hasNPC should return the value true.
+		assertEquals(true, myPlayer.hasItem(myFood));
+	}
+	
+	/**
 	 * addNPC does not allow to add the same NPC twice.
 	 * It retuns the velue false if we try.
 	 */
@@ -191,16 +207,5 @@ public class PlayerTest {
 		assertEquals(false, myPlayer.pickUpNPC(myNPC));
 	}
 	
-	/**
-	 * Testing the addItem method.
-	 * 
-	 */
-	@Test
-	public void testAddItem()
-	{
-		myPlayer.pickUpNPC(myNPC);
-		//When adding the same NPC, the addNPC method should return false.
-		assertEquals(false, myPlayer.pickUpNPC(myNPC));
-	}
 	
 }
