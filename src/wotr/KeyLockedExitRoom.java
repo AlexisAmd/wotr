@@ -9,7 +9,7 @@ package wotr;
  */
 
 public class KeyLockedExitRoom extends LockedExitRoom {
-	private Key key;
+
 
 	/**
 	 * Constructor for locked doors
@@ -18,9 +18,9 @@ public class KeyLockedExitRoom extends LockedExitRoom {
 	 * @param nextRoom
 	 * @param key
 	 */
-	public KeyLockedExitRoom(Room currentRoom, Room nextRoom, Key key) {
+	public KeyLockedExitRoom(Room currentRoom, Room nextRoom) {
 		super(currentRoom, nextRoom);
-		this.key = key;
+		
 	}
 
 	/**
@@ -32,8 +32,8 @@ public class KeyLockedExitRoom extends LockedExitRoom {
 	public Room getNextRoom(Room currentRoom) {
 		if (super.getLocked()) {
 
-			System.out.println("Locked door ! You need to open it with the key :" + key.getName() + " before pass it");
-			return null;
+			
+			return null; //locked
 		} else {
 			if (this.currentRoom != currentRoom) {
 				return this.currentRoom;
