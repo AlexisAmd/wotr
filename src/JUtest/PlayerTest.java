@@ -208,4 +208,13 @@ public class PlayerTest {
 		//When adding the same NPC, the addNPC method should return false.
 		assertEquals(false, myPlayer.pickUpNPC(myNPC));
 	}
+	
+	/**
+	 * Test the set of a corruption
+	 */
+	@Test
+	public void testSetCorruption(){
+	    myPlayer.setCorruption(10);
+	    assertEquals(10, myPlayer.getCorruption());
+	}
 }
