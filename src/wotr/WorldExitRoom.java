@@ -20,6 +20,7 @@ public class WorldExitRoom extends ExitRoom {
     private Room nextRoom;
     private Room currentRoom;
 
+
     /**
      * Constructor for objects of class ExitRoom
      * @param currentRoom the current room
@@ -29,16 +30,5 @@ public class WorldExitRoom extends ExitRoom {
 	super(currentRoom, nextRoom);
     }
 
-    /**
-       *Methods to get the future current room after moving
-     * @param currentRoom
-     * @return the next room
-     */
-    public Room getNextRoom(Room nextRoom) {
-	if (this.currentRoom != nextRoom) {
-	    return this.currentRoom;
-	} else {
-	    return this.nextRoom;
-	}
-    }
+
 }

@@ -175,6 +175,8 @@ public class Room {
 	return "This room is the " + description + "\n";
     }
     
+    
+    
     public boolean checkWorldExit(String direction){
     	String exit = roomHM.get(direction).getClass().getName();
     	if(exit == "wotr.WorldExitRoom"){

@@ -1,5 +1,6 @@
 package wotr;
 import java.util.*;
+import java.util.ArrayList;
 
 /*
  * This class represent the fellowship. It contains a list of all NPC friends who follow the player and will help him to throw the ring  in the Mount Doom.
@@ -54,6 +55,10 @@ public class Fellowship {
 		}
 	}
 	
+
+	public NPC getNPC(int i){
+		return fellowship.get(i);
+	}
 	
 	
 	

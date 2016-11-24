@@ -228,6 +228,8 @@ public class Player {
 	if (nextRoom == null) {
 	    // System.out.println("Can't move to " + direction + "\n");
 	} else {
+		if (currentRoom.checkWorldExit(direction)){
+			this.restoreMagician();}
 	    currentRoom = nextRoom;
 	    // System.out.println("Moved to " + direction + "\n");
 	}
@@ -306,7 +308,9 @@ public class Player {
     
     
     public void restoreMagician(){
-    	
-    	
-    }
+    	for (int i =0; i<this.getFellowshipSize(); i++)
+    		if (fellowship.getNPC(i).getClass().getName()=="wotr.Magician"){
+    			fellowship.getNPC(i).restorePower();}
+    			
+    		}
 }
