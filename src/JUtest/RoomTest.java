@@ -92,29 +92,20 @@ public class RoomTest extends TestCase {
 		assertEquals("description",myRoom.getDescription());
 	}
 
-	@Test
-	public void testPrintItems() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testPrintItems() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testPrintNPC() {
+//		fail("Not yet implemented");
+//	}
 
-	@Test
-	public void testPrintNPC() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetItemList() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetNPCList() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testGetNextRoom() {
-		fail("Not yet implemented");
+		//assertEquals(myNextRoom,);
 	}
 
 	@Test
@@ -122,9 +113,5 @@ public class RoomTest extends TestCase {
 		fail("Not yet implemented");
 	}
 
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
 
 }
