@@ -45,5 +45,15 @@ public class ExitRoom
         else{
             return this.nextRoom;
         }
+        
     }
+
+    /**
+     * @return the currentRoom
+     */
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    
 }

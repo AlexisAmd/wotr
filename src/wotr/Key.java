@@ -22,9 +22,11 @@ public class Key extends Item{
         this.door = door;
     }
     
-    //When you use a key, you unlock a lockedExit
+    //When you use a key, you unlock a lockedExit if you are in the correct room
     public void use(){
-        door.setUnlocked();
+	//check room player
+	if(getCurrentPlayer().getCurrentRoom() == door.getCurrentRoom()){
+        door.setUnlocked();}
     }
     
     /*
