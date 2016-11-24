@@ -7,15 +7,16 @@ import java.util.*;
 
 public class Fellowship {
 	
-	private ArrayList<NPC> fellowship; // the list which contains NPCs.
+	private ArrayList<NPC> fellowship;// the list which contains NPCs.
 	
-	
+
 	
 	/*
 	 * Constructor for Fellowship class
 	 */
 	public Fellowship(){
 		fellowship = new ArrayList<>(); 
+
 	}
 	
 	/**
