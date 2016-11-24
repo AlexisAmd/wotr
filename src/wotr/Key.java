@@ -16,9 +16,10 @@ public class Key extends Item{
      * 
      * @param name (the name of the key), description (its description), weight (its weight) and current player (the player associated)
      */
-    public Key(String name, String description, int weight, Player currentPlayer)
+    public Key(String name, String description, int weight, Player currentPlayer, KeyLockedExitRoom door)
     {
         super(name, description, weight, currentPlayer);
+        this.door = door;
     }
     
     //When you use a key, you unlock a lockedExit
