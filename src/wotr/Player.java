@@ -257,6 +257,14 @@ public class Player {
     public ArrayList<NPC> getFellowship() {
 	return fellowship.getFellowship();
     }
+    
+    /**
+     * Method to return the feelowship of the hero
+     * @return the fellowship of the hero
+     */
+    public ArrayList<Item> getBag() {
+	return inventory.getBag();
+    }
 
     /**
      * pickUp an Item, add it to the current player inventory then remove it

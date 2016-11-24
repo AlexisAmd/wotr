@@ -28,7 +28,7 @@ public class Bag {
 
     /**
      * 
-     * @return Current weight of the iventory
+     * @return Current weight of the inventory
      */
     public int getWeight() {
 	return currentWeight;
@@ -67,5 +67,12 @@ public class Bag {
 		return false; // item can't be removed
 	} else
 	    return false; // item is nt present on the inventory
+    }
+
+    /**
+     * @return
+     */
+    public ArrayList<Item> getBag() {
+	return inventory;
     }
 }
