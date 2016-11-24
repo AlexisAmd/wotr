@@ -9,7 +9,6 @@ package wotr;
  */
 
 public class KeyLockedExitRoom extends LockedExitRoom {
-	private Player player;
 	private Key key;
 
 	/**
