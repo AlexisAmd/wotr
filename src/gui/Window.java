@@ -1,5 +1,5 @@
-package wotr;
-
+package gui;
+import wotr.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -27,7 +27,7 @@ import java.awt.event.MouseEvent;
 
 public class Window {
 
-	private JFrame frmWorldOfTheRing;
+	private JFrame frmWOTR;
 
 	/**
 	 * Launch the application.
@@ -37,7 +37,7 @@ public class Window {
 			public void run() {
 				try {
 					Window Window = new Window();
-					Window.frmWorldOfTheRing.setVisible(true);
+					Window.frmWOTR.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -56,21 +56,21 @@ public class Window {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmWorldOfTheRing = new JFrame();
-		frmWorldOfTheRing.setResizable(false);
-		frmWorldOfTheRing.setSize(new Dimension(600, 400));
-		frmWorldOfTheRing.setAlwaysOnTop(true);
-		frmWorldOfTheRing.setTitle("World of the Ring");
-		frmWorldOfTheRing.getContentPane().setSize(new Dimension(600, 400));
-		frmWorldOfTheRing.getContentPane().setMinimumSize(new Dimension(600, 400));
-		frmWorldOfTheRing.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
-		frmWorldOfTheRing.setBounds(100, 100, 450, 300);
-		frmWorldOfTheRing.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmWorldOfTheRing.getContentPane().setLayout(null);
+		frmWOTR = new JFrame();
+		frmWOTR.setResizable(false);
+		frmWOTR.setSize(new Dimension(600, 400));
+		frmWOTR.setAlwaysOnTop(true);
+		frmWOTR.setTitle("World of the Ring");
+		frmWOTR.getContentPane().setSize(new Dimension(600, 400));
+		frmWOTR.getContentPane().setMinimumSize(new Dimension(600, 400));
+		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
+		frmWOTR.setBounds(100, 100, 450, 300);
+		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWOTR.getContentPane().setLayout(null);
 		
 		JPanel panelInvFello = new JPanel();
 		panelInvFello.setBounds(291, 0, 153, 271);
-		frmWorldOfTheRing.getContentPane().add(panelInvFello);
+		frmWOTR.getContentPane().add(panelInvFello);
 		panelInvFello.setLayout(null);
 		
 		JPanel panelNPC = new JPanel();
@@ -124,11 +124,11 @@ public class Window {
 		
 		JEditorPane editorPaneConsole = new JEditorPane();
 		editorPaneConsole.setBounds(96, 181, 185, 79);
-		frmWorldOfTheRing.getContentPane().add(editorPaneConsole);
+		frmWOTR.getContentPane().add(editorPaneConsole);
 		
 		JPanel panelDirection = new JPanel();
 		panelDirection.setBounds(10, 181, 79, 79);
-		frmWorldOfTheRing.getContentPane().add(panelDirection);
+		frmWOTR.getContentPane().add(panelDirection);
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnWest = new JButton("<");
@@ -154,11 +154,11 @@ public class Window {
 		
 		JPanel panelHero = new JPanel();
 		panelHero.setBounds(10, 11, 272, 47);
-		frmWorldOfTheRing.getContentPane().add(panelHero);
+		frmWOTR.getContentPane().add(panelHero);
 		panelHero.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		JPanel panelMap = new JPanel();
 		panelMap.setBounds(10, 61, 272, 109);
-		frmWorldOfTheRing.getContentPane().add(panelMap);
+		frmWOTR.getContentPane().add(panelMap);
 	}
 }
