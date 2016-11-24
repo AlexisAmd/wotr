@@ -53,6 +53,8 @@ public class Game {
         PasswordLockedExitRoom doorPubOutside;
 
         KeyLockedExitRoom doorOutsideTheatre, doorTheatreOutside;
+        
+        Key keyTheatreOutside, keyOutsideTheatre;
 
         //INSTANCIATION //THIS IS AN EXEMPLE (to define a syntax that we will use in the future)
 
@@ -61,20 +63,14 @@ public class Game {
         roomTheatre = new Room("lecture theatre");
         roomPub = new Room("campus pub");
         roomLab = new Room("computing lab");
-        //create items //DEV info : move this lines to a method named 'creteItems' then call it here
-        Key keyTheatre = new Key("KeyTheatre","Allow to go to theatre",1, currentPlayer);
-        Food lambas = new Food("Lambas","miaaaam", 2, 30, currentPlayer);
-
-        //adding item to rooms
-        roomPub.addItem(keyTheatre);
-        roomTheatre.addItem(lambas);
+        
 
         // initialise room exits (doors)
         doorOutsidePub = new PasswordLockedExitRoom(roomOutside, roomPub, "azertyuiop");
         doorPubOutside = new PasswordLockedExitRoom(roomPub, roomOutside, "azertyuiop");
 
-        doorOutsideTheatre = new KeyLockedExitRoom(roomOutside, roomTheatre, keyTheatre);
-        doorTheatreOutside = new KeyLockedExitRoom(roomTheatre, roomOutside, keyTheatre);
+        doorOutsideTheatre = new KeyLockedExitRoom(roomOutside, roomTheatre);
+        doorTheatreOutside = new KeyLockedExitRoom(roomTheatre, roomOutside);
         doorOutsideLab = new ExitRoom(roomOutside, roomLab);
         doorLabOutside = new ExitRoom(roomLab, roomOutside);
 
@@ -86,6 +82,16 @@ public class Game {
         roomTheatre.addExit("south",doorTheatreOutside);
         roomPub.addExit("north",doorPubOutside);
         roomLab.addExit("west", doorLabOutside);
+        
+      //create items //DEV info : move this lines to a method named 'creteItems' then call it here
+        keyTheatreOutside = new Key("KeyTheatre","Allow to go outside",1, currentPlayer, doorTheatreOutside );
+        keyOutsideTheatre = new Key("KeyOutsideTheatre","Allow to go to theatre",1, currentPlayer, doorOutsideTheatre );
+        Food lambas = new Food("Lambas","miaaaam", 2, 30, currentPlayer);
+
+        //adding item to rooms
+        roomPub.addItem(keyTheatreOutside);
+        roomPub.addItem(keyOutsideTheatre);
+        roomTheatre.addItem(lambas);
 
         startRoom = roomOutside; // start game outside
 
