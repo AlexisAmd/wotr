@@ -11,7 +11,7 @@ public class MagicalItemTest {
 
 	private Player myPlayer;
 	private MagicalItem magicalItem;
-	private Item item;
+	private Room currentRoom;
 	
 	/*
 	 * Sets up the test fixture 
@@ -23,6 +23,10 @@ public class MagicalItemTest {
 		myPlayer = new Player();
 		myPlayer.setCorruption(30); //Set the hp of the player (set by default to 100)
 		magicalItem = new MagicalItem("Ring", "Dangerous", 12, 40, myPlayer);
+		currentRoom = new Room("Une jolie petite salle");
+		currentRoom.addItem(magicalItem);
+		myPlayer.setCurrentRoom(currentRoom);
+		myPlayer.pickUpItem(magicalItem);
 	}
 	
 	/*
@@ -31,7 +35,7 @@ public class MagicalItemTest {
 	 */
 	@Test
 	public void testName() {
-		assertEquals("Ring", item.getName());
+		assertEquals("Ring", magicalItem.getName());
 	}
 
 	/*
@@ -40,7 +44,7 @@ public class MagicalItemTest {
 	 */
 	@Test
 	public void testDescription() {
-		assertEquals("Dangerous", item.getDescription());
+		assertEquals("Dangerous", magicalItem.getDescription());
 	}
 
 	/*
@@ -49,7 +53,7 @@ public class MagicalItemTest {
 	 */
 	@Test
 	public void testWeight() {
-		assertEquals(12, item.getWeight());
+		assertEquals(12, magicalItem.getWeight());
 	}
 	
 	/*
@@ -67,16 +71,7 @@ public class MagicalItemTest {
 	 */
 	@Test
 	public void testPlayer() {
-		assertEquals(myPlayer, item.getCurrentPlayer());
-	}
-	
-	/*
-	 * Method testToString
-	 * Check if the information given as parameter in the constructor is correctly set to the attribute
-	 */
-	@Test
-	public void testToString() {
-		assertEquals("Name : Ring"+"\n"+"Description : Dangerous"+"\n"+"Weight : 12"+"\n" +"Corruption power : 40", magicalItem.toString());
+		assertEquals(myPlayer, magicalItem.getCurrentPlayer());
 	}
 
 	/*
@@ -85,7 +80,7 @@ public class MagicalItemTest {
 	 */
 	@Test
 	public void testUse() {
-		magicalItem.use();
+		myPlayer.use(magicalItem);
 		assertEquals(70, myPlayer.getCorruption());
 	}
 	
