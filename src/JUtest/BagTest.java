@@ -27,11 +27,11 @@ public class BagTest {
      */
     @Before
     public void setUp() throws Exception {
-	Player Frodo = new Player();
-	Room myRoom = new Room("laRoom");
-	Potion myPotion = new Potion("myPotion", "description", 1, Frodo); // weight = 10
+	Frodo = new Player();
+	myRoom = new Room("laRoom");
+	myPotion = new Potion("myPotion", "description", 1, Frodo); // weight = 10
 	myRoom.addItem(myPotion);
-	Bag myBag = new Bag("mybag");
+	myBag = new Bag("mybag");
 	Frodo.setCurrentRoom(myRoom);
 	
 
@@ -49,7 +49,8 @@ public class BagTest {
      */
     @Test
     public void testGetInventoryWeight() {
-	assertEquals(1, Frodo.getWeight());
+	myBag.addItem(myPotion);
+	assertEquals(1, myBag.getWeight());
     }
 
     /**
@@ -67,8 +68,11 @@ public class BagTest {
      */
     @Test
     public void testDelItem() {
-	Frodo.pickUpItem(myPotion);
-	Frodo.dropItem(myPotion);
-	assertFalse(Frodo.hasItem(myPotion));
+	myBag.addItem(myPotion);
+	assertTrue(myBag.getInventory().contains(myPotion));
+	myBag.delItem(myPotion);
+	assertFalse(myBag.getInventory().contains(myPotion));
     }
+    
+    
 }
