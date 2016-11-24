@@ -106,7 +106,7 @@ public class Player {
 	if ((newCorruptionValue < 0) || (newCorruptionValue > 100)) {
 	    throw new IllegalArgumentException("Value is out of range for newCorruptionValue");
 	} else
-	    percentCorruption = newCorruptionValue;
+	    this.percentCorruption = newCorruptionValue;
     }
 
     /**
@@ -115,10 +115,11 @@ public class Player {
      * @param nb The number of corruption to loose, can be a negative value.
      */
     public void addCorruption(int nb) {
-	percentCorruption += nb;
+	this.percentCorruption += nb;
 	if (percentCorruption > 100) { //// Sets corruption if it exceeds its range.
 	    percentCorruption = 100;
-	} else if (percentCorruption < 0) {
+	} 
+	else if (percentCorruption < 0) {
 	    percentCorruption = 0;
 	} 
     }
