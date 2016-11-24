@@ -1,3 +1,4 @@
+
 package gui;
 import wotr.*;
 import java.awt.EventQueue;
@@ -24,6 +25,9 @@ import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JInternalFrame;
+import javax.swing.JDesktopPane;
+import java.awt.Color;
 
 public class Window {
 
@@ -57,18 +61,22 @@ public class Window {
 	 */
 	private void initialize() {
 		frmWOTR = new JFrame();
+		frmWOTR.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
+		frmWOTR.setOpacity(1);
 		frmWOTR.setResizable(false);
-		frmWOTR.setSize(new Dimension(600, 400));
+		frmWOTR.setForeground(Color.LIGHT_GRAY);
+		frmWOTR.setFont(new Font("Roboto", Font.PLAIN, 12));
+		frmWOTR.setSize(new Dimension(1024, 800));
 		frmWOTR.setAlwaysOnTop(true);
 		frmWOTR.setTitle("World of the Ring");
-		frmWOTR.getContentPane().setSize(new Dimension(600, 400));
-		frmWOTR.getContentPane().setMinimumSize(new Dimension(600, 400));
-		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
+		frmWOTR.getContentPane().setSize(new Dimension(1024, 800));
+		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		frmWOTR.setBounds(100, 100, 450, 300);
 		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWOTR.getContentPane().setLayout(null);
 		
 		JPanel panelInvFello = new JPanel();
+		panelInvFello.setBackground(new Color(218, 165, 32));
 		panelInvFello.setBounds(291, 0, 153, 271);
 		frmWOTR.getContentPane().add(panelInvFello);
 		panelInvFello.setLayout(null);
@@ -84,12 +92,12 @@ public class Window {
 		panelNPC.add(listNPC);
 		
 		JButton btnUseNPC = new JButton("Use");
-		btnUseNPC.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnUseNPC.setBounds(73, 6, 70, 21);
 		panelNPC.add(btnUseNPC);
 		
 		JButton btnDropNPC = new JButton("Drop");
-		btnDropNPC.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnDropNPC.setBounds(73, 33, 70, 21);
 		panelNPC.add(btnDropNPC);
 		
@@ -108,12 +116,12 @@ public class Window {
 		panelInventory.add(list);
 		
 		JButton btnUseitem = new JButton("Use");
-		btnUseitem.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnUseitem.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnUseitem.setBounds(73, 11, 70, 21);
 		panelInventory.add(btnUseitem);
 		
 		JButton btnDropitem = new JButton("Drop");
-		btnDropitem.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnDropitem.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnDropitem.setBounds(73, 40, 70, 21);
 		panelInventory.add(btnDropitem);
 		
@@ -132,10 +140,7 @@ public class Window {
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnWest = new JButton("<");
-		btnWest.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
 		JButton btnEast = new JButton(">");
@@ -143,10 +148,7 @@ public class Window {
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
 		JButton btnNorth = new JButton("^");
-		btnNorth.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
 		JButton btnSouth = new JButton("v");
