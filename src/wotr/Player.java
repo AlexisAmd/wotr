@@ -27,7 +27,7 @@ public class Player {
 				   // player's die if percentage is >=100
     private Fellowship fellowship; // list of all friends currently
 				   // following the hero
-    private Bag inventory; // Frodo's bag
+    private Bag bag; // Frodo's bag
     private int maximumInventoryWeight; // maximum weight of th inventory
     private Room currentRoom; // current room of a player will moves when frodo
 			      // moves
@@ -42,7 +42,7 @@ public class Player {
 	this.name = "Frodo";
 	this.hp = 100;
 	this.percentCorruption = 0;
-	this.inventory = new Bag(); // devrait demander un string normalemment
+	this.bag = new Bag(); // devrait demander un string normalemment
 	this.fellowship = new Fellowship();
 	this.currentRoom = null;
 	this.maximumInventoryWeight = 20;
@@ -128,7 +128,7 @@ public class Player {
      * @return weight of the inventory
      */
     public int getWeight() {
-	return inventory.getWeight();
+	return bag.getWeight();
     }
 
     /**
@@ -137,7 +137,7 @@ public class Player {
      * @return true if the player has this item
      */
     public boolean hasItem(Item item) {
-	return inventory.contains(item);
+	return bag.contains(item);
     }
 
     /**
@@ -161,7 +161,7 @@ public class Player {
     public boolean dropItem(Item item) {
 	Item moveItem;
 	moveItem = item; // local temporary variable
-	if (inventory.delItem(item)) {
+	if (bag.delItem(item)) {
 	    return currentRoom.addItem(moveItem); // add the removed object to the room
 	} else
 	    return false;
@@ -200,7 +200,7 @@ public class Player {
      */
     public void use(Item item) {
 	item.use(); // usefull for keys
-	inventory.delItem(item);
+	bag.delItem(item);
     }
 
     /**
@@ -263,7 +263,7 @@ public class Player {
      * @return the fellowship of the hero
      */
     public ArrayList<Item> getBag() {
-	return inventory.getBag();
+	return bag.getBag();
     }
 
     /**
@@ -289,8 +289,8 @@ public class Player {
      * @return true if the item is picked up and deleted
      */
     public boolean pickUpItem(Item item) {
-	if (item.getWeight() + inventory.getWeight() <= this.maximumInventoryWeight) {
-	    if (inventory.addItem(item)) {
+	if (item.getWeight() + bag.getWeight() <= this.maximumInventoryWeight) {
+	    if (bag.addItem(item)) {
 		return currentRoom.delItem(item);
 	    } else
 		return false;
