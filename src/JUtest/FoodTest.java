@@ -10,7 +10,6 @@ public class FoodTest {
 
 	private Player myPlayer;
 	private Food food;
-	private Item item;
     
 	/*
 	 * Sets up the test fixture 
@@ -30,7 +29,7 @@ public class FoodTest {
 	 */
 	@Test
 	public void testName() {
-		assertEquals("Lambas", item.getName());
+		assertEquals("Lambas", food.getName());
 	}
 
 	/*
@@ -39,7 +38,7 @@ public class FoodTest {
 	 */
 	@Test
 	public void testDescription() {
-		assertEquals("Yellow", item.getDescription());
+		assertEquals("Yellow", food.getDescription());
 	}
 
 	/*
@@ -48,7 +47,7 @@ public class FoodTest {
 	 */
 	@Test
 	public void testWeight() {
-		assertEquals(12, item.getWeight());
+		assertEquals(12, food.getWeight());
 	}
 	
 	/*
@@ -66,7 +65,7 @@ public class FoodTest {
 	 */
 	@Test
 	public void testPlayer() {
-		assertEquals(myPlayer, item.getCurrentPlayer());
+		assertEquals(myPlayer, food.getCurrentPlayer());
 	}
 	
 	/*

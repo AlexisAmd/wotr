@@ -1,3 +1,4 @@
+//**************WIP************
 package JUtest;
 import static org.junit.Assert.*;
 
@@ -12,6 +13,8 @@ public class KeyTest {
 	private Key key;
 	private Item item;
 	private LockedExitRoom locked;
+	private KeyLockedExitRoom door;
+	private Room currentRoom, nextRoom;
 	
 	/*
 	 * Sets up the test fixture 
@@ -21,6 +24,7 @@ public class KeyTest {
 	public void setUp()
 	{
 		key = new Key("Key1", "open the door", 12, myPlayer);
+		door = new KeyLockedExitRoom(currentRoom,nextRoom,key);
 	}
 	
 	/*
@@ -30,7 +34,7 @@ public class KeyTest {
 	@Test
 	public void testUse() {
 		key.use();
-		assertEquals(false, locked.getLocked());
+		assertEquals(false, door.getLocked());
 	}
 
 	/*
@@ -39,7 +43,7 @@ public class KeyTest {
 	 */
 	@Test
 	public void testName() {
-		assertEquals("Key1", item.getName());
+		assertEquals("Key1", key.getName());
 	}
 
 	/*
@@ -48,7 +52,7 @@ public class KeyTest {
 	 */
 	@Test
 	public void testDescription() {
-		assertEquals("open the door", item.getDescription());
+		assertEquals("open the door", key.getDescription());
 	}
 
 	/*
@@ -57,7 +61,7 @@ public class KeyTest {
 	 */
 	@Test
 	public void testWeight() {
-		assertEquals(12, item.getWeight());
+		assertEquals(12, key.getWeight());
 	}
 
 	/*
@@ -66,6 +70,6 @@ public class KeyTest {
 	 */
 	@Test
 	public void testPlayer() {
-		assertEquals(myPlayer, item.getCurrentPlayer());
+		assertEquals(myPlayer, key.getCurrentPlayer());
 	}
 }

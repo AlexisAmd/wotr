@@ -1,64 +1,50 @@
-/**
- * 
- */
+
 package JUtest;
+import wotr.*;
 
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.*;
 
-/**
- * @author pc
- *
- */
 public class FellowshipTest {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	private Fellowship fellowship;
+	private Player player;
+	private NPC npc;
+	
+	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp(){
+		player = new Player();
+		npc = new NPC("Sam", "hobbit", 0, 100, player);
+		fellowship = new Fellowship();
+		fellowship.addNPC(npc);
 	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	/**
-	 * Test method for {@link wotr.Fellowship#Fellowship()}.
-	 */
 	@Test
-	public void testFellowship() {
-		fail("Not yet implemented");
+	public void testGetFellowship(){
+		assertNotNull("not null",fellowship.getFellowship());
+		
 	}
-
-	/**
-	 * Test method for {@link wotr.Fellowship#getFellowship()}.
-	 */
+	
 	@Test
-	public void testGetFellowship() {
-		fail("Not yet implemented");
+	public void testContains(){
+		NPC gandalf = new NPC("Gandalf", "magician", 0, 2000, player);
+		fellowship.addNPC(gandalf);
+		assertEquals(true, fellowship.contains(gandalf));
 	}
-
-	/**
-	 * Test method for {@link wotr.Fellowship#hasNPC(wotr.NPC)}.
-	 */
+	
 	@Test
-	public void testHasNPC() {
-		fail("Not yet implemented");
+	public void testNotContains(){
+		NPC aragorn = new NPC("aragorn", "warrior", 0, 2000, player);
+		assertEquals(false, fellowship.contains(aragorn));
 	}
-
-	/**
-	 * Test method for {@link wotr.Fellowship#addNPC(wotr.NPC)}.
-	 */
-	@Test
-	public void testAddNPC() {
-		fail("Not yet implemented");
+	
+	@Test 
+	public void testAddNpc(){
+		NPC aragorn = new NPC("Aragorn", "warrior", 0, 2000, player);
+		fellowship.addNPC(aragorn);
+		assertEquals(true, fellowship.contains(aragorn));
 	}
-
+	
 }

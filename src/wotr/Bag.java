@@ -1,4 +1,5 @@
 //WIP Alexis
+
 package wotr;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class Bag {
      * 
      * @return Current weight of the inventory
      */
-    public int getWeight() {
+    public int getInventoryWeight() {
 	return currentWeight;
     }
 
