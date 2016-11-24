@@ -17,7 +17,7 @@ import wotr.*;
 public class PlayerTest {
 
 	private Player myPlayer;
-	private NPC myNPC;
+	private Magician myNPC;
 	private Food myFood;
 	private Room myRoom;
 	/**
@@ -37,7 +37,7 @@ public class PlayerTest {
 	public void setUp()
 	{
 		myPlayer = new Player();
-		myNPC = new NPC("Gandalf", "Malicious magician", 0, 100, null);
+		myNPC = new Magician("Gandalf", "Malicious magician", 0, 100, null);
 		myFood = new Food("Beer", "Tasty Beverage", 1, 30, null);
 		myRoom = new Room("kithen");
 		myRoom.addItem(myFood);
@@ -217,4 +217,27 @@ public class PlayerTest {
 	    myPlayer.setCorruption(10);
 	    assertEquals(10, myPlayer.getCorruption());
 	}
+	
+	/**
+	 * Test if the method return the good size
+	 */
+	@Test
+	public void testGetFellowshipSize(){
+		myPlayer.pickUpNPC(myNPC);
+		assertEquals(1, myPlayer.getFellowshipSize());
+	}
+	
+	
+	/**
+	 * Check if the method restoreMagician works
+	 */
+	@Test
+	public void testRestoreMagician(){
+		myPlayer.pickUpNPC(myNPC);
+		myPlayer.getFellowship().get(0).setAlreadyUsed(true);
+		myPlayer.restoreMagician();
+		assertEquals(false, myPlayer.getFellowship().get(0).getAlreadyUsed());
+	}
+	
+	
 }
