@@ -42,10 +42,10 @@ public class Player {
 	this.name = "Frodo";
 	this.hp = 100;
 	this.percentCorruption = 0;
-	this.bag = new Bag(); // devrait demander un string normalemment
+	this.bag = new Bag("Baggins"); // devrait demander un string normalemment
 	this.fellowship = new Fellowship();
 	this.currentRoom = null;
-	this.maximumInventoryWeight = 20;
+	this.maximumInventoryWeight = 100;
     }
 
     /**

@@ -21,7 +21,7 @@ public class Bag {
      * A bag contains Items and his weight is defined by the sum of the weights of all items. A player have only one bag at a moment
      * @param description the name of the bag (i.e. leather bag)
      */
-    public void Bag(String description) {
+    public Bag(String description) {
 	this.inventory = new ArrayList<Item>();
 	this.currentWeight = 0;
 	this.description = description;
