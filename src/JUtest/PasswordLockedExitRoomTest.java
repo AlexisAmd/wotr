@@ -3,7 +3,6 @@
  */
 package JUtest;
 import org.junit.Test;
-import java.util.Scanner;
 import wotr.*;
 import static org.junit.Assert.*;
 import org.junit.Before;
