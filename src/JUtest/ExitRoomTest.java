@@ -2,7 +2,8 @@
 
 package JUtest;
 import junit.framework.*;
-import wotr.*;
+import wotr.ExitRoom;
+import wotr.Room;
 
 public class ExitRoomTest extends TestCase {
 	private ExitRoom room;

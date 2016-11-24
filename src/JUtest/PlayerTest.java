@@ -1,3 +1,4 @@
+//WIP ALEXIS
 package JUtest;
 import static org.junit.Assert.*;
 import org.junit.After;
@@ -7,7 +8,6 @@ import org.junit.Test;
 import wotr.*;
 
 /**
- * WIP
  * The test class PlyerTest.
  * Tests the methods of the clas "Player".
  * 
@@ -20,7 +20,7 @@ public class PlayerTest {
 	private Player myPlayer;
 	private NPC myNPC;
 	private Food myFood;
-	
+	private Room myRoom;
 	/**
 	 * Default constructor for the PlayerTest class.
 	 */
@@ -40,6 +40,9 @@ public class PlayerTest {
 		myPlayer = new Player();
 		myNPC = new NPC("Gandalf", "Malicious magician", 0, 100, null);
 		myFood = new Food("Beer", "Tasty Beverage", 1, 30, null);
+		myRoom = new Room("kithen");
+		myPlayer.setCurrentRoom(myRoom);
+		
 	}
 	
 	/**
@@ -62,7 +65,7 @@ public class PlayerTest {
 	{
 		myPlayer.addHp(-101);
 		// Assuming that the player starts with 100 HP, the player should be considered dead.
-		assertEquals(false, myPlayer.isAlive());
+		assertFalse(myPlayer.isAlive());
 	}
 	
 	/**
@@ -170,9 +173,9 @@ public class PlayerTest {
 	 * Testing the addNPC method.
 	 */
 	@Test
-	public void testAddNPC()
+	public void testpickUpNPC()
 	{
-		myPlayer.addNPC(myNPC);
+		myPlayer.pickUpNPC(myNPC);
 		//The player should receive an NPC and hasNPC should return the value true.
 		assertEquals(true, myPlayer.hasNPC(myNPC));
 	}
@@ -184,9 +187,9 @@ public class PlayerTest {
 	@Test
 	public void testAddNPCSame()
 	{
-		myPlayer.addNPC(myNPC);
+		myPlayer.pickUpNPC(myNPC);
 		//When adding the same NPC, the addNPC method should return false.
-		assertEquals(false, myPlayer.addNPC(myNPC));
+		assertEquals(false, myPlayer.pickUpNPC(myNPC));
 	}
 	
 	/**
@@ -196,9 +199,9 @@ public class PlayerTest {
 	@Test
 	public void testAddItem()
 	{
-		myPlayer.addNPC(myNPC);
+		myPlayer.pickUpNPC(myNPC);
 		//When adding the same NPC, the addNPC method should return false.
-		assertEquals(false, myPlayer.addNPC(myNPC));
+		assertEquals(false, myPlayer.pickUpNPC(myNPC));
 	}
 	
 }
