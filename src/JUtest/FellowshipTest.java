@@ -30,4 +30,24 @@ public class FellowshipTest {
 		
 	}
 	
+	@Test
+	public void testContains(){
+		NPC gandalf = new NPC("Gandalf", "magician", 0, 2000, player);
+		fellowship.addNPC(gandalf);
+		assertEquals(true, fellowship.contains(gandalf));
+	}
+	
+	@Test
+	public void testNotContains(){
+		NPC aragorn = new NPC("aragorn", "warrior", 0, 2000, player);
+		assertEquals(false, fellowship.contains(aragorn));
+	}
+	
+	@Test 
+	public void testAddNpc(){
+		NPC aragorn = new NPC("Aragorn", "warrior", 0, 2000, player);
+		fellowship.addNPC(aragorn);
+		assertEquals(true, fellowship.contains(aragorn));
+	}
+	
 }
