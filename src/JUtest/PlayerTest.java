@@ -181,7 +181,9 @@ public class PlayerTest {
 	}
 	
 	/**
-	 * Add food
+	 * Add food. Amount of food is pseudo illimited (according to the bag weight -> already tested)
+	 * 
+	 * 
 	 */
 	
 	/**

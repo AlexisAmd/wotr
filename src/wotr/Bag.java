@@ -41,8 +41,10 @@ public class Bag {
      * @return true if added
      */
     public boolean addItem(Item newItem) {
-	currentWeight += newItem.getWeight();
-	return inventory.add(newItem);
+	if (inventory.add(newItem)){
+	    currentWeight += newItem.getWeight(); //update weight
+	    return true;
+	}else return false;
     }
 
     /**
