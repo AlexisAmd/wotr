@@ -297,4 +297,15 @@ public class Player {
 	} else
 	    return false;
     }
+ 
+    public int getFellowshipSize(){
+    	return fellowship.getFellowship().size();
+    	
+    }
+    
+    
+    public void restoreMagician(){
+    	
+    	
+    }
 }
