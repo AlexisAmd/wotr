@@ -208,6 +208,4 @@ public class PlayerTest {
 		//When adding the same NPC, the addNPC method should return false.
 		assertEquals(false, myPlayer.pickUpNPC(myNPC));
 	}
-	
-	
 }
