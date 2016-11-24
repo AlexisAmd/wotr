@@ -174,4 +174,14 @@ public class Room {
     public String toString() {
 	return "This room is the " + description + "\n";
     }
+    
+    public boolean checkWorldExit(String direction){
+    	String exit = roomHM.get(direction).getClass().getName();
+    	if(exit == "wotr.WorldExitRoom"){
+    		return true;
+    	}
+		return false;
+    	
+    	
+    }
 }
