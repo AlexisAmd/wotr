@@ -308,6 +308,7 @@ public class Player {
      */
     public int getFellowshipSize(){
     	return fellowship.getFellowship().size();
+    }
     	
   
     /**
