@@ -7,14 +7,13 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import wotr.Magician;
 import wotr.NPC;
 import wotr.Player;
 import wotr.Room;
 
 /**
  * 	
- * A warrior is a specific npc. As like other npc he cans act on Frodo's healt points or corruption points. However he can also kill a npc.
+ * A warrior is a specific npc. As like other npc he cans act on Frodo's health points or corruption points. However he can also kill a npc.
  * When a npc is dead, he is removed from the frodo's fellowship and stay in the room where he died.
  * NPC can reanimate by a magician. A dead NPC can also be picked up again by frodo and his fellowship (because humans used to bury their dead friends...) 
 
@@ -33,14 +32,15 @@ public class WarriorTest {
 		Frodo = new Player(); //hp = 100, corruption = 0
 		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
 		Aragorn = new Warrior("Aragorn", "Brave", -2, 0, Frodo);
-		Frodo.pickUpNPC(npcSam);
 		Forest = new Room("forest");
+		Forest.addNPC(npcSam);
+		Frodo.pickUpNPC(npcSam);
 
 	}
 	
 	@Test //already tested in class player but checked again here
 	public void testAddSam(){
-		assertTrue(Frodo.getFellowship().contains(npcSam));//verify tham sam is a member of frodo's fellowship
+		assertTrue(Frodo.getFellowship().contains(npcSam));//verify than sam is a member of frodo's fellowship
 	}
 	
 	@Test
@@ -64,7 +64,5 @@ public class WarriorTest {
 		Aragorn.use(npcSam);
 		assertTrue(Forest.getNPCList().contains(npcSam)); 
 	}
-
-	
 
 }
