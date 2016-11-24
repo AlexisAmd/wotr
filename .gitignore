@@ -1,13 +1,8 @@
 /bin/
-/.idea/
-/.metadata/
-
-*.iml
 *.class
 *.classpath
 *.project
 *.bluej
-*.prefs
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

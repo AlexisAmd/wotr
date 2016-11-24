@@ -1,4 +1,3 @@
-
 package JUtest;
 import static org.junit.Assert.*;
 
@@ -9,9 +8,9 @@ import org.junit.Test;
 
 public class PotionTest {
 	private NPC npcSam;
-	private Potion potionLife;
+	private Potion potion;
 	private Player Frodo;
-
+	private Item item;
 	
 	/*
 	 * Sets up the test fixture 
@@ -21,7 +20,7 @@ public class PotionTest {
 	@Before
 	public void setUp()
 	{
-		potionLife = new Potion("Potion1", "restore power", 12, Frodo);
+		potion = new Potion("Potion1", "restore power", 12, Frodo);
 		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
 
 	}
@@ -32,7 +31,7 @@ public class PotionTest {
 	 */
 	@Test
 	public void testUse() {
-		potionLife.use();
+		potion.use();
 		assertEquals(false, npcSam.getAlreadyUsed());
 	}
 	
@@ -42,8 +41,7 @@ public class PotionTest {
 	 */
 	@Test
 	public void testName() {
-	  
-		assertEquals("Potion1", potionLife.getName());
+		assertEquals("Potion1", item.getName());
 	}
 	
 	/*
@@ -52,7 +50,7 @@ public class PotionTest {
 	 */
 	@Test
 	public void testDescription() {
-		assertEquals("restore power", potionLife.getDescription());
+		assertEquals("restore power", item.getDescription());
 	}
 	
 	/*
@@ -61,7 +59,7 @@ public class PotionTest {
 	 */
 	@Test
 	public void testWeight() {
-		assertEquals(12, potionLife.getWeight());
+		assertEquals(12, item.getWeight());
 	}
 	
 	/*
@@ -70,7 +68,7 @@ public class PotionTest {
 	 */
 	@Test
 	public void testPlayer() {
-		assertEquals(Frodo, potionLife.getCurrentPlayer());
+		assertEquals(Frodo, item.getCurrentPlayer());
 	}
 	
 	

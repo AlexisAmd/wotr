@@ -2,7 +2,7 @@
 /**
  * Class wich describes ExitRooms
  * 
- * @author GR1 - 
+ * @author GR1 - Alexis
  * @version (a version number or a date)
  */
 /**
