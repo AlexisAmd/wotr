@@ -301,12 +301,18 @@ public class Player {
 	    return false;
     }
  
+    
+    /**
+     * This method return the size of our fellowship
+     * @return the size of the fellowship
+     */
     public int getFellowshipSize(){
     	return fellowship.getFellowship().size();
     	
-    }
-    
-    
+  
+    /**
+     * This method restore the power of the magician, if it is present on the fellowship.
+     */
     public void restoreMagician(){
     	for (int i =0; i<this.getFellowshipSize(); i++)
     		if (fellowship.getNPC(i).getClass().getName()=="wotr.Magician"){
