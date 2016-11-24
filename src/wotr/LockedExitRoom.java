@@ -11,7 +11,7 @@ package wotr;
  * @author Gr1
  * @version 22/11/2016
  */
-public class LockedExitRoom extends ExitRoom
+public abstract class LockedExitRoom extends ExitRoom
 {
     private boolean locked;
     
