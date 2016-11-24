@@ -9,23 +9,31 @@ import org.junit.Test;
 
 public class KeyTest {
 
-	private Player myPlayer;
+	private Player Frodo;
 	private Key key;
 	private Item item;
 	private LockedExitRoom locked;
 	private KeyLockedExitRoom door;
 	private Room currentRoom, nextRoom;
+	//private Bag myBag;
 	
 	/*
 	 * Sets up the test fixture 
-	 * Initialize one key for each test, whose name is "Key1", description is "open the door", weight is "12", currentPlayer is myPlayer
+	 * Initialize one key for each test, whose name is "Key1", description is "open the door", weight is "12", currentPlayer is Frodo
 	 */
 	@Before
 	public void setUp()
 	{
-		key = new Key("Key1", "open the door", 12, myPlayer);
-		door = new KeyLockedExitRoom(currentRoom,nextRoom,key);
+		Player Frodo = new Player();
+	    //Bag myBag = new Bag("myBagDescription");
+		Key key = new Key("Key1", "open the door", 12, Frodo);
+		KeyLockedExitRoom door = new KeyLockedExitRoom(currentRoom,nextRoom,key);
+		Room currentRoom = new Room("this is the current room");
+		currentRoom.addItem(key);
+	    Frodo.setCurrentRoom(currentRoom);
+		Frodo.pickUpItem(key);
 	}
+
 	
 	/*
 	 * Method testUse
@@ -70,6 +78,6 @@ public class KeyTest {
 	 */
 	@Test
 	public void testPlayer() {
-		assertEquals(myPlayer, key.getCurrentPlayer());
+		assertEquals(Frodo, key.getCurrentPlayer());
 	}
 }

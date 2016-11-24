@@ -262,8 +262,8 @@ public class Player {
      * Method to return the feelowship of the hero
      * @return the fellowship of the hero
      */
-    public ArrayList<Item> getBag() {
-	return bag.getBag();
+    public ArrayList<Item> getInventory() {
+	return bag.getInventory();
     }
 
     /**

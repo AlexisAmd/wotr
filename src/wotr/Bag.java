@@ -72,10 +72,14 @@ public class Bag {
 	    return false; // item is nt present on the inventory
     }
 
+
     /**
      * @return
      */
-    public ArrayList<Item> getBag() {
+    public ArrayList<Item> getInventory() {
+	// TODO Auto-generated method stub
 	return inventory;
     }
+
+   
 }
