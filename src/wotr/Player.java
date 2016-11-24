@@ -309,8 +309,8 @@ public class Player {
     public int getFellowshipSize(){
     	return fellowship.getFellowship().size();
     }
-    	
-  
+	
+		
     /**
      * This method restore the power of the magician, if it is present on the fellowship.
      */
