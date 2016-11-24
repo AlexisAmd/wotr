@@ -8,6 +8,10 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import wotr.Bag;
+import wotr.Player;
+import wotr.Potion;
+import wotr.Room;
 
 /**
  * @author GR1
@@ -15,12 +19,22 @@ import org.junit.Test;
  *
  */
 public class BagTest {
+    private Potion myPotion;
+    private Player Frodo;
+    private Bag myBag;
+    private Room myRoom;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+	    Player Frodo = new Player();
+		    Bag myBag = new Bag();
+		    Potion myPotion = new Potion("myPotion", "description", 10, Frodo); //weight = 10
+		    Room myRoom = new Room("laRoom");
+		    myRoom.addItem(myPotion);
+		    Frodo.pickUpItem(myPotion);
 	}
 
 	/**
@@ -30,20 +44,15 @@ public class BagTest {
 	public void tearDown() throws Exception {
 	}
 
-	/**
-	 * Test method for {@link wotr.Bag#Bag(java.lang.String)}.
-	 */
-	@Test
-	public void testBag() {
-		fail("Not yet implemented"); // TODO
-	}
+
 
 	/**
 	 * Test method for {@link wotr.Bag#getInventoryWeight()}.
 	 */
 	@Test
 	public void testGetInventoryWeight() {
-		fail("Not yet implemented"); // TODO
+		Frodo.pickUpItem(myPotion);
+		assertEquals(10, Frodo.getWeight());
 	}
 
 	/**
@@ -51,7 +60,8 @@ public class BagTest {
 	 */
 	@Test
 	public void testAddItem() {
-		fail("Not yet implemented"); // TODO
+		Frodo.pickUpItem(myPotion);
+		assertTrue(Frodo.hasItem(myPotion));
 	}
 
 	/**

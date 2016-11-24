@@ -120,7 +120,7 @@ public class Player {
 	    percentCorruption = 100;
 	} else if (percentCorruption < 0) {
 	    percentCorruption = 0;
-	}
+	} 
     }
 
     /**

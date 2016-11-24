@@ -31,7 +31,7 @@ public class Bag {
      * 
      * @return Current weight of the inventory
      */
-    public int getInventoryWeight() {
+    public int getWeight() {
 	return currentWeight;
     }
 
