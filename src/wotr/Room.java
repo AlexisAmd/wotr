@@ -171,12 +171,19 @@ public class Room {
 	});
     }
 
+    /**
+     * Return the description of the room
+     */
     public String toString() {
 	return "This room is the " + description + "\n";
     }
     
     
-    
+    /**
+     * This method check if the exit room chose is a WorldExit
+     * @param direction: direction chose by the player, which leads to the exit we want to check 
+     * @return true if the exit chose is an ExitWorld
+     */
     public boolean checkWorldExit(String direction){
     	String exit = roomHM.get(direction).getClass().getName();
     	if(exit == "wotr.WorldExitRoom"){
