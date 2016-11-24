@@ -11,7 +11,7 @@ public class MagicalItemTest {
 
 	private Player myPlayer;
 	private MagicalItem magicalItem;
-	private Room currentRoom;
+
 	
 	/*
 	 * Sets up the test fixture 
@@ -21,12 +21,10 @@ public class MagicalItemTest {
 	public void setUp()
 	{
 		myPlayer = new Player();
-		myPlayer.setCorruption(30); //Set the hp of the player (set by default to 100)
+		myPlayer.setCorruption(30); //Set the corruption of the player (set by default to 100)
 		magicalItem = new MagicalItem("Ring", "Dangerous", 12, 40, myPlayer);
-		currentRoom = new Room("Une jolie petite salle");
-		currentRoom.addItem(magicalItem);
-		myPlayer.setCurrentRoom(currentRoom);
-		myPlayer.pickUpItem(magicalItem);
+		//myPlayer.getInventory().add(magicalItem);
+
 	}
 	
 	/*
@@ -80,7 +78,8 @@ public class MagicalItemTest {
 	 */
 	@Test
 	public void testUse() {
-		myPlayer.use(magicalItem);
+	   
+	    	magicalItem.use();
 		assertEquals(70, myPlayer.getCorruption());
 	}
 	
