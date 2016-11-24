@@ -28,7 +28,7 @@ public class KeyLockedExitRoomTest {
 		currentRoom = new Room("salle1");
 		nextRoom = new Room("salle2");
 		key = new Key("magique", "blabla", 1, player, keyLocked);
-		keyLocked = new KeyLockedExitRoom(currentRoom, nextRoom, key);
+		keyLocked = new KeyLockedExitRoom(currentRoom, nextRoom);
 	}
 	
 	

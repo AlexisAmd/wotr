@@ -29,7 +29,7 @@ public class KeyTest {
 		
 		currentRoom = new Room("this is the current room");
 		currentRoom.addItem(key);
-		door = new KeyLockedExitRoom(currentRoom,nextRoom,key);
+		door = new KeyLockedExitRoom(currentRoom,nextRoom);
 		key = new Key("Key1", "open the door", 12, Frodo, door);
 		Frodo.setCurrentRoom(currentRoom);
 		Frodo.pickUpItem(key);
