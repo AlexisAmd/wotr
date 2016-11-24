@@ -56,6 +56,12 @@ public class Fellowship {
 	}
 	
 
+	
+	/**
+	 * Return the NPC contained in the index entered
+	 * @param i : number of index where the NPC we want to find is.
+	 * @return the NPC searched.
+	 */
 	public NPC getNPC(int i){
 		return fellowship.get(i);
 	}
