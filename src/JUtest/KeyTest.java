@@ -24,11 +24,11 @@ public class KeyTest {
 	@Before
 	public void setUp()
 	{
-		Player Frodo = new Player();
+		Frodo = new Player();
 	    //Bag myBag = new Bag("myBagDescription");
-		Key key = new Key("Key1", "open the door", 12, Frodo);
-		KeyLockedExitRoom door = new KeyLockedExitRoom(currentRoom,nextRoom,key);
-		Room currentRoom = new Room("this is the current room");
+		key = new Key("Key1", "open the door", 12, Frodo);
+		door = new KeyLockedExitRoom(currentRoom,nextRoom,key);
+		currentRoom = new Room("this is the current room");
 		currentRoom.addItem(key);
 	    Frodo.setCurrentRoom(currentRoom);
 		Frodo.pickUpItem(key);

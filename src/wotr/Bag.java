@@ -74,7 +74,8 @@ public class Bag {
 
 
     /**
-     * @return
+     * Method to return items which are in the bag
+     * @return an array off if item wich are in the bag
      */
     public ArrayList<Item> getInventory() {
 	// TODO Auto-generated method stub

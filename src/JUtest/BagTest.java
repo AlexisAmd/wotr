@@ -18,7 +18,7 @@ import wotr.Room;
  *
  */
 public class BagTest {
-    private Potion myPotion;
+    private Potion myPotion, myHeavyObject;
     private Player Frodo;
     private Room myRoom;
     private Bag myBag;
@@ -27,12 +27,14 @@ public class BagTest {
      */
     @Before
     public void setUp() throws Exception {
-	Player Frodo = new Player();
-	Potion myPotion = new Potion("myPotion", "description", 1, Frodo); // weight = 10
-	Room myRoom = new Room("laRoom");
-	Bag myBag = new Bag("mybag");
-	Frodo.setCurrentRoom(myRoom);
+	Frodo = new Player();
+	myRoom = new Room("laRoom");
+	myPotion = new Potion("myPotion", "description", 1, Frodo); // weight = 1
+	myHeavyObject = new Potion("myPotion", "description", 100, Frodo); // weight = 100
 	myRoom.addItem(myPotion);
+	myBag = new Bag("mybag");
+	Frodo.setCurrentRoom(myRoom);
+	
 
     }
 
@@ -48,7 +50,8 @@ public class BagTest {
      */
     @Test
     public void testGetInventoryWeight() {
-	assertEquals(1, Frodo.getWeight());
+	myBag.addItem(myPotion);
+	assertEquals(1, myBag.getWeight());
     }
 
     /**
@@ -58,6 +61,7 @@ public class BagTest {
     public void testAddItem() {
 	myBag.addItem(myPotion);
 	assertTrue(myBag.getInventory().contains(myPotion));
+	
     }
 
     /**
@@ -65,8 +69,17 @@ public class BagTest {
      */
     @Test
     public void testDelItem() {
-	Frodo.pickUpItem(myPotion);
-	Frodo.dropItem(myPotion);
-	assertFalse(Frodo.hasItem(myPotion));
+	myBag.addItem(myPotion);
+	assertTrue(myBag.getInventory().contains(myPotion));
+	myBag.delItem(myPotion);
+	assertFalse(myBag.getInventory().contains(myPotion));
     }
+    
+    /**
+     * Add test, to be sure we cannot add a too heavy object (max bag weight = 20, item weiht = 100)
+     */
+	public void testAddHeavyItem(){
+	    assertFalse(myBag.addItem(myHeavyObject));
+    
+}
 }
