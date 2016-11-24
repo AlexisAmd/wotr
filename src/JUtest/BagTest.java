@@ -28,11 +28,12 @@ public class BagTest {
     @Before
     public void setUp() throws Exception {
 	Player Frodo = new Player();
-	Potion myPotion = new Potion("myPotion", "description", 1, Frodo); // weight = 10
 	Room myRoom = new Room("laRoom");
+	Potion myPotion = new Potion("myPotion", "description", 1, Frodo); // weight = 10
+	myRoom.addItem(myPotion);
 	Bag myBag = new Bag("mybag");
 	Frodo.setCurrentRoom(myRoom);
-	myRoom.addItem(myPotion);
+	
 
     }
 
@@ -58,6 +59,7 @@ public class BagTest {
     public void testAddItem() {
 	myBag.addItem(myPotion);
 	assertTrue(myBag.getInventory().contains(myPotion));
+	
     }
 
     /**
