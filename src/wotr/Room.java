@@ -30,7 +30,7 @@ public class Room {
     public Room(String description, String script, String img) {
 	this.description = description;
         this.script= script;
-        this.imgLoc= imgLoc;
+        this.img= img;
 	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
 	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
 	this.NPCList = new ArrayList<>();//
@@ -62,7 +62,7 @@ public class Room {
      * @return The map of the rooms available from the current room.
      */
     public HashMap<String,Door> getExits(){
-        return(rooms);
+        return(roomHM);
     }
 
 
