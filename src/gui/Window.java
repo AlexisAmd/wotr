@@ -163,10 +163,10 @@ public class Window {
 		panelInfoBotom.setLayout(null);
 		
 		JProgressBar progressBarHealth = new JProgressBar();
+		progressBarHealth.setStringPainted(true);
 		progressBarHealth.setString("Hp : 0 %");
 		progressBarHealth.setBounds(12, 8, 380, 37);
 		progressBarHealth.setToolTipText("Health points, if they are equal to 100 you're dead !");
-		progressBarHealth.setStringPainted(true);
 		progressBarHealth.setForeground(Color.RED);
 		progressBarHealth.setBackground(Color.WHITE);
 		panelInfoBotom.add(progressBarHealth);
