@@ -8,7 +8,7 @@ package wotr;
  * 	- the player hasn't a key, he can't go to the next room
  */
 
-public class KeyLockedExitRoom extends LockedExitRoom {
+public class KeyLockedDoor extends LockedDoor {
 
 
 	/**
@@ -18,7 +18,7 @@ public class KeyLockedExitRoom extends LockedExitRoom {
 	 * @param nextRoom
 	 * @param key
 	 */
-	public KeyLockedExitRoom(Room currentRoom, Room nextRoom) {
+	public KeyLockedDoor(Room currentRoom, Room nextRoom) {
 		super(currentRoom, nextRoom);
 		
 	}

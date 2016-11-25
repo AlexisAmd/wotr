@@ -13,17 +13,17 @@ import java.util.Scanner;
  */
 
 
-public class PasswordLockedExitRoom extends LockedExitRoom{
+public class PasswordLockedDoor extends LockedDoor{
     private String password; //the password to cross the door
 
 
     /*
-     * Constructor of the PasswordLockedExitRoom class
+     * Constructor of the PasswordLockedDoor class
      * @param currentRoom : room where the player is
      * @param nextRoom : room behind the door
      * @param password: paswword required to open the door
      */
-    public PasswordLockedExitRoom(Room currentRoom,Room nextRoom, String password)
+    public PasswordLockedDoor(Room currentRoom,Room nextRoom, String password)
     {
         super(currentRoom, nextRoom);
         this.password=password;

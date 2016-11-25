@@ -16,7 +16,7 @@ public class Room {
     private String description; // description
     private String script;//txt
     private String img;//img
-    private HashMap<String, ExitRoom> roomHM; // avaible exits for this room
+    private HashMap<String, Door> roomHM; // avaible exits for this room
     private ArrayList<Item> itemList; // items avaibles in this room
     private ArrayList<NPC> NPCList; // NPC present in the room, can be a friend or an ennemy
 
@@ -72,7 +72,7 @@ public class Room {
      * @param direction of the exit
      * @param exit, next room after pass the door (exit room)
      */
-    public void addExit(String direction, ExitRoom exit) {
+    public void addExit(String direction, Door exit) {
 	roomHM.put(direction, exit);
     }
 
@@ -130,7 +130,7 @@ public class Room {
 	return description;
     }
 
-    public HashMap<String, ExitRoom> getRoomExits() 
+    public HashMap<String, Door> getRoomExits() 
     {
 	return this.roomHM;
     }

@@ -9,14 +9,14 @@
 package wotr;
 public class Key extends Item{
     //the key have to have an Lock attributes in order to have a bidirectionnal independance, like that only one key can open a lock and a locked can be unlocked by only one key
-    private KeyLockedExitRoom door;
+    private KeyLockedDoor door;
 
     /* 
      * The constructor of the key with different attributes : name, description, weight and the current player 
      * 
      * @param name (the name of the key), description (its description), weight (its weight) and current player (the player associated)
      */
-    public Key(String name, String description, int weight, Player currentPlayer, KeyLockedExitRoom door)
+    public Key(String name, String description, int weight, Player currentPlayer, KeyLockedDoor door)
     {
         super(name, description, weight, currentPlayer);
         this.door = door;

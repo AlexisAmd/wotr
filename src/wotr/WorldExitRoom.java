@@ -16,9 +16,7 @@ package wotr;
  * This class represent a door. 
  * This door is characterized by the current room (room where the player is) and the next room (room behind the door).
  */
-public class WorldExitRoom extends ExitRoom {
-    private Room nextRoom;
-    private Room currentRoom;
+public class WorldExitRoom extends Door {
 
 
     /**
