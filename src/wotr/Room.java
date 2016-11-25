@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class Room {
     private String description; // description
-    //private String script;//txt
-    //private String imgLoc;//img
+    private String script;//txt
+    private String img;//img
     private HashMap<String, ExitRoom> roomHM; // avaible exits for this room
     private ArrayList<Item> itemList; // items avaibles in this room
     private ArrayList<NPC> NPCList; // NPC present in the room, can be a friend or an ennemy
@@ -27,12 +27,44 @@ public class Room {
      * @param description
      *            The room's description.
      */
-    public Room(String description) {
+    public Room(String description, String script, String img) {
 	this.description = description;
+        this.script= script;
+        this.imgLoc= imgLoc;
 	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
 	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
 	this.NPCList = new ArrayList<>();//
     }
+    
+    /**
+     * Getter of the script
+     * 
+     * @return The script of the room.
+     */
+    public String getScript()
+    {
+        return script ;
+    }
+    
+    
+    /**
+     * Getter for the room image name
+     * 
+     * @return imgLoc Name of the room image
+     */
+    public String getImg(){
+    	return img;
+    }
+    
+    /**
+     * Getter for the room exits
+     * 
+     * @return The map of the rooms available from the current room.
+     */
+    public HashMap<String,Door> getExits(){
+        return(rooms);
+    }
+
 
     /**
      * Add an exit in the roomHM
@@ -98,7 +130,7 @@ public class Room {
 	return description;
     }
 
-    public HashMap<String, ExitRoom> getRoomHM() // Marche pas ?
+    public HashMap<String, ExitRoom> getRoomExits() 
     {
 	return this.roomHM;
     }
