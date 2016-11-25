@@ -1,6 +1,9 @@
 package wotr;
 
 import java.util.HashMap;
+
+import javax.swing.JOptionPane;
+
 import java.util.ArrayList;
 
 /**
@@ -16,7 +19,7 @@ public class Room {
     private String description; // description
     private String script;//txt
     private String img;//img
-    private HashMap<String, ExitRoom> roomHM; // avaible exits for this room
+    private HashMap<String, Door> roomHM; // avaible exits for this room
     private ArrayList<Item> itemList; // items avaibles in this room
     private ArrayList<NPC> NPCList; // NPC present in the room, can be a friend or an ennemy
 
@@ -30,7 +33,7 @@ public class Room {
     public Room(String description, String script, String img) {
 	this.description = description;
         this.script= script;
-        this.imgLoc= imgLoc;
+        this.img= img;
 	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
 	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
 	this.NPCList = new ArrayList<>();//
@@ -62,7 +65,7 @@ public class Room {
      * @return The map of the rooms available from the current room.
      */
     public HashMap<String,Door> getExits(){
-        return(rooms);
+        return(roomHM);
     }
 
 
@@ -72,7 +75,7 @@ public class Room {
      * @param direction of the exit
      * @param exit, next room after pass the door (exit room)
      */
-    public void addExit(String direction, ExitRoom exit) {
+    public void addExit(String direction, Door exit) {
 	roomHM.put(direction, exit);
     }
 
@@ -130,7 +133,7 @@ public class Room {
 	return description;
     }
 
-    public HashMap<String, ExitRoom> getRoomExits() 
+    public HashMap<String, Door> getRoomExits() 
     {
 	return this.roomHM;
     }
@@ -142,10 +145,10 @@ public class Room {
     {
 	if (!itemList.isEmpty()) {
 	    itemList.stream().forEach((i) -> {
-		System.out.println(i);
+	    	JOptionPane.showMessageDialog(null, i, "Items", JOptionPane.PLAIN_MESSAGE);
 	    });
 	} else {
-	    System.out.println("No items here");
+		JOptionPane.showMessageDialog(null, "No items here", "Items", JOptionPane.PLAIN_MESSAGE);
 	}
     }
 
@@ -156,10 +159,10 @@ public class Room {
     {
 	if (!NPCList.isEmpty()) {
 	    NPCList.stream().forEach((i) -> {
-		System.out.println(i);
+	    	JOptionPane.showMessageDialog(null, i, "NPC", JOptionPane.PLAIN_MESSAGE);
 	    });
 	} else {
-	    System.out.println("No friend/ennemies here");
+		JOptionPane.showMessageDialog(null, "No friend/ennemies here", "NPC", JOptionPane.PLAIN_MESSAGE);
 	}
     }
 
@@ -201,7 +204,7 @@ public class Room {
      */
     public void printExits() {
 	roomHM.keySet().stream().forEach((exit) -> {
-	    System.out.println(exit);
+		JOptionPane.showMessageDialog(null, exit, "Room", JOptionPane.PLAIN_MESSAGE);
 	});
     }
 

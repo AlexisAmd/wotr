@@ -1,6 +1,8 @@
 package wotr;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 /** This class represent a door locked by a password.
  * The door will be characterized by the current room, the next room (room behind the door), and a password.
  * The user will enter a password and then there are two cases:
@@ -13,17 +15,17 @@ import java.util.Scanner;
  */
 
 
-public class PasswordLockedExitRoom extends LockedExitRoom{
+public class PasswordLockedDoor extends LockedDoor{
     private String password; //the password to cross the door
 
 
     /*
-     * Constructor of the PasswordLockedExitRoom class
+     * Constructor of the PasswordLockedDoor class
      * @param currentRoom : room where the player is
      * @param nextRoom : room behind the door
      * @param password: paswword required to open the door
      */
-    public PasswordLockedExitRoom(Room currentRoom,Room nextRoom, String password)
+    public PasswordLockedDoor(Room currentRoom,Room nextRoom, String password)
     {
         super(currentRoom, nextRoom);
         this.password=password;
@@ -42,11 +44,10 @@ public class PasswordLockedExitRoom extends LockedExitRoom{
      * Ask user to confirm something by writing yes or no.
      * @return true if the user input yes. Else returns false .
      */
-    public  String inputUserPassword(){
+    public String inputUserPassword(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Type the password  to go  "+ super.getNextRoom(super.currentRoom)+" : "+ "\n");
+        JOptionPane.showMessageDialog(null, "Type the password  to go  "+ super.getNextRoom(super.currentRoom)+" : "+ "\n", "Password", JOptionPane.PLAIN_MESSAGE);
         return sc.nextLine();
-        
     }
 
     /**
