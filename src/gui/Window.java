@@ -139,19 +139,21 @@ public class Window {
 		frmWOTR.getContentPane().add(panelDirection);
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnWest = new JButton("<");
-		
+		JButton btnWest = new JButton();
+		btnWest.setIcon(new ImageIcon(Interface.class.getResource("image/westArrow.png")));
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
-		JButton btnEast = new JButton(">");
 		
+		JButton btnEast = new JButton();
+		btnEast.setIcon(new ImageIcon(Interface.class.getResource("image/eastArrow.png")));
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
-		JButton btnNorth = new JButton("^");
-		
+		JButton btnNorth = new JButton();
+		btnNorth.setIcon(new ImageIcon(Interface.class.getResource("image/northArrow.png")));
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
-		JButton btnSouth = new JButton("v");
+		JButton btnSouth = new JButton();
+		btnSouth.setIcon(new ImageIcon(Interface.class.getResource("image/southArrow.png")));
 		panelDirection.add(btnSouth, BorderLayout.SOUTH);
 		
 		JPanel panelHero = new JPanel();
