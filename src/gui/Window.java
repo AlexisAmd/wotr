@@ -1,5 +1,6 @@
-package wotr;
 
+package gui;
+import wotr.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -24,10 +25,13 @@ import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JInternalFrame;
+import javax.swing.JDesktopPane;
+import java.awt.Color;
 
 public class Window {
 
-	private JFrame frmWorldOfTheRing;
+	private JFrame frmWOTR;
 
 	/**
 	 * Launch the application.
@@ -37,7 +41,7 @@ public class Window {
 			public void run() {
 				try {
 					Window Window = new Window();
-					Window.frmWorldOfTheRing.setVisible(true);
+					Window.frmWOTR.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -56,21 +60,25 @@ public class Window {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmWorldOfTheRing = new JFrame();
-		frmWorldOfTheRing.setResizable(false);
-		frmWorldOfTheRing.setSize(new Dimension(600, 400));
-		frmWorldOfTheRing.setAlwaysOnTop(true);
-		frmWorldOfTheRing.setTitle("World of the Ring");
-		frmWorldOfTheRing.getContentPane().setSize(new Dimension(600, 400));
-		frmWorldOfTheRing.getContentPane().setMinimumSize(new Dimension(600, 400));
-		frmWorldOfTheRing.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));
-		frmWorldOfTheRing.setBounds(100, 100, 450, 300);
-		frmWorldOfTheRing.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmWorldOfTheRing.getContentPane().setLayout(null);
+		frmWOTR = new JFrame();
+		frmWOTR.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
+		frmWOTR.setOpacity(1);
+		frmWOTR.setResizable(false);
+		frmWOTR.setForeground(Color.LIGHT_GRAY);
+		frmWOTR.setFont(new Font("Roboto", Font.PLAIN, 12));
+		frmWOTR.setSize(new Dimension(1024, 800));
+		frmWOTR.setAlwaysOnTop(true);
+		frmWOTR.setTitle("World of the Ring");
+		frmWOTR.getContentPane().setSize(new Dimension(1024, 800));
+		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		frmWOTR.setBounds(100, 100, 450, 300);
+		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWOTR.getContentPane().setLayout(null);
 		
 		JPanel panelInvFello = new JPanel();
+		panelInvFello.setBackground(new Color(218, 165, 32));
 		panelInvFello.setBounds(291, 0, 153, 271);
-		frmWorldOfTheRing.getContentPane().add(panelInvFello);
+		frmWOTR.getContentPane().add(panelInvFello);
 		panelInvFello.setLayout(null);
 		
 		JPanel panelNPC = new JPanel();
@@ -84,12 +92,12 @@ public class Window {
 		panelNPC.add(listNPC);
 		
 		JButton btnUseNPC = new JButton("Use");
-		btnUseNPC.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnUseNPC.setBounds(73, 6, 70, 21);
 		panelNPC.add(btnUseNPC);
 		
 		JButton btnDropNPC = new JButton("Drop");
-		btnDropNPC.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnDropNPC.setBounds(73, 33, 70, 21);
 		panelNPC.add(btnDropNPC);
 		
@@ -108,12 +116,12 @@ public class Window {
 		panelInventory.add(list);
 		
 		JButton btnUseitem = new JButton("Use");
-		btnUseitem.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnUseitem.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnUseitem.setBounds(73, 11, 70, 21);
 		panelInventory.add(btnUseitem);
 		
 		JButton btnDropitem = new JButton("Drop");
-		btnDropitem.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnDropitem.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnDropitem.setBounds(73, 40, 70, 21);
 		panelInventory.add(btnDropitem);
 		
@@ -124,18 +132,15 @@ public class Window {
 		
 		JEditorPane editorPaneConsole = new JEditorPane();
 		editorPaneConsole.setBounds(96, 181, 185, 79);
-		frmWorldOfTheRing.getContentPane().add(editorPaneConsole);
+		frmWOTR.getContentPane().add(editorPaneConsole);
 		
 		JPanel panelDirection = new JPanel();
 		panelDirection.setBounds(10, 181, 79, 79);
-		frmWorldOfTheRing.getContentPane().add(panelDirection);
+		frmWOTR.getContentPane().add(panelDirection);
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnWest = new JButton("<");
-		btnWest.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
 		JButton btnEast = new JButton(">");
@@ -143,10 +148,7 @@ public class Window {
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
 		JButton btnNorth = new JButton("^");
-		btnNorth.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
 		JButton btnSouth = new JButton("v");
@@ -154,11 +156,11 @@ public class Window {
 		
 		JPanel panelHero = new JPanel();
 		panelHero.setBounds(10, 11, 272, 47);
-		frmWorldOfTheRing.getContentPane().add(panelHero);
+		frmWOTR.getContentPane().add(panelHero);
 		panelHero.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		JPanel panelMap = new JPanel();
 		panelMap.setBounds(10, 61, 272, 109);
-		frmWorldOfTheRing.getContentPane().add(panelMap);
+		frmWOTR.getContentPane().add(panelMap);
 	}
 }
