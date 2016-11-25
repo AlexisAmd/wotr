@@ -117,22 +117,6 @@ public class Game {
     	JOptionPane.showMessageDialog(null, "Welcome to the Lord of the Ring: A Frodo's Journey. You are Frodo and Bilbo gave you a strange ring. Gandalf revealed that it is the One Ring, the most powerful ring which belongs to Sauron, the Lord of Mordor. Then you decide to begin a journey, your goal is to drop the One Ring into the Mount Doom. But Sauron will not let you do this, he sent his armies to stop you. You need to be careful, prepare yourself to commit your life.", "Welcome", JOptionPane.PLAIN_MESSAGE);
     }
 
-
-
-    /**
-     * Print out some help information.
-     * Here we print some stupid, cryptic message and a list of the
-     * command words.
-     */
-    private void printHelp() {
-        System.out.println("You are  "+currentPlayer.getCurrentRoom().getDescription());
-        System.out.println("\n"+"Exits :");
-        currentPlayer.getCurrentRoom().printExits();
-        System.out.println("\n"+"Items :");
-        currentPlayer.getCurrentRoom().printItems();
-        System.out.println("\n"+ "Your command words are:");
-        System.out.println("go, quit, help");
-    }
     
     
     public void win(){
