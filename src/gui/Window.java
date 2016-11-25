@@ -130,12 +130,8 @@ public class Window {
 		txtpnDescription.setBounds(73, 69, 70, 63);
 		panelInventory.add(txtpnDescription);
 		
-		JEditorPane editorPaneConsole = new JEditorPane();
-		editorPaneConsole.setBounds(96, 181, 185, 79);
-		frmWOTR.getContentPane().add(editorPaneConsole);
-		
 		JPanel panelDirection = new JPanel();
-		panelDirection.setBounds(10, 181, 79, 79);
+		panelDirection.setBounds(53, 181, 68, 79);
 		frmWOTR.getContentPane().add(panelDirection);
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
@@ -164,5 +160,23 @@ public class Window {
 		JPanel panelMap = new JPanel();
 		panelMap.setBounds(10, 61, 272, 109);
 		frmWOTR.getContentPane().add(panelMap);
+		
+		JPanel panelSU = new JPanel();
+		panelSU.setBounds(10, 182, 40, 78);
+		frmWOTR.getContentPane().add(panelSU);
+		panelSU.setLayout(new BorderLayout(0, 0));
+		
+		JButton btnSearch = new JButton("Search");
+		panelSU.add(btnSearch, BorderLayout.NORTH);
+		
+		JButton btnPick = new JButton("Pick");
+		panelSU.add(btnPick, BorderLayout.SOUTH);
+		
+		JTextPane txtpnPrompt = new JTextPane();
+		txtpnPrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
+		txtpnPrompt.setForeground(Color.WHITE);
+		txtpnPrompt.setBackground(Color.BLACK);
+		txtpnPrompt.setBounds(133, 180, 153, 80);
+		frmWOTR.getContentPane().add(txtpnPrompt);
 	}
 }
