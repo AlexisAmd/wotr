@@ -31,6 +31,9 @@ import javax.swing.JDesktopPane;
 import java.awt.Color;
 import javax.swing.JProgressBar;
 import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.MatteBorder;
 
 public class Window {
 
@@ -76,12 +79,62 @@ public class Window {
 		frmWOTR.setAlwaysOnTop(true);
 		frmWOTR.setTitle("World of the Ring");
 		frmWOTR.getContentPane().setSize(new Dimension(1024, 800));
-		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		
 		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWOTR.getContentPane().setLayout(null);
 		
+		JPanel panelLeft = new JPanel();
+		panelLeft.setBounds(0, 0, 756, 589);
+		frmWOTR.getContentPane().add(panelLeft);
+		panelLeft.setLayout(null);
+		
+		JPanel panelDirection = new JPanel();
+		panelDirection.setBounds(150, 427, 160, 150);
+		panelLeft.add(panelDirection);
+		panelDirection.setLayout(new BorderLayout(0, 0));
+		
+		JButton btnWest = new JButton("West");
+		panelDirection.add(btnWest, BorderLayout.WEST);
+		
+		JButton btnEast = new JButton("East");
+		panelDirection.add(btnEast, BorderLayout.EAST);
+		
+		JButton btnNorth = new JButton("North");
+		panelDirection.add(btnNorth, BorderLayout.NORTH);
+		
+		JButton btnSouth = new JButton("South");
+		panelDirection.add(btnSouth, BorderLayout.SOUTH);
+		
+		JPanel panelSU = new JPanel();
+		panelSU.setBounds(12, 427, 126, 150);
+		panelLeft.add(panelSU);
+		panelSU.setLayout(new GridLayout(3, 1, 0, 0));
+		
+		JButton btnSearch = new JButton("Search");
+		panelSU.add(btnSearch);
+		
+		JButton btnPick = new JButton("Pick");
+		panelSU.add(btnPick);
+		
+		JButton btnMap = new JButton("Map");
+		panelSU.add(btnMap);
+		
+		JTextPane txtpnPrompt = new JTextPane();
+		txtpnPrompt.setBounds(322, 427, 422, 150);
+		panelLeft.add(txtpnPrompt);
+		txtpnPrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
+		txtpnPrompt.setForeground(Color.WHITE);
+		txtpnPrompt.setBackground(Color.BLACK);
+		
+		JPanel panelImage = new JPanel();
+		panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panelImage.setBounds(12, 12, 732, 403);
+		panelLeft.add(panelImage);
+		panelImage.setLayout(new GridLayout(0, 1, 0, 0));
+		
 		JPanel panelRight = new JPanel();
+		panelRight.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelRight.setBackground(new Color(218, 165, 32));
 		panelRight.setBounds(756, 0, 404, 589);
 		frmWOTR.getContentPane().add(panelRight);
@@ -94,6 +147,16 @@ public class Window {
 		JPanel panelInfoTop = new JPanel();
 		panelInfoTop.setLayout(null);
 		panelInfoPlayer.add(panelInfoTop);
+		
+		JTextPane textPanePlayer = new JTextPane();
+		textPanePlayer.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		textPanePlayer.setBounds(96, 12, 296, 74);
+		panelInfoTop.add(textPanePlayer);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panel.setBounds(12, 12, 72, 74);
+		panelInfoTop.add(panel);
 		
 		JPanel panelInfoBotom = new JPanel();
 		panelInfoPlayer.add(panelInfoBotom);
@@ -139,6 +202,7 @@ public class Window {
 		panelNPC.add(listNPC);
 		
 		JPanel panelInventory = new JPanel();
+		panelInventory.setBorder(new MatteBorder(0, 1, 0, 0, (Color) new Color(0, 0, 0)));
 		panelRight.add(panelInventory);
 		panelInventory.setLayout(null);
 		
@@ -160,49 +224,5 @@ public class Window {
 		txtpnDesInventory.setText("Description");
 		txtpnDesInventory.setBounds(12, 11, 251, 173);
 		panelInventory.add(txtpnDesInventory);
-		
-		JPanel panelDirection = new JPanel();
-		panelDirection.setBounds(53, 181, 68, 79);
-		frmWOTR.getContentPane().add(panelDirection);
-		panelDirection.setLayout(new BorderLayout(0, 0));
-		
-		JButton btnWest = new JButton();
-		//btnWest.setIcon(new ImageIcon(Interface.class.getResource("image/westArrow.png")));
-		panelDirection.add(btnWest, BorderLayout.WEST);
-		
-		
-		JButton btnEast = new JButton();
-		//btnEast.setIcon(new ImageIcon(Interface.class.getResource("image/eastArrow.png")));
-		panelDirection.add(btnEast, BorderLayout.EAST);
-		
-		JButton btnNorth = new JButton();
-		//btnNorth.setIcon(new ImageIcon(Interface.class.getResource("image/northArrow.png")));
-		panelDirection.add(btnNorth, BorderLayout.NORTH);
-		
-		JButton btnSouth = new JButton();
-		//btnSouth.setIcon(new ImageIcon(Interface.class.getResource("image/southArrow.png")));
-		panelDirection.add(btnSouth, BorderLayout.SOUTH);
-		
-		JPanel panelMap = new JPanel();
-		panelMap.setBounds(10, 61, 272, 109);
-		frmWOTR.getContentPane().add(panelMap);
-		
-		JPanel panelSU = new JPanel();
-		panelSU.setBounds(10, 182, 40, 78);
-		frmWOTR.getContentPane().add(panelSU);
-		panelSU.setLayout(new BorderLayout(0, 0));
-		
-		JButton btnSearch = new JButton("Search");
-		panelSU.add(btnSearch, BorderLayout.NORTH);
-		
-		JButton btnPick = new JButton("Pick");
-		panelSU.add(btnPick, BorderLayout.SOUTH);
-		
-		JTextPane txtpnPrompt = new JTextPane();
-		txtpnPrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
-		txtpnPrompt.setForeground(Color.WHITE);
-		txtpnPrompt.setBackground(Color.BLACK);
-		txtpnPrompt.setBounds(126, 181, 156, 80);
-		frmWOTR.getContentPane().add(txtpnPrompt);
 	}
 }
