@@ -1,6 +1,8 @@
 package wotr;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 /** This class represent a door locked by a password.
  * The door will be characterized by the current room, the next room (room behind the door), and a password.
  * The user will enter a password and then there are two cases:
@@ -42,11 +44,10 @@ public class PasswordLockedDoor extends LockedDoor{
      * Ask user to confirm something by writing yes or no.
      * @return true if the user input yes. Else returns false .
      */
-    public  String inputUserPassword(){
+    public String inputUserPassword(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Type the password  to go  "+ super.getNextRoom(super.currentRoom)+" : "+ "\n");
+        JOptionPane.showMessageDialog(null, "Type the password  to go  "+ super.getNextRoom(super.currentRoom)+" : "+ "\n", "Password", JOptionPane.PLAIN_MESSAGE);
         return sc.nextLine();
-        
     }
 
     /**

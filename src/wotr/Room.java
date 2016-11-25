@@ -1,6 +1,9 @@
 package wotr;
 
 import java.util.HashMap;
+
+import javax.swing.JOptionPane;
+
 import java.util.ArrayList;
 
 /**
@@ -142,10 +145,10 @@ public class Room {
     {
 	if (!itemList.isEmpty()) {
 	    itemList.stream().forEach((i) -> {
-		System.out.println(i);
+	    	JOptionPane.showMessageDialog(null, i, "Items", JOptionPane.PLAIN_MESSAGE);
 	    });
 	} else {
-	    System.out.println("No items here");
+		JOptionPane.showMessageDialog(null, "No items here", "Items", JOptionPane.PLAIN_MESSAGE);
 	}
     }
 
@@ -156,10 +159,10 @@ public class Room {
     {
 	if (!NPCList.isEmpty()) {
 	    NPCList.stream().forEach((i) -> {
-		System.out.println(i);
+	    	JOptionPane.showMessageDialog(null, i, "NPC", JOptionPane.PLAIN_MESSAGE);
 	    });
 	} else {
-	    System.out.println("No friend/ennemies here");
+		JOptionPane.showMessageDialog(null, "No friend/ennemies here", "NPC", JOptionPane.PLAIN_MESSAGE);
 	}
     }
 
@@ -201,7 +204,7 @@ public class Room {
      */
     public void printExits() {
 	roomHM.keySet().stream().forEach((exit) -> {
-	    System.out.println(exit);
+		JOptionPane.showMessageDialog(null, exit, "Room", JOptionPane.PLAIN_MESSAGE);
 	});
     }
 
