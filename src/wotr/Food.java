@@ -1,4 +1,4 @@
-
+//WIP Agathe
 /**
  * Food class
  * This class allows the player to get hp when he is low
