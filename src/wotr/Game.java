@@ -17,6 +17,7 @@
 
 package wotr;
 import java.util.HashMap; //useless ?
+import javax.swing.*;
 
 public class Game {
 
@@ -112,16 +113,8 @@ public class Game {
     /**
      * Print out the opening message for the player.
      */
-    private void printWelcome() { //will be deleted
-        System.out.println();
-        System.out.println("Welcome to the World of the Ring!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type 'help' if you need help.");
-        System.out.println();
-        System.out.println("You are " + currentPlayer.getCurrentRoom().getDescription());
-        System.out.println("Exits: ");
-        currentPlayer.getCurrentRoom().printExits();
-        System.out.println("\n");
+    private void printWelcome() {//will be deleted
+    	JOptionPane.showMessageDialog(null, "Welcome to the Lord of the Ring: A Frodo's Journey. You are Frodo and Bilbo gave you a strange ring. Gandalf revealed that it is the One Ring, the most powerful ring which belongs to Sauron, the Lord of Mordor. Then you decide to begin a journey, your goal is to drop the One Ring into the Mount Doom. But Sauron will not let you do this, he sent his armies to stop you. You need to be careful, prepare yourself to commit your life.", "Welcome", JOptionPane.PLAIN_MESSAGE);
     }
 
 
@@ -139,6 +132,11 @@ public class Game {
         currentPlayer.getCurrentRoom().printItems();
         System.out.println("\n"+ "Your command words are:");
         System.out.println("go, quit, help");
+    }
+    
+    
+    public void win(){
+    JOptionPane.showMessageDialog(null, "You dropped the Ring in the Mount Doom and you defeated Sauron and his armies. You accomplished your journey. Congratulations","Congratulations", JOptionPane.PLAIN_MESSAGE);
     }
 
     
