@@ -23,11 +23,14 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JInternalFrame;
 import javax.swing.JDesktopPane;
 import java.awt.Color;
+import javax.swing.JProgressBar;
+import javax.swing.JLabel;
 
 public class Window {
 
@@ -61,74 +64,102 @@ public class Window {
 	 */
 	private void initialize() {
 		frmWOTR = new JFrame();
+		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+		frmWOTR.setBounds(0, 0,screen.width-200,screen.height - 150);
+		frmWOTR.setExtendedState(frmWOTR.MAXIMIZED_BOTH);
+		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWOTR.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
 		frmWOTR.setOpacity(1);
 		frmWOTR.setResizable(false);
 		frmWOTR.setForeground(Color.LIGHT_GRAY);
 		frmWOTR.setFont(new Font("Roboto", Font.PLAIN, 12));
-		frmWOTR.setSize(new Dimension(1024, 800));
 		frmWOTR.setAlwaysOnTop(true);
 		frmWOTR.setTitle("World of the Ring");
 		frmWOTR.getContentPane().setSize(new Dimension(1024, 800));
-		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		frmWOTR.setBounds(100, 100, 450, 300);
+		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		
 		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWOTR.getContentPane().setLayout(null);
 		
-		JPanel panelInvFello = new JPanel();
-		panelInvFello.setBackground(new Color(218, 165, 32));
-		panelInvFello.setBounds(291, 0, 153, 271);
-		frmWOTR.getContentPane().add(panelInvFello);
-		panelInvFello.setLayout(null);
+		JPanel panelRight = new JPanel();
+		panelRight.setBackground(new Color(218, 165, 32));
+		panelRight.setBounds(756, 0, 404, 589);
+		frmWOTR.getContentPane().add(panelRight);
+		panelRight.setLayout(new GridLayout(3, 1, 0, 0));
+		
+		JPanel panelInfoPlayer = new JPanel();
+		panelRight.add(panelInfoPlayer);
+		panelInfoPlayer.setLayout(new GridLayout(2, 0, 0, 0));
+		
+		JPanel panelInfoTop = new JPanel();
+		panelInfoTop.setLayout(null);
+		panelInfoPlayer.add(panelInfoTop);
+		
+		JPanel panelInfoBotom = new JPanel();
+		panelInfoPlayer.add(panelInfoBotom);
+		panelInfoBotom.setLayout(null);
+		
+		JProgressBar progressBarHealth = new JProgressBar();
+		progressBarHealth.setString("Hp : 0 %");
+		progressBarHealth.setBounds(12, 8, 380, 37);
+		progressBarHealth.setToolTipText("Health points, if they are equal to 100 you're dead !");
+		progressBarHealth.setStringPainted(true);
+		progressBarHealth.setForeground(Color.RED);
+		progressBarHealth.setBackground(Color.WHITE);
+		panelInfoBotom.add(progressBarHealth);
+		
+		JProgressBar progressBarCorruption = new JProgressBar();
+		progressBarCorruption.setString("Cp : 0 %");
+		progressBarCorruption.setBounds(12, 53, 380, 37);
+		progressBarCorruption.setStringPainted(true);
+		progressBarCorruption.setBackground(Color.WHITE);
+		panelInfoBotom.add(progressBarCorruption);
 		
 		JPanel panelNPC = new JPanel();
-		panelNPC.setBounds(0, 0, 153, 132);
-		panelInvFello.add(panelNPC);
+		panelRight.add(panelNPC);
 		panelNPC.setLayout(null);
-		
-		JList listNPC = new JList();
-		listNPC.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-		listNPC.setBounds(8, 6, 55, 117);
-		panelNPC.add(listNPC);
 		
 		JButton btnUseNPC = new JButton("Use");
 		btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
-		btnUseNPC.setBounds(73, 6, 70, 21);
+		btnUseNPC.setBounds(275, 11, 117, 32);
 		panelNPC.add(btnUseNPC);
 		
 		JButton btnDropNPC = new JButton("Drop");
 		btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
-		btnDropNPC.setBounds(73, 33, 70, 21);
+		btnDropNPC.setBounds(275, 53, 117, 32);
 		panelNPC.add(btnDropNPC);
 		
 		JTextPane textPaneDesNPC = new JTextPane();
 		textPaneDesNPC.setText("Description");
-		textPaneDesNPC.setBounds(73, 60, 70, 63);
+		textPaneDesNPC.setBounds(12, 12, 251, 172);
 		panelNPC.add(textPaneDesNPC);
 		
+		JList listNPC = new JList();
+		listNPC.setBounds(275, 97, 117, 87);
+		panelNPC.add(listNPC);
+		
 		JPanel panelInventory = new JPanel();
-		panelInventory.setBounds(0, 132, 153, 139);
-		panelInvFello.add(panelInventory);
+		panelRight.add(panelInventory);
 		panelInventory.setLayout(null);
 		
-		JList list = new JList();
-		list.setBounds(10, 11, 55, 121);
-		panelInventory.add(list);
+		JList listInventory = new JList();
+		listInventory.setBounds(275, 97, 117, 87);
+		panelInventory.add(listInventory);
 		
 		JButton btnUseitem = new JButton("Use");
 		btnUseitem.setFont(new Font("Roboto", Font.PLAIN, 10));
-		btnUseitem.setBounds(73, 11, 70, 21);
+		btnUseitem.setBounds(275, 11, 117, 32);
 		panelInventory.add(btnUseitem);
 		
 		JButton btnDropitem = new JButton("Drop");
 		btnDropitem.setFont(new Font("Roboto", Font.PLAIN, 10));
-		btnDropitem.setBounds(73, 40, 70, 21);
+		btnDropitem.setBounds(275, 53, 117, 32);
 		panelInventory.add(btnDropitem);
 		
-		JTextPane txtpnDescription = new JTextPane();
-		txtpnDescription.setText("Description");
-		txtpnDescription.setBounds(73, 69, 70, 63);
-		panelInventory.add(txtpnDescription);
+		JTextPane txtpnDesInventory = new JTextPane();
+		txtpnDesInventory.setText("Description");
+		txtpnDesInventory.setBounds(12, 11, 251, 173);
+		panelInventory.add(txtpnDesInventory);
 		
 		JPanel panelDirection = new JPanel();
 		panelDirection.setBounds(53, 181, 68, 79);
@@ -136,26 +167,21 @@ public class Window {
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnWest = new JButton();
-		btnWest.setIcon(new ImageIcon(Interface.class.getResource("image/westArrow.png")));
+		//btnWest.setIcon(new ImageIcon(Interface.class.getResource("image/westArrow.png")));
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
 		
 		JButton btnEast = new JButton();
-		btnEast.setIcon(new ImageIcon(Interface.class.getResource("image/eastArrow.png")));
+		//btnEast.setIcon(new ImageIcon(Interface.class.getResource("image/eastArrow.png")));
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
 		JButton btnNorth = new JButton();
-		btnNorth.setIcon(new ImageIcon(Interface.class.getResource("image/northArrow.png")));
+		//btnNorth.setIcon(new ImageIcon(Interface.class.getResource("image/northArrow.png")));
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
 		JButton btnSouth = new JButton();
-		btnSouth.setIcon(new ImageIcon(Interface.class.getResource("image/southArrow.png")));
+		//btnSouth.setIcon(new ImageIcon(Interface.class.getResource("image/southArrow.png")));
 		panelDirection.add(btnSouth, BorderLayout.SOUTH);
-		
-		JPanel panelHero = new JPanel();
-		panelHero.setBounds(10, 11, 272, 47);
-		frmWOTR.getContentPane().add(panelHero);
-		panelHero.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		JPanel panelMap = new JPanel();
 		panelMap.setBounds(10, 61, 272, 109);
@@ -176,7 +202,7 @@ public class Window {
 		txtpnPrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
 		txtpnPrompt.setForeground(Color.WHITE);
 		txtpnPrompt.setBackground(Color.BLACK);
-		txtpnPrompt.setBounds(133, 180, 153, 80);
+		txtpnPrompt.setBounds(126, 181, 156, 80);
 		frmWOTR.getContentPane().add(txtpnPrompt);
 	}
 }
