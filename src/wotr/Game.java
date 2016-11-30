@@ -49,11 +49,11 @@ public class Game {
         //DECLARATION
         Room roomOutside, roomTheatre, roomPub, roomLab;
 
-        ExitRoom doorOutsideLab, doorOutsidePub, doorLabOutside;
+        Door doorOutsideLab, doorOutsidePub, doorLabOutside;
 
-        PasswordLockedExitRoom doorPubOutside;
+        PasswordLockedDoor doorPubOutside;
 
-        KeyLockedExitRoom doorOutsideTheatre, doorTheatreOutside;
+        KeyLockedDoor doorOutsideTheatre, doorTheatreOutside;
         
         Key keyTheatreOutside, keyOutsideTheatre;
 
@@ -67,13 +67,13 @@ public class Game {
         
 
         // initialise room exits (doors)
-        doorOutsidePub = new PasswordLockedExitRoom(roomOutside, roomPub, "azertyuiop");
-        doorPubOutside = new PasswordLockedExitRoom(roomPub, roomOutside, "azertyuiop");
+        doorOutsidePub = new PasswordLockedDoor(roomOutside, roomPub, "azertyuiop");
+        doorPubOutside = new PasswordLockedDoor(roomPub, roomOutside, "azertyuiop");
 
-        doorOutsideTheatre = new KeyLockedExitRoom(roomOutside, roomTheatre);
-        doorTheatreOutside = new KeyLockedExitRoom(roomTheatre, roomOutside);
-        doorOutsideLab = new ExitRoom(roomOutside, roomLab);
-        doorLabOutside = new ExitRoom(roomLab, roomOutside);
+        doorOutsideTheatre = new KeyLockedDoor(roomOutside, roomTheatre);
+        doorTheatreOutside = new KeyLockedDoor(roomTheatre, roomOutside);
+        doorOutsideLab = new Door(roomOutside, roomLab);
+        doorLabOutside = new Door(roomLab, roomOutside);
 
         //associating doors with rooms
         roomOutside.addExit("north", doorOutsideTheatre);
