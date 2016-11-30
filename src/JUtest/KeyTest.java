@@ -12,8 +12,8 @@ public class KeyTest {
 	private Player Frodo;
 	private Key key;
 	private Item item;
-	private LockedExitRoom locked;
-	private KeyLockedExitRoom door;
+	private LockedDoor locked;
+	private KeyLockedDoor door;
 	private Room currentRoom, nextRoom;
 	//private Bag myBag;
 	
@@ -29,7 +29,7 @@ public class KeyTest {
 		
 		currentRoom = new Room("this is the current room");
 		currentRoom.addItem(key);
-		door = new KeyLockedExitRoom(currentRoom,nextRoom);
+		door = new KeyLockedDoor(currentRoom,nextRoom);
 		key = new Key("Key1", "open the door", 12, Frodo, door);
 		Frodo.setCurrentRoom(currentRoom);
 		Frodo.pickUpItem(key);
