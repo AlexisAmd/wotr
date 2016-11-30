@@ -93,20 +93,20 @@ public class Window {
 		panelLeft.add(panelDirection);
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnWest = new JButton("West");
+		JButton btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
-		JButton btnEast = new JButton("East");
+		JButton btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
-		JButton btnNorth = new JButton("North");
+		JButton btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
 		btnNorth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
-		JButton btnSouth = new JButton("South");
+		JButton btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
 		panelDirection.add(btnSouth, BorderLayout.SOUTH);
 		
 		JPanel panelSU = new JPanel();
