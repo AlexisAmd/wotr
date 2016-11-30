@@ -1,4 +1,3 @@
-//WIP ALEXIS
 package wotr;
 
 import java.util.*;
@@ -28,7 +27,7 @@ public class Player {
     private Fellowship fellowship; // list of all friends currently
 				   // following the hero
     private Bag bag; // Frodo's bag
-    private int maximumInventoryWeight; // maximum weight of th inventory
+    private int maximumInventoryWeight; // maximum weight of the inventory
     private Room currentRoom; // current room of a player will moves when frodo
 			      // moves
 
@@ -38,11 +37,10 @@ public class Player {
      *
      */
     public Player() {
-	// constructeur sans parametres ?
 	this.name = "Frodo";
 	this.hp = 100;
 	this.percentCorruption = 0;
-	this.bag = new Bag("Baggins"); // devrait demander un string normalemment
+	this.bag = new Bag("Baggins");
 	this.fellowship = new Fellowship();
 	this.currentRoom = null;
 	this.maximumInventoryWeight = 100;
@@ -66,7 +64,7 @@ public class Player {
     }
 
     /**
-     * setHp : sets a new number of healthpoints
+     * setHp : sets a new number of health points
      * @param newHpValue The new value of the player's health points.
      */
     public void setHp(int newHpValue) {
@@ -200,7 +198,7 @@ public class Player {
      *            the item that the player wants to use
      */
     public void use(Item item) {
-	item.use(); // usefull for keys
+	item.use(); // useful for keys
 	bag.delItem(item);
     }
 
