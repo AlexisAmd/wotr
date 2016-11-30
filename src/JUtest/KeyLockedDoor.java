@@ -1,4 +1,4 @@
-//WIP Antoine
+
 package JUtest;
 import org.junit.Test;
 import wotr.*;
@@ -6,17 +6,17 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 /*
- * This class test methods for KeyLockedExitRoom class
+ * This class test methods for KeyLockedDoor class
  * @author Gr1
  * @version 22/11/2016 
  */
 
-public class KeyLockedExitRoomTest {
+public class KeyLockedDoorTest {
 
 	private Room currentRoom, nextRoom;
 	private Player player;
 	private Key key;
-	private KeyLockedExitRoom keyLocked;
+	private KeyLockedDoor keyLocked;
 	
 	
 	@Before
@@ -28,7 +28,7 @@ public class KeyLockedExitRoomTest {
 		currentRoom = new Room("salle1");
 		nextRoom = new Room("salle2");
 		key = new Key("magique", "blabla", 1, player, keyLocked);
-		keyLocked = new KeyLockedExitRoom(currentRoom, nextRoom);
+		keyLocked = new KeyLockedDoor(currentRoom, nextRoom);
 	}
 	
 	
