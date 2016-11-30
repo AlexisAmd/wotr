@@ -30,20 +30,23 @@ public class Room {
      * @param description
      *            The room's description.
      */
-    public Room(String description, String script) {
+    public Room(String description) {
 	this.description = description;
-        this.script= script;
+  
 	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
 	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
 	this.NPCList = new ArrayList<>();//
     }
     
     public Room(String description, String script, String img) {
+	//impossible d'appeler le constructeur precedent
 	this.description = description;
         this.script= script;
 	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
 	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
 	this.NPCList = new ArrayList<>();//
+	//
+	this.script=script;
 	this.img=img;
     }
     
