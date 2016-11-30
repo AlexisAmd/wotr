@@ -1,5 +1,3 @@
-//WIP Alexis
-
 package wotr;
 
 import java.util.ArrayList;
