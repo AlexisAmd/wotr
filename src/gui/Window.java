@@ -17,6 +17,7 @@ import java.awt.Font;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
@@ -85,7 +86,10 @@ public class Window {
 		frmWOTR.getContentPane().setLayout(null);
 		
 		JPanel panelLeft = new JPanel();
-		panelLeft.setBorder(null);
+		//panelLeft.setBackground(Color.RED);
+		JLabel backGroundLeft = new JLabel(new ImageIcon("image.jpg")); 
+ 
+		panelLeft.add(backGroundLeft, BorderLayout.CENTER);
 		panelLeft.setBounds(0, 0, 756, 589);
 		frmWOTR.getContentPane().add(panelLeft);
 		panelLeft.setLayout(null);
@@ -208,7 +212,7 @@ public class Window {
 		panelNPC.add(listNPC);
 		
 		JPanel panelInventory = new JPanel();
-		panelInventory.setBorder(new MatteBorder(0, 1, 0, 0, (Color) new Color(0, 0, 0)));
+		panelInventory.setBorder(null);
 		panelRight.add(panelInventory);
 		panelInventory.setLayout(null);
 		
