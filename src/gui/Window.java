@@ -94,12 +94,15 @@ public class Window {
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
+		btnWest.setToolTipText("West");
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
 		JButton btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
+		btnEast.setToolTipText("East");
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
 		JButton btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
+		btnNorth.setToolTipText("North");
 		btnNorth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -107,6 +110,7 @@ public class Window {
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
 		JButton btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
+		btnSouth.setToolTipText("South");
 		panelDirection.add(btnSouth, BorderLayout.SOUTH);
 		
 		JPanel panelSU = new JPanel();
@@ -114,13 +118,16 @@ public class Window {
 		panelLeft.add(panelSU);
 		panelSU.setLayout(new GridLayout(3, 1, 0, 0));
 		
-		JButton btnSearch = new JButton("Search");
+		JButton btnSearch = new JButton(new ImageIcon("src/gui/image/13857-jumo-oeil.png"));
+		btnSearch.setToolTipText("Search");
 		panelSU.add(btnSearch);
 		
-		JButton btnPickUp = new JButton("Pick");
+		JButton btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon.png"));
+		btnPickUp.setToolTipText("Pick Up");
 		panelSU.add(btnPickUp);
 		
-		JButton btnMap = new JButton("Map");
+		JButton btnMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
+		btnMap.setToolTipText("Map");
 		panelSU.add(btnMap);
 		
 		JTextPane txtpnPrompt = new JTextPane();
