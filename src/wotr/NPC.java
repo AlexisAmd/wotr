@@ -19,6 +19,7 @@ public class NPC {
     private ArrayList<Item> itemList; // inventory of the NPC
     private String script; // what does the npc say
 
+
     /**
      * Constructor for objects of class NPC.
      *@param name : of the NPC
