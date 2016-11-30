@@ -226,7 +226,7 @@ public class Player {
 	if (nextRoom == null) {
 	    // System.out.println("Can't move to " + direction + "\n");
 	} else {
-		if (currentRoom.checkWorldExit(direction)){
+		if (currentRoom.isWorldDoor(direction)){
 			this.restoreMagician();}
 	    currentRoom = nextRoom;
 	    // System.out.println("Moved to " + direction + "\n");

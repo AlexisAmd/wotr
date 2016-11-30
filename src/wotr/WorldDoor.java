@@ -15,6 +15,7 @@ package wotr;
 /*
  * This class represent a door. 
  * This door is characterized by the current room (room where the player is) and the next room (room behind the door).
+ * When the player pass rech this door powers of magician are restored
  */
 public class WorldDoor extends Door {
 
@@ -26,6 +27,7 @@ public class WorldDoor extends Door {
      */
     public WorldDoor(Room currentRoom, Room nextRoom) {
 	super(currentRoom, nextRoom);
+
     }
 
 
