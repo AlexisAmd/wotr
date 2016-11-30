@@ -1,4 +1,3 @@
-
 package JUtest;
 import org.junit.Test;
 import wotr.*;
