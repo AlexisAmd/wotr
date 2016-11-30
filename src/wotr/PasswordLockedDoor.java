@@ -66,12 +66,12 @@ public class PasswordLockedDoor extends LockedDoor{
                 }
                 else{
                     super.setLocked(false);//door will be still opened
-                    System.out.println("You opened the door with the password \"" + getPassword()+"\"");                  
+                    //System.out.println("You opened the door with the password \"" + getPassword()+"\"");                  
                     return nextRoom;
                 } 
             }
             else{
-                System.out.println("Wrong password, the door is still locked !");
+                //System.out.println("Wrong password, the door is still locked !");
                 return null;
             }
         }

@@ -1,4 +1,3 @@
-//WIP alexis
 package wotr;
 import java.util.*;
 
@@ -60,7 +59,7 @@ public  class NPC
 
         /**
      * get alreadyUsed
-     * @return true if the NPC already used is powrers
+     * @return true if the NPC already used is powers
      *@return false, if the NPC never used is powers (or if they had been restored since the first time he used them)
      */
     public boolean getAlreadyUsed(){
@@ -69,7 +68,7 @@ public  class NPC
 
 
 /**
-*Method to set the alreadyused attributes to true or false. Mostly used by object from class "Magician"
+*Method to set the already used attributes to true or false. Mostly used by object from class "Magician"
  * @return true if done
 */
     public boolean setAlreadyUsed(boolean bool){
@@ -86,7 +85,7 @@ public  class NPC
     }
     
     /**
-    *COmmon method use to all npc. A npc can at least, give or retrive hp or corruption points to Frodo
+    *COmmon method use to all npc. A npc can at least, give or retrieve hp or corruption points to Frodo
     *@return true if the NPC is used
     *@return false if the npc is  already used
     */
