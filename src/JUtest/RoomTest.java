@@ -14,9 +14,9 @@ public class RoomTest extends TestCase {
 	private NPC myNPC;
 	private Item myBeer;
 	private Player currentPlayer;
-	private ExitRoom doorMyRoomNextRoom,doorNextRoomMyRoom;
+	private Door doorMyRoomNextRoom,doorNextRoomMyRoom;
 	private Room myRoom,nextRoom;
-    private HashMap <String,ExitRoom> myRoomHM; 
+    private HashMap <String,Door> myRoomHM; 
     private ArrayList<Item> myItemList;
     private ArrayList<NPC> myNPCList;
     
@@ -34,8 +34,8 @@ public class RoomTest extends TestCase {
 		myRoomHM = new HashMap<>();
 		
 		//Doors
-		doorMyRoomNextRoom = new ExitRoom(myRoom, nextRoom);
-		doorNextRoomMyRoom = new ExitRoom(nextRoom, myRoom);
+		doorMyRoomNextRoom = new Door(myRoom, nextRoom);
+		doorNextRoomMyRoom = new Door(nextRoom, myRoom);
 		//NPC
 		myNPC = new NPC("NPCname","NPCdecription",15,50,currentPlayer);
 		
@@ -58,7 +58,7 @@ public class RoomTest extends TestCase {
 	public void testAddExit() {
 		//Add exit
 		myRoom.addExit("south",doorMyRoomNextRoom);
-		myRoom.getRoomHM().containsKey(myRoomHM);
+		myRoom.getExits().containsKey(myRoomHM);
 	}
 
 	@Test
