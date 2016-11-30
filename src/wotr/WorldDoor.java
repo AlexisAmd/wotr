@@ -1,5 +1,6 @@
 /**
  * Class wich describes WorldExit. A world exit is the last exit of a world before entering in a new world.
+ * When the player pass reach this door powers of magician are restored (see player class)
  * 
  * 
  * @author GR1
@@ -13,9 +14,9 @@
 package wotr;
 
 /*
- * This class represent a door. 
+ * This class represent a wolrd door. 
  * This door is characterized by the current room (room where the player is) and the next room (room behind the door).
- * When the player pass rech this door powers of magician are restored
+ * When the player pass reach this door powers of magician are restored.
  */
 public class WorldDoor extends Door {
 
