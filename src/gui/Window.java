@@ -69,7 +69,7 @@ public class Window {
 	private void initialize() {
 		frmWOTR = new JFrame();
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-		frmWOTR.setBounds(0, 0,screen.width-200,screen.height - 150);
+		frmWOTR.setBounds(0, 0,1166,768 - 150);
 		frmWOTR.setExtendedState(frmWOTR.MAXIMIZED_BOTH);
 		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWOTR.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -86,10 +86,8 @@ public class Window {
 		frmWOTR.getContentPane().setLayout(null);
 		
 		JPanel panelLeft = new JPanel();
-		//panelLeft.setBackground(Color.RED);
-		JLabel backGroundLeft = new JLabel(new ImageIcon("image.jpg")); 
- 
-		panelLeft.add(backGroundLeft, BorderLayout.CENTER);
+		JLabel backGroundLeft = new JLabel(new ImageIcon("src/gui/image/backGroundLeft.jpeg"));
+		panelLeft.add(backGroundLeft);
 		panelLeft.setBounds(0, 0, 756, 589);
 		frmWOTR.getContentPane().add(panelLeft);
 		panelLeft.setLayout(null);
