@@ -1,7 +1,3 @@
-/*
- * This class allows to test methods of PasswordLockedDoor class.
- */
-
 package JUtest;
 import org.junit.Test;
 import wotr.*;
