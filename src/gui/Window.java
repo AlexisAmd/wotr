@@ -117,8 +117,8 @@ public class Window {
 		JButton btnSearch = new JButton("Search");
 		panelSU.add(btnSearch);
 		
-		JButton btnPick = new JButton("Pick");
-		panelSU.add(btnPick);
+		JButton btnPickUp = new JButton("Pick");
+		panelSU.add(btnPickUp);
 		
 		JButton btnMap = new JButton("Map");
 		panelSU.add(btnMap);
