@@ -1,9 +1,7 @@
 package wotr;
 
 import java.util.HashMap;
-
 import javax.swing.JOptionPane;
-
 import java.util.ArrayList;
 
 /**
@@ -17,8 +15,8 @@ import java.util.ArrayList;
  */
 public class Room {
     private String description; // description
-    private String script;//txt
-    private String img;//img
+    private String script;// txt
+    private String img;// img
     private HashMap<String, Door> roomHM; // avaible exits for this room
     private ArrayList<Item> itemList; // items avaibles in this room
     private ArrayList<NPC> NPCList; // NPC present in the room, can be a friend or an ennemy
@@ -32,55 +30,43 @@ public class Room {
      */
     public Room(String description) {
 	this.description = description;
-  
 	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
 	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
 	this.NPCList = new ArrayList<>();//
     }
-    
-    public Room(String description, String script, String img) {
-	//impossible d'appeler le constructeur precedent
-	this.description = description;
-        this.script= script;
-	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
-	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
-	this.NPCList = new ArrayList<>();//
-	//
-	this.script=script;
-	this.img=img;
-    }
-    
 
-    
+    public Room(String description, String script, String img) {
+	this(description);
+	this.script = script;
+	this.img = img;
+    }
+
     /**
      * Getter of the script
      * 
      * @return The script of the room.
      */
-    public String getScript()
-    {
-        return script ;
+    public String getScript() {
+	return script;
     }
-    
-    
+
     /**
      * Getter for the room image name
      * 
      * @return imgLoc Name of the room image
      */
-    public String getImg(){
-    	return img;
+    public String getImg() {
+	return img;
     }
-    
+
     /**
      * Getter for the room exits
      * 
      * @return The map of the rooms available from the current room.
      */
-    public HashMap<String,Door> getExits(){
-        return(roomHM);
+    public HashMap<String, Door> getExits() {
+	return (roomHM);
     }
-
 
     /**
      * Add an exit in the roomHM
@@ -146,8 +132,7 @@ public class Room {
 	return description;
     }
 
-    public HashMap<String, Door> getRoomExits() 
-    {
+    public HashMap<String, Door> getRoomExits() {
 	return this.roomHM;
     }
 
@@ -158,10 +143,10 @@ public class Room {
     {
 	if (!itemList.isEmpty()) {
 	    itemList.stream().forEach((i) -> {
-	    	JOptionPane.showMessageDialog(null, i, "Items", JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(null, i, "Items", JOptionPane.PLAIN_MESSAGE);
 	    });
 	} else {
-		JOptionPane.showMessageDialog(null, "No items here", "Items", JOptionPane.PLAIN_MESSAGE);
+	    JOptionPane.showMessageDialog(null, "No items here", "Items", JOptionPane.PLAIN_MESSAGE);
 	}
     }
 
@@ -172,10 +157,10 @@ public class Room {
     {
 	if (!NPCList.isEmpty()) {
 	    NPCList.stream().forEach((i) -> {
-	    	JOptionPane.showMessageDialog(null, i, "NPC", JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(null, i, "NPC", JOptionPane.PLAIN_MESSAGE);
 	    });
 	} else {
-		JOptionPane.showMessageDialog(null, "No friend/ennemies here", "NPC", JOptionPane.PLAIN_MESSAGE);
+	    JOptionPane.showMessageDialog(null, "No friend/ennemies here", "NPC", JOptionPane.PLAIN_MESSAGE);
 	}
     }
 
@@ -217,7 +202,7 @@ public class Room {
      */
     public void printExits() {
 	roomHM.keySet().stream().forEach((exit) -> {
-		JOptionPane.showMessageDialog(null, exit, "Room", JOptionPane.PLAIN_MESSAGE);
+	    JOptionPane.showMessageDialog(null, exit, "Room", JOptionPane.PLAIN_MESSAGE);
 	});
     }
 
@@ -228,19 +213,14 @@ public class Room {
 	return "This room is the " + description + "\n";
     }
 
-
-
-
     /**
      *    
      * This method check if the exit room chose is a WorldExit
      * @param direction: direction chose by the player, which leads to the exit we want to check 
      * @return true if the exit chose is an door which allow to exit from a world
      */
-
     public boolean isWorldDoor(String direction) {
 	String exit = roomHM.get(direction).getClass().getName();
-	return (exit == "wotr.WorldDoor"); 
+	return (exit == "wotr.WorldDoor");
     }
 }
-
