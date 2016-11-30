@@ -164,9 +164,12 @@ public class Window {
 		textPanePlayer.setBounds(96, 12, 296, 74);
 		panelInfoTopPlayer.add(textPanePlayer);
 		
+		
 		JPanel panelIconPlayer = new JPanel();
+		JLabel iconPlayer = new JLabel( new ImageIcon("src/gui/image/frodo.png"));
 		panelIconPlayer.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelIconPlayer.setBounds(12, 12, 72, 74);
+		panelIconPlayer.add(iconPlayer);
 		panelInfoTopPlayer.add(panelIconPlayer);
 		
 		JPanel panelInfoBotom = new JPanel();
