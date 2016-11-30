@@ -30,14 +30,24 @@ public class Room {
      * @param description
      *            The room's description.
      */
-    public Room(String description, String script, String img) {
+    public Room(String description, String script) {
 	this.description = description;
         this.script= script;
-        this.img= img;
 	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
 	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
 	this.NPCList = new ArrayList<>();//
     }
+    
+    public Room(String description, String script, String img) {
+	this.description = description;
+        this.script= script;
+	this.roomHM = new HashMap<>(); // HashMap of all rooms with their direction
+	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
+	this.NPCList = new ArrayList<>();//
+	this.img=img;
+    }
+    
+
     
     /**
      * Getter of the script
