@@ -74,12 +74,8 @@ public class Window {
 		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWOTR.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
 		frmWOTR.setOpacity(1);
-		frmWOTR.setResizable(false);
-		frmWOTR.setForeground(Color.LIGHT_GRAY);
-		frmWOTR.setFont(new Font("Roboto", Font.PLAIN, 12));
-		frmWOTR.setAlwaysOnTop(true);
+		frmWOTR.setResizable(false);;
 		frmWOTR.setTitle("World of the Ring");
-		frmWOTR.getContentPane().setSize(new Dimension(1024, 800));
 		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		
 		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -151,20 +147,20 @@ public class Window {
 		panelRight.add(panelInfoPlayer);
 		panelInfoPlayer.setLayout(new GridLayout(2, 0, 0, 0));
 		
-		JPanel panelInfoTop = new JPanel();
-		panelInfoTop.setBorder(null);
-		panelInfoTop.setLayout(null);
-		panelInfoPlayer.add(panelInfoTop);
+		JPanel panelInfoTopPlayer = new JPanel();
+		panelInfoTopPlayer.setBorder(null);
+		panelInfoTopPlayer.setLayout(null);
+		panelInfoPlayer.add(panelInfoTopPlayer);
 		
 		JTextPane textPanePlayer = new JTextPane();
 		textPanePlayer.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		textPanePlayer.setBounds(96, 12, 296, 74);
-		panelInfoTop.add(textPanePlayer);
+		panelInfoTopPlayer.add(textPanePlayer);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panel.setBounds(12, 12, 72, 74);
-		panelInfoTop.add(panel);
+		JPanel panelIconPlayer = new JPanel();
+		panelIconPlayer.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panelIconPlayer.setBounds(12, 12, 72, 74);
+		panelInfoTopPlayer.add(panelIconPlayer);
 		
 		JPanel panelInfoBotom = new JPanel();
 		panelInfoPlayer.add(panelInfoBotom);
