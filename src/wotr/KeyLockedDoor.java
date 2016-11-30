@@ -1,4 +1,3 @@
-//WIP Antoine
 package wotr;
 
 /*
