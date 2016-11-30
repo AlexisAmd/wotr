@@ -85,12 +85,13 @@ public class Window {
 		frmWOTR.getContentPane().setLayout(null);
 		
 		JPanel panelLeft = new JPanel();
+		panelLeft.setBorder(null);
 		panelLeft.setBounds(0, 0, 756, 589);
 		frmWOTR.getContentPane().add(panelLeft);
 		panelLeft.setLayout(null);
 		
 		JPanel panelDirection = new JPanel();
-		panelDirection.setBounds(150, 427, 160, 150);
+		panelDirection.setBounds(150, 417, 160, 160);
 		panelLeft.add(panelDirection);
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
@@ -101,13 +102,17 @@ public class Window {
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
 		JButton btnNorth = new JButton("North");
+		btnNorth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
 		JButton btnSouth = new JButton("South");
 		panelDirection.add(btnSouth, BorderLayout.SOUTH);
 		
 		JPanel panelSU = new JPanel();
-		panelSU.setBounds(12, 427, 126, 150);
+		panelSU.setBounds(12, 417, 126, 160);
 		panelLeft.add(panelSU);
 		panelSU.setLayout(new GridLayout(3, 1, 0, 0));
 		
@@ -121,7 +126,7 @@ public class Window {
 		panelSU.add(btnMap);
 		
 		JTextPane txtpnPrompt = new JTextPane();
-		txtpnPrompt.setBounds(322, 427, 422, 150);
+		txtpnPrompt.setBounds(322, 417, 422, 160);
 		panelLeft.add(txtpnPrompt);
 		txtpnPrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
 		txtpnPrompt.setForeground(Color.WHITE);
@@ -129,12 +134,12 @@ public class Window {
 		
 		JPanel panelImage = new JPanel();
 		panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		panelImage.setBounds(12, 12, 732, 403);
+		panelImage.setBounds(12, 12, 732, 393);
 		panelLeft.add(panelImage);
 		panelImage.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelRight = new JPanel();
-		panelRight.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panelRight.setBorder(null);
 		panelRight.setBackground(new Color(218, 165, 32));
 		panelRight.setBounds(756, 0, 404, 589);
 		frmWOTR.getContentPane().add(panelRight);
@@ -145,6 +150,7 @@ public class Window {
 		panelInfoPlayer.setLayout(new GridLayout(2, 0, 0, 0));
 		
 		JPanel panelInfoTop = new JPanel();
+		panelInfoTop.setBorder(null);
 		panelInfoTop.setLayout(null);
 		panelInfoPlayer.add(panelInfoTop);
 		
