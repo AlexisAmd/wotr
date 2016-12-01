@@ -89,13 +89,12 @@ public class Game {
 	roomBagginsStreet1.addExit("east", doorBagginsStreet1111thBirthdayParty);
 	roomBagginsStreet1.addExit("west", doorBagginsStreet1BilboHouse);
 	roomBilboHouseStart.addExit("east", doorBilboHouseBagginsStreet1);
-	roomGreenDragonInn.addExit("north", doorGreenDragonInnBagginsStreet1);
+	roomGreenDragonInn.addExit("south", doorGreenDragonInnBagginsStreet1);
 	room111thBirthday.addExit("west", door111thBirthdayPartyBagginsStreet1);
 	roomBagginsStreet2.addExit("north", doorBagginsStreet2BagginsStreet1);
 	roomBagginsStreet2.addExit("west", doorBagginsStreet2SamHouse);
 	roomBagginsStreet2.addExit("south", doorBagginsStreet2RoadToBree);
 	roomSamHouse.addExit("east", doorSamHouseBagginsStreet2);
-	roomBilboHouseStart.addExit("east", doorBilboHouseBagginsStreet1);
 	startRoom = roomBilboHouseStart;
 	// *********************LEVEL 2 - BREE************************************
 	Room roomBuckleburyFerry;
@@ -108,7 +107,6 @@ public class Game {
 	// roomRoadToBree.addExit("south", worlddoorShireToBree);
 	// Associate the doors to rooms
 	roomRoadToBree.addExit("north", worlddoorShireToBree);
-	startRoom = roomBilboHouseStart; // start game to the BagginsStreet
 	/**
 	 * Create all the items and binds them to their rooms.
 	 */
