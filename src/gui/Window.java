@@ -181,7 +181,7 @@ public class Window extends JFrame {
 		btnPickUp.setBorderPainted(false);
 		btnPickUp.setContentAreaFilled(false);
 		panelSU.add(btnPickUp);
-		btnframeMap = new JButton(new ImageIcon("src/gui/image/frameMap2.png"));
+		btnframeMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
 		btnframeMap.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
