@@ -24,6 +24,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
+import java.awt.Panel;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -57,14 +58,16 @@ public Window(){
 		this.setOpacity(1);
 		this.setResizable(false);
 		this.setTitle("World of the Ring");
-		this.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		
+		this.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));	
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setLayout(null);
+		
 		
 		JPanel panelLeft = new JPanel();
 		JLabel backGroundLeft = new JLabel(new ImageIcon("src/gui/image/backGroundLeft.jpeg"));
 		panelLeft.add(backGroundLeft);
+		panelLeft.setOpaque(false);
+		panelLeft.setBackground(new Color(0,0,0,0));
 		panelLeft.setBounds(0, 0, 756, 589);
 		this.getContentPane().add(panelLeft);
 		panelLeft.setLayout(null);
