@@ -253,6 +253,12 @@ public Window(){
 		 listInventory = new JList();
 		listInventory.setBounds(275, 97, 117, 87);
 		panelInventory.add(listInventory);
+		listInventory.addListSelectionListener(new ListSelectionListener(){
+			
+			public void valueChanged (ListSelectionEvent e){
+				selectedItem = (Item) listInventory.getSelectedValue();
+			}
+		});
 		
 		 btnUseItem = new JButton("Use");
 		btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 10));
