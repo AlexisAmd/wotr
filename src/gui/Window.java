@@ -349,17 +349,18 @@ public void setScript(String script){
 	progressBarHealth.setValue(percentHealth);
     }
     
-    public void updateList(ArrayList<String> listNPC, ArrayList<String> listItem){
-	listNPC = new JList<String>(listNPC.toArray());
-	listItem = new JList<String>(listItem.toArray());
+    public void updateList(ArrayList<String> plistNPC, ArrayList<String> plistItem){
+	listNPC = new JList(plistNPC.toArray());
+	listInventory = new JList(plistItem.toArray());
 	
 
 		
     }
     
-    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption ){
+    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption, ArrayList<String> plistNPC, ArrayList<String> plistItem ){
 	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
 	this.updateProgressBar(percentHealth, percentCorruption);
+	this.updateList(plistNPC, plistItem);
 	
 }
 }
