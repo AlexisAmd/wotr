@@ -191,6 +191,13 @@ public class Window extends JFrame {
 				panelImg.add(myImg);
 				frameMapImg.getContentPane().add(panelImg);
 				frameMapImg.pack();
+				frameMapImg.addMouseListener(new MouseAdapter(){
+					
+					@Override
+					public void mouseClicked(MouseEvent e){
+						myImg.setIcon(new ImageIcon("src/gui/image/fullMapViewZoom.jpg"));
+					}
+				});
 			}
 		});
 		btnframeMap.setToolTipText("frameMap");
