@@ -42,7 +42,7 @@ public class Window extends JFrame {
 private Game game;
 private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfPlayer, panelInfoTopPlayer, panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
 private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnMap, btnUseNPCS, btnDropNPC, btnUseItem,  btnDropItem;
-private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textaneInventory;
+private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneInventory;
 
 public static void main (String [] arg){
 	   Window window = new Window();
@@ -240,10 +240,10 @@ public Window(){
 		btnDropitem.setBounds(275, 53, 117, 32);
 		panelInventory.add(btnDropitem);
 		
-		JTextPane textaneInventory = new JTextPane();
-		textaneInventory.setText("Description");
-		textaneInventory.setBounds(12, 11, 251, 173);
-		panelInventory.add(textaneInventory);
+		JTextPane textPaneInventory = new JTextPane();
+		textPaneInventory.setText("Description");
+		textPaneInventory.setBounds(12, 11, 251, 173);
+		panelInventory.add(textPaneInventory);
 	}
 /**
  * Change the script of the room.
