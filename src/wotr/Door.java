@@ -32,6 +32,14 @@ public class Door
         this.nextRoom=nextRoom;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return nextRoom.getDescription();
+    }
+
     /**
        *Methods to get the future current room after moving
      * @param currentRoom
