@@ -332,6 +332,18 @@ public void setScript(String script){
      * @param progressBarCorruption the progressBarCorruption to set
      */
     public void setProgressBarCorruption(int percentCorruption) {
-	this.progressBarCorruption.setValue(percentCorruption);
+	progressBarCorruption.setValue(percentCorruption);
     }
+    
+    public void updateDirectionButton(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth){
+	btnNorth.setEnabled(bNorth);
+	btnSouth.setEnabled(bSouth);
+	btnWest.setEnabled(bSouth);
+	btnEast.setEnabled(bEast);
+    }
+    
+    
+    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth ){
+	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
+}
 }
