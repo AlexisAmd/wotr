@@ -183,11 +183,11 @@ public class Window extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				JFrame frameMapImg = new JFrame();
-				frameMapImg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frameMapImg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				frameMapImg.setVisible(true);
 				frameMapImg.setTitle("frameMap of the game");
 				JPanel panelImg = new JPanel();
-				JLabel myImg = new JLabel(new ImageIcon("src/gui/image/fullframeMapView.jpg"));
+				JLabel myImg = new JLabel(new ImageIcon("src/gui/image/fullMapView.jpg"));
 				panelImg.add(myImg);
 				frameMapImg.getContentPane().add(panelImg);
 				frameMapImg.pack();
