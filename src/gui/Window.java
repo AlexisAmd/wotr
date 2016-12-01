@@ -125,14 +125,14 @@ public Window(){
 		panelLeft.add(panelSU);
 		panelSU.setLayout(new GridLayout(3, 1, 0, 0));
 		
-		btnSearch = new JButton(new ImageIcon("src/gui/image/13857-jumo-oeil.png"));
+		btnSearch = new JButton(new ImageIcon("src/gui/image/oeil.gif"));
 		btnSearch.setToolTipText("Search");
 		btnSearch.setOpaque(false);
 		btnSearch.setBorderPainted(false);
 		btnSearch.setContentAreaFilled(false);
 		panelSU.add(btnSearch);
 		
-		btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon.png"));
+		btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon2.png"));
 		btnPickUp.setToolTipText("Pick Up");
 		btnPickUp.setOpaque(false);
 		btnPickUp.setBorderPainted(false);
