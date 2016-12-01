@@ -208,11 +208,16 @@ public class Window extends JFrame {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
 			myImg.setIcon(new ImageIcon("src/gui/image/fullMapViewZoom.jpg"));
+			scrollBar = new JScrollPane();
+			scrollBar.setViewportView(myImg);
+			frameMapImg.add(scrollBar);
+			
 		    }
 		});
 	    }
 	});
-	btnframeMap.setToolTipText("frameMap");
+	
+	btnframeMap.setToolTipText("Map of the frame");
 	btnframeMap.setOpaque(false);
 	btnframeMap.setBorderPainted(false);
 	btnframeMap.setContentAreaFilled(false);
