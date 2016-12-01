@@ -25,6 +25,14 @@ public class Hobbit extends NPC {
 	}
 	
 	/**
+     * Access the corruption power attribute
+     * @return the corruption power value.
+     */
+    public int getCorruptionPower() {
+	return corruptionPower;
+    }
+	
+	/**
 	    *Use method, removes a certain amount of corruptionPower.
 	    *@return true if the power is used
 	    *@return false if the powers cannot be used
