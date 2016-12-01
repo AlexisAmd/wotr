@@ -174,6 +174,11 @@ public class Window extends JFrame {
 		btnPickUp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+			   ArrayList<Item> arrayItem = game.getPlayer().getCurrentRoom().getItemList();
+			   for (String item : arrayItem) {
+			       setScript(item.getName());
+			       
+			   }
 			}
 		});
 		btnPickUp.setToolTipText("Pick Up");
@@ -188,7 +193,7 @@ public class Window extends JFrame {
 				JFrame frameMapImg = new JFrame();
 				frameMapImg.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				frameMapImg.setVisible(true);
-				frameMapImg.setTitle("frameMap of the game");
+				frameMapImg.setTitle("Map of the game");
 				JPanel panelImg = new JPanel();
 				JLabel myImg = new JLabel(new ImageIcon("src/gui/image/fullMapView.jpg"));
 				panelImg.add(myImg);
