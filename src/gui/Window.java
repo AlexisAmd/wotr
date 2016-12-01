@@ -152,6 +152,7 @@ public Window(){
 		textPanePrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
 		textPanePrompt.setForeground(Color.WHITE);
 		textPanePrompt.setBackground(Color.BLACK);
+		textPanePrompt.setEditable(false);
 		
 		panelImage = new JPanel();
 		JLabel ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
@@ -182,6 +183,7 @@ public Window(){
 		textPanePlayer.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		textPanePlayer.setBounds(96, 12, 296, 74);
 		panelInfoTopPlayer.add(textPanePlayer);
+		textPanePlayer.setEditable(false);
 		
 		
 		panelIconPlayer = new JPanel();
@@ -228,6 +230,7 @@ public Window(){
 		
 		textPaneDesNPC = new JTextPane();
 		textPaneDesNPC.setText("Description");
+		textPaneDesNPC.setEditable(false);
 		textPaneDesNPC.setBounds(12, 12, 251, 172);
 		panelNPC.add(textPaneDesNPC);
 		
@@ -262,6 +265,7 @@ public Window(){
 		
 		 textPanelDesInventory = new JTextPane();
 		textPanelDesInventory.setText("Description");
+		textPanelDesInventory.setEditable(false);
 		textPanelDesInventory.setBounds(12, 11, 251, 173);
 		panelInventory.add(textPanelDesInventory);
 	}
