@@ -169,6 +169,8 @@ public class Window extends JFrame {
 			setScript(
 				item.getName() + ": " + item.getDescription() + " (Weight: " + item.getWeight() + ")");
 		    }
+		}else{
+		    setScript("Nothing Here  !");
 		}
 	    }
 	});
