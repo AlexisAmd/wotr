@@ -16,6 +16,7 @@ import java.awt.Font;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
@@ -39,17 +40,19 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import java.awt.Rectangle;
 
 public class Window extends JFrame {
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
 	    panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
     private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnframeMap, btnUseNPC, btnDropNPC,
 	    btnUseItem, btnDropItem;
-    private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPanelDesInventory;
+    private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneDesInventory;
     private JList listNPC, listInventory;
     private JLabel backGroundLeft, iconPlayer, ImageHome;
     private JProgressBar progressBarHealth, progressBarCorruption;
-    private JScrollPane scrollBar;
+    private JScrollPane scrollBar, scrollPaneInventory, scrollPaneNPC;
+    private DefaultListModel modelNPC, modelInventory;
     // Other variables
     private NPC selectedNPC;
     private Item selectedItem;
@@ -169,7 +172,7 @@ public class Window extends JFrame {
 			setScript(
 				item.getName() + ": " + item.getDescription() + " (Weight: " + item.getWeight() + ")");
 		    }
-		}else{
+		} else {
 		    setScript("Nothing Here  !");
 		}
 	    }
@@ -184,6 +187,21 @@ public class Window extends JFrame {
 	btnPickUp.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
+		ArrayList<Item> arrayItem = game.getPlayer().getCurrentRoom().getItemList();
+		if (!arrayItem.isEmpty()) {
+		    for (Item item : arrayItem) {
+			if (game.getPlayer().pickUpItem(item)) {
+			    setScript(item.getName() + " has been picked up ! ");
+			    //updateAll();
+			} else {
+			    setScript(item.getName() + " has not been picked up ! ");
+			    //updateAll();
+			}
+		    }
+		} else {
+		    setScript("Nothing Here  !");
+		}
+		updateAll();
 	    }
 	});
 	btnPickUp.setToolTipText("Pick Up");
@@ -210,13 +228,11 @@ public class Window extends JFrame {
 			myImg.setIcon(new ImageIcon("src/gui/image/fullMapViewZoom.jpg"));
 			scrollBar = new JScrollPane();
 			scrollBar.setViewportView(myImg);
-			frameMapImg.add(scrollBar);
-			
+			frameMapImg.getContentPane().add(scrollBar);
 		    }
 		});
 	    }
 	});
-	
 	btnframeMap.setToolTipText("Map of the frame");
 	btnframeMap.setOpaque(false);
 	btnframeMap.setBorderPainted(false);
@@ -282,12 +298,28 @@ public class Window extends JFrame {
 	progressBarCorruption.setStringPainted(true);
 	progressBarCorruption.setBackground(Color.WHITE);
 	panelinfoBottom.add(progressBarCorruption);
+	//
 	panelNPC = new JPanel();
-	panelRight.add(panelNPC);
+	modelNPC = new DefaultListModel();
 	panelNPC.setLayout(null);
+	listNPC = new JList(modelNPC);
+	listNPC.setFont(new Font("Roboto", Font.PLAIN, 11));
+	listNPC.setBackground(Color.RED);
+	listNPC.setBounds(new Rectangle(275, 97, 117, 87));
+	scrollPaneNPC = new JScrollPane(listNPC);
+	scrollPaneNPC.setAutoscrolls(true);
+	panelNPC.add(scrollPaneNPC);
+	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	listNPC.setBounds(275, 97, 117, 87);
+	listNPC.addListSelectionListener(new ListSelectionListener() {
+	    public void valueChanged(ListSelectionEvent e) {
+		selectedNPC = (NPC) listNPC.getSelectedValue();
+	    }
+	});
+	panelRight.add(panelNPC);
 	btnUseNPC = new JButton("Use");
 	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
-	btnUseNPC.setBounds(275, 11, 117, 32);
+btnUseNPC.setBounds(275, 11, 117, 32);
 	panelNPC.add(btnUseNPC);
 	btnDropNPC = new JButton("Drop");
 	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
@@ -298,26 +330,23 @@ public class Window extends JFrame {
 	textPaneDesNPC.setEditable(false);
 	textPaneDesNPC.setBounds(12, 12, 251, 172);
 	panelNPC.add(textPaneDesNPC);
-	listNPC = new JList();
-	listNPC.setBounds(275, 97, 117, 87);
-	panelNPC.add(listNPC);
-	listNPC.addListSelectionListener(new ListSelectionListener() {
-	    public void valueChanged(ListSelectionEvent e) {
-		selectedNPC = (NPC) listNPC.getSelectedValue();
-	    }
-	});
+
+//
 	panelInventory = new JPanel();
-	panelInventory.setBorder(null);
-	panelRight.add(panelInventory);
+	modelInventory = new DefaultListModel();
 	panelInventory.setLayout(null);
-	listInventory = new JList();
-	listInventory.setBounds(275, 97, 117, 87);
-	panelInventory.add(listInventory);
+	listInventory = new JList(modelInventory);
+	scrollPaneInventory = new JScrollPane(listInventory);
+	scrollPaneInventory.setAutoscrolls(true);
+	panelInventory.add(scrollPaneInventory);
+	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	listInventory.setBounds(275, 96, 117, 88);
 	listInventory.addListSelectionListener(new ListSelectionListener() {
 	    public void valueChanged(ListSelectionEvent e) {
 		selectedItem = (Item) listInventory.getSelectedValue();
 	    }
 	});
+	panelRight.add(panelInventory);
 	btnUseItem = new JButton("Use");
 	btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 10));
 	btnUseItem.setBounds(275, 11, 117, 32);
@@ -326,11 +355,11 @@ public class Window extends JFrame {
 	btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 10));
 	btnDropItem.setBounds(275, 53, 117, 32);
 	panelInventory.add(btnDropItem);
-	textPanelDesInventory = new JTextPane();
-	textPanelDesInventory.setText("Description");
-	textPanelDesInventory.setEditable(false);
-	textPanelDesInventory.setBounds(12, 11, 251, 173);
-	panelInventory.add(textPanelDesInventory);
+	textPaneDesInventory = new JTextPane();
+	textPaneDesInventory.setText("Description");
+	textPaneDesInventory.setEditable(false);
+	textPaneDesInventory.setBounds(12, 11, 251, 173);
+	panelInventory.add(textPaneDesInventory);
     }
 
     /**
@@ -398,7 +427,7 @@ public class Window extends JFrame {
      *            the textPanelDesInventory to set
      */
     public void settextPanelDesInventory(String description) {
-	this.textPanelDesInventory.setText(description);
+	this.textPaneDesInventory.setText(description);
     }
 
     /**
@@ -453,6 +482,20 @@ public class Window extends JFrame {
 	setScript(description);
     }
 
+    public void updateInventory() {
+	ArrayList<Item> arrayItem = game.getPlayer().getInventory();
+	for (Item item : arrayItem) {
+	    modelInventory.addElement(item.getName());
+	}
+    }
+
+    public void updateListNPC() {
+	ArrayList<NPC> arrayNPC = game.getPlayer().getFellowship();
+	for (NPC npc : arrayNPC) {
+	    modelNPC.addElement(npc.getName());
+	}
+    }
+
     public void updateAll() {
 	boolean bNorth, bEast, bSouth, bWest;
 	bNorth = game.getPlayer().getCurrentRoom().getExits().containsKey("north");
@@ -464,6 +507,8 @@ public class Window extends JFrame {
 	this.updateList(game.getPlayer().getFellowship(), game.getPlayer().getInventory());
 	this.updateImage(game.getPlayer().getCurrentRoom().getImg());
 	this.updatePromptWithRoomDescription(game.getPlayer().getCurrentRoom().getDescription());
+	this.updateListNPC();
+	this.updateInventory();
     }
 
     /**
