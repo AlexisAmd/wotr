@@ -107,7 +107,6 @@ public class Game {
 	// roomRoadToBree.addExit("south", worlddoorShireToBree);
 	// Associate the doors to rooms
 	roomRoadToBree.addExit("north", worlddoorShireToBree);
-	startRoom = roomBilboHouseStart; // start game to the BagginsStreet
 	/**
 	 * Create all the items and binds them to their rooms.
 	 */
