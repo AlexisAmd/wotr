@@ -8,8 +8,8 @@ import org.junit.Test;
 
 public class HobbitTest {
 	
-	private Player frodo;
-	private Hobbit sam;
+	private Player playerFrodo;
+	private Hobbit npcSam;
 	
 	/*
 	 * Sets up the test fixture 
@@ -18,15 +18,16 @@ public class HobbitTest {
 	@Before
 	public void setUp()
 	{
-		frodo = new Player();
-		frodo.setCorruption(30); //Set the percent corruption of the player
-		sam = new Hobbit("Samwise Gamgee", "Description", -20, 0, frodo);
+		playerFrodo = new Player();
+		playerFrodo.setCorruption(30); //Set the percent corruption of the player
+		npcSam = new Hobbit("Samwise Gamgee", "Description", -20, 0, playerFrodo);
 	}
 	
 		@Test
 	public void testUseHobbit() {
-		sam.use();
-		assertEquals(10,Hobbit.getCorruptionPower());
+		npcSam.use();
+		assertEquals(10,playerFrodo.getCorruption());
+		assertEquals(true, npcSam.getAlreadyUsed());
 	}
 
 }
