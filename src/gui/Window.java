@@ -288,7 +288,7 @@ public void setScript(String script){
     
     	String currentText = textPanePrompt.getText();
     	textPanePrompt.setText(" ");
-	this.textPanePrompt.setText(currentText+"\n"+script);
+	this.textPanePrompt.setText(script +"\n"+ currentText);
     }
 
     /**
@@ -392,12 +392,20 @@ public void updatePromptWithRoomDescription(String description){
 		
     
     
-    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption, ArrayList<NPC> plistNPC, ArrayList<Item> plistItem, String url, String description ){
+    public void updateAll(){
+	boolean bNorth, bEast, bSouth, bWest;
+	bNorth = game.getPlayer().getCurrentRoom().getExits().containsKey("north");
+	bSouth = game.getPlayer().getCurrentRoom().getExits().containsKey("south");
+	bWest = game.getPlayer().getCurrentRoom().getExits().containsKey("west");
+	bEast = game.getPlayer().getCurrentRoom().getExits().containsKey("east");
+	
 	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
-	this.updateProgressBar(percentHealth, percentCorruption);
-	this.updateList(plistNPC, plistItem);
-	this.updateImage(url);
-	this.updatePromptWithRoomDescription(description);
+	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
+	this.updateList(game.getPlayer().getFellowship(), game.getPlayer().getInventory());
+	this.updateImage(game.getPlayer().getCurrentRoom().getImg());
+	this.updatePromptWithRoomDescription(game.getPlayer().getCurrentRoom().getDescription());
+	
+	
 	
 }
     /**
