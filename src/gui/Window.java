@@ -138,9 +138,9 @@ public Window(){
 		
 		JPanel panelImage = new JPanel();
 		JLabel Image = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
-		panelImage.add(Image);
 		panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelImage.setBounds(12, 12, 732, 393);
+		panelImage.add(Image);
 		
 		panelLeft.add(panelImage);
 		panelImage.setLayout(new GridLayout(0, 1, 0, 0));
