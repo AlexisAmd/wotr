@@ -46,7 +46,7 @@ public class Window extends JFrame {
 	    btnUseItem, btnDropItem;
     private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPanelDesInventory;
     private JList listNPC, listInventory;
-    private JLabel backGroundLeft, iconPlayer;
+    private JLabel backGroundLeft, iconPlayer, ImageHome;
     private JProgressBar progressBarHealth, progressBarCorruption;
     private NPC choseNPC;
     
@@ -155,7 +155,7 @@ public Window(){
 		textPanePrompt.setEditable(false);
 		
 		panelImage = new JPanel();
-		JLabel ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
+		ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
 		panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelImage.setBounds(12, 12, 732, 393);
 		panelImage.add(ImageHome);
@@ -360,21 +360,29 @@ public void setScript(String script){
     public void updateProgressBar(int percentHealth, int percentCorruption)
     {
 	progressBarCorruption.setValue(percentCorruption);
+	progressBarCorruption.setString("Cp :" +percentCorruption + " %" );
 	progressBarHealth.setValue(percentHealth);
+	progressBarHealth.setString("Hp :" +percentHealth + " %" );
     }
     
-    public void updateList(ArrayList<String> plistNPC, ArrayList<String> plistItem){
+    public void updateList(ArrayList<NPC> plistNPC, ArrayList<Item> plistItem){
 	listNPC = new JList(plistNPC.toArray());
 	listInventory = new JList(plistItem.toArray());
+    }
+    
+public void updateImage(String url){
+    ImageHome = new JLabel(new ImageIcon(url));
+}
 	
 
 		
-    }
     
-    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption, ArrayList<String> plistNPC, ArrayList<String> plistItem ){
+    
+    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption, ArrayList<NPC> plistNPC, ArrayList<Item> plistItem, String url ){
 	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
 	this.updateProgressBar(percentHealth, percentCorruption);
 	this.updateList(plistNPC, plistItem);
+	this.updateImage(url);
 	
 }
 }

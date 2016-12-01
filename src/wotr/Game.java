@@ -159,9 +159,16 @@ public class Game {
      * Main play routine.  Loops until end of play.
      */
     public void play() {
+	boolean bNorth, bEast, bSouth, bWest;
 	printWelcome();
 	// Enter the main command loop. Here we repeatedly read commands and
 	// execute them until the game is over.
+	bNorth = currentPlayer.getCurrentRoom().getExits().containsKey("north");
+	bSouth = currentPlayer.getCurrentRoom().getExits().containsKey("south");
+	bWest = currentPlayer.getCurrentRoom().getExits().containsKey("west");
+	bEast = currentPlayer.getCurrentRoom().getExits().containsKey("east");
+	
+	window.updateAll(bEast, bNorth, bWest, bSouth, currentPlayer.getHp(), currentPlayer.getCorruption(), currentPlayer.getFellowship(), currentPlayer.getInventory(), currentPlayer.getCurrentRoom().getImg());
     }
 
     /**
