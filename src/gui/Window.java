@@ -41,7 +41,9 @@ public class Window extends JFrame {
 
 private Game game;
 private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfPlayer, panelInfoTopPlayer, panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
-private Jbutton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnMap, btnUseNPCS, btnDropNPC, btnUseItem,  btnUseItem;
+private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnMap, btnUseNPCS, btnDropNPC, btnUseItem,  btnDropItem;
+private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textaneInventory;
+
 public static void main (String [] arg){
 	   Window window = new Window();
 	}
@@ -130,12 +132,12 @@ public Window(){
 		btnMap.setContentAreaFilled(false);
 		panelSU.add(btnMap);
 		
-		JTextPane txtpnPrompt = new JTextPane();
-		txtpnPrompt.setBounds(322, 417, 422, 160);
-		panelLeft.add(txtpnPrompt);
-		txtpnPrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
-		txtpnPrompt.setForeground(Color.WHITE);
-		txtpnPrompt.setBackground(Color.BLACK);
+		JTextPane textPanePrompt = new JTextPane();
+		textPanePrompt.setBounds(322, 417, 422, 160);
+		panelLeft.add(textPanePrompt);
+		textPanePrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
+		textPanePrompt.setForeground(Color.WHITE);
+		textPanePrompt.setBackground(Color.BLACK);
 		
 		JPanel panelImage = new JPanel();
 		JLabel Image = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
@@ -238,10 +240,10 @@ public Window(){
 		btnDropitem.setBounds(275, 53, 117, 32);
 		panelInventory.add(btnDropitem);
 		
-		JTextPane txtpnDesInventory = new JTextPane();
-		txtpnDesInventory.setText("Description");
-		txtpnDesInventory.setBounds(12, 11, 251, 173);
-		panelInventory.add(txtpnDesInventory);
+		JTextPane textaneInventory = new JTextPane();
+		textaneInventory.setText("Description");
+		textaneInventory.setBounds(12, 11, 251, 173);
+		panelInventory.add(textaneInventory);
 	}
 /**
  * Change the script of the room.
@@ -251,7 +253,7 @@ public Window(){
  * @param script The script of the current room
  */
 public void setScript(String script){
-	this.txtpnPrompt.setText(script);
+	this.textPanePrompt.setText(script);
 }
 
 }
