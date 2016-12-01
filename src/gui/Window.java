@@ -27,6 +27,7 @@ import java.awt.Panel;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import javax.swing.JInternalFrame;
 import javax.swing.JDesktopPane;
 import java.awt.Color;
@@ -342,6 +343,34 @@ public void setScript(String script){
      * @param progressBarCorruption the progressBarCorruption to set
      */
     public void setProgressBarCorruption(int percentCorruption) {
-	this.progressBarCorruption.setValue(percentCorruption);
+	progressBarCorruption.setValue(percentCorruption);
     }
+    
+    public void updateDirectionButton(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth){
+	btnNorth.setEnabled(bNorth);
+	btnSouth.setEnabled(bSouth);
+	btnWest.setEnabled(bSouth);
+	btnEast.setEnabled(bEast);
+    }
+    
+    public void updateProgressBar(int percentHealth, int percentCorruption)
+    {
+	progressBarCorruption.setValue(percentCorruption);
+	progressBarHealth.setValue(percentHealth);
+    }
+    
+    public void updateList(ArrayList<String> plistNPC, ArrayList<String> plistItem){
+	listNPC = new JList(plistNPC.toArray());
+	listInventory = new JList(plistItem.toArray());
+	
+
+		
+    }
+    
+    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption, ArrayList<String> plistNPC, ArrayList<String> plistItem ){
+	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
+	this.updateProgressBar(percentHealth, percentCorruption);
+	this.updateList(plistNPC, plistItem);
+	
+}
 }
