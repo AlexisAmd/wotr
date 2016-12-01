@@ -96,22 +96,9 @@ public class Game {
 	roomBagginsStreet2.addExit("south", doorBagginsStreet2RoadToBree);
 	roomSamHouse.addExit("east", doorSamHouseBagginsStreet2);
 	startRoom = roomBilboHouseStart;
-	// *********************LEVEL 2 - BREE************************************
-	Room roomBuckleburyFerry;
-	WorldDoor worlddoorShireToBree;
-	// Create the rooms
-	roomBuckleburyFerry = new Room("Taking the ferry will allow you to avoid dark riders along the way", "-script-",
-		"src/gui/image/roomBuckleburyFerry.jpg");
-	// Create doors
-	worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
-	// roomRoadToBree.addExit("south", worlddoorShireToBree);
-	// Associate the doors to rooms
-	roomRoadToBree.addExit("north", worlddoorShireToBree);
-	/**
-	 * Create all the items and binds them to their rooms.
-	 */
-	// private void createItems() {
-	// *********************LEVEL 1 - THE SHIRE*****************************
+		
+	 // Create all the items and binds them to their rooms.
+
 	Key keyToSamHouse;
 	Food foodPint, foodWine, foodCarrots, foodGrilledChicken, foodMeltCheese, foodSalad;
 	Potion potionElixir;
@@ -135,10 +122,8 @@ public class Game {
 	roomSamHouse.addItem(foodSalad);
 	roomRoadToBree.addItem(foodCarrots);
 	room111thBirthday.addItem(potionElixir);
+	
 	room111thBirthday.addItem(keyToSamHouse);
-	// *********************LEVEL 2 - BREE************************************
-	// empty for now
-	// *********************LEVEL 1 - THE SHIRE*****************************
 	Magician npcGandalf;
 	Hobbit npcSam, npcPipin, npcMerry;
 	Warrior npcDrunkHobbit;
@@ -154,11 +139,89 @@ public class Game {
 	room111thBirthday.addNPC(npcDrunkHobbit);
 	roomRoadToBree.addNPC(npcPipin);
 	roomRoadToBree.addNPC(npcMerry);
+	
 	// *********************LEVEL 2 - BREE************************************
-	// empty for now
-	startRoom = roomBilboHouseStart; // start game outside
+				// Declare rooms and doors
+		Room roomBuckleburyFerry,roomCityEntrance,roomCityCenter,roomPPBar,roomPPDormitory,
+		roomPPGandalf,roomPPStrider,roomDarkAlley1,roomDarkalley2; //PP = PrncingPoney
+		Door doorBuckleburyFerryCityEntrance,doorCityEntranceBuckleburyFerry,doorCityEntranceCityCenter,
+		doorCityCenterCityEntrance,doorCityCenterDarkAlley1,doorDarkAlley1DarkAlley2,doorDarkAlley2CityEntrance,doorCityCenterPPBar,doorPPBarCityCenter,
+		doorPPBarPPDormitory,doorPPDormitoryPPBar,doorPPBarPPGandalf,doorPPGandalfPPBar,doorPPBarPPStrider,doorPPStriderPPBar;
+		WorldDoor worlddoorShireToBree;
+				// Create rooms (description, script, image)
+		roomBuckleburyFerry = new Room("Taking the ferry will allow you to avoid dark riders along the way", "-script-",
+				"src/gui/image/roomBuckleburyFerry.jpg");
+		roomCityCenter = new Room("","","");
+		roomCityEntrance = new Room("","","");
+		roomPPBar = new Room("","","");
+		roomPPDormitory = new Room("","","");
+		roomPPGandalf = new Room("","","");
+		roomPPStrider = new Room("","","");
+		roomDarkAlley1 = new Room("","","");
+		roomDarkalley2 = new Room("","","");
+		
+				// Create doors
+		worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
+		doorBuckleburyFerryCityEntrance = new Door(roomBuckleburyFerry,roomCityEntrance);
+		doorCityEntranceBuckleburyFerry = new Door(roomCityEntrance,roomBuckleburyFerry);
+		doorCityEntranceCityCenter = new Door(roomCityEntrance, roomCityCenter);
+		doorCityCenterCityEntrance = new Door(roomCityCenter, roomCityEntrance);
+		doorCityCenterPPBar = new Door(roomCityCenter, roomPPBar);
+		doorCityCenterDarkAlley1 = new Door(roomCityCenter, roomDarkAlley1);
+		doorDarkAlley1DarkAlley2 = new Door(roomDarkAlley1, roomDarkalley2);
+		doorDarkAlley2CityEntrance = new Door(roomDarkalley2, roomCityEntrance);
+		doorPPBarCityCenter = new Door(roomPPBar, roomCityCenter);
+		doorPPBarPPDormitory = new Door(roomPPBar, roomPPDormitory);
+		doorPPDormitoryPPBar = new Door(roomPPDormitory, roomPPBar);
+		doorPPBarPPGandalf = new Door(roomPPBar, roomPPGandalf);
+		doorPPGandalfPPBar = new Door(roomPPGandalf, roomPPBar);
+		doorPPBarPPStrider = new Door(roomPPBar, roomPPStrider);
+		doorPPStriderPPBar = new Door(roomPPStrider, roomPPBar);
+		
+				// Link the exit world to previous level
+		roomRoadToBree.addExit("north", worlddoorShireToBree);
+		
+				// Associate doors with rooms
+		roomBuckleburyFerry.addExit("East", doorBuckleburyFerryCityEntrance);
+		roomCityEntrance.addExit("west", doorCityEntranceBuckleburyFerry);
+		roomCityEntrance.addExit("east", doorCityEntranceCityCenter);
+		roomCityCenter.addExit("west", doorCityCenterCityEntrance);
+		roomCityCenter.addExit("east", doorCityCenterPPBar);
+		roomCityCenter.addExit("south", doorCityCenterDarkAlley1);
+		roomDarkAlley1.addExit("west", doorDarkAlley1DarkAlley2);
+		roomDarkalley2.addExit("north", doorDarkAlley2CityEntrance);
+		roomPPBar.addExit("west", doorPPBarCityCenter);
+		roomPPBar.addExit("north", doorPPBarPPDormitory);
+		roomPPDormitory.addExit("south", doorPPDormitoryPPBar);
+		roomPPBar.addExit("east", doorPPBarPPGandalf);
+		roomPPGandalf.addExit("west", doorPPGandalfPPBar);
+		roomPPBar.addExit("south", doorPPBarPPStrider);
+		roomPPStrider.addExit("north", doorPPStriderPPBar);
+		
+				// Declare items
+				// Create items
+				// Add items to rooms
+				
+				// Declare NPCs
+				// Create NPCs
+				// Add NPCs
+		
+		// *********************LEVEL 3 - Rivendell************************************
+				// Declare rooms and doors
+				// Create rooms (description, script, image)
+				// Create doors
+				// Link the exit world to previous level
+				// Associate doors with rooms
+				
+				// Declare items
+				// Create items
+				// Add items to rooms
+				
+				// Declare NPCs
+				// Create NPCs
+				// Add NPCs
 
-
+	   
     }
 
 
