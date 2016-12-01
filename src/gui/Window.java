@@ -43,7 +43,7 @@ import javax.swing.event.ListSelectionListener;
 public class Window extends JFrame {
 	private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
 			panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
-	private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnMap, btnUseNPC, btnDropNPC,
+	private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnframeMap, btnUseNPC, btnDropNPC,
 			btnUseItem, btnDropItem;
 	private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPanelDesInventory;
 	private JList listNPC, listInventory;
@@ -88,7 +88,11 @@ public class Window extends JFrame {
 		btnWest.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+			    
 				game.getPlayer().goRoom("west");
+				String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
+				//String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toString()
+				setScript(textCurrentRoom);
 			}
 		});
 		btnWest.setToolTipText("West");
@@ -101,6 +105,9 @@ public class Window extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				game.getPlayer().goRoom("east");
+				String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
+				//String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toString()
+				setScript(textCurrentRoom);
 			}
 		});
 		btnEast.setToolTipText("East");
@@ -116,6 +123,9 @@ public class Window extends JFrame {
 		btnNorth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				game.getPlayer().goRoom("north");
+				String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
+				//String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toString()
+				setScript(textCurrentRoom);
 			}
 		});
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
@@ -124,6 +134,10 @@ public class Window extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				game.getPlayer().goRoom("south");
+				String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
+				//String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toString()
+				setScript(textCurrentRoom);
+				
 			}
 		});
 		btnSouth.setToolTipText("South");
@@ -160,25 +174,26 @@ public class Window extends JFrame {
 		btnPickUp.setBorderPainted(false);
 		btnPickUp.setContentAreaFilled(false);
 		panelSU.add(btnPickUp);
-		btnMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
-		btnMap.addMouseListener(new MouseAdapter() {
+		btnframeMap = new JButton(new ImageIcon("src/gui/image/frameMap2.png"));
+		btnframeMap.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				JFrame mapImg = new JFrame();
-				mapImg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				mapImg.setVisible(true);
-				mapImg.setTitle("Map of the game");
+				JFrame frameMapImg = new JFrame();
+				frameMapImg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frameMapImg.setVisible(true);
+				frameMapImg.setTitle("frameMap of the game");
 				JPanel panelImg = new JPanel();
-				JLabel myImg = new JLabel(new ImageIcon("src/gui/image/fullMapView.jpg"));
+				JLabel myImg = new JLabel(new ImageIcon("src/gui/image/fullframeMapView.jpg"));
 				panelImg.add(myImg);
-				mapImg.getContentPane().add(panelImg);
+				frameMapImg.getContentPane().add(panelImg);
+				frameMapImg.pack();
 			}
 		});
-		btnMap.setToolTipText("Map");
-		btnMap.setOpaque(false);
-		btnMap.setBorderPainted(false);
-		btnMap.setContentAreaFilled(false);
-		panelSU.add(btnMap);
+		btnframeMap.setToolTipText("frameMap");
+		btnframeMap.setOpaque(false);
+		btnframeMap.setBorderPainted(false);
+		btnframeMap.setContentAreaFilled(false);
+		panelSU.add(btnframeMap);
 		textPanePrompt = new JTextPane();
 		textPanePrompt.setToolTipText("Command prompt : displays a lot of informations");
 		textPanePrompt.setBounds(322, 417, 422, 160);

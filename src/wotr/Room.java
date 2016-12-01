@@ -219,10 +219,13 @@ public class Room {
     /**
      * Print avaible exit rooms Key : direction Object : Room
      */
-    public void printExits() {
+    public String toStringExits() {
+	String txt = null;
+
 	roomHM.keySet().stream().forEach((exit) -> {
-	    JOptionPane.showMessageDialog(null, exit, "Room", JOptionPane.PLAIN_MESSAGE);
+	    txt+=(exit +"\n");
 	});
+	return txt;
     }
 
     /**
