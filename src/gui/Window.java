@@ -33,7 +33,7 @@ import javax.swing.JDesktopPane;
 import java.awt.Color;
 import javax.swing.JProgressBar;
 import javax.swing.JLabel;
-import javax.swing.JScrollBar;
+import javax.swing.JscrollPane;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
@@ -49,7 +49,7 @@ public class Window extends JFrame {
     private JList listNPC, listInventory;
     private JLabel backGroundLeft, iconPlayer, ImageHome;
     private JProgressBar progressBarHealth, progressBarCorruption;
-    private JScrollPane scrollBar;
+    private JScrollPane scrollPane;
     
     //Other variables
     private NPC selectedNPC;
@@ -156,11 +156,16 @@ public Window(){
 		
 		textPanePrompt = new JTextPane();
 		textPanePrompt.setBounds(322, 417, 422, 160);
-		panelLeft.add(textPanePrompt);
 		textPanePrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
 		textPanePrompt.setForeground(Color.WHITE);
 		textPanePrompt.setBackground(Color.BLACK);
 		textPanePrompt.setEditable(false);
+		
+		scrollPane = new JScrollPane(textPanePrompt);
+		panelLeft.add(scrollPane);
+		scrollPane.setAutoscrolls(true);
+		
+
 		
 		//
 		
