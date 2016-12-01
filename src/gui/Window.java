@@ -36,57 +36,34 @@ import javax.swing.JScrollBar;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
-public class Window {
+public class Window extends JFrame {
 
-	private JFrame frmWOTR;
+
 	private Game game;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Window Window = new Window();
-					Window.frmWOTR.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+public Window(){
+					
 
-	/**
-	 * Create the application.
-	 */
-	public Window() {
-		initialize();
-	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmWOTR = new JFrame();
+
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-		frmWOTR.setBounds(0, 0,1166,768 - 150);
-		frmWOTR.setExtendedState(frmWOTR.MAXIMIZED_BOTH);
-		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmWOTR.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
-		frmWOTR.setOpacity(1);
-		frmWOTR.setResizable(false);;
-		frmWOTR.setTitle("World of the Ring");
-		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		this.setBounds(0, 0,1166,768 - 150);
+		this.setExtendedState(this.MAXIMIZED_BOTH);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
+		this.setOpacity(1);
+		this.setResizable(false);;
+		this.setTitle("World of the Ring");
+		this.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		
-		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmWOTR.getContentPane().setLayout(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.getContentPane().setLayout(null);
 		
 		JPanel panelLeft = new JPanel();
 		JLabel backGroundLeft = new JLabel(new ImageIcon("src/gui/image/backGroundLeft.jpeg"));
 		panelLeft.add(backGroundLeft);
 		panelLeft.setBounds(0, 0, 756, 589);
-		frmWOTR.getContentPane().add(panelLeft);
+		this.getContentPane().add(panelLeft);
 		panelLeft.setLayout(null);
 		
 		JPanel panelDirection = new JPanel();
@@ -172,7 +149,7 @@ public class Window {
 		panelRight.setBorder(null);
 		panelRight.setBackground(new Color(218, 165, 32));
 		panelRight.setBounds(756, 0, 404, 589);
-		frmWOTR.getContentPane().add(panelRight);
+		this.getContentPane().add(panelRight);
 		panelRight.setLayout(new GridLayout(3, 1, 0, 0));
 		
 		JPanel panelInfoPlayer = new JPanel();
