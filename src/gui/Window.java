@@ -40,12 +40,12 @@ import javax.swing.border.MatteBorder;
 public class Window extends JFrame {
 
 
-private Game game;
-private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfPlayer, panelInfoTopPlayer, panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
-private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnMap, btnUseNPCS, btnDropNPC, btnUseItem,  btnDropItem;
+private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight,  panelInfoTopPlayer, panelInfoPlayer, panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
+private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnMap, btnUseNPC, btnDropNPC, btnUseItem,  btnDropItem;
 private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneInventory;
 private JList listNPC, listInventory;
-
+private JLabel backGroundLeft, iconPlayer ;
+private JProgressBar progressBarHealth, progressBarCorruption;
 public static void main (String [] arg){
 	   Window window = new Window();
 	}
@@ -64,8 +64,8 @@ public Window(){
 		this.getContentPane().setLayout(null);
 		
 		
-		JPanel panelLeft = new JPanel();
-		JLabel backGroundLeft = new JLabel(new ImageIcon("src/gui/image/backGroundLeft.jpeg"));
+		panelLeft = new JPanel();
+		backGroundLeft = new JLabel(new ImageIcon("src/gui/image/backGroundLeft.jpeg"));
 		panelLeft.add(backGroundLeft);
 		panelLeft.setOpaque(false);
 		panelLeft.setBackground(new Color(0,0,0,0));
@@ -73,28 +73,28 @@ public Window(){
 		this.getContentPane().add(panelLeft);
 		panelLeft.setLayout(null);
 		
-		JPanel panelDirection = new JPanel();
+		panelDirection = new JPanel();
 		panelDirection.setBounds(150, 417, 160, 160);
 		panelDirection.setOpaque(false);
 		panelDirection.setBackground(new Color(0,0,0,0));
 		panelLeft.add(panelDirection);
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
+		btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
 		btnWest.setToolTipText("West");
 		btnWest.setOpaque(false);
 		btnWest.setBorderPainted(false);
 		btnWest.setContentAreaFilled(false);
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
-		JButton btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
+		btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
 		btnEast.setToolTipText("East");
 		btnEast.setOpaque(false);
 		btnEast.setBorderPainted(false);
 		btnEast.setContentAreaFilled(false);
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
-		JButton btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
+		btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
 		btnNorth.setToolTipText("North");
 		btnNorth.setOpaque(false);
 		btnNorth.setBorderPainted(false);
@@ -105,92 +105,92 @@ public Window(){
 		});
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
-		JButton btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
+		btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
 		btnSouth.setToolTipText("South");
 		btnSouth.setOpaque(false);
 		btnSouth.setBorderPainted(false);
 		btnSouth.setContentAreaFilled(false);
 		panelDirection.add(btnSouth, BorderLayout.SOUTH);
 		
-		JPanel panelSU = new JPanel();
+		panelSU = new JPanel();
 		panelSU.setBounds(12, 417, 126, 160);
 		panelSU.setOpaque(false);
 		panelSU.setBackground(new Color(0,0,0,0));
 		panelLeft.add(panelSU);
 		panelSU.setLayout(new GridLayout(3, 1, 0, 0));
 		
-		JButton btnSearch = new JButton(new ImageIcon("src/gui/image/13857-jumo-oeil.png"));
+		btnSearch = new JButton(new ImageIcon("src/gui/image/13857-jumo-oeil.png"));
 		btnSearch.setToolTipText("Search");
 		btnSearch.setOpaque(false);
 		btnSearch.setBorderPainted(false);
 		btnSearch.setContentAreaFilled(false);
 		panelSU.add(btnSearch);
 		
-		JButton btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon.png"));
+		btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon.png"));
 		btnPickUp.setToolTipText("Pick Up");
 		btnPickUp.setOpaque(false);
 		btnPickUp.setBorderPainted(false);
 		btnPickUp.setContentAreaFilled(false);
 		panelSU.add(btnPickUp);
 		
-		JButton btnMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
+		btnMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
 		btnMap.setToolTipText("Map");
 		btnMap.setOpaque(false);
 		btnMap.setBorderPainted(false);
 		btnMap.setContentAreaFilled(false);
 		panelSU.add(btnMap);
 		
-		JTextPane textPanePrompt = new JTextPane();
+		textPanePrompt = new JTextPane();
 		textPanePrompt.setBounds(322, 417, 422, 160);
 		panelLeft.add(textPanePrompt);
 		textPanePrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
 		textPanePrompt.setForeground(Color.WHITE);
 		textPanePrompt.setBackground(Color.BLACK);
 		
-		JPanel panelImage = new JPanel();
-		JLabel Image = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
+		panelImage = new JPanel();
+		JLabel ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
 		panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelImage.setBounds(12, 12, 732, 393);
-		panelImage.add(Image);
+		panelImage.add(ImageHome);
 		
 		panelLeft.add(panelImage);
 		panelImage.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panelRight = new JPanel();
+		panelRight = new JPanel();
 		panelRight.setBorder(null);
 		panelRight.setBackground(new Color(218, 165, 32));
 		panelRight.setBounds(756, 0, 404, 589);
 		this.getContentPane().add(panelRight);
 		panelRight.setLayout(new GridLayout(3, 1, 0, 0));
 		
-		JPanel panelInfoPlayer = new JPanel();
+		panelInfoPlayer = new JPanel();
 		panelRight.add(panelInfoPlayer);
 		panelInfoPlayer.setLayout(new GridLayout(2, 0, 0, 0));
 		
-		JPanel panelInfoTopPlayer = new JPanel();
+		panelInfoTopPlayer = new JPanel();
 		panelInfoTopPlayer.setBorder(null);
 		panelInfoTopPlayer.setLayout(null);
 		panelInfoPlayer.add(panelInfoTopPlayer);
 		
-		JTextPane textPanePlayer = new JTextPane();
+		 textPanePlayer = new JTextPane();
 		textPanePlayer.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		textPanePlayer.setBounds(96, 12, 296, 74);
 		panelInfoTopPlayer.add(textPanePlayer);
 		
 		
-		JPanel panelIconPlayer = new JPanel();
+		panelIconPlayer = new JPanel();
 		panelIconPlayer.setLayout(new BorderLayout());
-		JLabel iconPlayer = new JLabel( new ImageIcon("src/gui/image/frodo.png"));
+		iconPlayer = new JLabel( new ImageIcon("src/gui/image/frodo.png"));
 		panelIconPlayer.setBounds(12, 12, 75, 74);
 		panelIconPlayer.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelIconPlayer.add(iconPlayer, BorderLayout.NORTH);
 		panelInfoTopPlayer.add(panelIconPlayer);
 		
-		JPanel panelinfoBottom = new JPanel();
+		panelinfoBottom = new JPanel();
 		panelInfoPlayer.add(panelinfoBottom);
 		panelinfoBottom.setLayout(null);
 		
-		JProgressBar progressBarHealth = new JProgressBar();
+		 progressBarHealth = new JProgressBar();
 		progressBarHealth.setStringPainted(true);
 		progressBarHealth.setString("Hp : 0 %");
 		progressBarHealth.setBounds(12, 8, 380, 37);
@@ -199,56 +199,56 @@ public Window(){
 		progressBarHealth.setBackground(Color.WHITE);
 		panelinfoBottom.add(progressBarHealth);
 		
-		JProgressBar progressBarCorruption = new JProgressBar();
+		 progressBarCorruption = new JProgressBar();
 		progressBarCorruption.setString("Cp : 0 %");
 		progressBarCorruption.setBounds(12, 53, 380, 37);
 		progressBarCorruption.setStringPainted(true);
 		progressBarCorruption.setBackground(Color.WHITE);
 		panelinfoBottom.add(progressBarCorruption);
 		
-		JPanel panelNPC = new JPanel();
+		 panelNPC = new JPanel();
 		panelRight.add(panelNPC);
 		panelNPC.setLayout(null);
 		
-		JButton btnUseNPC = new JButton("Use");
+		btnUseNPC = new JButton("Use");
 		btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnUseNPC.setBounds(275, 11, 117, 32);
 		panelNPC.add(btnUseNPC);
 		
-		JButton btnDropNPC = new JButton("Drop");
+		 btnDropNPC = new JButton("Drop");
 		btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnDropNPC.setBounds(275, 53, 117, 32);
 		panelNPC.add(btnDropNPC);
 		
-		JTextPane textPaneDesNPC = new JTextPane();
+		textPaneDesNPC = new JTextPane();
 		textPaneDesNPC.setText("Description");
 		textPaneDesNPC.setBounds(12, 12, 251, 172);
 		panelNPC.add(textPaneDesNPC);
 		
-		JList listNPC = new JList();
+		listNPC = new JList();
 		listNPC.setBounds(275, 97, 117, 87);
 		panelNPC.add(listNPC);
 		
-		JPanel panelInventory = new JPanel();
+		 panelInventory = new JPanel();
 		panelInventory.setBorder(null);
 		panelRight.add(panelInventory);
 		panelInventory.setLayout(null);
 		
-		JList listInventory = new JList();
+		 listInventory = new JList();
 		listInventory.setBounds(275, 97, 117, 87);
 		panelInventory.add(listInventory);
 		
-		JButton btnUseItem = new JButton("Use");
+		 btnUseItem = new JButton("Use");
 		btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 10));
 		btnUseItem.setBounds(275, 11, 117, 32);
 		panelInventory.add(btnUseItem);
 		
-		JButton btnDropitem = new JButton("Drop");
-		btnDropitem.setFont(new Font("Roboto", Font.PLAIN, 10));
-		btnDropitem.setBounds(275, 53, 117, 32);
-		panelInventory.add(btnDropitem);
+		btnDropItem = new JButton("Drop");
+		btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 10));
+		btnDropItem.setBounds(275, 53, 117, 32);
+		panelInventory.add(btnDropItem);
 		
-		JTextPane textPaneInventory = new JTextPane();
+		 textPaneInventory = new JTextPane();
 		textPaneInventory.setText("Description");
 		textPaneInventory.setBounds(12, 11, 251, 173);
 		panelInventory.add(textPaneInventory);
