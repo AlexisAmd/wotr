@@ -55,7 +55,7 @@ public Window(){
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
 		this.setOpacity(1);
-		this.setResizable(false);;
+		this.setResizable(false);
 		this.setTitle("World of the Ring");
 		this.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		
@@ -71,6 +71,8 @@ public Window(){
 		
 		JPanel panelDirection = new JPanel();
 		panelDirection.setBounds(150, 417, 160, 160);
+		panelDirection.setOpaque(false);
+		panelDirection.setBackground(new Color(0,0,0,0));
 		panelLeft.add(panelDirection);
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
@@ -108,6 +110,8 @@ public Window(){
 		
 		JPanel panelSU = new JPanel();
 		panelSU.setBounds(12, 417, 126, 160);
+		panelSU.setOpaque(false);
+		panelSU.setBackground(new Color(0,0,0,0));
 		panelLeft.add(panelSU);
 		panelSU.setLayout(new GridLayout(3, 1, 0, 0));
 		
