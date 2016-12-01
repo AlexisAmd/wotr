@@ -34,6 +34,7 @@ import java.awt.Color;
 import javax.swing.JProgressBar;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.event.ListSelectionEvent;
@@ -48,6 +49,9 @@ public class Window extends JFrame {
     private JList listNPC, listInventory;
     private JLabel backGroundLeft, iconPlayer, ImageHome;
     private JProgressBar progressBarHealth, progressBarCorruption;
+    private JScrollPane scrollBar;
+    
+    //Other variables
     private NPC selectedNPC;
     private Item selectedItem;
     private Game game;
@@ -157,6 +161,11 @@ public Window(){
 		textPanePrompt.setForeground(Color.WHITE);
 		textPanePrompt.setBackground(Color.BLACK);
 		textPanePrompt.setEditable(false);
+		
+		//
+		
+		
+		//
 		
 		panelImage = new JPanel();
 		ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
