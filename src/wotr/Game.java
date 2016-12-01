@@ -18,19 +18,24 @@
 package wotr;
 import java.util.HashMap; //useless ?
 import javax.swing.*;
+import gui.Window;
 
 public class Game {
 
     private Player currentPlayer;
     private Room startRoom;
+    private Window window;
 
     /**
     * Create the game and initialise its internal map.
     */
-    public Game() {
+    public Game(Window window) {
         createRooms();
         currentPlayer = new Player();
         currentPlayer.setCurrentRoom(startRoom);
+        this.window = window;
+        printWelcome();
+        
         
     }
 
@@ -38,7 +43,8 @@ public class Game {
      * Main of the game
      */
     public static void main(String[] args) {
-        Game g = new Game(); //instanciate a game
+	Window window = new Window();
+        Game g = new Game(window); //instanciate a game
         g.play(); //play the game
     }
 
