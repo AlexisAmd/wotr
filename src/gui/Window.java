@@ -94,6 +94,7 @@ public class Window extends JFrame {
 				String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 				setScript(textCurrentRoom);
 				setScript(textCurrentRoomExits);
+				updateAll();
 			}
 		});
 		btnWest.setToolTipText("West");
@@ -110,6 +111,7 @@ public class Window extends JFrame {
 				String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 				setScript(textCurrentRoom);
 				setScript(textCurrentRoomExits);
+				updateAll();
 			}
 		});
 		btnEast.setToolTipText("East");
@@ -129,6 +131,7 @@ public class Window extends JFrame {
 				String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 				setScript(textCurrentRoom);
 				setScript(textCurrentRoomExits);
+				updateAll();
 			}
 		});
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
@@ -141,7 +144,7 @@ public class Window extends JFrame {
 				String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 				setScript(textCurrentRoom);
 				setScript(textCurrentRoomExits);
-				
+				updateAll();
 			}
 		});
 		btnSouth.setToolTipText("South");
@@ -178,7 +181,7 @@ public class Window extends JFrame {
 		btnPickUp.setBorderPainted(false);
 		btnPickUp.setContentAreaFilled(false);
 		panelSU.add(btnPickUp);
-		btnframeMap = new JButton(new ImageIcon("src/gui/image/frameMap2.png"));
+		btnframeMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
 		btnframeMap.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -324,7 +327,7 @@ public class Window extends JFrame {
 	public void setScript(String script) {
 		String currentText = textPanePrompt.getText();
 		textPanePrompt.setText(" ");
-		this.textPanePrompt.setText(script + "\n" + currentText);
+		this.textPanePrompt.setText(  currentText + "\n" + script );
 	}
 
 	/**
@@ -427,7 +430,8 @@ public class Window extends JFrame {
 	}
 
 	public void updateImage(String url) {
-		ImageHome = new JLabel(new ImageIcon(url));
+		ImageIcon image = new ImageIcon(url);
+		ImageHome.setIcon(image);
 	}
 
 	public void updatePromptWithRoomDescription(String description) {
