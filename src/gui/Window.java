@@ -170,6 +170,8 @@ public class Window extends JFrame {
 				mapImg.setTitle("Map of the game");
 				JPanel panelImg = new JPanel();
 				JLabel myImg = new JLabel(new ImageIcon("src/gui/image/fullMapView.jpg"));
+				panelImg.add(myImg);
+				mapImg.getContentPane().add(panelImg);
 			}
 		});
 		btnMap.setToolTipText("Map");
