@@ -35,6 +35,8 @@ import javax.swing.JLabel;
 import javax.swing.JScrollBar;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class Window extends JFrame {
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
@@ -45,6 +47,8 @@ public class Window extends JFrame {
     private JList listNPC, listInventory;
     private JLabel backGroundLeft, iconPlayer;
     private JProgressBar progressBarHealth, progressBarCorruption;
+    private NPC choseNPC;
+    
 
     public static void main(String[] arg) {
 	Window window = new Window();
@@ -229,6 +233,12 @@ public Window(){
 		listNPC = new JList();
 		listNPC.setBounds(275, 97, 117, 87);
 		panelNPC.add(listNPC);
+		listNPC.addListSelectionListener(new ListSelectionListener(){
+			
+			public void valueChanged (ListSelectionEvent e){
+				choseNPC = (NPC) listNPC.getSelectedValue();
+			}
+		});
 		
 		 panelInventory = new JPanel();
 		panelInventory.setBorder(null);
