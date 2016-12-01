@@ -36,57 +36,34 @@ import javax.swing.JScrollBar;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 
-public class Window {
+public class Window extends JFrame {
 
-	private JFrame frmWOTR;
-	private Game game;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Window Window = new Window();
-					Window.frmWOTR.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+private Game game;
+public static void main (String [] arg){
+	   Window window = new Window();
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public Window() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmWOTR = new JFrame();
+public Window(){
+    this.setVisible(true);
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-		frmWOTR.setBounds(0, 0,1166,768 - 150);
-		frmWOTR.setExtendedState(frmWOTR.MAXIMIZED_BOTH);
-		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmWOTR.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
-		frmWOTR.setOpacity(1);
-		frmWOTR.setResizable(false);;
-		frmWOTR.setTitle("World of the Ring");
-		frmWOTR.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		this.setBounds(0, 0,1166,768 - 150);
+
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
+		this.setOpacity(1);
+		this.setResizable(false);;
+		this.setTitle("World of the Ring");
+		this.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		
-		frmWOTR.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmWOTR.getContentPane().setLayout(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.getContentPane().setLayout(null);
 		
 		JPanel panelLeft = new JPanel();
 		JLabel backGroundLeft = new JLabel(new ImageIcon("src/gui/image/backGroundLeft.jpeg"));
 		panelLeft.add(backGroundLeft);
 		panelLeft.setBounds(0, 0, 756, 589);
-		frmWOTR.getContentPane().add(panelLeft);
+		this.getContentPane().add(panelLeft);
 		panelLeft.setLayout(null);
 		
 		JPanel panelDirection = new JPanel();
@@ -96,14 +73,23 @@ public class Window {
 		
 		JButton btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
 		btnWest.setToolTipText("West");
+		btnWest.setOpaque(false);
+		btnWest.setBorderPainted(false);
+		btnWest.setContentAreaFilled(false);
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
 		JButton btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
 		btnEast.setToolTipText("East");
+		btnEast.setOpaque(false);
+		btnEast.setBorderPainted(false);
+		btnEast.setContentAreaFilled(false);
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
 		JButton btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
 		btnNorth.setToolTipText("North");
+		btnNorth.setOpaque(false);
+		btnNorth.setBorderPainted(false);
+		btnNorth.setContentAreaFilled(false);
 		btnNorth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -112,6 +98,9 @@ public class Window {
 		
 		JButton btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
 		btnSouth.setToolTipText("South");
+		btnSouth.setOpaque(false);
+		btnSouth.setBorderPainted(false);
+		btnSouth.setContentAreaFilled(false);
 		panelDirection.add(btnSouth, BorderLayout.SOUTH);
 		
 		JPanel panelSU = new JPanel();
@@ -121,14 +110,23 @@ public class Window {
 		
 		JButton btnSearch = new JButton(new ImageIcon("src/gui/image/13857-jumo-oeil.png"));
 		btnSearch.setToolTipText("Search");
+		btnSearch.setOpaque(false);
+		btnSearch.setBorderPainted(false);
+		btnSearch.setContentAreaFilled(false);
 		panelSU.add(btnSearch);
 		
 		JButton btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon.png"));
 		btnPickUp.setToolTipText("Pick Up");
+		btnPickUp.setOpaque(false);
+		btnPickUp.setBorderPainted(false);
+		btnPickUp.setContentAreaFilled(false);
 		panelSU.add(btnPickUp);
 		
 		JButton btnMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
 		btnMap.setToolTipText("Map");
+		btnMap.setOpaque(false);
+		btnMap.setBorderPainted(false);
+		btnMap.setContentAreaFilled(false);
 		panelSU.add(btnMap);
 		
 		JTextPane txtpnPrompt = new JTextPane();
@@ -139,10 +137,10 @@ public class Window {
 		txtpnPrompt.setBackground(Color.BLACK);
 		
 		JPanel panelImage = new JPanel();
-		//JLabel Image = new JLabel(new ImageIcon("src/gui/image/roomRoadToBree.jpg"));//Test image
-		//panelImage.add(Image);
+		JLabel Image = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
 		panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelImage.setBounds(12, 12, 732, 393);
+		panelImage.add(Image);
 		
 		panelLeft.add(panelImage);
 		panelImage.setLayout(new GridLayout(0, 1, 0, 0));
@@ -151,7 +149,7 @@ public class Window {
 		panelRight.setBorder(null);
 		panelRight.setBackground(new Color(218, 165, 32));
 		panelRight.setBounds(756, 0, 404, 589);
-		frmWOTR.getContentPane().add(panelRight);
+		this.getContentPane().add(panelRight);
 		panelRight.setLayout(new GridLayout(3, 1, 0, 0));
 		
 		JPanel panelInfoPlayer = new JPanel();
@@ -244,4 +242,17 @@ public class Window {
 		txtpnDesInventory.setBounds(12, 11, 251, 173);
 		panelInventory.add(txtpnDesInventory);
 	}
+/**
+ * Change the script of the room.
+ * The script is automatically generated and adapted to the room,
+ * the exits, room content, and player actions.
+ * 
+ * @param script The script of the current room
+ */
+public void setScript(String script){
+	this.txtpnPrompt.setText(script);
 }
+
+}
+
+	

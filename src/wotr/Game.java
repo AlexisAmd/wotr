@@ -128,8 +128,6 @@ public class Game {
     public void win(){
     JOptionPane.showMessageDialog(null, "You dropped the Ring in the Mount Doom and you defeated Sauron and his armies. You accomplished your journey. Congratulations","Congratulations", JOptionPane.PLAIN_MESSAGE);
     }
-
-    
   
 
       
