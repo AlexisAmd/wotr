@@ -34,7 +34,7 @@ public class Game {
         currentPlayer = new Player();
         currentPlayer.setCurrentRoom(startRoom);
         this.window = window;
-        printWelcome();
+        
         
         
     }
@@ -120,7 +120,7 @@ public class Game {
      * Print out the opening message for the player.
      */
       private void printWelcome() {
-        JOptionPane.showMessageDialog(null, "Welcome to the Lord of the Ring: A Frodo's Journey. You are Frodo and Bilbo gave you a strange ring. Gandalf revealed that it is the One Ring, the most powerful ring which belongs to Sauron, the Lord of Mordor. You are Frodo Baggins of the Shire. You must bring the Ring to Mordor to destroy it into the flames of Orodruin, the volcano at the north east of the mordor, house of the evil Sauron. Our game is a basic survival game. You must explore Middle Earth in order to find your way to Orodruin. Their will be many foes and obstacles on your way. But you carry the Ring which grants you the ability to be invisible. You need to be careful, prepare yourself to commit your life.", "Welcome", JOptionPane.PLAIN_MESSAGE);
+        window.txtpnPrompt.setText("Welcome to the Lord of the Ring: A Frodo's Journey. You are Frodo and Bilbo gave you a strange ring. Gandalf revealed that it is the One Ring, the most powerful ring which belongs to Sauron, the Lord of Mordor. You are Frodo Baggins of the Shire. You must bring the Ring to Mordor to destroy it into the flames of Orodruin, the volcano at the north east of the mordor, house of the evil Sauron. Our game is a basic survival game. You must explore Middle Earth in order to find your way to Orodruin. Their will be many foes and obstacles on your way. But you carry the Ring which grants you the ability to be invisible. You need to be careful, prepare yourself to commit your life.", "Welcome", JOptionPane.PLAIN_MESSAGE);
     }
 
     

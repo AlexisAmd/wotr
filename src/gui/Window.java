@@ -39,16 +39,16 @@ import javax.swing.border.MatteBorder;
 public class Window extends JFrame {
 
 
-	private Game game;
+private Game game;
+public static void main (String [] arg){
+	   Window window = new Window();
+	}
 
 public Window(){
-					
-
-
-
+    this.setVisible(true);
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setBounds(0, 0,1166,768 - 150);
-		this.setExtendedState(this.MAXIMIZED_BOTH);
+
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
 		this.setOpacity(1);
@@ -242,6 +242,17 @@ public Window(){
 		txtpnDesInventory.setBounds(12, 11, 251, 173);
 		panelInventory.add(txtpnDesInventory);
 	}
+/**
+ * Change the script of the room.
+ * The script is automatically generated and adapted to the room,
+ * the exits, room content, and player actions.
+ * 
+ * @param script The script of the current room
+ */
+public void setScript(String script){
+	this.txtpnPrompt.setText(script);
+}
+
 }
 
 	
