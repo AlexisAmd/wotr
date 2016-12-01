@@ -270,14 +270,15 @@ public Window(){
 		panelInventory.add(textPanelDesInventory);
 	}
 /**
- * Change the script of the room.
- * The script is automatically generated and adapted to the room,
- * the exits, room content, and player actions.
+ *Add a line to the command prompt
  * 
- * @param script The script of the current room
+ * @param script The line which has to be added
  */
 public void setScript(String script){
-	this.textPanePrompt.setText(script);
+    
+    	String currentText = textPanePrompt.getText();
+    	textPanePrompt.setText(" ");
+	this.textPanePrompt.setText(currentText+"\n"+script);
     }
 
     /**
@@ -373,16 +374,20 @@ public void setScript(String script){
 public void updateImage(String url){
     ImageHome = new JLabel(new ImageIcon(url));
 }
+public void updatePromptWithRoomDescription(String description){
+    setScript(description);
+}
 	
 
 		
     
     
-    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption, ArrayList<NPC> plistNPC, ArrayList<Item> plistItem, String url ){
+    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption, ArrayList<NPC> plistNPC, ArrayList<Item> plistItem, String url, String description ){
 	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
 	this.updateProgressBar(percentHealth, percentCorruption);
 	this.updateList(plistNPC, plistItem);
 	this.updateImage(url);
+	this.updatePromptWithRoomDescription(description);
 	
 }
 }

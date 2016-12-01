@@ -22,6 +22,7 @@ public class Game {
     private Player currentPlayer;
     private Room startRoom;
     private Window window;
+    private boolean win;
 
     /**
     * Create the game and initialise its internal map.
@@ -39,7 +40,7 @@ public class Game {
     public static void main(String[] args) {
 	Window window = new Window();
 	Game game = new Game(window); // instanciate a game
-	game.play(); // play the game
+	game.play();
     }
 
     /**
@@ -53,7 +54,7 @@ public class Game {
 		doorGreenDragonInnBagginsStreet1, doorBagginsStreet1111thBirthdayParty,
 		door111thBirthdayPartyBagginsStreet1, doorBagginsStreet1BagginsStreet2,
 		doorBagginsStreet2BagginsStreet1, doorBagginsStreet2RoadToBree, doorSamHouseBagginsStreet2;
-	PasswordLockedDoor doorBagginsStreet2SamHouse;
+	KeyLockedDoor doorBagginsStreet2SamHouse;
 	// Create the rooms (description, script, image)
 	roomBilboHouseStart = new Room("Bilbo’s house", "-script-", "src/gui/image/roomBilboHouseStart.jpg");
 	roomBagginsStreet1 = new Room("The main street of the Hobbiton, your place of birth.", "-script-",
@@ -76,7 +77,7 @@ public class Game {
 	door111thBirthdayPartyBagginsStreet1 = new Door(room111thBirthday, roomBagginsStreet1);
 	doorBagginsStreet1BagginsStreet2 = new Door(roomBagginsStreet1, roomBagginsStreet2);
 	doorBagginsStreet2BagginsStreet1 = new Door(roomBagginsStreet2, roomBagginsStreet1);
-	doorBagginsStreet2SamHouse = new PasswordLockedDoor(roomBagginsStreet2, roomSamHouse, "password");
+	doorBagginsStreet2SamHouse = new KeyLockedDoor(roomBagginsStreet2, roomSamHouse);
 	doorSamHouseBagginsStreet2 = new Door(roomSamHouse, roomBagginsStreet2);
 	doorBagginsStreet2RoadToBree = new Door(roomBagginsStreet2, roomRoadToBree);
 	// Associate doors with rooms
@@ -110,7 +111,7 @@ public class Game {
 	 */
 	// private void createItems() {
 	// *********************LEVEL 1 - THE SHIRE*****************************
-	Key keyToSamHouse = null;
+	Key keyToSamHouse;
 	Food foodPint, foodWine, foodCarrots, foodGrilledChicken, foodMeltCheese, foodSalad;
 	Potion potionElixir;
 	// Create items
@@ -123,6 +124,8 @@ public class Game {
 	potionElixir = new Potion("Gandalf’s elixir",
 		"Gandalf created beverage that replicates his power. This elixir is used all over Middle Earth to restore the power of companions. Use this item wisely.",
 		5, currentPlayer);
+	keyToSamHouse = new Key("keyToSamHouse", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
+	
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
 	roomGreenDragonInn.addItem(foodPint);
@@ -153,6 +156,7 @@ public class Game {
 	// *********************LEVEL 2 - BREE************************************
 	// empty for now
 	startRoom = roomBilboHouseStart; // start game outside
+
     }
 
     /**
@@ -167,8 +171,9 @@ public class Game {
 	bSouth = currentPlayer.getCurrentRoom().getExits().containsKey("south");
 	bWest = currentPlayer.getCurrentRoom().getExits().containsKey("west");
 	bEast = currentPlayer.getCurrentRoom().getExits().containsKey("east");
-	
-	window.updateAll(bEast, bNorth, bWest, bSouth, currentPlayer.getHp(), currentPlayer.getCorruption(), currentPlayer.getFellowship(), currentPlayer.getInventory(), currentPlayer.getCurrentRoom().getImg());
+	window.updateAll(bEast, bNorth, bWest, bSouth, currentPlayer.getHp(), currentPlayer.getCorruption(),
+		currentPlayer.getFellowship(), currentPlayer.getInventory(), currentPlayer.getCurrentRoom().getImg(),
+		currentPlayer.getCurrentRoom().getDescription());
     }
 
     /**
