@@ -50,14 +50,17 @@ public class Window extends JFrame {
     private JProgressBar progressBarHealth, progressBarCorruption;
     private NPC selectedNPC;
     private Item selectedItem;
+    private Game game;
+    
     
 
-    public static void main(String[] arg) {
-	Window window = new Window();
-    }
+  //  public static void main(String[] arg) {
+//	Window window = new Window();
+   // }
 
 
 public Window(){
+
     this.setVisible(true);
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setBounds(0, 0,1166,768 - 150);
@@ -397,4 +400,11 @@ public void updatePromptWithRoomDescription(String description){
 	this.updatePromptWithRoomDescription(description);
 	
 }
+    /**
+     * @param game2
+     */
+    public void setGame(Game game) {
+	this.game=game;
+	
+    }
 }

@@ -40,6 +40,7 @@ public class Game {
     public static void main(String[] args) {
 	Window window = new Window();
 	Game game = new Game(window); // instanciate a game
+	window.setGame(game); //cradde
 	game.play();
     }
 
