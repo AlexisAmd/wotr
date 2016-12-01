@@ -39,6 +39,7 @@ import javax.swing.border.MatteBorder;
 public class Window {
 
 	private JFrame frmWOTR;
+	private Game game;
 
 	/**
 	 * Launch the application.
