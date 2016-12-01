@@ -96,9 +96,10 @@ public class Window extends JFrame {
 		game.getPlayer().goRoom("west");
 		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
+		updateAll();
 		setScript(textCurrentRoom);
 		setScript(textCurrentRoomExits);
-		updateAll();
+		updateImage(game.getPlayer().getCurrentRoom().getImg());
 	    }
 	});
 	btnWest.setToolTipText("West");
@@ -113,9 +114,10 @@ public class Window extends JFrame {
 		game.getPlayer().goRoom("east");
 		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
+		updateAll();
 		setScript(textCurrentRoom);
 		setScript(textCurrentRoomExits);
-		updateAll();
+		updateImage(game.getPlayer().getCurrentRoom().getImg());
 	    }
 	});
 	btnEast.setToolTipText("East");
@@ -133,9 +135,11 @@ public class Window extends JFrame {
 		game.getPlayer().goRoom("north");
 		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
+		updateAll();
 		setScript(textCurrentRoom);
 		setScript(textCurrentRoomExits);
-		updateAll();
+		updateImage(game.getPlayer().getCurrentRoom().getImg());
+		
 	    }
 	});
 	panelDirection.add(btnNorth, BorderLayout.NORTH);
@@ -146,9 +150,11 @@ public class Window extends JFrame {
 		game.getPlayer().goRoom("south");
 		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
-		setScript(textCurrentRoom);
 		setScript(textCurrentRoomExits);
 		updateAll();
+		setScript(textCurrentRoom);
+		setScript(textCurrentRoomExits);
+		updateImage(game.getPlayer().getCurrentRoom().getImg());
 	    }
 	});
 	btnSouth.setToolTipText("South");
@@ -234,10 +240,14 @@ public class Window extends JFrame {
 	btnframeMap.setBorderPainted(false);
 	btnframeMap.setContentAreaFilled(false);
 	panelSU.add(btnframeMap);
+	
+	JScrollPane scrollPanePrompt = new JScrollPane();
+	scrollPanePrompt.setMaximumSize(new Dimension(424, 160));
+	scrollPanePrompt.setBounds(320, 417, 424, 160);
+	panelLeft.add(scrollPanePrompt);
 	textPanePrompt = new JTextPane();
+	scrollPanePrompt.setViewportView(textPanePrompt);
 	textPanePrompt.setToolTipText("Command prompt : displays a lot of informations");
-	textPanePrompt.setBounds(322, 417, 422, 160);
-	panelLeft.add(textPanePrompt);
 	textPanePrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
 	textPanePrompt.setForeground(Color.WHITE);
 	textPanePrompt.setBackground(Color.BLACK);
@@ -265,6 +275,8 @@ public class Window extends JFrame {
 	panelInfoTopPlayer.setLayout(null);
 	panelInfoPlayer.add(panelInfoTopPlayer);
 	textPanePlayer = new JTextPane();
+	textPanePlayer.setFont(new Font("Roboto Light", Font.PLAIN, 17));
+	textPanePlayer.setText("Faire une description styl\u00E9e de frodo ici, ou mettre une image. Game designer un avis ?");
 	textPanePlayer.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	textPanePlayer.setBounds(96, 12, 296, 74);
 	panelInfoTopPlayer.add(textPanePlayer);
@@ -272,7 +284,6 @@ public class Window extends JFrame {
 	panelIconPlayer = new JPanel();
 	panelIconPlayer.setLayout(new BorderLayout());
 	iconPlayer = new JLabel(new ImageIcon("src/gui/image/frodo.png"));
-	panelIconPlayer.setBounds(12, 12, 75, 74);
 	panelIconPlayer.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 	panelIconPlayer.add(iconPlayer, BorderLayout.NORTH);
 	panelInfoTopPlayer.add(panelIconPlayer);
@@ -351,7 +362,7 @@ public class Window extends JFrame {
     public void setScript(String script) {
 	String currentText = textPanePrompt.getText();
 	// textPanePrompt.setText("");
-	this.textPanePrompt.setText(currentText + "\n" + script);
+	this.textPanePrompt.setText(currentText+"\n"+script);
     }
 
     /**
@@ -468,17 +479,17 @@ public class Window extends JFrame {
     }
 
     public void updateAll() {
+
+	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
+	this.updateListNPC();
+	this.updateInventory();
+	
 	boolean bNorth, bEast, bSouth, bWest;
 	bNorth = game.getPlayer().getCurrentRoom().getExits().containsKey("north");
 	bSouth = game.getPlayer().getCurrentRoom().getExits().containsKey("south");
 	bWest = game.getPlayer().getCurrentRoom().getExits().containsKey("west");
 	bEast = game.getPlayer().getCurrentRoom().getExits().containsKey("east");
 	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
-	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
-	this.updateImage(game.getPlayer().getCurrentRoom().getImg());
-	this.updatePromptWithRoomDescription(game.getPlayer().getCurrentRoom().getDescription());
-	this.updateListNPC();
-	this.updateInventory();
     }
 
     /**
