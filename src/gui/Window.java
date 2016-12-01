@@ -48,7 +48,8 @@ public class Window extends JFrame {
     private JList listNPC, listInventory;
     private JLabel backGroundLeft, iconPlayer, ImageHome;
     private JProgressBar progressBarHealth, progressBarCorruption;
-    private NPC choseNPC;
+    private NPC selectedNPC;
+    private Item selectedItem;
     
 
     public static void main(String[] arg) {
@@ -240,7 +241,7 @@ public Window(){
 		listNPC.addListSelectionListener(new ListSelectionListener(){
 			
 			public void valueChanged (ListSelectionEvent e){
-				choseNPC = (NPC) listNPC.getSelectedValue();
+				selectedNPC = (NPC) listNPC.getSelectedValue();
 			}
 		});
 		
