@@ -169,9 +169,11 @@ public class Window {
 		
 		
 		JPanel panelIconPlayer = new JPanel();
+		panelIconPlayer.setLayout(new BorderLayout());
 		JLabel iconPlayer = new JLabel( new ImageIcon("src/gui/image/frodo.png"));
-		panelIconPlayer.setBounds(12, 8, 74, 79);
-		panelIconPlayer.add(iconPlayer);
+		panelIconPlayer.setBounds(12, 12, 75, 74);
+		panelIconPlayer.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+		panelIconPlayer.add(iconPlayer, BorderLayout.NORTH);
 		panelInfoTopPlayer.add(panelIconPlayer);
 		
 		JPanel panelInfoBotom = new JPanel();
