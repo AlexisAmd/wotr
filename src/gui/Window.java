@@ -40,6 +40,8 @@ public class Window extends JFrame {
 
 
 private Game game;
+private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfPlayer, panelInfoTopPlayer, panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
+private Jbutton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnMap, btnUseNPCS, btnDropNPC, btnUseItem,  btnUseItem;
 public static void main (String [] arg){
 	   Window window = new Window();
 	}
@@ -174,9 +176,9 @@ public Window(){
 		panelIconPlayer.add(iconPlayer, BorderLayout.NORTH);
 		panelInfoTopPlayer.add(panelIconPlayer);
 		
-		JPanel panelInfoBotom = new JPanel();
-		panelInfoPlayer.add(panelInfoBotom);
-		panelInfoBotom.setLayout(null);
+		JPanel panelinfoBottom = new JPanel();
+		panelInfoPlayer.add(panelinfoBottom);
+		panelinfoBottom.setLayout(null);
 		
 		JProgressBar progressBarHealth = new JProgressBar();
 		progressBarHealth.setStringPainted(true);
@@ -185,14 +187,14 @@ public Window(){
 		progressBarHealth.setToolTipText("Health points, if they are equal to 100 you're dead !");
 		progressBarHealth.setForeground(Color.RED);
 		progressBarHealth.setBackground(Color.WHITE);
-		panelInfoBotom.add(progressBarHealth);
+		panelinfoBottom.add(progressBarHealth);
 		
 		JProgressBar progressBarCorruption = new JProgressBar();
 		progressBarCorruption.setString("Cp : 0 %");
 		progressBarCorruption.setBounds(12, 53, 380, 37);
 		progressBarCorruption.setStringPainted(true);
 		progressBarCorruption.setBackground(Color.WHITE);
-		panelInfoBotom.add(progressBarCorruption);
+		panelinfoBottom.add(progressBarCorruption);
 		
 		JPanel panelNPC = new JPanel();
 		panelRight.add(panelNPC);
@@ -226,10 +228,10 @@ public Window(){
 		listInventory.setBounds(275, 97, 117, 87);
 		panelInventory.add(listInventory);
 		
-		JButton btnUseitem = new JButton("Use");
-		btnUseitem.setFont(new Font("Roboto", Font.PLAIN, 10));
-		btnUseitem.setBounds(275, 11, 117, 32);
-		panelInventory.add(btnUseitem);
+		JButton btnUseItem = new JButton("Use");
+		btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 10));
+		btnUseItem.setBounds(275, 11, 117, 32);
+		panelInventory.add(btnUseItem);
 		
 		JButton btnDropitem = new JButton("Drop");
 		btnDropitem.setFont(new Font("Roboto", Font.PLAIN, 10));
