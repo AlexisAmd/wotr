@@ -91,8 +91,9 @@ public class Window extends JFrame {
 			    
 				game.getPlayer().goRoom("west");
 				String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
-				//String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toString()
+				String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 				setScript(textCurrentRoom);
+				setScript(textCurrentRoomExits);
 			}
 		});
 		btnWest.setToolTipText("West");
@@ -106,8 +107,9 @@ public class Window extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				game.getPlayer().goRoom("east");
 				String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
-				//String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toString()
+				String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 				setScript(textCurrentRoom);
+				setScript(textCurrentRoomExits);
 			}
 		});
 		btnEast.setToolTipText("East");
@@ -124,8 +126,9 @@ public class Window extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				game.getPlayer().goRoom("north");
 				String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
-				//String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toString()
+				String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 				setScript(textCurrentRoom);
+				setScript(textCurrentRoomExits);
 			}
 		});
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
@@ -135,8 +138,9 @@ public class Window extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				game.getPlayer().goRoom("south");
 				String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
-				//String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toString()
+				String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 				setScript(textCurrentRoom);
+				setScript(textCurrentRoomExits);
 				
 			}
 		});
