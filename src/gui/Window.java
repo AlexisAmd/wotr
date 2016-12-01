@@ -96,14 +96,23 @@ public class Window {
 		
 		JButton btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
 		btnWest.setToolTipText("West");
+		btnWest.setOpaque(false);
+		btnWest.setBorderPainted(false);
+		btnWest.setContentAreaFilled(false);
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
 		JButton btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
 		btnEast.setToolTipText("East");
+		btnEast.setOpaque(false);
+		btnEast.setBorderPainted(false);
+		btnEast.setContentAreaFilled(false);
 		panelDirection.add(btnEast, BorderLayout.EAST);
 		
 		JButton btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
 		btnNorth.setToolTipText("North");
+		btnNorth.setOpaque(false);
+		btnNorth.setBorderPainted(false);
+		btnNorth.setContentAreaFilled(false);
 		btnNorth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -112,6 +121,9 @@ public class Window {
 		
 		JButton btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
 		btnSouth.setToolTipText("South");
+		btnSouth.setOpaque(false);
+		btnSouth.setBorderPainted(false);
+		btnSouth.setContentAreaFilled(false);
 		panelDirection.add(btnSouth, BorderLayout.SOUTH);
 		
 		JPanel panelSU = new JPanel();
@@ -121,14 +133,23 @@ public class Window {
 		
 		JButton btnSearch = new JButton(new ImageIcon("src/gui/image/13857-jumo-oeil.png"));
 		btnSearch.setToolTipText("Search");
+		btnSearch.setOpaque(false);
+		btnSearch.setBorderPainted(false);
+		btnSearch.setContentAreaFilled(false);
 		panelSU.add(btnSearch);
 		
 		JButton btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon.png"));
 		btnPickUp.setToolTipText("Pick Up");
+		btnPickUp.setOpaque(false);
+		btnPickUp.setBorderPainted(false);
+		btnPickUp.setContentAreaFilled(false);
 		panelSU.add(btnPickUp);
 		
 		JButton btnMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
 		btnMap.setToolTipText("Map");
+		btnMap.setOpaque(false);
+		btnMap.setBorderPainted(false);
+		btnMap.setContentAreaFilled(false);
 		panelSU.add(btnMap);
 		
 		JTextPane txtpnPrompt = new JTextPane();
@@ -139,8 +160,8 @@ public class Window {
 		txtpnPrompt.setBackground(Color.BLACK);
 		
 		JPanel panelImage = new JPanel();
-		//JLabel Image = new JLabel(new ImageIcon("src/gui/image/roomRoadToBree.jpg"));//Test image
-		//panelImage.add(Image);
+		JLabel Image = new JLabel(new ImageIcon("src/gui/image/roomRoadToBree.jpg"));//Test image
+		panelImage.add(Image);
 		panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelImage.setBounds(12, 12, 732, 393);
 		
