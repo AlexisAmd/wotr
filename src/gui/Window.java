@@ -29,6 +29,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JInternalFrame;
 import javax.swing.JDesktopPane;
 import java.awt.Color;
@@ -48,15 +49,16 @@ public class Window extends JFrame {
     private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnframeMap, btnUseNPC, btnDropNPC,
 	    btnUseItem, btnDropItem;
     private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneDesInventory;
-    private JList listNPC, listInventory;
     private JLabel backGroundLeft, iconPlayer, ImageHome;
     private JProgressBar progressBarHealth, progressBarCorruption;
-    private JScrollPane scrollBar, scrollPaneInventory, scrollPaneNPC;
+    private JScrollPane scrollBar;
     private DefaultListModel modelNPC, modelInventory;
     // Other variables
     private NPC selectedNPC;
     private Item selectedItem;
     private Game game;
+    private JList listNPC;
+    private JList listInventory;
 
     // public static void main(String[] arg) {
     // Window window = new Window();
@@ -187,21 +189,15 @@ public class Window extends JFrame {
 	btnPickUp.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		ArrayList<Item> arrayItem = game.getPlayer().getCurrentRoom().getItemList();
-		if (!arrayItem.isEmpty()) {
-		    for (Item item : arrayItem) {
-			if (game.getPlayer().pickUpItem(item)) {
-			    setScript(item.getName() + " has been picked up ! ");
-			    //updateAll();
-			} else {
-			    setScript(item.getName() + " has not been picked up ! ");
-			    //updateAll();
-			}
+		for (Iterator<Item> iterator = game.getPlayer().getCurrentRoom().getItemList().iterator(); iterator
+			.hasNext();) {
+		    Item item = iterator.next();
+		    if (game.getPlayer().pickUpItem(item)) {
+			setScript(item.getName() + " has been picked up ! ");
+		    } else {
+			setScript(item.getName() + "is to heavy for you.");
 		    }
-		} else {
-		    setScript("Nothing Here  !");
 		}
-		updateAll();
 	    }
 	});
 	btnPickUp.setToolTipText("Pick Up");
@@ -302,24 +298,10 @@ public class Window extends JFrame {
 	panelNPC = new JPanel();
 	modelNPC = new DefaultListModel();
 	panelNPC.setLayout(null);
-	listNPC = new JList(modelNPC);
-	listNPC.setFont(new Font("Roboto", Font.PLAIN, 11));
-	listNPC.setBackground(Color.RED);
-	listNPC.setBounds(new Rectangle(275, 97, 117, 87));
-	scrollPaneNPC = new JScrollPane(listNPC);
-	scrollPaneNPC.setAutoscrolls(true);
-	panelNPC.add(scrollPaneNPC);
-	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	listNPC.setBounds(275, 97, 117, 87);
-	listNPC.addListSelectionListener(new ListSelectionListener() {
-	    public void valueChanged(ListSelectionEvent e) {
-		selectedNPC = (NPC) listNPC.getSelectedValue();
-	    }
-	});
 	panelRight.add(panelNPC);
 	btnUseNPC = new JButton("Use");
 	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
-btnUseNPC.setBounds(275, 11, 117, 32);
+	btnUseNPC.setBounds(275, 11, 117, 32);
 	panelNPC.add(btnUseNPC);
 	btnDropNPC = new JButton("Drop");
 	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
@@ -330,22 +312,15 @@ btnUseNPC.setBounds(275, 11, 117, 32);
 	textPaneDesNPC.setEditable(false);
 	textPaneDesNPC.setBounds(12, 12, 251, 172);
 	panelNPC.add(textPaneDesNPC);
-
-//
+	JList listNPC = new JList();
+	listNPC.setFont(new Font("Roboto", Font.PLAIN, 11));
+	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	listNPC.setBounds(275, 96, 117, 88);
+	panelNPC.add(listNPC);
+	//
 	panelInventory = new JPanel();
 	modelInventory = new DefaultListModel();
 	panelInventory.setLayout(null);
-	listInventory = new JList(modelInventory);
-	scrollPaneInventory = new JScrollPane(listInventory);
-	scrollPaneInventory.setAutoscrolls(true);
-	panelInventory.add(scrollPaneInventory);
-	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	listInventory.setBounds(275, 96, 117, 88);
-	listInventory.addListSelectionListener(new ListSelectionListener() {
-	    public void valueChanged(ListSelectionEvent e) {
-		selectedItem = (Item) listInventory.getSelectedValue();
-	    }
-	});
 	panelRight.add(panelInventory);
 	btnUseItem = new JButton("Use");
 	btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 10));
@@ -360,6 +335,11 @@ btnUseNPC.setBounds(275, 11, 117, 32);
 	textPaneDesInventory.setEditable(false);
 	textPaneDesInventory.setBounds(12, 11, 251, 173);
 	panelInventory.add(textPaneDesInventory);
+	listInventory = new JList();
+	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+	listInventory.setFont(new Font("Roboto", Font.PLAIN, 11));
+	listInventory.setBounds(275, 96, 117, 88);
+	panelInventory.add(listInventory);
     }
 
     /**
@@ -431,14 +411,6 @@ btnUseNPC.setBounds(275, 11, 117, 32);
     }
 
     /**
-     * @param listNPC
-     *            the listNPC to set
-     */
-    public void setListNPC(JList listNPC) {
-	this.listNPC = listNPC;
-    }
-
-    /**
      * @param progressBarHealth
      *            the progressBarHealth to set
      */
@@ -468,11 +440,6 @@ btnUseNPC.setBounds(275, 11, 117, 32);
 	progressBarHealth.setString("Hp :" + percentHealth + " %");
     }
 
-    public void updateList(ArrayList<NPC> plistNPC, ArrayList<Item> plistItem) {
-	listNPC = new JList(plistNPC.toArray());
-	listInventory = new JList(plistItem.toArray());
-    }
-
     public void updateImage(String url) {
 	ImageIcon image = new ImageIcon(url);
 	ImageHome.setIcon(image);
@@ -483,17 +450,21 @@ btnUseNPC.setBounds(275, 11, 117, 32);
     }
 
     public void updateInventory() {
-	ArrayList<Item> arrayItem = game.getPlayer().getInventory();
-	for (Item item : arrayItem) {
-	    modelInventory.addElement(item.getName());
+	ArrayList<Item> arrayInventory = game.getPlayer().getInventory();
+	DefaultListModel<String> model = new DefaultListModel<String>();
+	for (Item item : arrayInventory) {
+	    model.addElement(item.getName());
 	}
+	listInventory = new JList<String>(model);
     }
 
     public void updateListNPC() {
 	ArrayList<NPC> arrayNPC = game.getPlayer().getFellowship();
+	DefaultListModel<String> model = new DefaultListModel<String>();
 	for (NPC npc : arrayNPC) {
-	    modelNPC.addElement(npc.getName());
+	    model.addElement(npc.getName());
 	}
+	listInventory = new JList<String>(model);
     }
 
     public void updateAll() {
@@ -504,7 +475,6 @@ btnUseNPC.setBounds(275, 11, 117, 32);
 	bEast = game.getPlayer().getCurrentRoom().getExits().containsKey("east");
 	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
 	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
-	this.updateList(game.getPlayer().getFellowship(), game.getPlayer().getInventory());
 	this.updateImage(game.getPlayer().getCurrentRoom().getImg());
 	this.updatePromptWithRoomDescription(game.getPlayer().getCurrentRoom().getDescription());
 	this.updateListNPC();
