@@ -220,11 +220,12 @@ public class Room {
      * Print avaible exit rooms Key : direction Object : Room
      */
     public String toStringExits() {
-	String txt = null;
-
-	roomHM.keySet().stream().forEach((exit) -> {
-	    txt+=(exit +"\n");
-	});
+	String txt =null;
+	for (HashMap.Entry<String, Door> entry : roomHM.entrySet())
+	{
+	   txt += entry.getKey() + " - ";
+	   txt += entry.getValue() + "\n";
+	}
 	return txt;
     }
 
