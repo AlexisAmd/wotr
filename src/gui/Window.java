@@ -266,3 +266,5 @@ public class Window {
 		panelInventory.add(txtpnDesInventory);
 	}
 }
+
+	
