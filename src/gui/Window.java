@@ -137,7 +137,7 @@ public Window(){
 		txtpnPrompt.setBackground(Color.BLACK);
 		
 		JPanel panelImage = new JPanel();
-		JLabel Image = new JLabel(new ImageIcon("src/gui/image/roomRoadToBree.jpg"));//Test image
+		JLabel Image = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));//Test image
 		panelImage.add(Image);
 		panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		panelImage.setBounds(12, 12, 732, 393);
