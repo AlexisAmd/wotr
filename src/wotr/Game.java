@@ -38,8 +38,8 @@ public class Game {
      */
     public static void main(String[] args) {
 	Window window = new Window();
-	Game g = new Game(window); // instanciate a game
-	g.play(); // play the game
+	Game game = new Game(window); // instanciate a game
+	game.play(); // play the game
     }
 
     /**
