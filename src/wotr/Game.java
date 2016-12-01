@@ -33,7 +33,6 @@ public class Game {
 		this.window = window;
 	}
 
-<<<<<<< HEAD
 	/**
 	 * Main of the game
 	 */
@@ -42,17 +41,7 @@ public class Game {
 		Game game = new Game(window); // instantiate a game
 		game.play();
 	}
-=======
-    /**
-     * Main of the game
-     */
-    public static void main(String[] args) {
-	Window window = new Window();
-	Game game = new Game(window); // instanciate a game
-	window.setGame(game); //cradde
-	game.play();
-    }
->>>>>>> branch 'master' of https://github.com/salutlespotes/wotr/
+	
 
 	/**
 	 * Create all the rooms, doors, items and NPCs and link them them together.
@@ -182,7 +171,7 @@ public class Game {
 	/**
 	 * Main play routine.  Loops until end of play.
 	 */
-	public void play() {
+/*	public void play() {
 		boolean bNorth, bEast, bSouth, bWest;
 		printWelcome();
 		// Enter the main command loop. Here we repeatedly read commands and
@@ -194,7 +183,7 @@ public class Game {
 		window.updateAll(bEast, bNorth, bWest, bSouth, currentPlayer.getHp(), currentPlayer.getCorruption(),
 				currentPlayer.getFellowship(), currentPlayer.getInventory(), currentPlayer.getCurrentRoom().getImg(),
 				currentPlayer.getCurrentRoom().getDescription());
-	}
+	}*/
 
 	/**
 	 * Print out the opening message for the player.
@@ -204,14 +193,13 @@ public class Game {
 				"Welcome to the World of the Ring: Frodo's Choice. You are Frodo Baggins of the Shire. Your uncle Bilbo gave you a strange ring. Your friend Gandalf revealed that it is the One Ring, a powerful artifact which makes allows its bearer to remain unseen. But at what cost? The ring belongs to Sauron, the Lord of Mordor, and its influence grows on you. You must bring the Ring to Mordor to destroy it into the flames of Orodruin, the volcano where it was created. You must act with caution for the shadow of Sauron affects your will and you become weaker with every step. There will be many foes and obstacles on your way and the odds are against you, prepare to give your life for this quest. Fortunately, your friends are here to help you. Use their power wisely. Now go! You must explore Middle Earth and find your way to Orodruin.");
 	}
 
-<<<<<<< HEAD
 	public void win() {
 		JOptionPane.showMessageDialog(null,
 				"You dropped the Ring in the Mount Doom and you defeated Sauron and his armies. You accomplished your journey. Congratulations.",
 				"Congratulations", JOptionPane.PLAIN_MESSAGE);
 	}
-=======
-    /**
+
+	/**
      * Main play routine.  Loops until end of play.
      */
     public void play() {
@@ -221,7 +209,6 @@ public class Game {
 	// execute them until the game is over.
 
     }
->>>>>>> branch 'master' of https://github.com/salutlespotes/wotr/
 
 	/**
 	 * @return
