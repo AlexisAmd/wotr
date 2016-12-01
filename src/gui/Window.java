@@ -95,6 +95,11 @@ public Window(){
 		panelDirection.setLayout(new BorderLayout(0, 0));
 		
 		btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
+		btnWest.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+			}
+		});
 		btnWest.setToolTipText("West");
 		btnWest.setOpaque(false);
 		btnWest.setBorderPainted(false);
@@ -102,6 +107,11 @@ public Window(){
 		panelDirection.add(btnWest, BorderLayout.WEST);
 		
 		btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
+		btnEast.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		btnEast.setToolTipText("East");
 		btnEast.setOpaque(false);
 		btnEast.setBorderPainted(false);
@@ -120,6 +130,11 @@ public Window(){
 		panelDirection.add(btnNorth, BorderLayout.NORTH);
 		
 		btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
+		btnSouth.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		btnSouth.setToolTipText("South");
 		btnSouth.setOpaque(false);
 		btnSouth.setBorderPainted(false);
@@ -134,6 +149,11 @@ public Window(){
 		panelSU.setLayout(new GridLayout(3, 1, 0, 0));
 		
 		btnSearch = new JButton(new ImageIcon("src/gui/image/oeil.gif"));
+		btnSearch.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		btnSearch.setToolTipText("Search");
 		btnSearch.setOpaque(false);
 		btnSearch.setBorderPainted(false);
@@ -141,6 +161,11 @@ public Window(){
 		panelSU.add(btnSearch);
 		
 		btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon2.png"));
+		btnPickUp.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		btnPickUp.setToolTipText("Pick Up");
 		btnPickUp.setOpaque(false);
 		btnPickUp.setBorderPainted(false);
@@ -148,6 +173,11 @@ public Window(){
 		panelSU.add(btnPickUp);
 		
 		btnMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
+		btnMap.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			}
+		});
 		btnMap.setToolTipText("Map");
 		btnMap.setOpaque(false);
 		btnMap.setBorderPainted(false);
