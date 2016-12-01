@@ -44,6 +44,7 @@ private Game game;
 private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfPlayer, panelInfoTopPlayer, panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
 private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnMap, btnUseNPCS, btnDropNPC, btnUseItem,  btnDropItem;
 private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneInventory;
+private JList listNPC, listInventory;
 
 public static void main (String [] arg){
 	   Window window = new Window();
