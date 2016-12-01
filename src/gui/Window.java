@@ -48,7 +48,6 @@ public Window(){
     this.setVisible(true);
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		this.setBounds(0, 0,1166,768 - 150);
-
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
 		this.setOpacity(1);
