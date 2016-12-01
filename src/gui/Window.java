@@ -27,6 +27,7 @@ import java.awt.Panel;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import javax.swing.JInternalFrame;
 import javax.swing.JDesktopPane;
 import java.awt.Color;
@@ -342,8 +343,23 @@ public void setScript(String script){
 	btnEast.setEnabled(bEast);
     }
     
+    public void updateProgressBar(int percentHealth, int percentCorruption)
+    {
+	progressBarCorruption.setValue(percentCorruption);
+	progressBarHealth.setValue(percentHealth);
+    }
     
-    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth ){
+    public void updateList(ArrayList<String> listNPC, ArrayList<String> listItem){
+	listNPC = new JList<String>(listNPC.toArray());
+	listItem = new JList<String>(listItem.toArray());
+	
+
+		
+    }
+    
+    public void updateAll(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth, int percentHealth, int percentCorruption ){
 	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
+	this.updateProgressBar(percentHealth, percentCorruption);
+	
 }
 }
