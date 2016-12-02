@@ -29,6 +29,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import javax.swing.JInternalFrame;
 import javax.swing.JDesktopPane;
@@ -195,15 +196,24 @@ public class Window extends JFrame {
 	btnPickUp.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		for (Iterator<Item> iterator = game.getPlayer().getCurrentRoom().getItemList().iterator(); iterator
-			.hasNext();) {
-		    Item item = iterator.next();
-		    if (game.getPlayer().pickUpItem(item)) {
-			setScript(item.getName() + " has been picked up ! ");
-		    } else {
-			setScript(item.getName() + "is to heavy for you.");
-		    }
+		for (Item item : new ArrayList<Item>(game.getPlayer().getCurrentRoom().getItemList()))     
+		{
+		    if(game.getPlayer().pickUpItem(item)){
+			setScript(item.getName()+ " has been picked up.");
+			
+		    } updateAll();
 		}
+		
+		
+//		for (Iterator<Item> iterator = game.getPlayer().getCurrentRoom().getItemList().iterator(); iterator
+//			.hasNext();) {
+//		    Item item = iterator.next();
+//		    if (game.getPlayer().pickUpItem(item)) {
+//			setScript(item.getName() + " has been picked up ! ");
+//		    } else {
+//			setScript(item.getName() + "is to heavy for you.");
+//		    }
+//		}
 	    }
 	});
 	btnPickUp.setToolTipText("Pick Up");
@@ -481,8 +491,8 @@ public class Window extends JFrame {
     public void updateAll() {
 
 	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
-	this.updateListNPC();
-	this.updateInventory();
+	this.updateListNPC(); //a checker
+	this.updateInventory(); // a checker
 	
 	boolean bNorth, bEast, bSouth, bWest;
 	bNorth = game.getPlayer().getCurrentRoom().getExits().containsKey("north");
