@@ -254,7 +254,7 @@ public class Window extends JFrame {
 	//
 	//
 	panelImage = new JPanel();
-	ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage.jpg"));// Test
+	ImageHome = new JLabel(new ImageIcon("src/gui/image/roomBilboHouseStart.jpg"));// Test
 									    // image
 	panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 	panelImage.setBounds(12, 12, 732, 393);
