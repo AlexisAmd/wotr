@@ -100,7 +100,7 @@ public class Window extends JFrame {
 		updateAll();
 		setScript(textCurrentRoom);
 		setScript(textCurrentRoomExits);
-		updateImage(game.getPlayer().getCurrentRoom().getImg());
+		
 	    }
 	});
 	btnWest.setToolTipText("West");
@@ -118,8 +118,7 @@ public class Window extends JFrame {
 		updateAll();
 		setScript(textCurrentRoom);
 		setScript(textCurrentRoomExits);
-		updateImage(game.getPlayer().getCurrentRoom().getImg());
-	    }
+			    }
 	});
 	btnEast.setToolTipText("East");
 	btnEast.setOpaque(false);
@@ -139,7 +138,7 @@ public class Window extends JFrame {
 		updateAll();
 		setScript(textCurrentRoom);
 		setScript(textCurrentRoomExits);
-		updateImage(game.getPlayer().getCurrentRoom().getImg());
+		
 		
 	    }
 	});
@@ -155,7 +154,7 @@ public class Window extends JFrame {
 		updateAll();
 		setScript(textCurrentRoom);
 		setScript(textCurrentRoomExits);
-		updateImage(game.getPlayer().getCurrentRoom().getImg());
+		
 	    }
 	});
 	btnSouth.setToolTipText("South");
@@ -500,6 +499,7 @@ public class Window extends JFrame {
 	bWest = game.getPlayer().getCurrentRoom().getExits().containsKey("west");
 	bEast = game.getPlayer().getCurrentRoom().getExits().containsKey("east");
 	this.updateDirectionButton(bEast, bNorth, bWest, bSouth);
+	this.updateImage(game.getPlayer().getCurrentRoom().getImg());
     }
 
     /**
