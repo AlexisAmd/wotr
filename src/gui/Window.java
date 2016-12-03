@@ -170,6 +170,7 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
 		ArrayList<Item> arrayItem = game.getPlayer().getCurrentRoom().getItemList();
+		ArrayList<NPC> arrayNPC = game.getPlayer().getCurrentRoom().getNPCList();
 		if (!arrayItem.isEmpty()) {
 		    setScript("Here you can find : ");
 		    for (Item item : arrayItem) {
@@ -177,7 +178,17 @@ public class Window extends JFrame {
 				item.getName() + ": " + item.getDescription() + " (Weight: " + item.getWeight() + ")");
 		    }
 		} else {
-		    setScript("Nothing Here  !");
+		    setScript("No item here.");
+		}
+		
+		if (!arrayNPC.isEmpty()) {
+		    setScript("Here you can meet : ");
+		    for (NPC npc : arrayNPC) {
+			setScript(
+				npc.getName() + ": " + npc.getDescription());
+		    }
+		} else {
+		    setScript("Nobody is here");
 		}
 	    }
 	});
@@ -195,6 +206,14 @@ public class Window extends JFrame {
 		{
 		    if(game.getPlayer().pickUpItem(item)){
 			setScript(item.getName()+ " has been picked up.");
+			
+		    } updateAll();
+		}
+		
+		for (NPC npc : new ArrayList<NPC>(game.getPlayer().getCurrentRoom().getNPCList()))     
+		{
+		    if(game.getPlayer().pickUpNPC(npc)){
+			setScript(npc.getName()+ " has joined you community.");
 			
 		    } updateAll();
 		}
@@ -292,7 +311,7 @@ public class Window extends JFrame {
 	textPanePlayer.setEditable(false);
 	
 	iconPlayer = new JLabel("Frodo");
-	iconPlayer.setIcon(new ImageIcon("src/gui/image/frodo.png"));
+	iconPlayer.setIcon(new ImageIcon(Window.class.getResource("/gui/image/frodo.png")));
 	iconPlayer.setBounds(10, 12, 76, 74);
 	panelInfoTopPlayer.add(iconPlayer);
 	panelinfoBottom = new JPanel();
@@ -313,11 +332,11 @@ public class Window extends JFrame {
 	progressBarCorruption.setStringPainted(true);
 	progressBarCorruption.setBackground(Color.WHITE);
 	panelinfoBottom.add(progressBarCorruption);
-	//
+	//PANEL NPC
 	panelNPC = new JPanel();
-	modelNPC = new DefaultListModel<String>();
 	panelNPC.setLayout(null);
 	panelRight.add(panelNPC);
+	//BUTTON NPC
 	btnUseNPC = new JButton("Use");
 	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
 	btnUseNPC.setBounds(275, 11, 117, 32);
@@ -326,21 +345,26 @@ public class Window extends JFrame {
 	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
 	btnDropNPC.setBounds(275, 53, 117, 32);
 	panelNPC.add(btnDropNPC);
+	//Description NPPC
 	textPaneDesNPC = new JTextPane();
 	textPaneDesNPC.setText("Description");
 	textPaneDesNPC.setEditable(false);
 	textPaneDesNPC.setBounds(12, 12, 251, 172);
 	panelNPC.add(textPaneDesNPC);
-	listNPC = new JList<String>();
+	//List item
+	modelNPC = new DefaultListModel();
+	modelNPC.addElement("letest");
+	listNPC = new JList(modelNPC);
 	listNPC.setFont(new Font("Roboto", Font.PLAIN, 11));
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listNPC.setBounds(275, 96, 117, 88);
 	panelNPC.add(listNPC);
 	//
+	//PANEL INVENTORY
 	panelInventory = new JPanel();
-	modelInventory = new DefaultListModel<String>();
 	panelInventory.setLayout(null);
 	panelRight.add(panelInventory);
+	//BTN Inventory
 	btnUseItem = new JButton("Use");
 	btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 10));
 	btnUseItem.setBounds(275, 11, 117, 32);
@@ -349,15 +373,16 @@ public class Window extends JFrame {
 	btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 10));
 	btnDropItem.setBounds(275, 53, 117, 32);
 	panelInventory.add(btnDropItem);
-	//
+	//Decription Invetory
 	textPaneDesInventory = new JTextPane();
 	textPaneDesInventory.setText("Description");
 	textPaneDesInventory.setEditable(false);
 	textPaneDesInventory.setBounds(12, 11, 251, 173);
 	panelInventory.add(textPaneDesInventory);
-	//
-	listInventory = new JList<String>();
-	
+	//list Inventory
+	modelInventory = new DefaultListModel();
+	modelInventory.addElement("azer");
+	listInventory = new JList(modelInventory);
 	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listInventory.setFont(new Font("Roboto", Font.PLAIN, 11));
 	listInventory.setBounds(275, 96, 117, 88);
@@ -473,20 +498,19 @@ public class Window extends JFrame {
     }
 
     public void updateInventory() {
-	ArrayList<Item> arrayInventory = game.getPlayer().getInventory();
-	modelInventory = new DefaultListModel<String>();
-	for (Item item : arrayInventory) {
+	modelInventory.clear();
+	for (Item item : game.getPlayer().getInventory()) {
 	    modelInventory.addElement(item.getName());
 	}
-	listInventory = new JList<String>(modelInventory);
+	listInventory = new JList<>(modelInventory);
     }
 
     public void updateListNPC() {
-	modelNPC = new DefaultListModel<String>();
+	modelNPC.clear();
 	for (NPC npc : game.getPlayer().getFellowship()) {
 	    modelNPC.addElement(npc.getName());
 	}
-	listNPC = new JList<String>(modelNPC);
+	listNPC = new JList<>(modelNPC);
     }
 
     public void updateAll() {
