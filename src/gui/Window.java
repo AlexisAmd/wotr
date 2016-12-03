@@ -36,7 +36,6 @@ import javax.swing.JDesktopPane;
 import java.awt.Color;
 import javax.swing.JProgressBar;
 import javax.swing.JLabel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
@@ -46,27 +45,26 @@ import java.awt.Rectangle;
 
 public class Window extends JFrame {
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
-	    panelIconPlayer, panelinfoBottom, panelNPC, panelInventory;
+	 panelinfoBottom, panelNPC, panelInventory;
     private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnframeMap, btnUseNPC, btnDropNPC,
 	    btnUseItem, btnDropItem;
     private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneDesInventory;
-    private JLabel backGroundLeft, iconPlayer, ImageHome;
+    private JLabel ImageHome;
     private JProgressBar progressBarHealth, progressBarCorruption;
     private JScrollPane scrollBar;
-    private DefaultListModel modelNPC, modelInventory;
+    private DefaultListModel<String> modelNPC, modelInventory;
     // Other variables
-    private NPC selectedNPC;
-    private Item selectedItem;
     private Game game;
-    private JList listNPC;
-    private JList listInventory;
+    private JList<String> listNPC;
+    private JList<String> listInventory;
+    private JLabel iconPlayer;
+
 
     // public static void main(String[] arg) {
     // Window window = new Window();
     // }
     public Window() {
 	this.setVisible(true);
-	Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 	this.setBounds(0, 0, 1166, 768 - 150);
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
@@ -77,8 +75,6 @@ public class Window extends JFrame {
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.getContentPane().setLayout(null);
 	panelLeft = new JPanel();
-	backGroundLeft = new JLabel(new ImageIcon("src/gui/image/backGroundLeft.jpeg"));
-	panelLeft.add(backGroundLeft);
 	panelLeft.setOpaque(false);
 	panelLeft.setBackground(new Color(0, 0, 0, 0));
 	panelLeft.setBounds(0, 0, 756, 589);
@@ -270,13 +266,17 @@ public class Window extends JFrame {
 	panelImage.add(ImageHome);
 	panelLeft.add(panelImage);
 	panelImage.setLayout(new GridLayout(0, 1, 0, 0));
+	//
 	panelRight = new JPanel();
+	panelRight.setBackground(Color.BLACK);
+	//panelRight.setForeground(Color.BLACK);
 	panelRight.setBorder(null);
-	panelRight.setBackground(new Color(218, 165, 32));
+	//panelRight.setBackground(new Color(218, 165, 32));
 	panelRight.setBounds(756, 0, 404, 589);
 	this.getContentPane().add(panelRight);
 	panelRight.setLayout(new GridLayout(3, 1, 0, 0));
 	panelInfoPlayer = new JPanel();
+	panelInfoPlayer.setForeground(Color.BLACK);
 	panelRight.add(panelInfoPlayer);
 	panelInfoPlayer.setLayout(new GridLayout(2, 0, 0, 0));
 	panelInfoTopPlayer = new JPanel();
@@ -290,12 +290,11 @@ public class Window extends JFrame {
 	textPanePlayer.setBounds(96, 12, 296, 74);
 	panelInfoTopPlayer.add(textPanePlayer);
 	textPanePlayer.setEditable(false);
-	panelIconPlayer = new JPanel();
-	panelIconPlayer.setLayout(new BorderLayout());
-	iconPlayer = new JLabel(new ImageIcon("src/gui/image/frodo.png"));
-	panelIconPlayer.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-	panelIconPlayer.add(iconPlayer, BorderLayout.NORTH);
-	panelInfoTopPlayer.add(panelIconPlayer);
+	
+	iconPlayer = new JLabel("Frodo");
+	iconPlayer.setIcon(new ImageIcon("src/gui/image/frodo.png"));
+	iconPlayer.setBounds(10, 12, 76, 74);
+	panelInfoTopPlayer.add(iconPlayer);
 	panelinfoBottom = new JPanel();
 	panelInfoPlayer.add(panelinfoBottom);
 	panelinfoBottom.setLayout(null);
@@ -316,7 +315,7 @@ public class Window extends JFrame {
 	panelinfoBottom.add(progressBarCorruption);
 	//
 	panelNPC = new JPanel();
-	modelNPC = new DefaultListModel();
+	modelNPC = new DefaultListModel<String>();
 	panelNPC.setLayout(null);
 	panelRight.add(panelNPC);
 	btnUseNPC = new JButton("Use");
@@ -332,14 +331,14 @@ public class Window extends JFrame {
 	textPaneDesNPC.setEditable(false);
 	textPaneDesNPC.setBounds(12, 12, 251, 172);
 	panelNPC.add(textPaneDesNPC);
-	JList listNPC = new JList();
+	listNPC = new JList<String>();
 	listNPC.setFont(new Font("Roboto", Font.PLAIN, 11));
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listNPC.setBounds(275, 96, 117, 88);
 	panelNPC.add(listNPC);
 	//
 	panelInventory = new JPanel();
-	modelInventory = new DefaultListModel();
+	modelInventory = new DefaultListModel<String>();
 	panelInventory.setLayout(null);
 	panelRight.add(panelInventory);
 	btnUseItem = new JButton("Use");
@@ -350,17 +349,21 @@ public class Window extends JFrame {
 	btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 10));
 	btnDropItem.setBounds(275, 53, 117, 32);
 	panelInventory.add(btnDropItem);
+	//
 	textPaneDesInventory = new JTextPane();
 	textPaneDesInventory.setText("Description");
 	textPaneDesInventory.setEditable(false);
 	textPaneDesInventory.setBounds(12, 11, 251, 173);
 	panelInventory.add(textPaneDesInventory);
-	listInventory = new JList();
+	//
+	listInventory = new JList<String>();
+	
 	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listInventory.setFont(new Font("Roboto", Font.PLAIN, 11));
 	listInventory.setBounds(275, 96, 117, 88);
 	panelInventory.add(listInventory);
     }
+
 
     /**
      * Add a line to the command prompt
@@ -471,20 +474,19 @@ public class Window extends JFrame {
 
     public void updateInventory() {
 	ArrayList<Item> arrayInventory = game.getPlayer().getInventory();
-	DefaultListModel<String> model = new DefaultListModel<String>();
+	modelInventory = new DefaultListModel<String>();
 	for (Item item : arrayInventory) {
-	    model.addElement(item.getName());
+	    modelInventory.addElement(item.getName());
 	}
-	listInventory = new JList<String>(model);
+	listInventory = new JList<String>(modelInventory);
     }
 
     public void updateListNPC() {
-	ArrayList<NPC> arrayNPC = game.getPlayer().getFellowship();
-	DefaultListModel<String> model = new DefaultListModel<String>();
-	for (NPC npc : arrayNPC) {
-	    model.addElement(npc.getName());
+	modelNPC = new DefaultListModel<String>();
+	for (NPC npc : game.getPlayer().getFellowship()) {
+	    modelNPC.addElement(npc.getName());
 	}
-	listInventory = new JList<String>(model);
+	listNPC = new JList<String>(modelNPC);
     }
 
     public void updateAll() {

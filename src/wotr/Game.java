@@ -34,17 +34,15 @@ public class Game {
 	this.window = window;
     }
 
-
     /**
      * Main of the game
      */
     public static void main(String[] args) {
 	Window window = new Window();
 	Game game = new Game(window); // instanciate a game
-	window.setGame(game); //cradde
+	window.setGame(game); // cradde
 	game.play();
     }
-
 
     /**
      * Create all the rooms and link their exits together.
@@ -96,9 +94,7 @@ public class Game {
 	roomBagginsStreet2.addExit("south", doorBagginsStreet2RoadToBree);
 	roomSamHouse.addExit("east", doorSamHouseBagginsStreet2);
 	startRoom = roomBilboHouseStart;
-		
-	 // Create all the items and binds them to their rooms.
-
+	// Create all the items and binds them to their rooms.
 	Key keyToSamHouse;
 	Food foodPint, foodWine, foodCarrots, foodGrilledChicken, foodMeltCheese, foodSalad;
 	Potion potionElixir;
@@ -113,7 +109,6 @@ public class Game {
 		"Gandalf created beverage that replicates his power. This elixir is used all over Middle Earth to restore the power of companions. Use this item wisely.",
 		5, currentPlayer);
 	keyToSamHouse = new Key("keyToSamHouse", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
-	
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
 	roomGreenDragonInn.addItem(foodPint);
@@ -122,7 +117,6 @@ public class Game {
 	roomSamHouse.addItem(foodSalad);
 	roomRoadToBree.addItem(foodCarrots);
 	room111thBirthday.addItem(potionElixir);
-	
 	room111thBirthday.addItem(keyToSamHouse);
 	Magician npcGandalf;
 	Hobbit npcSam, npcPipin, npcMerry;
@@ -139,129 +133,123 @@ public class Game {
 	room111thBirthday.addNPC(npcDrunkHobbit);
 	roomRoadToBree.addNPC(npcPipin);
 	roomRoadToBree.addNPC(npcMerry);
-	
 	// *********************LEVEL 2 - BREE************************************
-				// Declare rooms and doors
-		Room roomBuckleburyFerry,roomCityEntrance,roomCityCenter,roomPPBar,roomPPDormitory,
-		roomPPGandalf,roomPPStrider,roomDarkAlley1,roomDarkalley2; //PP = PrncingPoney
-		Door doorBuckleburyFerryCityEntrance,doorCityEntranceBuckleburyFerry,doorCityEntranceCityCenter,
-		doorCityCenterCityEntrance,doorCityCenterDarkAlley1,doorDarkAlley1DarkAlley2,doorDarkAlley2CityEntrance,doorCityCenterPPBar,doorPPBarCityCenter,
-		doorPPBarPPDormitory,doorPPDormitoryPPBar,doorPPBarPPGandalf,doorPPGandalfPPBar,doorPPBarPPStrider,doorPPStriderPPBar;
-		WorldDoor worlddoorShireToBree;
-				// Create rooms (description, script, image)
-		roomBuckleburyFerry = new Room("Taking the ferry will allow you to avoid dark riders along the way", "-script-",
-				"src/gui/image/roomBuckleburyFerry.jpg");
-		roomCityCenter = new Room("","","");
-		roomCityEntrance = new Room("","","");
-		roomPPBar = new Room("","","");
-		roomPPDormitory = new Room("","","");
-		roomPPGandalf = new Room("","","");
-		roomPPStrider = new Room("","","");
-		roomDarkAlley1 = new Room("","","");
-		roomDarkalley2 = new Room("","","");
-		
-				// Create doors
-		worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
-		doorBuckleburyFerryCityEntrance = new Door(roomBuckleburyFerry,roomCityEntrance);
-		doorCityEntranceBuckleburyFerry = new Door(roomCityEntrance,roomBuckleburyFerry);
-		doorCityEntranceCityCenter = new Door(roomCityEntrance, roomCityCenter);
-		doorCityCenterCityEntrance = new Door(roomCityCenter, roomCityEntrance);
-		doorCityCenterPPBar = new Door(roomCityCenter, roomPPBar);
-		doorCityCenterDarkAlley1 = new Door(roomCityCenter, roomDarkAlley1);
-		doorDarkAlley1DarkAlley2 = new Door(roomDarkAlley1, roomDarkalley2);
-		doorDarkAlley2CityEntrance = new Door(roomDarkalley2, roomCityEntrance);
-		doorPPBarCityCenter = new Door(roomPPBar, roomCityCenter);
-		doorPPBarPPDormitory = new Door(roomPPBar, roomPPDormitory);
-		doorPPDormitoryPPBar = new Door(roomPPDormitory, roomPPBar);
-		doorPPBarPPGandalf = new Door(roomPPBar, roomPPGandalf);
-		doorPPGandalfPPBar = new Door(roomPPGandalf, roomPPBar);
-		doorPPBarPPStrider = new Door(roomPPBar, roomPPStrider);
-		doorPPStriderPPBar = new Door(roomPPStrider, roomPPBar);
-		
-				// Link the exit world to previous level
-		roomRoadToBree.addExit("north", worlddoorShireToBree);
-		
-				// Associate doors with rooms
-		roomBuckleburyFerry.addExit("East", doorBuckleburyFerryCityEntrance);
-		roomCityEntrance.addExit("west", doorCityEntranceBuckleburyFerry);
-		roomCityEntrance.addExit("east", doorCityEntranceCityCenter);
-		roomCityCenter.addExit("west", doorCityCenterCityEntrance);
-		roomCityCenter.addExit("east", doorCityCenterPPBar);
-		roomCityCenter.addExit("south", doorCityCenterDarkAlley1);
-		roomDarkAlley1.addExit("west", doorDarkAlley1DarkAlley2);
-		roomDarkalley2.addExit("north", doorDarkAlley2CityEntrance);
-		roomPPBar.addExit("west", doorPPBarCityCenter);
-		roomPPBar.addExit("north", doorPPBarPPDormitory);
-		roomPPDormitory.addExit("south", doorPPDormitoryPPBar);
-		roomPPBar.addExit("east", doorPPBarPPGandalf);
-		roomPPGandalf.addExit("west", doorPPGandalfPPBar);
-		roomPPBar.addExit("south", doorPPBarPPStrider);
-		roomPPStrider.addExit("north", doorPPStriderPPBar);
-		
-				// Declare items
-				// Create items
-				// Add items to rooms
-				
-				// Declare NPCs
-				// Create NPCs
-				// Add NPCs
-		
-		// *********************LEVEL 3 - Rivendell************************************
-				// Declare rooms and doors
-				// Create rooms (description, script, image)
-				// Create doors
-				// Link the exit world to previous level
-				// Associate doors with rooms
-				
-				// Declare items
-				// Create items
-				// Add items to rooms
-				
-				// Declare NPCs
-				// Create NPCs
-				// Add NPCs
-
-	   
+	// Declare rooms and doors
+	Room roomBuckleburyFerry, roomCityEntrance, roomCityCenter, roomPPBar, roomPPDormitory, roomPPGandalf,
+		roomPPStrider, roomDarkAlley1, roomDarkalley2; // PP = PrncingPoney
+	Door doorBuckleburyFerryCityEntrance, doorCityEntranceBuckleburyFerry, doorCityEntranceCityCenter,
+		doorCityCenterCityEntrance, doorCityCenterDarkAlley1, doorDarkAlley1DarkAlley2,
+		doorDarkAlley2CityEntrance, doorCityCenterPPBar, doorPPBarCityCenter, doorPPBarPPDormitory,
+		doorPPDormitoryPPBar, doorPPBarPPGandalf, doorPPGandalfPPBar, doorPPBarPPStrider, doorPPStriderPPBar;
+	WorldDoor worlddoorShireToBree;
+	// Create rooms (description, script, image)
+	roomBuckleburyFerry = new Room("Taking the ferry will allow you to avoid dark riders along the way", "-script-",
+		"src/gui/image/roomBuckleburyFerry.jpg");
+	roomCityCenter = new Room("", "", "");
+	roomCityEntrance = new Room("", "", "");
+	roomPPBar = new Room("", "", "");
+	roomPPDormitory = new Room("", "", "");
+	roomPPGandalf = new Room("", "", "");
+	roomPPStrider = new Room("", "", "");
+	roomDarkAlley1 = new Room("", "", "");
+	roomDarkalley2 = new Room("", "", "");
+	// Create doors
+	worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
+	doorBuckleburyFerryCityEntrance = new Door(roomBuckleburyFerry, roomCityEntrance);
+	doorCityEntranceBuckleburyFerry = new Door(roomCityEntrance, roomBuckleburyFerry);
+	doorCityEntranceCityCenter = new Door(roomCityEntrance, roomCityCenter);
+	doorCityCenterCityEntrance = new Door(roomCityCenter, roomCityEntrance);
+	doorCityCenterPPBar = new Door(roomCityCenter, roomPPBar);
+	doorCityCenterDarkAlley1 = new Door(roomCityCenter, roomDarkAlley1);
+	doorDarkAlley1DarkAlley2 = new Door(roomDarkAlley1, roomDarkalley2);
+	doorDarkAlley2CityEntrance = new Door(roomDarkalley2, roomCityEntrance);
+	doorPPBarCityCenter = new Door(roomPPBar, roomCityCenter);
+	doorPPBarPPDormitory = new Door(roomPPBar, roomPPDormitory);
+	doorPPDormitoryPPBar = new Door(roomPPDormitory, roomPPBar);
+	doorPPBarPPGandalf = new Door(roomPPBar, roomPPGandalf);
+	doorPPGandalfPPBar = new Door(roomPPGandalf, roomPPBar);
+	doorPPBarPPStrider = new Door(roomPPBar, roomPPStrider);
+	doorPPStriderPPBar = new Door(roomPPStrider, roomPPBar);
+	// Link the exit world to previous level
+	roomRoadToBree.addExit("north", worlddoorShireToBree);
+	// Associate doors with rooms
+	roomBuckleburyFerry.addExit("East", doorBuckleburyFerryCityEntrance);
+	roomCityEntrance.addExit("west", doorCityEntranceBuckleburyFerry);
+	roomCityEntrance.addExit("east", doorCityEntranceCityCenter);
+	roomCityCenter.addExit("west", doorCityCenterCityEntrance);
+	roomCityCenter.addExit("east", doorCityCenterPPBar);
+	roomCityCenter.addExit("south", doorCityCenterDarkAlley1);
+	roomDarkAlley1.addExit("west", doorDarkAlley1DarkAlley2);
+	roomDarkalley2.addExit("north", doorDarkAlley2CityEntrance);
+	roomPPBar.addExit("west", doorPPBarCityCenter);
+	roomPPBar.addExit("north", doorPPBarPPDormitory);
+	roomPPDormitory.addExit("south", doorPPDormitoryPPBar);
+	roomPPBar.addExit("east", doorPPBarPPGandalf);
+	roomPPGandalf.addExit("west", doorPPGandalfPPBar);
+	roomPPBar.addExit("south", doorPPBarPPStrider);
+	roomPPStrider.addExit("north", doorPPStriderPPBar);
+	// Declare items
+	// Create items
+	// Add items to rooms
+	// Declare NPCs
+	// Create NPCs
+	// Add NPCs
+	// *********************LEVEL 3 - Rivendell************************************
+	// Declare rooms and doors
+	// Create rooms (description, script, image)
+	// Create doors
+	// Link the exit world to previous level
+	// Associate doors with rooms
+	// Declare items
+	// Create items
+	// Add items to rooms
+	// Declare NPCs
+	// Create NPCs
+	// Add NPCs
     }
-
 
     /**
      * 
      */
-	public void win() {
-		JOptionPane.showMessageDialog(null,
-				"You dropped the Ring in the Mount Doom and you defeated Sauron and his armies. You accomplished your journey. Congratulations.",
-				"Congratulations", JOptionPane.PLAIN_MESSAGE);
-	}
+    public void win() {
+	JOptionPane.showMessageDialog(null,
+		"You dropped the Ring in the Mount Doom and you defeated Sauron and his armies. You accomplished your journey. Congratulations.",
+		"Congratulations", JOptionPane.PLAIN_MESSAGE);
+    }
 
-/**
+    /**
      * Main play routine.  Loops until end of play.
      */
     public void play() {
-	
 	printWelcome();
 	window.updateAll();
 	// Enter the main command loop. Here we repeatedly read commands and
 	// execute them until the game is over.
- 
     }
 
     /**
      * Print out the opening message for the player.
      */
     private void printWelcome() {
-	window.setScript(
-		"Welcome to the Lord of the Ring: A Frodo's"
-		+ " Journey. You are Frodo and Bilbo gave you a strange ring. Gandalf revealed that it is the One Ring, the most powerful ring which belongs to Sauron, the Lord of Mordor. You are Frodo Baggins of the Shire. You must bring the Ring to Mordor to destroy it into the flames of Orodruin, the volcano at the north east of the mordor, house of the evil Sauron. Our game is a basic survival game. You must explore Middle Earth in order to find your way to Orodruin. Their will be many foes and obstacles on your way. But you carry the Ring which grants you the ability to be invisible. You need to be careful, prepare yourself to commit your life."
-		+ "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-    }
+	window.setScript("Welcome to the Lord of the Ring: A Frodo's"
+		+ " Journey. You are Frodo and Bilbo gave you a strange ring."
+		+ " Gandalf revealed that it is the One Ring, the most powerful"
+		+ " ring which belongs to Sauron, the Lord of Mordor."
+		+ " You are Frodo Baggins of the Shire. You must bring"
+		+ " the Ring to Mordor to destroy it into the flames"
+		+ " of Orodruin, the volcano at the north east of the"
+		+ " mordor, house of the evil Sauron. Our game is a basic survival"
+		+ " game. You must explore Middle Earth in order to find your"
+		+ " way to Orodruin. Their will be many foes and obstacles"
+		+ " on your way. But you carry the Ring which grants you the "
+		+ "ability to be invisible. You need to be careful, "
+		+ "prepare yourself to commit you");
+		}
 
-    
     /**
      * @return
      */
     public Player getPlayer() {
-	// TODO Auto-generated method stub
 	return currentPlayer;
     }
 }
