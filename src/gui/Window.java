@@ -338,18 +338,18 @@ public class Window extends JFrame {
 	panelRight.add(panelNPC);
 	//BUTTON NPC
 	btnUseNPC = new JButton("Use");
-	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
-	btnUseNPC.setBounds(275, 11, 117, 32);
+	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 16));
+	btnUseNPC.setBounds(166, 11, 108, 50);
 	panelNPC.add(btnUseNPC);
 	btnDropNPC = new JButton("Drop");
-	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 10));
-	btnDropNPC.setBounds(275, 53, 117, 32);
+	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 16));
+	btnDropNPC.setBounds(284, 11, 108, 50);
 	panelNPC.add(btnDropNPC);
 	//Description NPPC
 	textPaneDesNPC = new JTextPane();
 	textPaneDesNPC.setText("Description");
 	textPaneDesNPC.setEditable(false);
-	textPaneDesNPC.setBounds(12, 12, 251, 172);
+	textPaneDesNPC.setBounds(166, 72, 226, 113);
 	panelNPC.add(textPaneDesNPC);
 	//List item
 	modelNPC = new DefaultListModel();
@@ -357,7 +357,7 @@ public class Window extends JFrame {
 	listNPC = new JList(modelNPC);
 	listNPC.setFont(new Font("Roboto", Font.PLAIN, 11));
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	listNPC.setBounds(275, 96, 117, 88);
+	listNPC.setBounds(10, 11, 146, 174);
 	panelNPC.add(listNPC);
 	//
 	//PANEL INVENTORY
@@ -366,18 +366,18 @@ public class Window extends JFrame {
 	panelRight.add(panelInventory);
 	//BTN Inventory
 	btnUseItem = new JButton("Use");
-	btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 10));
-	btnUseItem.setBounds(275, 11, 117, 32);
+	btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 16));
+	btnUseItem.setBounds(166, 11, 108, 50);
 	panelInventory.add(btnUseItem);
 	btnDropItem = new JButton("Drop");
-	btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 10));
-	btnDropItem.setBounds(275, 53, 117, 32);
+	btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 16));
+	btnDropItem.setBounds(284, 11, 108, 50);
 	panelInventory.add(btnDropItem);
 	//Decription Invetory
 	textPaneDesInventory = new JTextPane();
 	textPaneDesInventory.setText("Description");
 	textPaneDesInventory.setEditable(false);
-	textPaneDesInventory.setBounds(12, 11, 251, 173);
+	textPaneDesInventory.setBounds(166, 72, 226, 113);
 	panelInventory.add(textPaneDesInventory);
 	//list Inventory
 	modelInventory = new DefaultListModel();
@@ -385,7 +385,7 @@ public class Window extends JFrame {
 	listInventory = new JList(modelInventory);
 	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listInventory.setFont(new Font("Roboto", Font.PLAIN, 11));
-	listInventory.setBounds(275, 96, 117, 88);
+	listInventory.setBounds(10, 11, 146, 174);
 	panelInventory.add(listInventory);
     }
 
