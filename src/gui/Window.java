@@ -311,7 +311,7 @@ public class Window extends JFrame {
 	textPanePlayer.setEditable(false);
 	
 	iconPlayer = new JLabel("Frodo");
-	iconPlayer.setIcon(new ImageIcon(Window.class.getResource("/gui/image/frodo.png")));
+	iconPlayer.setIcon(new ImageIcon(("/gui/image/frodo.png")));
 	iconPlayer.setBounds(10, 12, 76, 74);
 	panelInfoTopPlayer.add(iconPlayer);
 	panelinfoBottom = new JPanel();
@@ -355,7 +355,7 @@ public class Window extends JFrame {
 	modelNPC = new DefaultListModel();
 	modelNPC.addElement("letest");
 	listNPC = new JList(modelNPC);
-	listNPC.setFont(new Font("Roboto", Font.PLAIN, 11));
+	listNPC.setFont(new Font("Roboto", Font.PLAIN, 14));
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listNPC.setBounds(10, 11, 146, 174);
 	panelNPC.add(listNPC);
@@ -384,7 +384,7 @@ public class Window extends JFrame {
 	modelInventory.addElement("azer");
 	listInventory = new JList(modelInventory);
 	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	listInventory.setFont(new Font("Roboto", Font.PLAIN, 11));
+	listInventory.setFont(new Font("Roboto", Font.PLAIN, 14));
 	listInventory.setBounds(10, 11, 146, 174);
 	panelInventory.add(listInventory);
     }
