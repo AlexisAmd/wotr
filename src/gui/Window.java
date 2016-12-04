@@ -58,6 +58,8 @@ public class Window extends JFrame {
     private JList<String> listNPC;
     private JList<String> listInventory;
     private JLabel iconPlayer;
+    private int selectedNPC;
+    private int selectedItem;
 
 
     // public static void main(String[] arg) {
@@ -352,9 +354,15 @@ public class Window extends JFrame {
 	textPaneDesNPC.setBounds(166, 72, 226, 113);
 	panelNPC.add(textPaneDesNPC);
 	//List item
-	modelNPC = new DefaultListModel();
+	modelNPC = new DefaultListModel<String>();
 	modelNPC.addElement("letest");
-	listNPC = new JList(modelNPC);
+	listNPC = new JList<String>(modelNPC);
+	listNPC.addListSelectionListener(new ListSelectionListener() {
+		public void valueChanged(ListSelectionEvent arg0) {
+		     selectedNPC = listNPC.getSelectedIndex(); //vaut null
+		     
+		}
+	});
 	listNPC.setFont(new Font("Roboto", Font.PLAIN, 14));
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listNPC.setBounds(10, 11, 146, 174);
@@ -380,9 +388,14 @@ public class Window extends JFrame {
 	textPaneDesInventory.setBounds(166, 72, 226, 113);
 	panelInventory.add(textPaneDesInventory);
 	//list Inventory
-	modelInventory = new DefaultListModel();
+	modelInventory = new DefaultListModel<String>();
 	modelInventory.addElement("azer");
-	listInventory = new JList(modelInventory);
+	listInventory = new JList<String>(modelInventory);
+	listInventory.addListSelectionListener(new ListSelectionListener() {
+		public void valueChanged(ListSelectionEvent e) {
+		    selectedItem = listInventory.getSelectedIndex();
+		}
+	});
 	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listInventory.setFont(new Font("Roboto", Font.PLAIN, 14));
 	listInventory.setBounds(10, 11, 146, 174);
@@ -502,7 +515,7 @@ public class Window extends JFrame {
 	for (Item item : game.getPlayer().getInventory()) {
 	    modelInventory.addElement(item.getName());
 	}
-	listInventory = new JList<>(modelInventory);
+
     }
 
     public void updateListNPC() {
@@ -510,7 +523,7 @@ public class Window extends JFrame {
 	for (NPC npc : game.getPlayer().getFellowship()) {
 	    modelNPC.addElement(npc.getName());
 	}
-	listNPC = new JList<>(modelNPC);
+
     }
 
     public void updateAll() {
