@@ -122,7 +122,7 @@ public class Game {
 	room111thBirthday.addItem(keyToSamHouse);
 	Magician npcGandalf;
 	Hobbit npcSam, npcPipin, npcMerry;
-	Warrior npcDrunkHobbit;
+	Warrior npcDrunkHobbit; //TODO change to enenmy
 	// Create NPC
 	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10, currentPlayer);
 	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0, currentPlayer);

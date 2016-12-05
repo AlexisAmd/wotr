@@ -276,7 +276,8 @@ public class Player {
      *         current room
      */
     public boolean pickUpNPC(NPC npc) {
-	if (fellowship.addNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) {
+	if (!npc.getClass().getSimpleName().equals("Enemy")  ) {
+	    fellowship.addNPC(npc);
 	    npc.setPlayer(this);
 	    return getCurrentRoom().delNPC(npc);
 	} else

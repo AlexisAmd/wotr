@@ -208,8 +208,12 @@ public class Window extends JFrame {
 		    updateAll();
 		}
 		for (NPC npc : new ArrayList<NPC>(game.getPlayer().getCurrentRoom().getNPCList())) {
-		    if (game.getPlayer().pickUpNPC(npc)) {
+		    if (game.getPlayer().pickUpNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) { //verification deja faite par le get mais on sait jamais
+			System.out.println(npc.getClass().getSimpleName());
+			
 			setScript(npc.getName() + " has joined you community.");
+		    } else{
+			System.out.println("pas prit : "+ npc.getName() + "de class " + npc.getClass().getSimpleName() );
 		    }
 		    updateAll();
 		}
