@@ -651,6 +651,8 @@ public class Window extends JFrame {
 	for (NPC npc : game.getPlayer().getCurrentRoom().getNPCList()) {
 	    npc.setPlayer(game.getPlayer());
 	    if (npc.getClass().getSimpleName().equals("Enemy")) {
+		JOptionPane.showMessageDialog(getRootPane(), npc.getName()+" is attacking you ! \n - Corruption power : "+ npc.getCpPower()+"\n - Health damage :"+ npc.getHpPower(),
+			    "Fight Alert !", JOptionPane.WARNING_MESSAGE);
 		npc.use();
 	    }
 	}
