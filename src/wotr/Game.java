@@ -39,7 +39,7 @@ public class Game {
     public static void main(String[] args) {
 	Window window = new Window();
 	Game game = new Game(window); // instanciate a game
-	window.setGame(game); // cradde
+	window.setGame(game); 
 	game.play();
     }
 
@@ -222,23 +222,23 @@ public class Game {
 	npcNazgul2 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, 5);
 	npcNazgul3 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, 5);
 	npcThief = new Enemy("Thief", "He will steal you without realizing it", 10, 0);
-	npcStrider1 = new Warrior("Strider1", "He can protect you", 20, 5);
-	npcStrider2 = new Warrior("Strider2", "He can protect you", 20, 5);
+	npcStrider1 = new Warrior("Aragorn", "He can protect you against ennemies by killing them all.", 0, 0);
+	npcStrider2 = new Warrior("Faramir", "He can protect you against ennemies by killing them all. Faramir is Boromir's brother but lives the shadow of him...", 0, 0);
 	// Add NPCs
 	roomBuckleburyFerry.addNPC(npcNazgul1);
 	roomDarkAlley2.addNPC(npcThief);
 	roomPPStrider.addNPC(npcStrider1);
-	roomPPBar.addNPC(npcStrider2);
+	roomBilboHouseStart.addNPC(npcStrider2);
+	//roomPPBar.addNPC(npcStrider2);
 	roomPPDormitory.addNPC(npcNazgul2);
 	roomPPGandalf.addNPC(npcNazgul3);
     }
     /**
-     * 
+     * NON cette methode n'est pas sensée faire de l'affichage... en tout cas pas ici.
+     * elle est jsute sensée checker s'il reste de la vie
      */
     public void win() {
-	JOptionPane.showMessageDialog(null,
-		"You dropped the Ring in the Mount Doom and you defeated Sauron and his armies. You accomplished your journey. Congratulations.",
-		"Congratulations", JOptionPane.PLAIN_MESSAGE);
+	//if ring in volcano and frodo alive then return true ! 
     }
 
     /**
