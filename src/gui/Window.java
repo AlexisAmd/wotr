@@ -50,6 +50,7 @@ import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
+import java.awt.Insets;
 
 public class Window extends JFrame {
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
@@ -68,6 +69,7 @@ public class Window extends JFrame {
     private JLabel iconPlayer;
     private NPC selectedNPC;
     private Item selectedItem;
+    private JTextPane txtpnRoomName;
 
     // public static void main(String[] arg) {
     // Window window = new Window();
@@ -271,10 +273,23 @@ public class Window extends JFrame {
 	ImageHome = new JLabel(new ImageIcon("src/gui/image/roomBilboHouseStart.jpg"));// Test
 	// image
 	panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-	panelImage.setBounds(12, 12, 732, 393);
+	panelImage.setBounds(12, 53, 732, 353);
 	panelImage.add(ImageHome);
 	panelLeft.add(panelImage);
 	panelImage.setLayout(new GridLayout(0, 1, 0, 0));
+	
+	JPanel panel = new JPanel();
+	panel.setOpaque(false);
+	panel.setBounds(12, 0, 732, 42);
+	panelLeft.add(panel);
+	
+	txtpnRoomName = new JTextPane();
+	txtpnRoomName.setMargin(new Insets(0, 3, 3, 3));
+	txtpnRoomName.setForeground(new Color(218, 165, 32));
+	txtpnRoomName.setFont(new Font("Monotype Corsiva", Font.PLAIN, 35));
+	txtpnRoomName.setText("Room name");
+	txtpnRoomName.setOpaque(false);
+	panel.add(txtpnRoomName);
 	//
 	panelRight = new JPanel();
 	panelRight.setBackground(new Color(54, 29, 0));
@@ -634,6 +649,10 @@ public class Window extends JFrame {
     public void updatePromptWithRoomScript(){
 	setScript(game.getPlayer().getCurrentRoom().getScript());
     }
+    
+    public void updateRoomName(){
+	txtpnRoomName.setText(game.getPlayer().getCurrentRoom().getDescription());
+    }
 
     /**
      * update the the JList of item
@@ -710,6 +729,7 @@ public class Window extends JFrame {
 	this.updateInventory(); // a checker
 	this.updateDesItem();
 	this.updateDesNPC();
+	this.updateRoomName();
 	boolean bNorth, bEast, bSouth, bWest;
 	bNorth = game.getPlayer().getCurrentRoom().getExits().containsKey("north");
 	bSouth = game.getPlayer().getCurrentRoom().getExits().containsKey("south");
