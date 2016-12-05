@@ -100,7 +100,6 @@ public class Game {
 	Potion potionElixir;
 	// Create items
 	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 90, 10, currentPlayer);
-	Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, 50, currentPlayer);
 	foodPint = new Food("Large beer pint", "A good pint", 10, 10, currentPlayer);
 	foodWine = new Food("Large glass of wine", "The better wine of the shire", 5, 10, currentPlayer);
 	foodGrilledChicken = new Food("Grilled chicken", "A grilled chicken", 30, 10, currentPlayer);
@@ -112,7 +111,6 @@ public class Game {
 	keyToSamHouse = new Key("keyToSamHouse", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
-	roomBilboHouseStart.addNPC(sauron);
 	roomGreenDragonInn.addItem(foodPint);
 	roomGreenDragonInn.addItem(foodWine);
 	roomGreenDragonInn.addItem(foodGrilledChicken);
@@ -125,6 +123,8 @@ public class Game {
 	Warrior npcDrunkHobbit; //TODO change to enenmy
 	// Create NPC
 	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10, currentPlayer);
+	Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, 50, currentPlayer);
+	Enemy clochard = new Enemy("clochard", "un vieux bourré qui pue", 30, 20, currentPlayer);
 	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0, currentPlayer);
 	npcDrunkHobbit = new Warrior("Drunk hobbit", "Just an unknow drunk", 0, -5, currentPlayer);
 	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend", -10, 0, currentPlayer);
@@ -132,7 +132,9 @@ public class Game {
 	//TODO creeer un warrior ici 
 	// Add NPC to rooms
 	roomBilboHouseStart.addNPC(npcGandalf);
+	roomBilboHouseStart.addNPC(sauron);
 	roomSamHouse.addNPC(npcSam);
+	roomBagginsStreet2.addNPC(clochard);
 	room111thBirthday.addNPC(npcDrunkHobbit);
 	roomRoadToBree.addNPC(npcPipin);
 	roomRoadToBree.addNPC(npcMerry);
