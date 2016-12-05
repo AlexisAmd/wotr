@@ -20,6 +20,7 @@ public class Enemy extends NPC{
 		if (!this.getAlreadyUsed()){
 		currentPlayer.addHp(hpPower); // we will put a number below 0 to make the player loose health points.
 		currentPlayer.addCorruption(corruptionPower);
+		//this.setAlreadyUsed(true);
 		return true;}
 		else return false;
 		
