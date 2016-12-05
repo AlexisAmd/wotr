@@ -136,9 +136,9 @@ public class Game {
 	// *********************LEVEL 2 - BREE************************************
 	// Declare rooms and doors
 	Room roomBuckleburyFerry, roomCityEntrance, roomCityCenter, roomPPBar, roomPPDormitory, roomPPGandalf,
-		roomPPStrider, roomDarkAlley1, roomDarkalley2; // PP = PrncingPoney
-	Door doorBuckleburyFerryCityEntrance, doorCityEntranceBuckleburyFerry, doorCityEntranceCityCenter,
-		doorCityCenterCityEntrance, doorCityCenterDarkAlley1, doorDarkAlley1DarkAlley2,
+		roomPPStrider, roomDarkAlley1, roomDarkAlley2; // PP = PrncingPoney
+	Door doorBuckleburyFerryCityEntrance, doorCityEntranceBuckleburyFerry, doorCityEntranceCityCenter, doorCityEntranceDarkAlley2,
+		doorCityCenterCityEntrance, doorCityCenterDarkAlley1, doorDarkAlley1DarkAlley2, doorDarkAlley1CityCenter,doorDarkAlley2DarkAlley1,
 		doorDarkAlley2CityEntrance, doorCityCenterPPBar, doorPPBarCityCenter, doorPPBarPPDormitory,
 		doorPPDormitoryPPBar, doorPPBarPPGandalf, doorPPGandalfPPBar, doorPPBarPPStrider, doorPPStriderPPBar;
 	WorldDoor worlddoorShireToBree;
@@ -152,17 +152,20 @@ public class Game {
 	roomPPGandalf = new Room("You are in the Gandalf's Room", "-script-", "");
 	roomPPStrider = new Room("You are in the Strider's Room", "-script-", "");
 	roomDarkAlley1 = new Room("A scary dark alley", "-script-", "");
-	roomDarkalley2 = new Room("A scary dark alley", "-script-", "");
+	roomDarkAlley2 = new Room("A scary dark alley", "-script-", "");
 	// Create doors
 	worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
 	doorBuckleburyFerryCityEntrance = new Door(roomBuckleburyFerry, roomCityEntrance);
 	doorCityEntranceBuckleburyFerry = new Door(roomCityEntrance, roomBuckleburyFerry);
 	doorCityEntranceCityCenter = new Door(roomCityEntrance, roomCityCenter);
+	doorCityEntranceDarkAlley2 = new Door(roomCityEntrance, roomDarkAlley2);
 	doorCityCenterCityEntrance = new Door(roomCityCenter, roomCityEntrance);
 	doorCityCenterPPBar = new Door(roomCityCenter, roomPPBar);
 	doorCityCenterDarkAlley1 = new Door(roomCityCenter, roomDarkAlley1);
-	doorDarkAlley1DarkAlley2 = new Door(roomDarkAlley1, roomDarkalley2);
-	doorDarkAlley2CityEntrance = new Door(roomDarkalley2, roomCityEntrance);
+	doorDarkAlley1CityCenter = new Door(roomDarkAlley1, roomCityCenter);
+	doorDarkAlley1DarkAlley2 = new Door(roomDarkAlley1, roomDarkAlley2);
+	doorDarkAlley2DarkAlley1 = new Door(roomDarkAlley2, roomDarkAlley1);
+	doorDarkAlley2CityEntrance = new Door(roomDarkAlley2, roomCityEntrance);
 	doorPPBarCityCenter = new Door(roomPPBar, roomCityCenter);
 	doorPPBarPPDormitory = new Door(roomPPBar, roomPPDormitory);
 	doorPPDormitoryPPBar = new Door(roomPPDormitory, roomPPBar);
@@ -176,17 +179,20 @@ public class Game {
 	roomBuckleburyFerry.addExit("East", doorBuckleburyFerryCityEntrance);
 	roomCityEntrance.addExit("west", doorCityEntranceBuckleburyFerry);
 	roomCityEntrance.addExit("east", doorCityEntranceCityCenter);
+	roomCityEntrance.addExit("south", doorCityEntranceDarkAlley2);
 	roomCityCenter.addExit("west", doorCityCenterCityEntrance);
 	roomCityCenter.addExit("east", doorCityCenterPPBar);
 	roomCityCenter.addExit("south", doorCityCenterDarkAlley1);
 	roomDarkAlley1.addExit("west", doorDarkAlley1DarkAlley2);
-	roomDarkalley2.addExit("north", doorDarkAlley2CityEntrance);
+	roomDarkAlley1.addExit("north", doorDarkAlley1CityCenter);
+	roomDarkAlley2.addExit("north", doorDarkAlley2CityEntrance);
+	roomDarkAlley2.addExit("east", doorDarkAlley2DarkAlley1);
 	roomPPBar.addExit("west", doorPPBarCityCenter);
 	roomPPBar.addExit("north", doorPPBarPPDormitory);
-	roomPPDormitory.addExit("south", doorPPDormitoryPPBar);
 	roomPPBar.addExit("east", doorPPBarPPGandalf);
-	roomPPGandalf.addExit("west", doorPPGandalfPPBar);
 	roomPPBar.addExit("south", doorPPBarPPStrider);
+	roomPPDormitory.addExit("south", doorPPDormitoryPPBar);
+	roomPPGandalf.addExit("west", doorPPGandalfPPBar);
 	roomPPStrider.addExit("north", doorPPStriderPPBar);
 	// Declare items
 	// Create items
