@@ -254,6 +254,7 @@ public class Window extends JFrame {
 	scrollPanePrompt.setBounds(320, 417, 424, 160);
 	panelLeft.add(scrollPanePrompt);
 	textPanePrompt = new JTextPane();
+	textPanePrompt.setSelectedTextColor(new Color(238, 232, 170));
 	textPanePrompt.setBorder(null);
 	scrollPanePrompt.setViewportView(textPanePrompt);
 	textPanePrompt.setToolTipText("Command prompt : displays a lot of informations");
@@ -272,7 +273,7 @@ public class Window extends JFrame {
 	panelImage.setLayout(new GridLayout(0, 1, 0, 0));
 	//
 	panelRight = new JPanel();
-	panelRight.setBackground(Color.BLACK);
+	panelRight.setBackground(new Color(160, 82, 45));
 	// panelRight.setForeground(Color.BLACK);
 	panelRight.setBorder(null);
 	// panelRight.setBackground(new Color(218, 165, 32));
@@ -284,10 +285,12 @@ public class Window extends JFrame {
 	panelRight.add(panelInfoPlayer);
 	panelInfoPlayer.setLayout(new GridLayout(2, 0, 0, 0));
 	panelInfoTopPlayer = new JPanel();
+	panelInfoTopPlayer.setOpaque(false);
 	panelInfoTopPlayer.setBorder(null);
 	panelInfoTopPlayer.setLayout(null);
 	panelInfoPlayer.add(panelInfoTopPlayer);
 	textPanePlayer = new JTextPane();
+	textPanePlayer.setOpaque(false);
 	textPanePlayer.setFont(new Font("Roboto Light", Font.PLAIN, 17));
 	textPanePlayer.setText(
 		"Faire une description styl\u00E9e de frodo ici, ou mettre une image. Game designer un avis ?");
@@ -296,13 +299,16 @@ public class Window extends JFrame {
 	panelInfoTopPlayer.add(textPanePlayer);
 	textPanePlayer.setEditable(false);
 	iconPlayer = new JLabel("Frodo");
+	iconPlayer.setOpaque(true);
 	iconPlayer.setIcon(new ImageIcon(("/gui/image/frodo.png")));
 	iconPlayer.setBounds(10, 12, 76, 74);
 	panelInfoTopPlayer.add(iconPlayer);
 	panelinfoBottom = new JPanel();
+	panelinfoBottom.setOpaque(false);
 	panelInfoPlayer.add(panelinfoBottom);
 	panelinfoBottom.setLayout(null);
 	progressBarHealth = new JProgressBar();
+	progressBarHealth.setOpaque(true);
 	progressBarHealth.setStringPainted(true);
 	progressBarHealth.setString("Hp : 0 %");
 	progressBarHealth.setBounds(12, 8, 380, 37);
@@ -311,6 +317,7 @@ public class Window extends JFrame {
 	progressBarHealth.setBackground(Color.WHITE);
 	panelinfoBottom.add(progressBarHealth);
 	progressBarCorruption = new JProgressBar();
+	progressBarCorruption.setOpaque(true);
 	progressBarCorruption.setToolTipText("Corruption points, if they are equal to 0 you're dead !");
 	progressBarCorruption.setString("Cp : 0 %");
 	progressBarCorruption.setBounds(12, 53, 380, 37);
@@ -319,6 +326,7 @@ public class Window extends JFrame {
 	panelinfoBottom.add(progressBarCorruption);
 	// PANEL NPC
 	panelNPC = new JPanel();
+	panelNPC.setOpaque(false);
 	panelNPC.setLayout(null);
 	panelRight.add(panelNPC);
 	// BUTTON NPC
@@ -367,6 +375,8 @@ public class Window extends JFrame {
 	panelNPC.add(btnDropNPC);
 	// Description NPPC
 	textPaneDesNPC = new JTextPane();
+	textPaneDesNPC.setBackground(new Color(238, 232, 170));
+	textPaneDesNPC.setSelectedTextColor(new Color(25, 25, 112));
 	textPaneDesNPC.setText("Description");
 	textPaneDesNPC.setEditable(false);
 	textPaneDesNPC.setBounds(166, 72, 226, 113);
@@ -374,6 +384,7 @@ public class Window extends JFrame {
 	// List item
 	modelNPC = new DefaultListModel<String>();
 	listNPC = new JList<String>(modelNPC);
+	listNPC.setBackground(new Color(238, 232, 170));
 	listNPC.addListSelectionListener(new ListSelectionListener() {
 	    public void valueChanged(ListSelectionEvent arg0) {
 		String stringNPC = listNPC.getSelectedValue();
@@ -392,6 +403,7 @@ public class Window extends JFrame {
 	//
 	// PANEL INVENTORY
 	panelInventory = new JPanel();
+	panelInventory.setOpaque(false);
 	panelInventory.setLayout(null);
 	panelRight.add(panelInventory);
 	// BTN Inventory
@@ -450,6 +462,7 @@ public class Window extends JFrame {
 	panelInventory.add(btnDropItem);
 	// Decription Invetory
 	textPaneDesInventory = new JTextPane();
+	textPaneDesInventory.setBackground(new Color(238, 232, 170));
 	textPaneDesInventory.setText("Description");
 	textPaneDesInventory.setEditable(false);
 	textPaneDesInventory.setBounds(166, 72, 226, 113);
@@ -458,6 +471,7 @@ public class Window extends JFrame {
 	modelInventory = new DefaultListModel<String>();
 	modelInventory.addElement("azer");
 	listInventory = new JList<String>(modelInventory);
+	listInventory.setBackground(new Color(238, 232, 170));
 	listInventory.addListSelectionListener(new ListSelectionListener() {
 	    public void valueChanged(ListSelectionEvent e) {
 		String stringItem = listInventory.getSelectedValue(); // vaut null
