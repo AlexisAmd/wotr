@@ -73,7 +73,9 @@ public class Window extends JFrame {
     // }
     public Window() {
 	this.setVisible(true);
+	
 	this.setBounds(0, 0, 1166, 768 - 150);
+	this.setLocationRelativeTo(null);
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
 	this.setOpacity(1);
