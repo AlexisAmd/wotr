@@ -127,6 +127,7 @@ public class Game {
 	npcDrunkHobbit = new Warrior("Drunk hobbit", "Just an unknow drunk", 0, -5, currentPlayer);
 	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend", -10, 0, currentPlayer);
 	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend", -10, 0, currentPlayer);
+	//TODO creeer un warrior ici 
 	// Add NPC to rooms
 	roomBilboHouseStart.addNPC(npcGandalf);
 	roomSamHouse.addNPC(npcSam);

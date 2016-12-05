@@ -44,7 +44,7 @@ public class Warrior extends NPC {
     /**
      *Use method, kills all npc wich are present in this room. this dead npc disapear from the current room
      *@return true if the npc is killed
-     *@return false if the powers cannot be used
+     *@return false if the powers cannot be used/have not been used (becaus nobody to kill here)
      */
     public boolean use() {
 	boolean bool = false;
