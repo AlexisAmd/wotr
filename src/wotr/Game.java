@@ -207,7 +207,7 @@ public class Game {
 	foodBeer75 = new Food ("Pint", "It is a good beer (75cL)", 12, 12, currentPlayer);
 	foodBeer100 = new Food ("Big Beer", "It is a good beer (100cL)", 15, 15, currentPlayer);
 	foodFries = new Food ("foodFries", "French fries", 10, 15, currentPlayer);
-	keyGandalfRoom = new Key("keyGandalfRoom", "Unlocked Gandalf' s room", 2, currentPlayer, doorPPBarPPGandalf);
+	keyGandalfRoom = new Key("key of Gandalf's Room", "This key unlock Gandalf' s room", 2, currentPlayer, doorPPBarPPGandalf);
 	// Add items to rooms
 	roomPPBar.addItem(foodFries);
 	roomPPBar.addItem(keyGandalfRoom);
