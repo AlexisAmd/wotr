@@ -544,7 +544,7 @@ public class Window extends JFrame {
     public void updateDirectionButton(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth) {
 	btnNorth.setEnabled(bNorth);
 	btnSouth.setEnabled(bSouth);
-	btnWest.setEnabled(bSouth);
+	btnWest.setEnabled(bWest);
 	btnEast.setEnabled(bEast);
     }
 
