@@ -48,6 +48,7 @@ import java.awt.Rectangle;
 import javax.swing.border.CompoundBorder;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 
 public class Window extends JFrame {
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
@@ -281,6 +282,8 @@ public class Window extends JFrame {
 	this.getContentPane().add(panelRight);
 	panelRight.setLayout(new GridLayout(3, 1, 0, 0));
 	panelInfoPlayer = new JPanel();
+	panelInfoPlayer.setOpaque(false);
+	panelInfoPlayer.setBackground(new Color(255, 255, 255));
 	panelInfoPlayer.setForeground(Color.BLACK);
 	panelRight.add(panelInfoPlayer);
 	panelInfoPlayer.setLayout(new GridLayout(2, 0, 0, 0));
@@ -290,8 +293,9 @@ public class Window extends JFrame {
 	panelInfoTopPlayer.setLayout(null);
 	panelInfoPlayer.add(panelInfoTopPlayer);
 	textPanePlayer = new JTextPane();
+	textPanePlayer.setForeground(new Color(240, 230, 140));
 	textPanePlayer.setOpaque(false);
-	textPanePlayer.setFont(new Font("Roboto Light", Font.PLAIN, 17));
+	textPanePlayer.setFont(new Font("Monotype Corsiva", Font.PLAIN, 19));
 	textPanePlayer.setText(
 		"Faire une description styl\u00E9e de frodo ici, ou mettre une image. Game designer un avis ?");
 	textPanePlayer.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -299,6 +303,8 @@ public class Window extends JFrame {
 	panelInfoTopPlayer.add(textPanePlayer);
 	textPanePlayer.setEditable(false);
 	iconPlayer = new JLabel("Frodo");
+	iconPlayer.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
+	iconPlayer.setToolTipText("Frodo Baggins");
 	iconPlayer.setOpaque(true);
 	iconPlayer.setIcon(new ImageIcon(("/gui/image/frodo.png")));
 	iconPlayer.setBounds(10, 12, 76, 74);
@@ -308,17 +314,19 @@ public class Window extends JFrame {
 	panelInfoPlayer.add(panelinfoBottom);
 	panelinfoBottom.setLayout(null);
 	progressBarHealth = new JProgressBar();
+	progressBarHealth.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	progressBarHealth.setOpaque(true);
 	progressBarHealth.setStringPainted(true);
 	progressBarHealth.setString("Hp : 0 %");
 	progressBarHealth.setBounds(12, 8, 380, 37);
-	progressBarHealth.setToolTipText("Health points, if they are equal to 100 you're dead !");
+	progressBarHealth.setToolTipText("Health points, if they are equal to 0 you're dead !");
 	progressBarHealth.setForeground(Color.RED);
 	progressBarHealth.setBackground(Color.WHITE);
 	panelinfoBottom.add(progressBarHealth);
 	progressBarCorruption = new JProgressBar();
+	progressBarCorruption.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	progressBarCorruption.setOpaque(true);
-	progressBarCorruption.setToolTipText("Corruption points, if they are equal to 0 you're dead !");
+	progressBarCorruption.setToolTipText("Corruption points, if they are equal to 100 you're dead !");
 	progressBarCorruption.setString("Cp : 0 %");
 	progressBarCorruption.setBounds(12, 53, 380, 37);
 	progressBarCorruption.setStringPainted(true);
