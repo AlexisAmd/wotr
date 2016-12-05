@@ -1,4 +1,3 @@
-//WIP Antoine
 /**
 
 * This class is the main class of the "World of The ring" application.
@@ -215,24 +214,23 @@ public class Game {
 	roomPPGandalf.addItem(foodBeer75);
 	roomPPGandalf.addItem(foodBeer50);
 	// Declare NPCs
-	Warrior npcNazgul1, npcNazgul2, npcNazgul3;
-	
+	Enemy npcNazgul1, npcNazgul2, npcNazgul3, npcThief;
+	Warrior npcStrider1, npcStrider2;
 	// Create NPCs
+	npcNazgul1 = new Enemy("npcNazgul1", "The Fear that they inspire is their best weapon", 20, 5, currentPlayer);
+	npcNazgul2 = new Enemy("npcNazgul2", "The Fear that they inspire is their best weapon", 20, 5, currentPlayer);
+	npcNazgul3 = new Enemy("npcNazgul3", "The Fear that they inspire is their best weapon", 20, 5, currentPlayer);
+	npcThief = new Enemy("npcThief", "He will steal you without realizing it", 10, 0, currentPlayer);
+	npcStrider1 = new Warrior("npcStrider1", "He can protect you", 20, 5, currentPlayer);
+	npcStrider2 = new Warrior("npcStrider2", "He can protect you", 20, 5, currentPlayer);
 	// Add NPCs
-	// *********************LEVEL 3 - Rivendell************************************
-	// Declare rooms and doors
-	// Create rooms (description, script, image)
-	// Create doors
-	// Link the exit world to previous level
-	// Associate doors with rooms
-	// Declare items
-	// Create items
-	// Add items to rooms
-	// Declare NPCs
-	// Create NPCs
-	// Add NPCs
+	roomBuckleburyFerry.addNPC(npcNazgul1);
+	roomDarkAlley2.addNPC(npcThief);
+	roomPPStrider.addNPC(npcStrider1);
+	roomPPBar.addNPC(npcStrider2);
+	roomPPDormitory.addNPC(npcNazgul2);
+	roomPPGandalf.addNPC(npcNazgul3);
     }
-
     /**
      * 
      */
