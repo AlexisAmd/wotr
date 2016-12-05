@@ -324,8 +324,15 @@ public class Window extends JFrame {
 	    public void mouseClicked(MouseEvent arg0) {
 		if (selectedNPC != null) {
 		    System.out.println(selectedNPC.getName());
-		    // game.getPlayer().use(selectedNPC);
-		    selectedNPC = null;
+		    if(selectedNPC.getClass().getSimpleName().equals("Magician")){
+			//mag peut choisir qu'il il restore
+			
+			//pop
+			//LLlist
+			//utlise mag avec objet selectioné
+		    }else
+		    {game.getPlayer().use(selectedNPC);
+		    selectedNPC = null;}
 		    updateAll();
 		} else {
 		    JOptionPane.showMessageDialog(getRootPane(), "Please select a member of you fellowship..",
