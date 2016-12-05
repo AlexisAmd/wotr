@@ -56,17 +56,17 @@ public class Game {
 		doorBagginsStreet2BagginsStreet1, doorBagginsStreet2RoadToBree, doorSamHouseBagginsStreet2;
 	KeyLockedDoor doorBagginsStreet2SamHouse;
 	// Create the rooms (description, script, image)
-	roomBilboHouseStart = new Room("Bilbo’s house", "-script-", "src/gui/image/roomBilboHouseStart.jpg");
-	roomBagginsStreet1 = new Room("The main street of the Hobbiton, your place of birth.", "-script-",
+	roomBilboHouseStart = new Room("Bilbo’s house", "This house keeps a lot of secret and foreign stories", "src/gui/image/roomBilboHouseStart.jpg");
+	roomBagginsStreet1 = new Room("Hobbiton main's street north", "The main street of the Hobbiton, your place of birth.",
 		"src/gui/image/roomBagginsStreet1.jpg");
-	roomBagginsStreet2 = new Room("The main street of the Hobbiton, your place of birth.", "-script-",
+	roomBagginsStreet2 = new Room("Hobbiton main's street south" , "You should visit your friend Sam, someone left his keys to Bilbo's birthday party...",
 		"src/gui/image/roomBagginsStreet2.jpg");
-	roomGreenDragonInn = new Room("A popular inn in the Shire", "-script-", "src/gui/image/roomGreenDragonInn.jpg");
-	roomSamHouse = new Room("Sam is your gardener and also a close friend. His house looks clean and tidy.",
-		"-script-", "src/gui/image/roomSamHouse.jpg");
-	room111thBirthday = new Room("The aftermaths of your uncle’s 111th birthday party. It’s a mess.", "-script-",
+	roomGreenDragonInn = new Room("The Fancy Poney", "A popular inn in the Shire", "src/gui/image/roomGreenDragonInn.jpg");
+	roomSamHouse = new Room("Sam's house. ",
+		"Sam is your gardenner but also a good friend.", "src/gui/image/roomSamHouse.jpg");
+	room111thBirthday = new Room("Bilbo's party", "The aftermaths of your uncle’s 111th birthday party. It’s a mess.",
 		"src/gui/image/room111thBirthday.jpg");
-	roomRoadToBree = new Room("Onward starts your journey to save the world.", "-script-",
+	roomRoadToBree = new Room("Road to bree", "Onward starts your journey to save the world.",
 		"src/gui/image/roomRoadToBree.jpg");
 	// Create doors
 	doorBagginsStreet1BilboHouse = new Door(roomBagginsStreet1, roomBilboHouseStart);
@@ -99,7 +99,7 @@ public class Game {
 	Potion potionElixir;
 	// Create items
 	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 90, 10, currentPlayer);
-	foodPint = new Food("Large beer pint", "A good pint", 10, 10, currentPlayer);
+	foodPint = new Food("Beer pint", "A good pint for a good beverage !", 10, 10, currentPlayer);
 	foodWine = new Food("Large glass of wine", "The better wine of the shire", 5, 10, currentPlayer);
 	foodGrilledChicken = new Food("Grilled chicken", "A grilled chicken", 30, 10, currentPlayer);
 	foodSalad = new Food("Copious Salad", "Salad", 20, 10, currentPlayer);
@@ -107,7 +107,7 @@ public class Game {
 	potionElixir = new Potion("Gandalf’s elixir",
 		"Gandalf created beverage that replicates his power. This elixir is used all over Middle Earth to restore the power of companions. Use this item wisely.",
 		5, currentPlayer);
-	keyToSamHouse = new Key("keyToSamHouse", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
+	keyToSamHouse = new Key("Sam's keys", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
 	roomGreenDragonInn.addItem(foodPint);
@@ -147,9 +147,9 @@ public class Game {
 	KeyLockedDoor doorPPBarPPGandalf;
 	WorldDoor worlddoorShireToBree;
 	// Create rooms (description, script, image)
-	roomBuckleburyFerry = new Room("Taking the ferry will allow you to avoid dark riders along the way", "-script-",
+	roomBuckleburyFerry = new Room("Bucklebury Ferry", "Taking the ferry will allow you to avoid dark riders along the way",
 		"src/gui/image/roomBuckleburyFerry.jpg");
-	roomCityCenter = new Room("The center of the city of Bree", "-script-", "");
+	roomCityCenter = new Room("City center", "The center of the city of Bree", "");
 	roomCityEntrance = new Room("The entrance of the city of Bree", "-script-", "");
 	roomPPBar = new Room("It is the most famous bar of Bree", "-script-", "");
 	roomPPDormitory = new Room("You can sleep in the dormitory... Or maybe not", "-script-", ""); //Nazgul in a dormitory?

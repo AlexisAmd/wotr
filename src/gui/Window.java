@@ -593,8 +593,12 @@ public class Window extends JFrame {
      * Set the descript of the room in the prompt while enteriing in the room
      * @param description of the room
      */
-    public void updatePromptWithRoomDescription(String description) {
-	setScript(description);
+    public void updatePromptWithRoomDescription() {
+	setScript(game.getPlayer().getCurrentRoom().getDescription());
+    }
+    
+    public void updatePromptWithRoomScript(){
+	setScript(game.getPlayer().getCurrentRoom().getScript());
     }
 
     /**
@@ -657,10 +661,10 @@ public class Window extends JFrame {
      */
     public void routineGoRoom() {
 	tryToAttack();
-	String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 	String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 	updateAll();
-	setScript(textCurrentRoom);
+	updatePromptWithRoomDescription();
+	updatePromptWithRoomScript();
 	setScript(textCurrentRoomExits);
     }
 
