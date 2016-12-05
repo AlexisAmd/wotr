@@ -218,9 +218,9 @@ public class Game {
 	Enemy npcNazgul1, npcNazgul2, npcNazgul3, npcThief;
 	Warrior npcStrider1, npcStrider2;
 	// Create NPCs
-	npcNazgul1 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, 5);
-	npcNazgul2 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, 5);
-	npcNazgul3 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, 5);
+	npcNazgul1 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, -5);
+	npcNazgul2 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, -5);
+	npcNazgul3 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, -5);
 	npcThief = new Enemy("Thief", "He will steal you without realizing it", 10, 0);
 	npcStrider1 = new Warrior("Aragorn", "He can protect you against ennemies by killing them all.", 0, 0);
 	npcStrider2 = new Warrior("Faramir", "He can protect you against ennemies by killing them all. Faramir is Boromir's brother but lives the shadow of him...", 0, 0);
