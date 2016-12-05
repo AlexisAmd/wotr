@@ -170,7 +170,7 @@ public class Game {
 	doorPPBarCityCenter = new Door(roomPPBar, roomCityCenter);
 	doorPPBarPPDormitory = new Door(roomPPBar, roomPPDormitory);
 	doorPPDormitoryPPBar = new Door(roomPPDormitory, roomPPBar);
-	doorPPBarPPGandalf = new Door(roomPPBar, roomPPGandalf);
+	doorPPBarPPGandalf = new KeyLockedDoor(roomPPBar, roomPPGandalf);
 	doorPPGandalfPPBar = new Door(roomPPGandalf, roomPPBar);
 	doorPPBarPPStrider = new Door(roomPPBar, roomPPStrider);
 	doorPPStriderPPBar = new Door(roomPPStrider, roomPPBar);
@@ -206,7 +206,14 @@ public class Game {
 	foodFries = new Food ("foodFries", "French fries", 10, 15, currentPlayer);
 	keyGandalfRoom = new Key("keyGandalfRoom", "Unlocked Gandalf' s room", 2, currentPlayer, doorPPBarPPGandalf);
 	// Add items to rooms
+	roomPPBar.addItem(foodFries);
+	roomPPBar.addItem(keyGandalfRoom);
+	roomPPGandalf.addItem(foodBeer100);
+	roomPPGandalf.addItem(foodBeer75);
+	roomPPGandalf.addItem(foodBeer50);
 	// Declare NPCs
+	Warrior npcNazgul1, npcNazgul2, npcNazgul3;
+	
 	// Create NPCs
 	// Add NPCs
 	// *********************LEVEL 3 - Rivendell************************************
