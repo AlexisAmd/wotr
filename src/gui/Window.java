@@ -587,7 +587,7 @@ public class Window extends JFrame {
     
     public void updateDesItem(){
 	if(selectedItem!=null){settextPanelDesInventory(selectedItem.getDescription()+ " ( weight : "+selectedItem.getWeight()+")");}
-		if (selectedItem.getClass().toString()=="Food"){
+		if (selectedItem.getClass().getSimpleName()=="Food"){
 		    //TODO
 		}
 		if (selectedItem.getClass().toString()=="Key"){

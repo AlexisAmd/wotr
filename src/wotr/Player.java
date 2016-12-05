@@ -268,15 +268,15 @@ public class Player {
     }
 
     /**
-     * pickUp an Item, add it to the current player inventory then remove it
+     * pickUp an NPC is it is not an enemy, add it to the current player fellowship then remove it
      * from the room
      * 
-     * @param nameItem
-     * @return true if the item is pickedUp by the npc then removed from the
+     * @param npc the npc
+     * @return true if the npc is pickedUp by the player then removed from the
      *         current room
      */
     public boolean pickUpNPC(NPC npc) {
-	if (fellowship.addNPC(npc)) {
+	if (fellowship.addNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) {
 	    return getCurrentRoom().delNPC(npc);
 	} else
 	    return false;
