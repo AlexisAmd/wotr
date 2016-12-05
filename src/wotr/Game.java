@@ -276,12 +276,4 @@ public class Game {
     public Player getPlayer() {
 	return currentPlayer;
     }
-    
-    /**
-     * 
-     */
-    public void loose(){
-    	JOptionPane.showMessageDialog(null, "You are dead, Sauron get back his ring and now dominate the Middle-Earth","Game Over", JOptionPane.WARNING_MESSAGE);}
-    
-    
 }
