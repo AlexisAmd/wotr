@@ -30,6 +30,7 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import javax.swing.JInternalFrame;
@@ -76,7 +77,6 @@ public class Window extends JFrame {
     // }
     public Window() {
 	this.setVisible(true);
-	
 	this.setBounds(0, 0, 1166, 768 - 150);
 	this.setLocationRelativeTo(null);
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -255,7 +255,8 @@ public class Window extends JFrame {
 	btnframeMap.setContentAreaFilled(false);
 	panelSU.add(btnframeMap);
 	JScrollPane scrollPanePrompt = new JScrollPane();
-	scrollPanePrompt.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(160, 82, 45), new Color(160, 82, 45)));
+	scrollPanePrompt
+		.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(160, 82, 45), new Color(160, 82, 45)));
 	scrollPanePrompt.setMaximumSize(new Dimension(424, 160));
 	scrollPanePrompt.setBounds(320, 417, 424, 160);
 	panelLeft.add(scrollPanePrompt);
@@ -277,12 +278,10 @@ public class Window extends JFrame {
 	panelImage.add(ImageHome);
 	panelLeft.add(panelImage);
 	panelImage.setLayout(new GridLayout(0, 1, 0, 0));
-	
 	JPanel panel = new JPanel();
 	panel.setOpaque(false);
 	panel.setBounds(12, 0, 732, 42);
 	panelLeft.add(panel);
-	
 	txtpnRoomName = new JTextPane();
 	txtpnRoomName.setMargin(new Insets(0, 3, 3, 3));
 	txtpnRoomName.setForeground(new Color(218, 165, 32));
@@ -352,29 +351,68 @@ public class Window extends JFrame {
 	panelinfoBottom.add(progressBarCorruption);
 	// PANEL NPC
 	panelNPC = new JPanel();
-	panelNPC.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Fellowship", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(238, 232, 170)));
+	panelNPC.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Fellowship",
+		TitledBorder.CENTER, TitledBorder.TOP, null, new Color(238, 232, 170)));
 	panelNPC.setOpaque(false);
 	panelNPC.setLayout(null);
 	panelRight.add(panelNPC);
 	// BUTTON NPC
 	btnUseNPC = new JButton("Use");
 	btnUseNPC.addMouseListener(new MouseAdapter() {
+	    
+
+	
+
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
+		
 		if (selectedNPC != null) {
 		    System.out.println(selectedNPC.getName());
-		    if(selectedNPC.getClass().getSimpleName().equals("Magician")){
-			JOptionPane.showMessageDialog(getRootPane(), "Please select a member of you fellowship you want to bring it powers back :",
-				    "Choose a member of your fellowship", JOptionPane.WARNING_MESSAGE);
+		    if (selectedNPC.getClass().getSimpleName().equals("Magician")) {
+			// TODO
+			DefaultListModel<String> modelNPCUsed = new DefaultListModel<String>();
 			
-			
-			//LLlist
-			//utlise mag avec objet selectioné
-		    }else //selected != magician
-		    {game.getPlayer().use(selectedNPC);
-		    selectedNPC = null;}
+			for (NPC npc : game.getPlayer().getFellowship()) {// parcour pour recup les npc already used
+			    if (npc.getAlreadyUsed()) {
+				modelNPCUsed.addElement(npc.getName());
+			    }
+			} // maintenant qu'on a la liste des npc already used
+			  // on crée un objet de cette lste
+			if (modelNPCUsed != null) {
+			    final Object[] arrayStringNPC = modelNPCUsed.toArray();
+			    String favoritePizza;// on declare une variable qui contiendra le nom du npc choisi par l'user
+			    favoritePizza = (String) JOptionPane.showInputDialog(getRootPane(),
+				    "Which member of your felloship will see his powers restored by"
+					    + selectedNPC.getName() + " ?",
+				    "Choose a member", JOptionPane.QUESTION_MESSAGE, null, arrayStringNPC,
+				    arrayStringNPC[0]);
+			    // a ce niveau l'utilisateur a fermer la popup
+			    if (!favoritePizza.isEmpty()) {// on regarde s'il a choisi un item
+				// on cherche ce nom dans notre fellowship
+				for (NPC npc : game.getPlayer().getFellowship()) {
+				    if (npc.getName().equals(favoritePizza)) { // si on l'a alors
+					Magician theMag = (Magician) selectedNPC; // on downcast gandalf de type npc vers magician pour utiliser ses pouvoirs
+					theMag.use(npc);// on utilise les pouvoirs du magician sur le npc selectionné par user
+					// on met un pett sg pour user
+					JOptionPane.showMessageDialog(getRootPane(),
+						theMag.getName() + " restored the powers of " + npc.getName() + " !",
+						"Wotr : warning", JOptionPane.INFORMATION_MESSAGE);
+					selectedNPC = null;
+				    } // si on a pastrouver le player sel daans la fellowship
+				}
+			    } // le gars a rien selectionné alors on fait rein
+			} else {// pas de npc already used
+			    JOptionPane.showMessageDialog(getRootPane(),
+				    "Nobody has already used his powers...\n" + selectedNPC.getName() + " is sad.",
+				    "Impossible to use", JOptionPane.INFORMATION_MESSAGE);
+			}
+		    } else // selected != magician
+		    {
+			game.getPlayer().use(selectedNPC);
+			selectedNPC = null;
+		    }
 		    updateAll();
-		} else {//selected=null
+		} else {// selected=null
 		    JOptionPane.showMessageDialog(getRootPane(), "Please select a member of you fellowship..",
 			    "Wotr : warning", JOptionPane.WARNING_MESSAGE);
 		}
@@ -433,7 +471,8 @@ public class Window extends JFrame {
 	//
 	// PANEL INVENTORY
 	panelInventory = new JPanel();
-	panelInventory.setBorder(new TitledBorder(null, "Inventory", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(238, 232, 170)));
+	panelInventory.setBorder(new TitledBorder(null, "Inventory", TitledBorder.CENTER, TitledBorder.TOP, null,
+		new Color(238, 232, 170)));
 	panelInventory.setOpaque(false);
 	panelInventory.setLayout(null);
 	panelRight.add(panelInventory);
@@ -442,7 +481,6 @@ public class Window extends JFrame {
 	btnUseItem.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-
 		if (selectedItem != null) {
 		    //
 		    if (selectedItem.getClass().getSimpleName().equals("Key")) {
@@ -451,9 +489,8 @@ public class Window extends JFrame {
 			if (game.getPlayer().getCurrentRoom().getExits().containsValue(door)) {
 			    game.getPlayer().use(selectedItem);
 			    selectedItem = null;
-			    JOptionPane.showMessageDialog(getRootPane(),
-				    "You unlocked the door to "+ door.toString(), "Wotr : Success",
-				    JOptionPane.INFORMATION_MESSAGE);
+			    JOptionPane.showMessageDialog(getRootPane(), "You unlocked the door to " + door.toString(),
+				    "Wotr : Success", JOptionPane.INFORMATION_MESSAGE);
 			} else {
 			    JOptionPane.showMessageDialog(getRootPane(),
 				    "Use can use this key (" + selectedItem.getName() + ") here.", "Wotr : warning",
@@ -461,13 +498,14 @@ public class Window extends JFrame {
 			}
 		    }
 		    //
-		    else{game.getPlayer().use(selectedItem);
-		    selectedItem = null;
-		    updateAll();}
+		    else {
+			game.getPlayer().use(selectedItem);
+			selectedItem = null;
+			updateAll();
+		    }
 		} else {
 		    JOptionPane.showMessageDialog(getRootPane(), "Please select an item if you want to use it...",
 			    "Wotr : warning", JOptionPane.WARNING_MESSAGE);
-
 		}
 	    }
 	});
@@ -646,12 +684,12 @@ public class Window extends JFrame {
     public void updatePromptWithRoomDescription() {
 	setScript(game.getPlayer().getCurrentRoom().getDescription());
     }
-    
-    public void updatePromptWithRoomScript(){
+
+    public void updatePromptWithRoomScript() {
 	setScript(game.getPlayer().getCurrentRoom().getScript());
     }
-    
-    public void updateRoomName(){
+
+    public void updateRoomName() {
 	txtpnRoomName.setText(game.getPlayer().getCurrentRoom().getDescription());
     }
 
@@ -705,8 +743,11 @@ public class Window extends JFrame {
 	for (NPC npc : game.getPlayer().getCurrentRoom().getNPCList()) {
 	    npc.setPlayer(game.getPlayer());
 	    if (npc.getClass().getSimpleName().equals("Enemy")) {
-		JOptionPane.showMessageDialog(getRootPane(), npc.getName()+" is attacking you ! \n - Corruption : +"+ npc.getCpPower()+"\n - Health: "+ npc.getHpPower(),
-			    "Fight Alert !", JOptionPane.WARNING_MESSAGE);
+		JOptionPane
+			.showMessageDialog(getRootPane(),
+				npc.getName() + " is attacking you ! \n - Corruption : +" + npc.getCpPower()
+					+ "\n - Health: " + npc.getHpPower(),
+				"Fight Alert !", JOptionPane.WARNING_MESSAGE);
 		npc.use();
 	    }
 	}
