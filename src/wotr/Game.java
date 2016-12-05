@@ -140,7 +140,8 @@ public class Game {
 	Door doorBuckleburyFerryCityEntrance, doorCityEntranceBuckleburyFerry, doorCityEntranceCityCenter, doorCityEntranceDarkAlley2,
 		doorCityCenterCityEntrance, doorCityCenterDarkAlley1, doorDarkAlley1DarkAlley2, doorDarkAlley1CityCenter,doorDarkAlley2DarkAlley1,
 		doorDarkAlley2CityEntrance, doorCityCenterPPBar, doorPPBarCityCenter, doorPPBarPPDormitory,
-		doorPPDormitoryPPBar, doorPPBarPPGandalf, doorPPGandalfPPBar, doorPPBarPPStrider, doorPPStriderPPBar;
+		doorPPDormitoryPPBar, doorPPGandalfPPBar, doorPPBarPPStrider, doorPPStriderPPBar;
+	KeyLockedDoor doorPPBarPPGandalf;
 	WorldDoor worlddoorShireToBree;
 	// Create rooms (description, script, image)
 	roomBuckleburyFerry = new Room("Taking the ferry will allow you to avoid dark riders along the way", "-script-",
@@ -194,8 +195,16 @@ public class Game {
 	roomPPDormitory.addExit("south", doorPPDormitoryPPBar);
 	roomPPGandalf.addExit("west", doorPPGandalfPPBar);
 	roomPPStrider.addExit("north", doorPPStriderPPBar);
+	
 	// Declare items
+	Key keyGandalfRoom;
+	Food foodBeer50, foodBeer75, foodBeer100, foodFries;
 	// Create items
+	foodBeer50 = new Food ("foodBbeer50", "It is a good beer (50cL)", 10, 10, currentPlayer);
+	foodBeer75 = new Food ("foodBbeer75", "It is a good beer (75cL)", 12, 12, currentPlayer);
+	foodBeer100 = new Food ("foodBbeer100", "It is a good beer (100cL)", 15, 15, currentPlayer);
+	foodFries = new Food ("foodFries", "French fries", 10, 15, currentPlayer);
+	keyGandalfRoom = new Key("keyGandalfRoom", "Unlocked Gandalf' s room", 2, currentPlayer, doorPPBarPPGandalf);
 	// Add items to rooms
 	// Declare NPCs
 	// Create NPCs
