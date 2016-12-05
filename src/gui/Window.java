@@ -362,7 +362,7 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
 		if (selectedNPC != null) {
-		    System.out.println(selectedNPC.getName());
+		
 		    if (selectedNPC.getClass().getSimpleName().equals("Magician")) {
 			DefaultListModel<String> modelNPCUsed = new DefaultListModel<String>();
 			for (NPC npc : game.getPlayer().getFellowship()) {// parcour pour recup les npc already used
@@ -402,6 +402,9 @@ public class Window extends JFrame {
 		    } else // selected != magician
 		    {
 			game.getPlayer().use(selectedNPC);
+			JOptionPane.showMessageDialog(getRootPane(),
+				    selectedNPC.getName() + " used is powers ("+selectedNPC.getDescription()+ ").",
+				    "Powers used", JOptionPane.INFORMATION_MESSAGE);
 			selectedNPC = null;
 		    }
 		    updateAll();
