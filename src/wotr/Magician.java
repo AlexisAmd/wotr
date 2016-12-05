@@ -20,9 +20,9 @@ public class Magician extends NPC
      *@param hpPower : health points wich will be given or retrieved to Frodo
      *@param currentPlayer : //frodo
      */
-    public Magician(String name, String description, int corruptionPower, int hpPower, Player currentPlayer)
+    public Magician(String name, String description, int corruptionPower, int hpPower)
     {
-        super(name, description, corruptionPower, hpPower,  currentPlayer);
+        super(name, description, corruptionPower, hpPower);
     }
 
     /**

@@ -30,7 +30,7 @@ public class KeyLockedDoor extends LockedDoor {
 	 */
 	public Room getNextRoom(Room currentRoom) {
 		if (super.getLocked()) {
-
+			
 			
 			return null; //locked
 		} else {
