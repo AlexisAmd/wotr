@@ -84,4 +84,11 @@ public abstract class Item {
 	currentPlayer = player;
 	
     }
+
+    /**
+     * @return
+     */
+    public Door getDoor() {
+	return door;
+    }
 }

@@ -389,6 +389,19 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
 		if (selectedItem != null) {
+		    //
+		    if (selectedItem.getClass().getSimpleName().equals("Key")){
+	    Door door = selectedItem.getDoor();
+	    if(game.getPlayer().getCurrentRoom().getExits().containsValue(door)){
+		game.getPlayer().use(selectedItem);
+		    selectedItem = null;
+	    } else {
+		    JOptionPane.showMessageDialog(getRootPane(), "Use can use this key ("+selectedItem.getName()+"here.",
+			    "Wotr : warning", JOptionPane.WARNING_MESSAGE);
+		}
+	    
+	}
+		    //
 		    game.getPlayer().use(selectedItem);
 		    selectedItem = null;
 		    updateAll();
