@@ -477,8 +477,7 @@ public class Window extends JFrame {
      */
     public void setScript(String script) {
 	String currentText = textPanePrompt.getText();
-	// textPanePrompt.setText("");
-	this.textPanePrompt.setText(currentText + "\n" + script);
+	textPanePrompt.setText(currentText + "\n" + script);
     }
 
     /**
@@ -597,7 +596,7 @@ public class Window extends JFrame {
     }
 
     /**
-     * update the th JList of item
+     * update the the JList of item
      */
     public void updateInventory() {
 	modelInventory.clear();
@@ -644,11 +643,8 @@ public class Window extends JFrame {
     public void tryToAttack(){
 	for (NPC npc : game.getPlayer().getCurrentRoom().getNPCList()){
 	    npc.setPlayer(game.getPlayer());
-	    System.out.println(npc.getPlayer());
-	    
+
 	    if( npc.getClass().getSimpleName().equals("Enemy")){
-		System.out.println(npc.getPlayer());
-		
 		npc.use();
 	    }
 	}

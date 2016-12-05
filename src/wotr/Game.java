@@ -119,21 +119,20 @@ public class Game {
 	room111thBirthday.addItem(keyToSamHouse);
 	Magician npcGandalf;
 	Hobbit npcSam, npcPipin, npcMerry;
-	Warrior npcDrunkHobbit; //TODO change to enenmy
+	Enemy npcDrunkHobbit;
 	// Create NPC
 	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10, currentPlayer);
 	Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, 50, currentPlayer);
-	Enemy clochard = new Enemy("clochard", "un vieux bourré qui pue", 30, 20, currentPlayer);
+	
 	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0, currentPlayer);
-	npcDrunkHobbit = new Warrior("Drunk hobbit", "Just an unknow drunk", 0, -5, currentPlayer);
-	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend", -10, 0, currentPlayer);
-	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend", -10, 0, currentPlayer);
-	//TODO creeer un warrior ici 
+	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight with you because he saws you looking after is beer...", -10, 1, currentPlayer);
+	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can give you 5 health point thank to the power friendship ! ", -5, 0, currentPlayer);
+	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend,  he can give you 5 health point thank to the power friendship ! ", -5, 0, currentPlayer);
 	// Add NPC to rooms
 	roomBilboHouseStart.addNPC(npcGandalf);
 	roomBilboHouseStart.addNPC(sauron);
 	roomSamHouse.addNPC(npcSam);
-	roomBagginsStreet2.addNPC(clochard);
+
 	room111thBirthday.addNPC(npcDrunkHobbit);
 	roomRoadToBree.addNPC(npcPipin);
 	roomRoadToBree.addNPC(npcMerry);

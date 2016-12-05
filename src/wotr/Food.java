@@ -20,8 +20,6 @@ public class Food extends Item
     public Food(String name, String description, int weight, int calory, Player currentPlayer)
     {
         super(name, description,  weight, currentPlayer);
-
-        
         this.calory = calory; //CANT BE A NEGATIVE VALUE
     }
 
