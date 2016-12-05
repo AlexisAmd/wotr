@@ -8,7 +8,7 @@ public class Hobbit extends NPC {
 	 * NPC can reanimate by a magician. A dead NPC can also be picked up again by frodo and his fellowship (because humans used to bury their dead friends...) 
 	 */
 	
-	private Player currentPlayer;
+
 	private int corruptionPower;
 
 	/**
@@ -18,8 +18,10 @@ public class Hobbit extends NPC {
      *@param corruptionPower : /corruption points that the NPC can remove from Frodo
      *@param currentPlayer : //frodo
 	 */
+
 	public Hobbit(String name, String description, int corruptionPower, int hpPower) {
 		super(name, description, corruptionPower, hpPower);
+
 		
 	}
 	
@@ -30,9 +32,9 @@ public class Hobbit extends NPC {
 	    *@return false if the powers cannot be used
 	    */
 	    public boolean use(NPC npc){
-	        if (currentPlayer.getFellowship().contains(npc)){ 
+	        if (getPlayer().getFellowship().contains(npc)){ 
 	        npc.setAlreadyUsed(true); //NPC used
-	        currentPlayer.addCorruption(this.corruptionPower);
+	        getPlayer().addCorruption(this.corruptionPower);
 	        this.setAlreadyUsed(true);
 	        return true;
 	    }

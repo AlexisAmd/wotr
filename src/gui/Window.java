@@ -95,12 +95,7 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
 		game.getPlayer().goRoom("west");
-		tryToAttack();
-		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
-		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
-		updateAll();
-		setScript(textCurrentRoom);
-		setScript(textCurrentRoomExits);
+		routineGoRoom();
 	    }
 	});
 	btnWest.setToolTipText("West");
@@ -113,12 +108,8 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
 		game.getPlayer().goRoom("east");
-		tryToAttack();
-		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
-		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
-		updateAll();
-		setScript(textCurrentRoom);
-		setScript(textCurrentRoomExits);
+		routineGoRoom();
+		;
 	    }
 	});
 	btnEast.setToolTipText("East");
@@ -134,12 +125,7 @@ public class Window extends JFrame {
 	btnNorth.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
 		game.getPlayer().goRoom("north");
-		tryToAttack();
-		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
-		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
-		updateAll();
-		setScript(textCurrentRoom);
-		setScript(textCurrentRoomExits);
+		routineGoRoom();
 	    }
 	});
 	panelDirection.add(btnNorth, BorderLayout.NORTH);
@@ -148,13 +134,8 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
 		game.getPlayer().goRoom("south");
-		tryToAttack();
-		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
-		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
-		setScript(textCurrentRoomExits);
-		updateAll();
-		setScript(textCurrentRoom);
-		setScript(textCurrentRoomExits);
+		routineGoRoom();
+		;
 	    }
 	});
 	btnSouth.setToolTipText("South");
@@ -206,18 +187,17 @@ public class Window extends JFrame {
 	    public void mouseClicked(MouseEvent e) {
 		for (Item item : new ArrayList<Item>(game.getPlayer().getCurrentRoom().getItemList())) {
 		    if (game.getPlayer().pickUpItem(item)) {
-			
 			setScript(item.getName() + " has been picked up.");
 		    }
 		    updateAll();
 		}
 		for (NPC npc : new ArrayList<NPC>(game.getPlayer().getCurrentRoom().getNPCList())) {
-		    if (game.getPlayer().pickUpNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) { //verification deja faite par le get mais on sait jamais
+		    if (game.getPlayer().pickUpNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) { // verification deja faite par le get mais on sait jamais
 			System.out.println(npc.getClass().getSimpleName());
-			
 			setScript(npc.getName() + " has joined you community.");
-		    } else{
-			System.out.println("pas prit : "+ npc.getName() + "de class " + npc.getClass().getSimpleName() );
+		    } else {
+			System.out
+				.println("pas prit : " + npc.getName() + "de class " + npc.getClass().getSimpleName());
 		    }
 		    updateAll();
 		}
@@ -343,10 +323,8 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
 		if (selectedNPC != null) {
-		    System.out.println( selectedNPC.getName());
-
-		    
-		    //game.getPlayer().use(selectedNPC);
+		    System.out.println(selectedNPC.getName());
+		    // game.getPlayer().use(selectedNPC);
 		    selectedNPC = null;
 		    updateAll();
 		} else {
@@ -364,9 +342,8 @@ public class Window extends JFrame {
 	    public void mouseClicked(MouseEvent e) {
 		if (selectedNPC != null) {
 		    game.getPlayer().dropNPC(selectedNPC);
-		    selectedNPC=null;
+		    selectedNPC = null;
 		    updateAll();
-		    
 		} else {
 		    JOptionPane.showMessageDialog(getRootPane(),
 			    "Please select a member of your community you want to leave here...", "Wotr : warning",
@@ -388,14 +365,13 @@ public class Window extends JFrame {
 	listNPC = new JList<String>(modelNPC);
 	listNPC.addListSelectionListener(new ListSelectionListener() {
 	    public void valueChanged(ListSelectionEvent arg0) {
-		String stringNPC = listNPC.getSelectedValue(); 
+		String stringNPC = listNPC.getSelectedValue();
 		for (NPC npc : game.getPlayer().getFellowship()) {
 		    if (npc.getName().equals(stringNPC)) {
 			selectedNPC = npc;
 			updateDesNPC();
-			
 		    }
-		} 
+		}
 	    }
 	});
 	listNPC.setFont(new Font("Roboto", Font.PLAIN, 14));
@@ -431,7 +407,7 @@ public class Window extends JFrame {
 	    public void mouseClicked(MouseEvent e) {
 		if (selectedItem != null) {
 		    game.getPlayer().dropItem(selectedItem);
-		    selectedItem= null;
+		    selectedItem = null;
 		    updateAll();
 		} else {
 		    JOptionPane.showMessageDialog(getRootPane(), "Please select an item if you want to drop it...",
@@ -614,43 +590,53 @@ public class Window extends JFrame {
 	    modelNPC.addElement(npc.getName());
 	}
     }
-    
-    
+
     /**
      * update the text in the panelText dezcription of npc
      */
-    public void updateDesNPC(){
-	if(selectedNPC!=null){setTextPaneDesNPC(selectedNPC.getDescription()+ " (alerady used: "+selectedNPC.getAlreadyUsed() +")");}
-	else{
+    public void updateDesNPC() {
+	if (selectedNPC != null) {
+	    setTextPaneDesNPC(selectedNPC.getDescription() + " (alerady used: " + selectedNPC.getAlreadyUsed() + ")");
+	} else {
 	    setTextPaneDesNPC("");
 	}
     }
-    
+
     /**
      * update the text in the panelText dezcription of item
      */
-    public void updateDesItem(){
-	if(selectedItem!=null){settextPanelDesInventory(selectedItem.getDescription()+ " ( weight : "+selectedItem.getWeight()+")");}
-		
-	else{
+    public void updateDesItem() {
+	if (selectedItem != null) {
+	    settextPanelDesInventory(selectedItem.getDescription() + " ( weight : " + selectedItem.getWeight() + ")");
+	} else {
 	    settextPanelDesInventory("");
-	};
+	}
+	;
     }
-    
+
     /**
      * check if an ennemy is in the current room, if true it attacks frodo
      */
-    public void tryToAttack(){
-	for (NPC npc : game.getPlayer().getCurrentRoom().getNPCList()){
+    public void tryToAttack() {
+	for (NPC npc : game.getPlayer().getCurrentRoom().getNPCList()) {
 	    npc.setPlayer(game.getPlayer());
-
-	    if( npc.getClass().getSimpleName().equals("Enemy")){
+	    if (npc.getClass().getSimpleName().equals("Enemy")) {
 		npc.use();
 	    }
 	}
     }
 
-
+    /**
+     * method wich contains all action performed after moving to an other room
+     */
+    public void routineGoRoom() {
+	tryToAttack();
+	String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
+	String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
+	updateAll();
+	setScript(textCurrentRoom);
+	setScript(textCurrentRoomExits);
+    }
 
     public void updateAll() {
 	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
