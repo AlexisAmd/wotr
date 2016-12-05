@@ -12,6 +12,8 @@ public class Enemy extends NPC{
 			String script) {
 		super(name, description, corruptionPower, hpPower, currentPlayer, script);
 		this.currentPlayer = currentPlayer;
+		this.corruptionPower= corruptionPower;
+		this.hpPower = hpPower;
 	}
 	
 	public boolean use(){
