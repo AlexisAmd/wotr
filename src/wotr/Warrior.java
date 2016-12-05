@@ -20,8 +20,10 @@ public class Warrior extends NPC {
     *@param hpPower : health points wich will be given or retrieved to Frodo
     *@param currentPlayer : //frodo
      */
-    public Warrior(String name, String description, int corruptionPower, int hpPower, Player currentPlayer) {
-	super(name, description, corruptionPower, hpPower, currentPlayer);
+
+    public Warrior(String name, String description, int corruptionPower, int hpPower) {
+	super(name, description, corruptionPower, hpPower);
+
 
     }
 

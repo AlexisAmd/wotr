@@ -121,13 +121,13 @@ public class Game {
 	Hobbit npcSam, npcPipin, npcMerry;
 	Enemy npcDrunkHobbit;
 	// Create NPC
-	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10, currentPlayer);
-	Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, 50, currentPlayer);
+	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10);
+	Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, 50);
 	
-	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0, currentPlayer);
-	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight with you because he saws you looking after is beer...", -10, 1, currentPlayer);
-	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can give you 5 health point thank to the power friendship ! ", -5, 0, currentPlayer);
-	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend,  he can give you 5 health point thank to the power friendship ! ", -5, 0, currentPlayer);
+	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0);
+	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight with you because he saws you looking after is beer...", -10, 1);
+	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can give you 5 health point thank to the power friendship ! ", -5, 0);
+	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend,  he can give you 5 health point thank to the power friendship ! ", -5, 0);
 	// Add NPC to rooms
 	roomBilboHouseStart.addNPC(npcGandalf);
 	roomBilboHouseStart.addNPC(sauron);
@@ -218,12 +218,12 @@ public class Game {
 	Enemy npcNazgul1, npcNazgul2, npcNazgul3, npcThief;
 	Warrior npcStrider1, npcStrider2;
 	// Create NPCs
-	npcNazgul1 = new Enemy("npcNazgul1", "The Fear that they inspire is their best weapon", 20, 5, currentPlayer);
-	npcNazgul2 = new Enemy("npcNazgul2", "The Fear that they inspire is their best weapon", 20, 5, currentPlayer);
-	npcNazgul3 = new Enemy("npcNazgul3", "The Fear that they inspire is their best weapon", 20, 5, currentPlayer);
-	npcThief = new Enemy("npcThief", "He will steal you without realizing it", 10, 0, currentPlayer);
-	npcStrider1 = new Warrior("npcStrider1", "He can protect you", 20, 5, currentPlayer);
-	npcStrider2 = new Warrior("npcStrider2", "He can protect you", 20, 5, currentPlayer);
+	npcNazgul1 = new Enemy("npcNazgul1", "The Fear that they inspire is their best weapon", 20, 5);
+	npcNazgul2 = new Enemy("npcNazgul2", "The Fear that they inspire is their best weapon", 20, 5);
+	npcNazgul3 = new Enemy("npcNazgul3", "The Fear that they inspire is their best weapon", 20, 5);
+	npcThief = new Enemy("npcThief", "He will steal you without realizing it", 10, 0);
+	npcStrider1 = new Warrior("npcStrider1", "He can protect you", 20, 5);
+	npcStrider2 = new Warrior("npcStrider2", "He can protect you", 20, 5);
 	// Add NPCs
 	roomBuckleburyFerry.addNPC(npcNazgul1);
 	roomDarkAlley2.addNPC(npcThief);

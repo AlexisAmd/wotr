@@ -18,9 +18,10 @@ public class Hobbit extends NPC {
      *@param corruptionPower : /corruption points that the NPC can remove from Frodo
      *@param currentPlayer : //frodo
 	 */
-	public Hobbit(String name, String description, int corruptionPower, int hpPower, Player currentPlayer) {
-		super(name, description, corruptionPower, hpPower, currentPlayer);
-		
+
+	public Hobbit(String name, String description, int corruptionPower, int hpPower) {
+		super(name, description, corruptionPower, hpPower);
+
 		
 	}
 	

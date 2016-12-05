@@ -6,8 +6,8 @@ public class Enemy extends NPC{
 
 	
 	
-	public Enemy(String name, String description, int corruptionPower, int hpPower, Player currentPlayer) {
-		super(name, description, corruptionPower, hpPower, currentPlayer);
+	public Enemy(String name, String description, int corruptionPower, int hpPower) {
+		super(name, description, corruptionPower, hpPower);
 	}
 	
 	public boolean use(){

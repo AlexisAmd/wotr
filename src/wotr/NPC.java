@@ -28,18 +28,17 @@ public class NPC {
      *@param hpPower : health points wich will be given or retrieved to Frodo
      *@param currentPlayer : //frodo
      */
-    public NPC(String name, String description, int corruptionPower, int hpPower, Player currentPlayer) {
+    public NPC(String name, String description, int corruptionPower, int hpPower) {
 	this.name = name;
 	this.description = description;
 	this.corruptionPower = corruptionPower;
 	this.hpPower = hpPower;
-	this.currentPlayer = currentPlayer;
 	this.alreadyUsed = false;
 	this.itemList = new ArrayList<>(); // DEV : Useless ??
     }
 
     public NPC(String name, String description, int corruptionPower, int hpPower, Player currentPlayer, String script) {
-	this(name, description, corruptionPower, hpPower, currentPlayer);
+	this(name, description, corruptionPower, hpPower);
 	this.script = script;
     }
 
