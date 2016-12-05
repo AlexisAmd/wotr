@@ -122,7 +122,7 @@ public class Game {
 	Hobbit npcSam, npcPipin, npcMerry;
 	Warrior npcDrunkHobbit;
 	// Create NPC
-	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 0, currentPlayer);
+	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10, currentPlayer);
 	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0, currentPlayer);
 	npcDrunkHobbit = new Warrior("Drunk hobbit", "Just an unknow drunk", 0, -5, currentPlayer);
 	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend", -10, 0, currentPlayer);

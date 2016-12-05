@@ -202,6 +202,7 @@ public class Window extends JFrame {
 	    public void mouseClicked(MouseEvent e) {
 		for (Item item : new ArrayList<Item>(game.getPlayer().getCurrentRoom().getItemList())) {
 		    if (game.getPlayer().pickUpItem(item)) {
+			
 			setScript(item.getName() + " has been picked up.");
 		    }
 		    updateAll();
@@ -334,7 +335,10 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
 		if (selectedNPC != null) {
-		    game.getPlayer().use(selectedNPC);
+		    System.out.println( selectedNPC.getName());
+
+		    
+		    //game.getPlayer().use(selectedNPC);
 		    selectedNPC = null;
 		    updateAll();
 		} else {

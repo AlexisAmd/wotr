@@ -76,4 +76,12 @@ public abstract class Item {
     */
     public void use(){
     }
+
+    /**
+     * @param player
+     */
+    public void setPlayer(Player player) {
+	currentPlayer = player;
+	
+    }
 }

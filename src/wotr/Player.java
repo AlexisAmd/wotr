@@ -38,7 +38,7 @@ public class Player {
      */
     public Player() {
 	this.name = "Frodo";
-	this.hp = 100;
+	this.hp = 50;
 	this.percentCorruption = 0;
 	this.bag = new Bag("Baggins");
 	this.fellowship = new Fellowship();
@@ -277,6 +277,7 @@ public class Player {
      */
     public boolean pickUpNPC(NPC npc) {
 	if (fellowship.addNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) {
+	    npc.setPlayer(this);
 	    return getCurrentRoom().delNPC(npc);
 	} else
 	    return false;
@@ -292,6 +293,7 @@ public class Player {
     public boolean pickUpItem(Item item) {
 	if (item.getWeight() + bag.getWeight() <= this.maximumInventoryWeight) {
 	    if (bag.addItem(item)) {
+		item.setPlayer(this);
 		return currentRoom.delItem(item);
 	    } else
 		return false;

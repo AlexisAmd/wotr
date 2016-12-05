@@ -107,4 +107,20 @@ public class NPC {
     public boolean restorePower() {
 	return this.setAlreadyUsed(false);
     }
+
+    /**
+     * @return player associated with this npc
+     */
+    public Player getPlayer() {
+	return currentPlayer;
+	
+    }
+
+    /**
+     * @param player
+     */
+    public void setPlayer(Player player) {
+	currentPlayer = player;
+	
+    }
 }
