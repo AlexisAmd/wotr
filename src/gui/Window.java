@@ -364,16 +364,17 @@ public class Window extends JFrame {
 		if (selectedNPC != null) {
 		    System.out.println(selectedNPC.getName());
 		    if(selectedNPC.getClass().getSimpleName().equals("Magician")){
-			//mag peut choisir qu'il il restore
+			JOptionPane.showMessageDialog(getRootPane(), "Please select a member of you fellowship you want to bring it powers back :",
+				    "Choose a member of your fellowship", JOptionPane.WARNING_MESSAGE);
 			
-			//pop
+			
 			//LLlist
 			//utlise mag avec objet selectioné
-		    }else
+		    }else //selected != magician
 		    {game.getPlayer().use(selectedNPC);
 		    selectedNPC = null;}
 		    updateAll();
-		} else {
+		} else {//selected=null
 		    JOptionPane.showMessageDialog(getRootPane(), "Please select a member of you fellowship..",
 			    "Wotr : warning", JOptionPane.WARNING_MESSAGE);
 		}
