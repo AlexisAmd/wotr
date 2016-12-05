@@ -726,6 +726,11 @@ public class Window extends JFrame {
 
     public void updateAll() {
 	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
+	if (game.getPlayer().getHp() <= 0 || game.getPlayer().getCorruption() >= 100) {
+		JOptionPane.showMessageDialog(getRootPane(), "Your hp was too low or you corruption points was to high, you are dead. It is GAME OVER !", 
+				"Game Over", JOptionPane.ERROR_MESSAGE);
+		this.dispose();
+	}
 	this.updateListNPC(); // a checker
 	this.updateInventory(); // a checker
 	this.updateDesItem();
