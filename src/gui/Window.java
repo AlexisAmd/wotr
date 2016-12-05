@@ -394,9 +394,9 @@ public class Window extends JFrame {
 	textPaneDesNPC.setEditable(false);
 	textPaneDesNPC.setBounds(166, 72, 226, 113);
 	panelNPC.add(textPaneDesNPC);
-	// List item
+	// List NPC
 	modelNPC = new DefaultListModel<String>();
-	modelNPC.addElement("bloblo");
+	modelNPC.addElement("");
 	listNPC = new JList<String>(modelNPC);
 	listNPC.setBackground(new Color(238, 232, 170));
 	listNPC.addListSelectionListener(new ListSelectionListener() {
@@ -485,7 +485,7 @@ public class Window extends JFrame {
 	panelInventory.add(textPaneDesInventory);
 	// list Inventory
 	modelInventory = new DefaultListModel<String>();
-	modelInventory.addElement("azer");
+	modelInventory.addElement("");
 	listInventory = new JList<String>(modelInventory);
 	listInventory.setBackground(new Color(238, 232, 170));
 	listInventory.addListSelectionListener(new ListSelectionListener() {
