@@ -218,17 +218,19 @@ public class Player {
      * 
      * @param direction
      *            the direction of the move
+     *            @ return th actual room
      */
-    public void goRoom(String direction) {
+    public Room goRoom(String direction) {
 	// Try to leave current room.
 	Room nextRoom = null;
 	nextRoom = currentRoom.getNextRoom(direction);
 	if (nextRoom == null) {
-	    // System.out.println("Can't move to " + direction + "\n");
+	    return currentRoom;
 	} else {
 		if (currentRoom.isWorldDoor(direction)){
 			this.restoreMagician();}
 	    currentRoom = nextRoom;
+	    return currentRoom;
 	    // System.out.println("Moved to " + direction + "\n");
 	}
     }
