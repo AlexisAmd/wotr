@@ -388,13 +388,7 @@ public class Window extends JFrame {
 	btnUseItem.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
-		if (selectedItem != null) {
-		    game.getPlayer().use(selectedItem);
-		    selectedItem = null;
-		    updateAll();
-		} else {
-		    JOptionPane.showMessageDialog(getRootPane(), "Please select an item if you want to use it...",
-			    "Wotr : warning", JOptionPane.WARNING_MESSAGE);
+
 		}
 	    }
 	});
