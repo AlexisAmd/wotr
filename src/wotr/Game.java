@@ -178,7 +178,7 @@ public class Game {
 	doorPPBarPPStrider = new Door(roomPPBar, roomPPStrider);
 	doorPPStriderPPBar = new Door(roomPPStrider, roomPPBar);
 	// Link the exit world to previous level
-	roomRoadToBree.addExit("north", worlddoorShireToBree);
+	roomRoadToBree.addExit("south", worlddoorShireToBree);
 	// Associate doors with rooms
 	roomBuckleburyFerry.addExit("East", doorBuckleburyFerryCityEntrance);
 	roomCityEntrance.addExit("west", doorCityEntranceBuckleburyFerry);
@@ -203,9 +203,9 @@ public class Game {
 	Key keyGandalfRoom;
 	Food foodBeer50, foodBeer75, foodBeer100, foodFries;
 	// Create items
-	foodBeer50 = new Food ("foodBbeer50", "It is a good beer (50cL)", 10, 10, currentPlayer);
-	foodBeer75 = new Food ("foodBbeer75", "It is a good beer (75cL)", 12, 12, currentPlayer);
-	foodBeer100 = new Food ("foodBbeer100", "It is a good beer (100cL)", 15, 15, currentPlayer);
+	foodBeer50 = new Food ("Beer", "It is a good beer (50cL)", 10, 10, currentPlayer);
+	foodBeer75 = new Food ("Pint", "It is a good beer (75cL)", 12, 12, currentPlayer);
+	foodBeer100 = new Food ("Big Beer", "It is a good beer (100cL)", 15, 15, currentPlayer);
 	foodFries = new Food ("foodFries", "French fries", 10, 15, currentPlayer);
 	keyGandalfRoom = new Key("keyGandalfRoom", "Unlocked Gandalf' s room", 2, currentPlayer, doorPPBarPPGandalf);
 	// Add items to rooms
@@ -218,12 +218,12 @@ public class Game {
 	Enemy npcNazgul1, npcNazgul2, npcNazgul3, npcThief;
 	Warrior npcStrider1, npcStrider2;
 	// Create NPCs
-	npcNazgul1 = new Enemy("npcNazgul1", "The Fear that they inspire is their best weapon", 20, 5);
-	npcNazgul2 = new Enemy("npcNazgul2", "The Fear that they inspire is their best weapon", 20, 5);
-	npcNazgul3 = new Enemy("npcNazgul3", "The Fear that they inspire is their best weapon", 20, 5);
-	npcThief = new Enemy("npcThief", "He will steal you without realizing it", 10, 0);
-	npcStrider1 = new Warrior("npcStrider1", "He can protect you", 20, 5);
-	npcStrider2 = new Warrior("npcStrider2", "He can protect you", 20, 5);
+	npcNazgul1 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, 5);
+	npcNazgul2 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, 5);
+	npcNazgul3 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, 5);
+	npcThief = new Enemy("Thief", "He will steal you without realizing it", 10, 0);
+	npcStrider1 = new Warrior("Strider1", "He can protect you", 20, 5);
+	npcStrider2 = new Warrior("Strider2", "He can protect you", 20, 5);
 	// Add NPCs
 	roomBuckleburyFerry.addNPC(npcNazgul1);
 	roomDarkAlley2.addNPC(npcThief);
