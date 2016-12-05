@@ -100,6 +100,7 @@ public class Game {
 	Potion potionElixir;
 	// Create items
 	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 90, 10, currentPlayer);
+	Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, 50, currentPlayer);
 	foodPint = new Food("Large beer pint", "A good pint", 10, 10, currentPlayer);
 	foodWine = new Food("Large glass of wine", "The better wine of the shire", 5, 10, currentPlayer);
 	foodGrilledChicken = new Food("Grilled chicken", "A grilled chicken", 30, 10, currentPlayer);
@@ -111,6 +112,7 @@ public class Game {
 	keyToSamHouse = new Key("keyToSamHouse", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
+	roomBilboHouseStart.addNPC(sauron);
 	roomGreenDragonInn.addItem(foodPint);
 	roomGreenDragonInn.addItem(foodWine);
 	roomGreenDragonInn.addItem(foodGrilledChicken);

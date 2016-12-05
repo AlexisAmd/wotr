@@ -8,9 +8,8 @@ public class Enemy extends NPC{
 
 	
 	
-	public Enemy(String name, String description, int corruptionPower, int hpPower, Player currentPlayer,
-			String script) {
-		super(name, description, corruptionPower, hpPower, currentPlayer, script);
+	public Enemy(String name, String description, int corruptionPower, int hpPower, Player currentPlayer) {
+		super(name, description, corruptionPower, hpPower, currentPlayer);
 		this.currentPlayer = currentPlayer;
 		this.corruptionPower= corruptionPower;
 		this.hpPower = hpPower;
