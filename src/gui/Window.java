@@ -49,6 +49,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
 public class Window extends JFrame {
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
@@ -336,6 +337,7 @@ public class Window extends JFrame {
 	panelinfoBottom.add(progressBarCorruption);
 	// PANEL NPC
 	panelNPC = new JPanel();
+	panelNPC.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Fellowship", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(238, 232, 170)));
 	panelNPC.setOpaque(false);
 	panelNPC.setLayout(null);
 	panelRight.add(panelNPC);
@@ -363,7 +365,7 @@ public class Window extends JFrame {
 	    }
 	});
 	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 16));
-	btnUseNPC.setBounds(166, 11, 108, 50);
+	btnUseNPC.setBounds(166, 22, 108, 39);
 	panelNPC.add(btnUseNPC);
 	btnDropNPC = new JButton("Drop");
 	btnDropNPC.addMouseListener(new MouseAdapter() {
@@ -381,7 +383,7 @@ public class Window extends JFrame {
 	    }
 	});
 	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 16));
-	btnDropNPC.setBounds(284, 11, 108, 50);
+	btnDropNPC.setBounds(284, 22, 108, 39);
 	panelNPC.add(btnDropNPC);
 	// Description NPPC
 	textPaneDesNPC = new JTextPane();
@@ -410,11 +412,12 @@ public class Window extends JFrame {
 	});
 	listNPC.setFont(new Font("Monotype Corsiva", Font.PLAIN, 17));
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	listNPC.setBounds(10, 11, 146, 174);
+	listNPC.setBounds(10, 22, 146, 163);
 	panelNPC.add(listNPC);
 	//
 	// PANEL INVENTORY
 	panelInventory = new JPanel();
+	panelInventory.setBorder(new TitledBorder(null, "Inventory", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(238, 232, 170)));
 	panelInventory.setOpaque(false);
 	panelInventory.setLayout(null);
 	panelRight.add(panelInventory);
@@ -453,7 +456,7 @@ public class Window extends JFrame {
 	    }
 	});
 	btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 16));
-	btnUseItem.setBounds(166, 11, 108, 50);
+	btnUseItem.setBounds(166, 21, 108, 40);
 	panelInventory.add(btnUseItem);
 	btnDropItem = new JButton("Drop");
 	btnDropItem.addMouseListener(new MouseAdapter() {
@@ -470,7 +473,7 @@ public class Window extends JFrame {
 	    }
 	});
 	btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 16));
-	btnDropItem.setBounds(284, 11, 108, 50);
+	btnDropItem.setBounds(284, 21, 108, 40);
 	panelInventory.add(btnDropItem);
 	// Decription Invetory
 	textPaneDesInventory = new JTextPane();
@@ -498,7 +501,7 @@ public class Window extends JFrame {
 	});
 	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listInventory.setFont(new Font("Monotype Corsiva", Font.PLAIN, 17));
-	listInventory.setBounds(10, 11, 146, 174);
+	listInventory.setBounds(10, 21, 146, 164);
 	panelInventory.add(listInventory);
     }
 

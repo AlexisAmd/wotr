@@ -122,7 +122,7 @@ public class Game {
 	Enemy npcDrunkHobbit;
 	// Create NPC
 	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10);
-	Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, 50);
+	//Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, -50);
 	
 	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0);
 	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight with you because he saws you looking after is beer...", 1, -5);
@@ -130,7 +130,7 @@ public class Game {
 	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend,  he can give you 5 health point thank to the power friendship ! ", -5, 0);
 	// Add NPC to rooms
 	roomBilboHouseStart.addNPC(npcGandalf);
-	roomBilboHouseStart.addNPC(sauron);
+	
 	roomSamHouse.addNPC(npcSam);
 
 	room111thBirthday.addNPC(npcDrunkHobbit);
