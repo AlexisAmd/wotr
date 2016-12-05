@@ -100,11 +100,11 @@ public class Game {
 	Potion potionElixir;
 	// Create items
 	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 90, 10, currentPlayer);
-	foodPint = new Food("Large beer pint", "description", 10, 10, currentPlayer);
-	foodWine = new Food("Large glass of wine", "description", 5, 10, currentPlayer);
-	foodGrilledChicken = new Food("Grilled chicken", "description", 30, 10, currentPlayer);
-	foodSalad = new Food("Copious Salad", "description", 20, 10, currentPlayer);
-	foodCarrots = new Food("Crunchy carrots", "description", 4, 10, currentPlayer);
+	foodPint = new Food("Large beer pint", "A good pint", 10, 10, currentPlayer);
+	foodWine = new Food("Large glass of wine", "The better wine of the shire", 5, 10, currentPlayer);
+	foodGrilledChicken = new Food("Grilled chicken", "A grilled chicken", 30, 10, currentPlayer);
+	foodSalad = new Food("Copious Salad", "Salad", 20, 10, currentPlayer);
+	foodCarrots = new Food("Crunchy carrots", "Carrots", 4, 10, currentPlayer);
 	potionElixir = new Potion("Gandalf’s elixir",
 		"Gandalf created beverage that replicates his power. This elixir is used all over Middle Earth to restore the power of companions. Use this item wisely.",
 		5, currentPlayer);
@@ -122,11 +122,11 @@ public class Game {
 	Hobbit npcSam, npcPipin, npcMerry;
 	Warrior npcDrunkHobbit;
 	// Create NPC
-	npcGandalf = new Magician("Gandalf the Grey", "description", 0, 0, currentPlayer);
-	npcSam = new Hobbit("Samwise Gamgee", "description", -20, 0, currentPlayer);
-	npcDrunkHobbit = new Warrior("Drunk hobbit", "description", 0, -5, currentPlayer);
-	npcPipin = new Hobbit("Perigirn Took", "description", -10, 0, currentPlayer);
-	npcMerry = new Hobbit("Meriadoc Brandibouc", "description", -10, 0, currentPlayer);
+	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 0, currentPlayer);
+	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0, currentPlayer);
+	npcDrunkHobbit = new Warrior("Drunk hobbit", "Just an unknow drunk", 0, -5, currentPlayer);
+	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend", -10, 0, currentPlayer);
+	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend", -10, 0, currentPlayer);
 	// Add NPC to rooms
 	roomBilboHouseStart.addNPC(npcGandalf);
 	roomSamHouse.addNPC(npcSam);
