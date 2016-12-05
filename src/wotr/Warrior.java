@@ -8,8 +8,6 @@ public class Warrior extends NPC {
      * When a npc is dead, he is removed from the frodo's fellowship and stay in the room where he died.
      * NPC can reanimate by a magician. A dead NPC can also be picked up again by frodo and his fellowship (because humans used to bury their dead friends...) 
      */
-   
-
     /**
      *  * A warrior is a specific npc. As like other npc he cans act on Frodo's healt points or corruption points. However he can also kill a npc.
      * When a npc is dead, he is removed from the frodo's fellowship and stay in the room where he died.
@@ -20,11 +18,8 @@ public class Warrior extends NPC {
     *@param hpPower : health points wich will be given or retrieved to Frodo
     *@param currentPlayer : //frodo
      */
-
     public Warrior(String name, String description, int corruptionPower, int hpPower) {
 	super(name, description, corruptionPower, hpPower);
-
-
     }
 
     /**
@@ -50,9 +45,13 @@ public class Warrior extends NPC {
      */
     public boolean use() {
 	boolean bool = false;
-	for (NPC npc : new ArrayList<NPC>(super.getPlayer().getCurrentRoom().getNPCList())) {
-	    if (npc.getClass().getSimpleName().equals("Enemy")) {
-		bool = super.getPlayer().getCurrentRoom().delNPC(npc);
+	if (!getAlreadyUsed()) {
+	    for (NPC npc : new ArrayList<NPC>(super.getPlayer().getCurrentRoom().getNPCList())) {
+		System.out.println(npc.getName() + " is in the room");
+		if (npc.getClass().getSimpleName().equals("Enemy")) {
+		    bool = super.getPlayer().getCurrentRoom().delNPC(npc);
+		    System.out.println(npc.getName() + "doit etre mort si tout va bien");
+		}
 	    }
 	}
 	this.setAlreadyUsed(true);
