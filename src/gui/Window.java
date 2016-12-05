@@ -79,8 +79,7 @@ public class Window extends JFrame {
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.getContentPane().setLayout(null);
 	panelLeft = new JPanel();
-	panelLeft.setOpaque(false);
-	panelLeft.setBackground(new Color(0, 0, 0, 0));
+	panelLeft.setBackground(new Color(0, 0, 0));
 	panelLeft.setBounds(0, 0, 756, 589);
 	this.getContentPane().add(panelLeft);
 	panelLeft.setLayout(null);
