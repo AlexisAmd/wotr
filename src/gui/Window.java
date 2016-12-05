@@ -380,7 +380,7 @@ public class Window extends JFrame {
 		for (NPC npc : game.getPlayer().getFellowship()) {
 		    if (npc.getName().equals(stringNPC)) {
 			selectedNPC = npc;
-			setTextPaneDesNPC(npc.getDescription());
+			updateDesNPC();
 			
 		    }
 		} 
@@ -446,7 +446,7 @@ public class Window extends JFrame {
 		for (Item item : game.getPlayer().getInventory()) {
 		    if (item.getName().equals(stringItem)) {
 			selectedItem = item;
-			textPaneDesInventory.setText(item.getDescription());
+			updateDesItem();
 		    }
 		}
 	    }
@@ -579,14 +579,14 @@ public class Window extends JFrame {
     }
     
     public void updateDesNPC(){
-	if(selectedNPC!=null){setTextPaneDesNPC(selectedNPC.getDescription());}
+	if(selectedNPC!=null){setTextPaneDesNPC(selectedNPC.getDescription()+ " (alerady used: "+selectedNPC.getAlreadyUsed() +")");}
 	else{
 	    setTextPaneDesNPC("");
 	}
     }
     
     public void updateDesItem(){
-	if(selectedItem!=null){settextPanelDesInventory(selectedItem.getDescription());}
+	if(selectedItem!=null){settextPanelDesInventory(selectedItem.getDescription()+ " ( weight : "+selectedItem.getWeight()+")");}
 	else{
 	    settextPanelDesInventory("");
 	};
