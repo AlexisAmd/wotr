@@ -359,26 +359,19 @@ public class Window extends JFrame {
 	// BUTTON NPC
 	btnUseNPC = new JButton("Use");
 	btnUseNPC.addMouseListener(new MouseAdapter() {
-	    
-
-	
-
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
-		
 		if (selectedNPC != null) {
 		    System.out.println(selectedNPC.getName());
 		    if (selectedNPC.getClass().getSimpleName().equals("Magician")) {
-			// TODO
 			DefaultListModel<String> modelNPCUsed = new DefaultListModel<String>();
-			
 			for (NPC npc : game.getPlayer().getFellowship()) {// parcour pour recup les npc already used
-			    if (npc.getAlreadyUsed()) {
+			    if (npc.getAlreadyUsed() && !npc.getClass().getSimpleName().equals("Magician")) {
 				modelNPCUsed.addElement(npc.getName());
 			    }
 			} // maintenant qu'on a la liste des npc already used
 			  // on crée un objet de cette lste
-			if (modelNPCUsed != null) {
+			if (!modelNPCUsed.isEmpty()) {
 			    final Object[] arrayStringNPC = modelNPCUsed.toArray();
 			    String favoritePizza;// on declare une variable qui contiendra le nom du npc choisi par l'user
 			    favoritePizza = (String) JOptionPane.showInputDialog(getRootPane(),
@@ -768,9 +761,10 @@ public class Window extends JFrame {
     public void updateAll() {
 	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
 	if (game.getPlayer().getHp() <= 0 || game.getPlayer().getCorruption() >= 100) {
-		JOptionPane.showMessageDialog(getRootPane(), "Your hp was too low or you corruption points was to high, you are dead. It is GAME OVER !", 
-				"Game Over", JOptionPane.ERROR_MESSAGE);
-		this.dispose();
+	    JOptionPane.showMessageDialog(getRootPane(),
+		    "Your hp was too low or you corruption points was to high, you are dead. It is GAME OVER !",
+		    "Game Over", JOptionPane.ERROR_MESSAGE);
+	    this.dispose();
 	}
 	this.updateListNPC(); // a checker
 	this.updateInventory(); // a checker
