@@ -385,6 +385,7 @@ public class Window extends JFrame {
 	panelNPC.add(btnDropNPC);
 	// Description NPPC
 	textPaneDesNPC = new JTextPane();
+	textPaneDesNPC.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	textPaneDesNPC.setBackground(new Color(238, 232, 170));
 	textPaneDesNPC.setSelectedTextColor(new Color(25, 25, 112));
 	textPaneDesNPC.setText("Description");
@@ -393,6 +394,7 @@ public class Window extends JFrame {
 	panelNPC.add(textPaneDesNPC);
 	// List item
 	modelNPC = new DefaultListModel<String>();
+	modelNPC.addElement("bloblo");
 	listNPC = new JList<String>(modelNPC);
 	listNPC.setBackground(new Color(238, 232, 170));
 	listNPC.addListSelectionListener(new ListSelectionListener() {
@@ -406,7 +408,7 @@ public class Window extends JFrame {
 		}
 	    }
 	});
-	listNPC.setFont(new Font("Roboto", Font.PLAIN, 14));
+	listNPC.setFont(new Font("Monotype Corsiva", Font.PLAIN, 17));
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listNPC.setBounds(10, 11, 146, 174);
 	panelNPC.add(listNPC);
@@ -472,6 +474,7 @@ public class Window extends JFrame {
 	panelInventory.add(btnDropItem);
 	// Decription Invetory
 	textPaneDesInventory = new JTextPane();
+	textPaneDesInventory.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	textPaneDesInventory.setBackground(new Color(238, 232, 170));
 	textPaneDesInventory.setText("Description");
 	textPaneDesInventory.setEditable(false);
@@ -494,7 +497,7 @@ public class Window extends JFrame {
 	    }
 	});
 	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	listInventory.setFont(new Font("Roboto", Font.PLAIN, 14));
+	listInventory.setFont(new Font("Monotype Corsiva", Font.PLAIN, 17));
 	listInventory.setBounds(10, 11, 146, 174);
 	panelInventory.add(listInventory);
     }
