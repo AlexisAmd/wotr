@@ -1,52 +1,32 @@
 package gui;
 
 import wotr.*;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Cursor;
-import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JTextPane;
-import javax.swing.JEditorPane;
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
-import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
-import java.awt.Panel;
-import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import javax.swing.JInternalFrame;
-import javax.swing.JDesktopPane;
 import java.awt.Color;
-import java.awt.Component;
 import javax.swing.JProgressBar;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import com.sun.javafx.scene.layout.region.SliceSequenceConverter;
-import java.awt.Rectangle;
-import javax.swing.border.CompoundBorder;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
@@ -54,6 +34,10 @@ import javax.swing.border.TitledBorder;
 import java.awt.Insets;
 
 public class Window extends JFrame {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L; //je sais pas trop aquoi ca sert mais eclipse me disait de le faire
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
 	    panelinfoBottom, panelNPC, panelInventory;
     private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnframeMap, btnUseNPC, btnDropNPC,
