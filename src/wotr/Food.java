@@ -20,7 +20,7 @@ public class Food extends Item
     public Food(String name, String description, int weight, int calory, Player currentPlayer)
     {
         super(name, description,  weight, currentPlayer);
-        this.currentPlayer = currentPlayer;
+
         
         this.calory = calory; //CANT BE A NEGATIVE VALUE
     }
@@ -44,6 +44,6 @@ public class Food extends Item
 
     //When you use a food, your hp is upgraded depending on calories
     public void use(){
-        currentPlayer.addHp(this.calory); //n'est pas trop sensé marcher
+        super.getCurrentPlayer().addHp(this.calory); //n'est pas trop sensé marcher
     }
 }

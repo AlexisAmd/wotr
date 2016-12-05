@@ -644,7 +644,11 @@ public class Window extends JFrame {
     public void tryToAttack(){
 	for (NPC npc : game.getPlayer().getCurrentRoom().getNPCList()){
 	    npc.setPlayer(game.getPlayer());
+	    System.out.println(npc.getPlayer());
+	    
 	    if( npc.getClass().getSimpleName().equals("Enemy")){
+		System.out.println(npc.getPlayer());
+		
 		npc.use();
 	    }
 	}

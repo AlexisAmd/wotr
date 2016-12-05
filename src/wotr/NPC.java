@@ -123,4 +123,18 @@ public class NPC {
 	currentPlayer = player;
 	
     }
+
+    /**
+     * @return
+     */
+    public int getHpPower() {
+	return hpPower;
+    }
+
+    /**
+     * @return
+     */
+    public int getCpPower() {
+	return corruptionPower;
+    }
 }
