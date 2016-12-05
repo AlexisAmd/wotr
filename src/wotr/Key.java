@@ -39,4 +39,12 @@ public class Key extends Item{
 		        "Weight : "+getWeight() + "\n";
 	}
 
+	/**
+	 * @return the door wich is locked by this ky
+	 */
+	public Door getDoor() {
+	    // TODO Auto-generated method stub
+	    return door;
+	}
+
 }

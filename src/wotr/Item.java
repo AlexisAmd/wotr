@@ -85,10 +85,4 @@ public abstract class Item {
 	
     }
 
-    /**
-     * @return
-     */
-    public Door getDoor() {
-	return door;
-    }
 }

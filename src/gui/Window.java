@@ -390,21 +390,25 @@ public class Window extends JFrame {
 	    public void mouseClicked(MouseEvent e) {
 		if (selectedItem != null) {
 		    //
-		    if (selectedItem.getClass().getSimpleName().equals("Key")){
-	    Door door = selectedItem.getDoor();
-	    if(game.getPlayer().getCurrentRoom().getExits().containsValue(door)){
-		game.getPlayer().use(selectedItem);
-		    selectedItem = null;
-	    } else {
-		    JOptionPane.showMessageDialog(getRootPane(), "Use can use this key ("+selectedItem.getName()+"here.",
-			    "Wotr : warning", JOptionPane.WARNING_MESSAGE);
-		}
-	    
-	}
+		    if (selectedItem.getClass().getSimpleName().equals("Key")) {
+			Key selectedKey = (Key) selectedItem;
+			Door door = selectedKey.getDoor();
+			if (game.getPlayer().getCurrentRoom().getExits().containsValue(door)) {
+			    game.getPlayer().use(selectedItem);
+			    selectedItem = null;
+			    JOptionPane.showMessageDialog(getRootPane(),
+				    "You unlocked the door to "+ door.toString(), "Wotr : Success",
+				    JOptionPane.INFORMATION_MESSAGE);
+			} else {
+			    JOptionPane.showMessageDialog(getRootPane(),
+				    "Use can use this key (" + selectedItem.getName() + ") here.", "Wotr : warning",
+				    JOptionPane.WARNING_MESSAGE);
+			}
+		    }
 		    //
-		    game.getPlayer().use(selectedItem);
+		    else{game.getPlayer().use(selectedItem);
 		    selectedItem = null;
-		    updateAll();
+		    updateAll();}
 		} else {
 		    JOptionPane.showMessageDialog(getRootPane(), "Please select an item if you want to use it...",
 			    "Wotr : warning", JOptionPane.WARNING_MESSAGE);
