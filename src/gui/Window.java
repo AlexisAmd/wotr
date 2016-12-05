@@ -95,6 +95,7 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
 		game.getPlayer().goRoom("west");
+		tryToAttack();
 		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 		updateAll();
@@ -112,6 +113,7 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
 		game.getPlayer().goRoom("east");
+		tryToAttack();
 		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 		updateAll();
@@ -132,6 +134,7 @@ public class Window extends JFrame {
 	btnNorth.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent e) {
 		game.getPlayer().goRoom("north");
+		tryToAttack();
 		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 		updateAll();
@@ -145,6 +148,7 @@ public class Window extends JFrame {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
 		game.getPlayer().goRoom("south");
+		tryToAttack();
 		String textCurrentRoom = game.getPlayer().getCurrentRoom().getDescription();
 		String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 		setScript(textCurrentRoomExits);
@@ -549,6 +553,13 @@ public class Window extends JFrame {
 	progressBarCorruption.setValue(percentCorruption);
     }
 
+    /**
+     * set the visibility of direction buttons according to avaible exits in the current room
+     * @param bEast
+     * @param bNorth
+     * @param bWest
+     * @param bSouth
+     */
     public void updateDirectionButton(boolean bEast, boolean bNorth, boolean bWest, boolean bSouth) {
 	btnNorth.setEnabled(bNorth);
 	btnSouth.setEnabled(bSouth);
@@ -556,6 +567,11 @@ public class Window extends JFrame {
 	btnEast.setEnabled(bEast);
     }
 
+    /**
+     * updte both progres bar according to frodo cp and hp
+     * @param percentHealth
+     * @param percentCorruption
+     */
     public void updateProgressBar(int percentHealth, int percentCorruption) {
 	progressBarCorruption.setValue(percentCorruption);
 	progressBarCorruption.setString("Cp :" + percentCorruption + " %");
@@ -563,15 +579,26 @@ public class Window extends JFrame {
 	progressBarHealth.setString("Hp :" + percentHealth + " %");
     }
 
+    /**
+     * update the image whuie entering in the room
+     * @param url the path to the image
+     */
     public void updateImage(String url) {
 	ImageIcon image = new ImageIcon(url);
 	ImageHome.setIcon(image);
     }
 
+    /**
+     * Set the descript of the room in the prompt while enteriing in the room
+     * @param description of the room
+     */
     public void updatePromptWithRoomDescription(String description) {
 	setScript(description);
     }
 
+    /**
+     * update the th JList of item
+     */
     public void updateInventory() {
 	modelInventory.clear();
 	for (Item item : game.getPlayer().getInventory()) {
@@ -579,6 +606,9 @@ public class Window extends JFrame {
 	}
     }
 
+    /**
+     * update the list of npc in the Jist
+     */
     public void updateListNPC() {
 	modelNPC.clear();
 	for (NPC npc : game.getPlayer().getFellowship()) {
@@ -586,6 +616,10 @@ public class Window extends JFrame {
 	}
     }
     
+    
+    /**
+     * update the text in the panelText dezcription of npc
+     */
     public void updateDesNPC(){
 	if(selectedNPC!=null){setTextPaneDesNPC(selectedNPC.getDescription()+ " (alerady used: "+selectedNPC.getAlreadyUsed() +")");}
 	else{
@@ -593,12 +627,27 @@ public class Window extends JFrame {
 	}
     }
     
+    /**
+     * update the text in the panelText dezcription of item
+     */
     public void updateDesItem(){
 	if(selectedItem!=null){settextPanelDesInventory(selectedItem.getDescription()+ " ( weight : "+selectedItem.getWeight()+")");}
 		
 	else{
 	    settextPanelDesInventory("");
 	};
+    }
+    
+    /**
+     * check if an ennemy is in the current room, if true it attacks frodo
+     */
+    public void tryToAttack(){
+	for (NPC npc : game.getPlayer().getCurrentRoom().getNPCList()){
+	    npc.setPlayer(game.getPlayer());
+	    if( npc.getClass().getSimpleName().equals("Enemy")){
+		npc.use();
+	    }
+	}
     }
 
 
