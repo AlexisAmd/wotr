@@ -125,7 +125,7 @@ public class Game {
 	Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, 50);
 	
 	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0);
-	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight with you because he saws you looking after is beer...", -10, 1);
+	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight with you because he saws you looking after is beer...", 1, -5);
 	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can give you 5 health point thank to the power friendship ! ", -5, 0);
 	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend,  he can give you 5 health point thank to the power friendship ! ", -5, 0);
 	// Add NPC to rooms
