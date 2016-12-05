@@ -276,7 +276,7 @@ public class Window extends JFrame {
 	panelImage.setLayout(new GridLayout(0, 1, 0, 0));
 	//
 	panelRight = new JPanel();
-	panelRight.setBackground(new Color(160, 82, 45));
+	panelRight.setBackground(new Color(54, 29, 0));
 	// panelRight.setForeground(Color.BLACK);
 	panelRight.setBorder(null);
 	// panelRight.setBackground(new Color(218, 165, 32));
