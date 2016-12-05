@@ -45,6 +45,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import com.sun.javafx.scene.layout.region.SliceSequenceConverter;
 import java.awt.Rectangle;
+import javax.swing.border.CompoundBorder;
+import javax.swing.UIManager;
+import javax.swing.border.EtchedBorder;
 
 public class Window extends JFrame {
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
@@ -246,15 +249,17 @@ public class Window extends JFrame {
 	btnframeMap.setContentAreaFilled(false);
 	panelSU.add(btnframeMap);
 	JScrollPane scrollPanePrompt = new JScrollPane();
+	scrollPanePrompt.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(160, 82, 45), new Color(160, 82, 45)));
 	scrollPanePrompt.setMaximumSize(new Dimension(424, 160));
 	scrollPanePrompt.setBounds(320, 417, 424, 160);
 	panelLeft.add(scrollPanePrompt);
 	textPanePrompt = new JTextPane();
+	textPanePrompt.setBorder(null);
 	scrollPanePrompt.setViewportView(textPanePrompt);
 	textPanePrompt.setToolTipText("Command prompt : displays a lot of informations");
-	textPanePrompt.setFont(new Font("Roboto", Font.PLAIN, 12));
-	textPanePrompt.setForeground(Color.WHITE);
-	textPanePrompt.setBackground(Color.BLACK);
+	textPanePrompt.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
+	textPanePrompt.setForeground(new Color(0, 0, 0));
+	textPanePrompt.setBackground(new Color(240, 230, 140));
 	//
 	//
 	panelImage = new JPanel();
