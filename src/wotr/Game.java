@@ -159,15 +159,15 @@ public class Game {
 	WorldDoor worlddoorShireToBree;
 	// Create rooms (description, script, image)
 	roomBuckleburyFerry = new Room("Bucklebury Ferry", "Taking the ferry will allow you to avoid dark riders along the way",
-		"src/gui/image/roomBuckleburyFerry.jpg");
+			"src/gui/image/roomBuckleburyFerry.jpg");
 	roomCityCenter = new Room("City center", "The center of the city of Bree", "src/gui/image/BreeCityCenter.jpg");
-	roomCityEntrance = new Room("The entrance of the city of Bree", "-script-", "src/gui/image/BreeCityEntrance.jpg");
-	roomPPBar = new Room("It is the most famous bar of Bree", "-script-", "src/gui/image/PPBar.jpg");
-	roomPPDormitory = new Room("You can sleep in the dormitory... Or maybe not", "-script-", "src/gui/image/PPDormitory.png"); //Nazgul in a dormitory?
-	roomPPGandalf = new Room("You are in the Gandalf's Room", "-script-", "src/gui/image/PPGandalf.jpg");
-	roomPPStrider = new Room("You are in the Strider's Room", "-script-", "src/gui/image/PPStrider.jpg");
-	roomDarkAlley1 = new Room("A scary dark alley", "-script-", "src/gui/image/darkAlley1.jpg");
-	roomDarkAlley2 = new Room("A scary dark alley", "-script-", "src/gui/image/DarkAlley2.png");
+	roomCityEntrance = new Room("City Entrance", "The entrance of the city of Bree", "src/gui/image/BreeCityEntrance.jpg");
+	roomPPBar = new Room("Prancing Pony Bar", "It is the most famous bar of Bree", "src/gui/image/PPBar.jpg");
+	roomPPDormitory = new Room("Prancing Pony Dormitory", "You can sleep in the dormitory... Or maybe not", "src/gui/image/PPDormitory.png"); //Nazgul in a dormitory?
+	roomPPGandalf = new Room("Prancing Pony Gandalf's Room", "You are in the Gandalf's Room", "src/gui/image/PPGandalf.jpg");
+	roomPPStrider = new Room("Prancing Pony Strider's Room", "You are in the Strider's Room", "src/gui/image/PPStrider.jpg");
+	roomDarkAlley1 = new Room("DarK Alley East", "A scary dark alley", "src/gui/image/darkAlley1.jpg");
+	roomDarkAlley2 = new Room("Dark Alley West", "A scary dark alley", "src/gui/image/DarkAlley2.png");
 	// Create doors
 	worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
 	doorBuckleburyFerryCityEntrance = new Door(roomBuckleburyFerry, roomCityEntrance);
