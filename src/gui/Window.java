@@ -27,6 +27,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.MatteBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javafx.scene.control.ProgressBar;
 import javax.swing.UIManager;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
@@ -44,7 +45,7 @@ public class Window extends JFrame {
 	    btnUseItem, btnDropItem;
     private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneDesInventory;
     private JLabel ImageHome;
-    private JProgressBar progressBarHealth, progressBarCorruption;
+    private JProgressBar progressBarHealth, progressBarCorruption, progressBarWeight;
     private JScrollPane scrollBar;
     private DefaultListModel<String> modelNPC, modelInventory;
     // Other variables
@@ -264,7 +265,7 @@ public class Window extends JFrame {
 	//
 	//
 	panelImage = new JPanel();
-	ImageHome = new JLabel(new ImageIcon("src/gui/image/roomBilboHouseStart.jpg"));// Test
+	ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage2.jpg"));// Test
 	// image
 	panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 	panelImage.setBounds(12, 53, 732, 353);
@@ -328,7 +329,7 @@ public class Window extends JFrame {
 	progressBarHealth.setOpaque(true);
 	progressBarHealth.setStringPainted(true);
 	progressBarHealth.setString("Hp : 0 %");
-	progressBarHealth.setBounds(12, 8, 380, 37);
+	progressBarHealth.setBounds(12, 9, 380, 20);
 	progressBarHealth.setToolTipText("Health points, if they are equal to 0 you're dead !");
 	progressBarHealth.setForeground(Color.RED);
 	progressBarHealth.setBackground(Color.WHITE);
@@ -338,10 +339,22 @@ public class Window extends JFrame {
 	progressBarCorruption.setOpaque(true);
 	progressBarCorruption.setToolTipText("Corruption points, if they are equal to 100 you're dead !");
 	progressBarCorruption.setString("Cp : 0 %");
-	progressBarCorruption.setBounds(12, 53, 380, 37);
+	progressBarCorruption.setBounds(12, 38, 380, 20);
 	progressBarCorruption.setStringPainted(true);
 	progressBarCorruption.setBackground(Color.WHITE);
 	panelinfoBottom.add(progressBarCorruption);
+	
+	progressBarWeight = new JProgressBar();
+	progressBarWeight.setBackground(Color.WHITE);
+	progressBarWeight.setStringPainted(true);
+	progressBarWeight.setToolTipText("Weight of your bag.");
+	progressBarWeight.setOpaque(true);
+	progressBarWeight.setForeground(new Color(143, 188, 143));
+	progressBarWeight.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
+	progressBarWeight.setString("Weight : 0/50");
+	progressBarWeight.setMaximum(50);
+	progressBarWeight.setBounds(12, 67, 380, 20);
+	panelinfoBottom.add(progressBarWeight);
 	// PANEL NPC
 	panelNPC = new JPanel();
 	panelNPC.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Fellowship",
@@ -646,15 +659,21 @@ public class Window extends JFrame {
     }
 
     /**
-     * updte both progres bar according to frodo cp and hp
+     * updte the three progress bars according to frodo cp,hp and bag's weight
      * @param percentHealth
      * @param percentCorruption
      */
-    public void updateProgressBar(int percentHealth, int percentCorruption) {
+    public void updateProgressBar() {
+	int percentCorruption = game.getPlayer().getCorruption();
+	int percentHealth = game.getPlayer().getHp();
+	int weight = game.getPlayer().getWeight();
+	int maxWeight = game.getPlayer().getMaximumInventoyWeight();
 	progressBarCorruption.setValue(percentCorruption);
-	progressBarCorruption.setString("Cp :" + percentCorruption + " %");
+	progressBarCorruption.setString("Cp:" + percentCorruption + " %");
 	progressBarHealth.setValue(percentHealth);
-	progressBarHealth.setString("Hp :" + percentHealth + " %");
+	progressBarHealth.setString("Hp:" + percentHealth + " %");
+	progressBarWeight.setValue(weight);
+	progressBarWeight.setString("Weight: "+weight+"/"+maxWeight);
     }
 
     /**
@@ -724,6 +743,8 @@ public class Window extends JFrame {
 	}
 	;
     }
+    
+ 
 
     /**
      * check if an ennemy is in the current room, if true it attacks frodo
@@ -755,13 +776,16 @@ public class Window extends JFrame {
     }
 
     public void updateAll() {
-	this.updateProgressBar(game.getPlayer().getHp(), game.getPlayer().getCorruption());
-	if (game.getPlayer().getHp() <= 0 || game.getPlayer().getCorruption() >= 100) {
+	this.updateProgressBar();
+	
+	//check if dead
+	if (!game.getPlayer().isAlive()) {
 	    JOptionPane.showMessageDialog(getRootPane(),
-		    "Your hp was too low or you corruption points was to high, you are dead. It is GAME OVER !",
+		    "You are dead. It is GAME OVER !",
 		    "Game Over", JOptionPane.ERROR_MESSAGE);
 	    this.dispose();
 	}
+	
 	this.updateListNPC(); // a checker
 	this.updateInventory(); // a checker
 	this.updateDesItem();
