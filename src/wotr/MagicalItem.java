@@ -46,7 +46,7 @@ public class MagicalItem extends Item {
     }
 
     /**
-     * When you use a magicalITem, your corruption points can be upgraded or reduce
+     * When you use a magicalITem, your corruption points can be increased or decreased
      */
     public void use() {
 	getCurrentPlayer().addCorruption(this.corruptionPower);

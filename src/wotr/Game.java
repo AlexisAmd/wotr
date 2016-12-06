@@ -234,7 +234,7 @@ public class Game {
 	roomPPGandalf.addNPC(npcNazgul3);
     }
     /**
-     * Check if Frodo has always enough hp
+     * Check if Frodo droped the ring in the vlocano and if he is always alive
      */
     public void win() {
 	//if ring in volcano and frodo alive then return true ! 

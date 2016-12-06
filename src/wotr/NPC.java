@@ -93,7 +93,7 @@ public class NPC {
 	}
 
 	/**
-	 *COmmon method use to all npc. A npc can at least, give or retrieve hp or corruption points to Frodo
+	 *COmmon method used by all npc. A npc can at least, give or retrieve hp or corruption points to Frodo. He can do that only one time. Once he done that, his powers are set to "already used"
 	 *@return true if the NPC is used
 	 *@return false if the npc is  already used
 	 */
