@@ -20,6 +20,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 import java.util.ArrayList;
 import java.awt.Color;
 import javax.swing.JProgressBar;
@@ -785,6 +786,7 @@ public class Window extends JFrame {
      * @param url the path to the image
      */
     public void updateImage(String url) {
+	//URL theURL = this.getClass().getResource(url);
 	ImageIcon image = new ImageIcon(url);
 	ImageHome.setIcon(image);
     }
