@@ -11,11 +11,14 @@ public class Food extends Item
 {
     
     private int calory; //positive integer
-    private Player currentPlayer; // act like a reference to the parent current item in order to use the method use() without breaking encapsulation with a get
 
     /**
-     * Constructeur d'objets de classe Food
-     * @param name (name of the food), description (its description), weight (its weight), calory (its calory), player (the player associated)
+     * Constructor of the class food
+     * @param name (name of the food)
+     * @param description (its description)
+     * @param weight (its weight)
+     * @param calory (its calory)
+     * @param player (the player associated)
      */
     public Food(String name, String description, int weight, int calory, Player currentPlayer)
     {
@@ -23,24 +26,29 @@ public class Food extends Item
         this.calory = calory; //CANT BE A NEGATIVE VALUE
     }
 
-    /*
-     * Give all the attributes of the food(non-Javadoc)
-     * @return name (name of the food), description (its description), weight (its weight), calory (its calory) 
+    /**
+     * Give all the attributes of the food
+     * @return name (name of the food)
+     * @return  description (its description)
+     * @return  weight (its weight)
+     * @return calory (its calory) 
      */
     public String toString()
     {
         return "Name : "+getName()+"\n"+"Description : "+getDescription()+"\n"+"Weight : "+getWeight()+"\n" +"Calory : "+getCalory();
     }
     
-    /* 
+    /**
      * get calory of food
-     * @return calory
+     * @return calory the calory of the food
      */
     public int getCalory(){
         return this.calory;
     }
 
-    //When you use a food, your hp is upgraded depending on calories
+    /**
+     * When you use a food, your hp is upgraded depending on calories
+     */
     public void use(){
         super.getCurrentPlayer().addHp(this.calory); //n'est pas trop sensé marcher
     }

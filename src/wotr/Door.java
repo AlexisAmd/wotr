@@ -1,21 +1,14 @@
 
 /**
- * Class wich describes Doors
+ *  * This class represent a door. 
+ * This door is characterized by the current room (room where the player is) and the next room (room behind the door).
  * 
  * @author GR1 - 
  * @version (a version number or a date)
  */
-/**
- * Class to manage exits (door)
- * 
 
- */
 package wotr;
 
-/*
- * This class represent a door. 
- * This door is characterized by the current room (room where the player is) and the next room (room behind the door).
- */
 public class Door
 {
     protected Room nextRoom;
@@ -32,8 +25,9 @@ public class Door
         this.nextRoom=nextRoom;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
+    /**
+     * Method to get the description of the next room
+     * return the description of the next room
      */
     @Override
     public String toString() {
@@ -57,6 +51,7 @@ public class Door
     }
 
     /**
+     * Method which return the current room
      * @return the currentRoom
      */
     public Room getCurrentRoom() {
