@@ -57,18 +57,18 @@ public class Game {
 		doorBagginsStreet2BagginsStreet1, doorBagginsStreet2RoadToBree, doorSamHouseBagginsStreet2;
 	KeyLockedDoor doorBagginsStreet2SamHouse;
 	// Create the rooms (description, script, image)
-	roomBilboHouseStart = new Room("Bilbo’s house", "This house keeps a lot of secret and foreign stories", "src/gui/image/roomBilboHouseStart.jpg");
+	roomBilboHouseStart = new Room("Bilbo’s house", "This house keeps a lot of secret and foreign stories", "/roomBilboHouseStart.jpg");
 	roomBagginsStreet1 = new Room("Hobbiton main's street north", "The main street of the Hobbiton, your place of birth.",
-		"src/gui/image/roomBagginsStreet1.jpg");
+		"/roomBagginsStreet1.jpg");
 	roomBagginsStreet2 = new Room("Hobbiton main's street south" , "You should visit your friend Sam, someone left his keys to Bilbo's birthday party...",
-		"src/gui/image/roomBagginsStreet2.jpg");
-	roomGreenDragonInn = new Room("The Fancy Poney", "A popular inn in the Shire", "src/gui/image/roomGreenDragonInn.jpg");
+		"/roomBagginsStreet2.jpg");
+	roomGreenDragonInn = new Room("The Fancy Poney", "A popular inn in the Shire", "/roomGreenDragonInn.jpg");
 	roomSamHouse = new Room("Sam's house. ",
-		"Sam is your gardenner but also a good friend.", "src/gui/image/roomSamHouse.jpg");
+		"Sam is your gardenner but also a good friend.", "/roomSamHouse.jpg");
 	room111thBirthday = new Room("Bilbo's party", "The aftermaths of your uncle’s 111th birthday party. It’s a mess.",
-		"src/gui/image/room111thBirthday.jpg");
+		"/room111thBirthday.jpg");
 	roomRoadToBree = new Room("Road to bree", "Onward starts your journey to save the world.",
-		"src/gui/image/roomRoadToBree.jpg");
+		"/roomRoadToBree.jpg");
 	// Create doors
 	doorBagginsStreet1BilboHouse = new Door(roomBagginsStreet1, roomBilboHouseStart);
 	doorBilboHouseBagginsStreet1 = new Door(roomBilboHouseStart, roomBagginsStreet1);
@@ -159,15 +159,15 @@ public class Game {
 	WorldDoor worlddoorShireToBree;
 	// Create rooms (description, script, image)
 	roomBuckleburyFerry = new Room("Bucklebury Ferry", "Taking the ferry will allow you to avoid dark riders along the way",
-			"src/gui/image/roomBuckleburyFerry.jpg");
-	roomCityCenter = new Room("City center", "The center of the city of Bree", "src/gui/image/BreeCityCenter.jpg");
-	roomCityEntrance = new Room("City Entrance", "The entrance of the city of Bree", "src/gui/image/BreeCityEntrance.jpg");
-	roomPPBar = new Room("Prancing Pony Bar", "It is the most famous bar of Bree", "src/gui/image/PPBar.jpg");
-	roomPPDormitory = new Room("Prancing Pony Dormitory", "You can sleep in the dormitory... Or maybe not", "src/gui/image/PPDormitory.png"); //Nazgul in a dormitory?
-	roomPPGandalf = new Room("Prancing Pony Gandalf's Room", "You are in the Gandalf's Room", "src/gui/image/PPGandalf.jpg");
-	roomPPStrider = new Room("Prancing Pony Strider's Room", "You are in the Strider's Room", "src/gui/image/PPStrider.jpg");
-	roomDarkAlley1 = new Room("DarK Alley East", "A scary dark alley", "src/gui/image/darkAlley1.jpg");
-	roomDarkAlley2 = new Room("Dark Alley West", "A scary dark alley", "src/gui/image/DarkAlley2.png");
+			"/roomBuckleburyFerry.jpg");
+	roomCityCenter = new Room("City center", "The center of the city of Bree", "/BreeCityCenter.jpg");
+	roomCityEntrance = new Room("City Entrance", "The entrance of the city of Bree", "/BreeCityEntrance.jpg");
+	roomPPBar = new Room("Prancing Pony Bar", "It is the most famous bar of Bree", "/PPBar.jpg");
+	roomPPDormitory = new Room("Prancing Pony Dormitory", "You can sleep in the dormitory... Or maybe not", "/PPDormitory.png"); //Nazgul in a dormitory?
+	roomPPGandalf = new Room("Prancing Pony Gandalf's Room", "You are in the Gandalf's Room", "/PPGandalf.jpg");
+	roomPPStrider = new Room("Prancing Pony Strider's Room", "You are in the Strider's Room", "/PPStrider.jpg");
+	roomDarkAlley1 = new Room("DarK Alley East", "A scary dark alley", "/darkAlley1.jpg");
+	roomDarkAlley2 = new Room("Dark Alley West", "A scary dark alley", "/DarkAlley2.png");
 	// Create doors
 	worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
 	doorBuckleburyFerryCityEntrance = new Door(roomBuckleburyFerry, roomCityEntrance);
@@ -249,9 +249,9 @@ public class Game {
 	Door doorPPStriderroomMuddiRoad1of350,doorroomMuddyRoad1of350roomMuddyRoad2of350,doorroomMuddyRoad2of350roomMuddyRoad3of350,
 	doorroomMuddyRoad3of350roomPortal,doorroomPortalroomSauronsForge;
 	// Create rooms (description, script, image)
-	roomMuddyRoad1of350 = new Room("Muddy Road 1 of 350","Good Luck","src/gui/image/MuddyRoad1.jpg");
-	roomMuddyRoad2of350 = new Room("Muddy Road 2 of 350","wow the same boring room","src/gui/image/MuddyRoad2.jpg");
-	roomMuddyRoad3of350 = new Room("Muddy Road 3 of 350", "Borrrrrrrrrringgggg", "src/gui/image/MuddyRoad3.jpg");
+	roomMuddyRoad1of350 = new Room("Muddy Road 1 of 350","Good Luck","/MuddyRoad1.jpg");
+	roomMuddyRoad2of350 = new Room("Muddy Road 2 of 350","wow the same boring room","/MuddyRoad2.jpg");
+	roomMuddyRoad3of350 = new Room("Muddy Road 3 of 350", "Borrrrrrrrrringgggg", "/MuddyRoad3.jpg");
 	roomPortal = new Room("Portaaaaaaaal","WOW Where is it going to lead me ?","portal.gif");
 	roomSauronsForge = new Room("Sauron's forge","OMG the legendary volcano of Sauron !","Volcan.jpg");
 			
