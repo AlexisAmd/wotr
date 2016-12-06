@@ -319,6 +319,7 @@ public class Window extends JFrame {
 	panelRoomName.setBounds(12, 0, 732, 44);
 	panelLeft.add(panelRoomName);
 	txtpnRoomName = new JTextPane();
+	txtpnRoomName.setEditable(false);
 	txtpnRoomName.setMargin(new Insets(0, 3, 3, 3));
 	txtpnRoomName.setForeground(new Color(218, 165, 32));
 	txtpnRoomName.setFont(new Font("Monotype Corsiva", Font.PLAIN, 35));
