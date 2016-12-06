@@ -38,32 +38,33 @@ public class Window extends JFrame {
     /**
      * 
      */
+    //Grahpical variables
     private static final long serialVersionUID = 1L; //je sais pas trop aquoi ca sert mais eclipse me disait de le faire
     private JPanel panelLeft, panelDirection, panelSU, panelImage, panelRight, panelInfoTopPlayer, panelInfoPlayer,
-	    panelinfoBottom, panelNPC, panelInventory;
+	    panelinfoBottom, panelNPC, panelInventory, panelRoomName;
     private JButton btnWest, btnEast, btnNorth, btnSouth, btnSearch, btnPickUp, btnframeMap, btnUseNPC, btnDropNPC,
 	    btnUseItem, btnDropItem;
-    private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneDesInventory;
-    private JLabel ImageHome;
+    private JTextPane textPanePrompt, textPanePlayer, textPaneDesNPC, textPaneDesInventory, txtpnRoomName;
+    private JLabel ImageHome, iconPlayer;
     private JProgressBar progressBarHealth, progressBarCorruption, progressBarWeight;
     private JScrollPane scrollBar;
     private DefaultListModel<String> modelNPC, modelInventory;
     // Other variables
     private Game game;
-    private JList<String> listNPC;
-    private JList<String> listInventory;
-    private JLabel iconPlayer;
+    private JList<String> listNPC, listInventory;
     private NPC selectedNPC;
     private Item selectedItem;
-    private JTextPane txtpnRoomName;
-
-    // public static void main(String[] arg) {
-    // Window window = new Window();
-    // }
+ 
+    
+/**
+ * Constructor of class window. Creates the window.
+ */
     public Window() {
+	
+	//MAIN FRAME
 	this.setVisible(true);
 	this.setBounds(0, 0, 1166, 768 - 150);
-	this.setLocationRelativeTo(null);
+	this.setLocationRelativeTo(null); //center at stratup
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.getContentPane().setFont(new Font("Roboto", Font.PLAIN, 12));
 	this.setOpacity(1);
@@ -72,17 +73,22 @@ public class Window extends JFrame {
 	this.getContentPane().setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.getContentPane().setLayout(null);
+	
+	//PANEL LEFT
 	panelLeft = new JPanel();
 	panelLeft.setBackground(new Color(0, 0, 0));
 	panelLeft.setBounds(0, 0, 756, 589);
 	this.getContentPane().add(panelLeft);
 	panelLeft.setLayout(null);
+	
+	//PANEL LEFT - Direction
 	panelDirection = new JPanel();
 	panelDirection.setBounds(150, 417, 160, 160);
 	panelDirection.setOpaque(false);
 	panelDirection.setBackground(new Color(0, 0, 0, 0));
 	panelLeft.add(panelDirection);
 	panelDirection.setLayout(new BorderLayout(0, 0));
+	//
 	btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
 	btnWest.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -96,6 +102,7 @@ public class Window extends JFrame {
 	btnWest.setBorderPainted(false);
 	btnWest.setContentAreaFilled(false);
 	panelDirection.add(btnWest, BorderLayout.WEST);
+	//
 	btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
 	btnEast.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -110,6 +117,7 @@ public class Window extends JFrame {
 	btnEast.setBorderPainted(false);
 	btnEast.setContentAreaFilled(false);
 	panelDirection.add(btnEast, BorderLayout.EAST);
+	//
 	btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
 	btnNorth.setToolTipText("North");
 	btnNorth.setOpaque(false);
@@ -122,6 +130,7 @@ public class Window extends JFrame {
 	    }
 	});
 	panelDirection.add(btnNorth, BorderLayout.NORTH);
+	//
 	btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
 	btnSouth.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -136,13 +145,16 @@ public class Window extends JFrame {
 	btnSouth.setBorderPainted(false);
 	btnSouth.setContentAreaFilled(false);
 	panelDirection.add(btnSouth, BorderLayout.SOUTH);
+	
+	//PANEL LEFT - Panel tools
 	panelSU = new JPanel();
 	panelSU.setBounds(12, 417, 126, 160);
 	panelSU.setOpaque(false);
 	panelSU.setBackground(new Color(0, 0, 0, 0));
 	panelLeft.add(panelSU);
 	panelSU.setLayout(new GridLayout(3, 1, 0, 0));
-	// Search
+	
+	//PANEL LEFT - Panel tools - Search
 	btnSearch = new JButton(new ImageIcon("src/gui/image/oeil.gif"));
 	btnSearch.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -173,7 +185,8 @@ public class Window extends JFrame {
 	btnSearch.setBorderPainted(false);
 	btnSearch.setContentAreaFilled(false);
 	panelSU.add(btnSearch);
-	// PickUp
+	
+	//PANEL LEFT - Panel tools - PickUp
 	btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon2.png"));
 	btnPickUp.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -203,15 +216,6 @@ public class Window extends JFrame {
 		    } 
 		    updateAll();
 		}
-		// for (Iterator<Item> iterator = game.getPlayer().getCurrentRoom().getItemList().iterator(); iterator
-		// .hasNext();) {
-		// Item item = iterator.next();
-		// if (game.getPlayer().pickUpItem(item)) {
-		// setScript(item.getName() + " has been picked up ! ");
-		// } else {
-		// setScript(item.getName() + "is to heavy for you.");
-		// }
-		// }
 	    }
 	});
 	btnPickUp.setToolTipText("Pick Up");
@@ -219,6 +223,8 @@ public class Window extends JFrame {
 	btnPickUp.setBorderPainted(false);
 	btnPickUp.setContentAreaFilled(false);
 	panelSU.add(btnPickUp);
+	
+	//PANEL LEFT - Panel tools - Map
 	btnframeMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
 	btnframeMap.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -248,6 +254,8 @@ public class Window extends JFrame {
 	btnframeMap.setBorderPainted(false);
 	btnframeMap.setContentAreaFilled(false);
 	panelSU.add(btnframeMap);
+	
+	////PANEL LEFT - Panel prompt
 	JScrollPane scrollPanePrompt = new JScrollPane();
 	scrollPanePrompt
 		.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(160, 82, 45), new Color(160, 82, 45)));
@@ -262,47 +270,55 @@ public class Window extends JFrame {
 	textPanePrompt.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	textPanePrompt.setForeground(new Color(0, 0, 0));
 	textPanePrompt.setBackground(new Color(240, 230, 140));
-	//
-	//
+	
+	////PANEL LEFT - Panel Image
 	panelImage = new JPanel();
-	ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage2.jpg"));// Test
-	// image
+	ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage2.jpg"));
 	panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 	panelImage.setBounds(12, 53, 732, 353);
 	panelImage.add(ImageHome);
 	panelLeft.add(panelImage);
 	panelImage.setLayout(new GridLayout(0, 1, 0, 0));
-	JPanel panel = new JPanel();
-	panel.setOpaque(false);
-	panel.setBounds(12, 0, 732, 42);
-	panelLeft.add(panel);
+	
+	////PANEL LEFT - Room Name
+	panelRoomName = new JPanel();
+	panelRoomName.setOpaque(false);
+	panelRoomName.setBounds(12, 0, 732, 42);
+	panelLeft.add(panelRoomName);
+	
 	txtpnRoomName = new JTextPane();
 	txtpnRoomName.setMargin(new Insets(0, 3, 3, 3));
 	txtpnRoomName.setForeground(new Color(218, 165, 32));
 	txtpnRoomName.setFont(new Font("Monotype Corsiva", Font.PLAIN, 35));
 	txtpnRoomName.setText("Room name");
 	txtpnRoomName.setOpaque(false);
-	panel.add(txtpnRoomName);
+	panelRoomName.add(txtpnRoomName);
+	
 	//
+	//
+	//PANELRIGHT
 	panelRight = new JPanel();
 	panelRight.setBackground(new Color(54, 29, 0));
-	// panelRight.setForeground(Color.BLACK);
 	panelRight.setBorder(null);
-	// panelRight.setBackground(new Color(218, 165, 32));
 	panelRight.setBounds(756, 0, 404, 589);
 	this.getContentPane().add(panelRight);
 	panelRight.setLayout(new GridLayout(3, 1, 0, 0));
+	
+	//PANELRIGHT - Info player
 	panelInfoPlayer = new JPanel();
 	panelInfoPlayer.setOpaque(false);
 	panelInfoPlayer.setBackground(new Color(255, 255, 255));
 	panelInfoPlayer.setForeground(Color.BLACK);
 	panelRight.add(panelInfoPlayer);
 	panelInfoPlayer.setLayout(new GridLayout(2, 0, 0, 0));
+	
+	//PANELRIGHT - Info player - Top
 	panelInfoTopPlayer = new JPanel();
 	panelInfoTopPlayer.setOpaque(false);
 	panelInfoTopPlayer.setBorder(null);
 	panelInfoTopPlayer.setLayout(null);
 	panelInfoPlayer.add(panelInfoTopPlayer);
+	//
 	textPanePlayer = new JTextPane();
 	textPanePlayer.setForeground(new Color(240, 230, 140));
 	textPanePlayer.setOpaque(false);
@@ -313,16 +329,20 @@ public class Window extends JFrame {
 	textPanePlayer.setBounds(96, 12, 296, 74);
 	panelInfoTopPlayer.add(textPanePlayer);
 	textPanePlayer.setEditable(false);
+	//
 	iconPlayer = new JLabel("Frodo");
 	iconPlayer.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 	iconPlayer.setToolTipText("Frodo Baggins");
 	iconPlayer.setOpaque(true);
-	iconPlayer.setIcon(new ImageIcon(("/gui/image/frodo.png")));
+	iconPlayer.setIcon(new ImageIcon(("src/gui/image/frodo.png")));
 	iconPlayer.setBounds(10, 12, 76, 74);
 	panelInfoTopPlayer.add(iconPlayer);
+	//
 	panelinfoBottom = new JPanel();
 	panelinfoBottom.setOpaque(false);
 	panelInfoPlayer.add(panelinfoBottom);
+	
+	//PANELRIGHT - Info player - Bottom
 	panelinfoBottom.setLayout(null);
 	progressBarHealth = new JProgressBar();
 	progressBarHealth.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
@@ -334,6 +354,7 @@ public class Window extends JFrame {
 	progressBarHealth.setForeground(Color.RED);
 	progressBarHealth.setBackground(Color.WHITE);
 	panelinfoBottom.add(progressBarHealth);
+	//
 	progressBarCorruption = new JProgressBar();
 	progressBarCorruption.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	progressBarCorruption.setOpaque(true);
@@ -343,7 +364,7 @@ public class Window extends JFrame {
 	progressBarCorruption.setStringPainted(true);
 	progressBarCorruption.setBackground(Color.WHITE);
 	panelinfoBottom.add(progressBarCorruption);
-	
+	//
 	progressBarWeight = new JProgressBar();
 	progressBarWeight.setBackground(Color.WHITE);
 	progressBarWeight.setStringPainted(true);
@@ -355,14 +376,17 @@ public class Window extends JFrame {
 	progressBarWeight.setMaximum(50);
 	progressBarWeight.setBounds(12, 67, 380, 20);
 	panelinfoBottom.add(progressBarWeight);
-	// PANEL NPC
+	
+	//PANELRIGHT - NPC
 	panelNPC = new JPanel();
 	panelNPC.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Fellowship",
 		TitledBorder.CENTER, TitledBorder.TOP, null, new Color(238, 232, 170)));
 	panelNPC.setOpaque(false);
 	panelNPC.setLayout(null);
 	panelRight.add(panelNPC);
-	// BUTTON NPC
+	
+	
+	//PANELRIGHT - Info player - Btn
 	btnUseNPC = new JButton("Use");
 	btnUseNPC.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -423,6 +447,7 @@ public class Window extends JFrame {
 	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 16));
 	btnUseNPC.setBounds(166, 22, 108, 39);
 	panelNPC.add(btnUseNPC);
+	//PANELRIGHT - Info player -btn - drop
 	btnDropNPC = new JButton("Drop");
 	btnDropNPC.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -441,7 +466,7 @@ public class Window extends JFrame {
 	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 16));
 	btnDropNPC.setBounds(284, 22, 108, 39);
 	panelNPC.add(btnDropNPC);
-	// Description NPPC
+	//PANELRIGHT - NPC - Description
 	textPaneDesNPC = new JTextPane();
 	textPaneDesNPC.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	textPaneDesNPC.setBackground(new Color(238, 232, 170));
@@ -450,7 +475,8 @@ public class Window extends JFrame {
 	textPaneDesNPC.setEditable(false);
 	textPaneDesNPC.setBounds(166, 72, 226, 113);
 	panelNPC.add(textPaneDesNPC);
-	// List NPC
+	
+	//PANELRIGHT - NPC - List
 	modelNPC = new DefaultListModel<String>();
 	modelNPC.addElement("");
 	listNPC = new JList<String>(modelNPC);
@@ -470,15 +496,15 @@ public class Window extends JFrame {
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listNPC.setBounds(10, 22, 146, 163);
 	panelNPC.add(listNPC);
-	//
-	// PANEL INVENTORY
+	
+	//PANELRIGHT - Inventory
 	panelInventory = new JPanel();
 	panelInventory.setBorder(new TitledBorder(null, "Inventory", TitledBorder.CENTER, TitledBorder.TOP, null,
 		new Color(238, 232, 170)));
 	panelInventory.setOpaque(false);
 	panelInventory.setLayout(null);
 	panelRight.add(panelInventory);
-	// BTN Inventory
+	//PANELRIGHT - Inventory - btn
 	btnUseItem = new JButton("Use");
 	btnUseItem.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -514,6 +540,7 @@ public class Window extends JFrame {
 	btnUseItem.setFont(new Font("Roboto", Font.PLAIN, 16));
 	btnUseItem.setBounds(166, 21, 108, 40);
 	panelInventory.add(btnUseItem);
+	//
 	btnDropItem = new JButton("Drop");
 	btnDropItem.addMouseListener(new MouseAdapter() {
 	    @Override
@@ -531,7 +558,8 @@ public class Window extends JFrame {
 	btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 16));
 	btnDropItem.setBounds(284, 21, 108, 40);
 	panelInventory.add(btnDropItem);
-	// Decription Invetory
+	
+	//PANELRIGHT - Inventory - description
 	textPaneDesInventory = new JTextPane();
 	textPaneDesInventory.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	textPaneDesInventory.setBackground(new Color(238, 232, 170));
@@ -539,7 +567,8 @@ public class Window extends JFrame {
 	textPaneDesInventory.setEditable(false);
 	textPaneDesInventory.setBounds(166, 72, 226, 113);
 	panelInventory.add(textPaneDesInventory);
-	// list Inventory
+	
+	//PANELRIGHT - Inventory - list
 	modelInventory = new DefaultListModel<String>();
 	modelInventory.addElement("");
 	listInventory = new JList<String>(modelInventory);
@@ -562,7 +591,7 @@ public class Window extends JFrame {
     }
 
     /**
-     * Add a line to the command prompt
+     * Add a line to the command prompt, same use as the println()
      * 
      * @param script
      *            The line which has to be added
@@ -755,9 +784,13 @@ public class Window extends JFrame {
 	    if (npc.getClass().getSimpleName().equals("Enemy")) {
 		JOptionPane
 			.showMessageDialog(getRootPane(),
-				npc.getName() + " is attacking you ! \n - Corruption : +" + npc.getCpPower()
-					+ "\n - Health: " + npc.getHpPower(),
-				"Fight Alert !", JOptionPane.WARNING_MESSAGE);
+				npc.getName() + " is attacking you ! \n"+
+			npc.getDescription()+"\n"
+			+" - Corruption : +" + npc.getCpPower()
+					+ "\n - Health: " + npc.getHpPower()
+					
+					, npc.getName()+
+				" alert !", JOptionPane.WARNING_MESSAGE);
 		npc.use();
 	    }
 	}
