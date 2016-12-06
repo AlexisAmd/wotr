@@ -254,7 +254,7 @@ public class Game {
      */
     public boolean win() {
 	
-	return (currentPlayer.getCurrentRoom().getItemList().contains(magicalItemRing) && currentPlayer.getCurrentRoom().getDescription().equals("Sauron's Forge") );
+	return (currentPlayer.isAlive() && currentPlayer.getCurrentRoom().getItemList().contains(magicalItemRing) && currentPlayer.getCurrentRoom().getDescription().equalsIgnoreCase("Sauron's Forge") );
     }
 
     /**
