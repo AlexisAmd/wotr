@@ -17,6 +17,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import java.awt.Insets;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyAdapter;
 
 public class Window extends JFrame {
     /**
@@ -79,13 +82,23 @@ public class Window extends JFrame {
 	panelLeft.setLayout(null);
 	// PANEL LEFT - Direction
 	panelDirection = new JPanel();
-	panelDirection.setBounds(150, 417, 160, 160);
+	panelDirection.setBounds(162, 426, 148, 151);
 	panelDirection.setOpaque(false);
 	panelDirection.setBackground(new Color(0, 0, 0, 0));
 	panelLeft.add(panelDirection);
 	panelDirection.setLayout(new BorderLayout(0, 0));
-	//
+	//west
 	btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
+	btnWest.setMnemonic(KeyEvent.VK_LEFT);
+	btnWest.addKeyListener(new KeyAdapter() {
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+		    if(arg0.getKeyCode() == KeyEvent.VK_LEFT ){
+			game.getPlayer().goRoom("west");
+			routineGoRoom();
+		    }
+		}
+	});
 	btnWest.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
@@ -98,8 +111,19 @@ public class Window extends JFrame {
 	btnWest.setBorderPainted(false);
 	btnWest.setContentAreaFilled(false);
 	panelDirection.add(btnWest, BorderLayout.WEST);
-	//
+	//east
 	btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
+	btnEast.setMnemonic(KeyEvent.VK_RIGHT);
+	btnEast.addKeyListener(new KeyAdapter() {
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+		    if(arg0.getKeyCode() == KeyEvent.VK_RIGHT ){
+			game.getPlayer().goRoom("east");
+			routineGoRoom();
+		    }
+		}
+	});
+	
 	btnEast.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
@@ -115,6 +139,17 @@ public class Window extends JFrame {
 	panelDirection.add(btnEast, BorderLayout.EAST);
 	//
 	btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
+	btnNorth.setMnemonic(KeyEvent.VK_UP);
+	btnNorth.addKeyListener(new KeyAdapter() {
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+		    if(arg0.getKeyCode() == KeyEvent.VK_UP ){
+			game.getPlayer().goRoom("north");
+			routineGoRoom();
+		    }
+		}
+	});
+
 	btnNorth.setToolTipText("North");
 	btnNorth.setOpaque(false);
 	btnNorth.setBorderPainted(false);
@@ -126,8 +161,19 @@ public class Window extends JFrame {
 	    }
 	});
 	panelDirection.add(btnNorth, BorderLayout.NORTH);
-	//
+	//south
 	btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
+	btnSouth.setMnemonic(KeyEvent.VK_DOWN);
+	
+	btnSouth.addKeyListener(new KeyAdapter() {
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+		    if(arg0.getKeyCode() == KeyEvent.VK_DOWN ){
+			game.getPlayer().goRoom("south");
+			routineGoRoom();
+		    }
+		}
+	});;
 	btnSouth.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
@@ -143,13 +189,14 @@ public class Window extends JFrame {
 	panelDirection.add(btnSouth, BorderLayout.SOUTH);
 	// PANEL LEFT - Panel tools
 	panelSU = new JPanel();
-	panelSU.setBounds(12, 417, 126, 160);
+	panelSU.setBounds(12, 426, 126, 151);
 	panelSU.setOpaque(false);
 	panelSU.setBackground(new Color(0, 0, 0, 0));
 	panelLeft.add(panelSU);
 	panelSU.setLayout(new GridLayout(3, 1, 0, 0));
 	// PANEL LEFT - Panel tools - Search
-	btnSearch = new JButton(new ImageIcon("src/gui/image/oeil.gif"));
+	
+	btnSearch = new JButton(new ImageIcon(new ImageIcon("src/gui/image/eye-icon.png").getImage().getScaledInstance(70, 40, Image.SCALE_DEFAULT)));
 	btnSearch.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
@@ -256,7 +303,7 @@ public class Window extends JFrame {
 	scrollPanePrompt
 		.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(160, 82, 45), new Color(160, 82, 45)));
 	scrollPanePrompt.setMaximumSize(new Dimension(424, 160));
-	scrollPanePrompt.setBounds(320, 417, 424, 160);
+	scrollPanePrompt.setBounds(320, 426, 424, 151);
 	panelLeft.add(scrollPanePrompt);
 	textPanePrompt = new JTextPane();
 	textPanePrompt.setSelectedTextColor(new Color(238, 232, 170));
@@ -266,18 +313,10 @@ public class Window extends JFrame {
 	textPanePrompt.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	textPanePrompt.setForeground(new Color(0, 0, 0));
 	textPanePrompt.setBackground(new Color(240, 230, 140));
-	//// PANEL LEFT - Panel Image
-	panelImage = new JPanel();
-	ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage2.jpg"));
-	panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-	panelImage.setBounds(12, 53, 732, 353);
-	panelImage.add(ImageHome);
-	panelLeft.add(panelImage);
-	panelImage.setLayout(new GridLayout(0, 1, 0, 0));
 	//// PANEL LEFT - Room Name
 	panelRoomName = new JPanel();
 	panelRoomName.setOpaque(false);
-	panelRoomName.setBounds(12, 0, 732, 42);
+	panelRoomName.setBounds(12, 0, 732, 44);
 	panelLeft.add(panelRoomName);
 	txtpnRoomName = new JTextPane();
 	txtpnRoomName.setMargin(new Insets(0, 3, 3, 3));
@@ -286,6 +325,14 @@ public class Window extends JFrame {
 	txtpnRoomName.setText("Room name");
 	txtpnRoomName.setOpaque(false);
 	panelRoomName.add(txtpnRoomName);
+	//// PANEL LEFT - Panel Image
+	panelImage = new JPanel();
+	ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage2.jpg"));
+	panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
+	panelImage.setBounds(12, 42, 732, 373);
+	panelImage.add(ImageHome);
+	panelLeft.add(panelImage);
+	panelImage.setLayout(new GridLayout(0, 1, 0, 0));
 	//
 	//
 	// PANELRIGHT
@@ -373,7 +420,7 @@ public class Window extends JFrame {
 	panelNPC.setLayout(null);
 	panelRight.add(panelNPC);
 	// PANELRIGHT - Info player - Btn
-	btnUseNPC = new JButton("Use");
+	btnUseNPC = new JButton("Ask for help");
 	btnUseNPC.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent arg0) {
@@ -436,11 +483,11 @@ public class Window extends JFrame {
 		updateAll();
 	    }
 	});
-	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 16));
+	btnUseNPC.setFont(new Font("Roboto", Font.PLAIN, 14));
 	btnUseNPC.setBounds(166, 22, 108, 39);
 	panelNPC.add(btnUseNPC);
 	// PANELRIGHT - Info player -btn - drop
-	btnDropNPC = new JButton("Drop");
+	btnDropNPC = new JButton("Leave here");
 	btnDropNPC.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
@@ -455,7 +502,7 @@ public class Window extends JFrame {
 		}
 	    }
 	});
-	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 16));
+	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 14));
 	btnDropNPC.setBounds(284, 22, 108, 39);
 	panelNPC.add(btnDropNPC);
 	// PANELRIGHT - NPC - Description
