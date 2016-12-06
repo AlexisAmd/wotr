@@ -34,7 +34,7 @@ public class KeyLockedDoor extends LockedDoor {
 	 * @return nextRoom the nextRoom can be the current Room
 	 */
 	public Room getNextRoom(Room currentRoom) {
-		if (super.getLocked()) {
+		if (super.getLocked()) {//affichage à deplacer dans window, il me semble que ce n'est pas très propre d'ajouter du graphique sur le noyau fonctionnel
 			JOptionPane.showMessageDialog(null, "You need to use a key to open this door!", 
 				    "LockedDoor", JOptionPane.WARNING_MESSAGE);
 			return null; //locked
