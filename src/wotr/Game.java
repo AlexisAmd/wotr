@@ -117,12 +117,15 @@ public class Game {
 	roomRoadToBree.addItem(foodCarrots);
 	room111thBirthday.addItem(potionElixir);
 	room111thBirthday.addItem(keyToSamHouse);
+	//D&lcare npc
 	Magician npcGandalf;
 	Hobbit npcSam, npcPipin, npcMerry;
 	Enemy npcDrunkHobbit;
+	Warrior warriorBraveHobbit;
 	
 	// Create NPC
 	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10);
+	warriorBraveHobbit = new Warrior("Mr Brandbouc", "A old bilb'os friends", 0, 0);
 	//Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, -50);
 	
 	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0);
@@ -132,10 +135,10 @@ public class Game {
 	// Add NPC to rooms
 	roomBagginsStreet1.addNPC(npcGandalf);
 	roomSamHouse.addNPC(npcSam);
-
 	room111thBirthday.addNPC(npcDrunkHobbit);
 	roomRoadToBree.addNPC(npcPipin);
 	roomRoadToBree.addNPC(npcMerry);
+	roomGreenDragonInn.addNPC(warriorBraveHobbit);
 	
 	
 	
