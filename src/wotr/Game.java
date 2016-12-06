@@ -155,11 +155,11 @@ public class Game {
 	// Create rooms (description, script, image)
 	roomBuckleburyFerry = new Room("Bucklebury Ferry", "Taking the ferry will allow you to avoid dark riders along the way",
 		"src/gui/image/roomBuckleburyFerry.jpg");
-	roomCityCenter = new Room("City center", "The center of the city of Bree", "src/gui/image/BreeCityEntrance.jpg");
-	roomCityEntrance = new Room("The entrance of the city of Bree", "-script-", "src/gui/image/BreeCityCenter.jpg");
+	roomCityCenter = new Room("City center", "The center of the city of Bree", "src/gui/image/BreeCityCenter.jpg");
+	roomCityEntrance = new Room("The entrance of the city of Bree", "-script-", "src/gui/image/BreeCityEntrance.jpg");
 	roomPPBar = new Room("It is the most famous bar of Bree", "-script-", "src/gui/image/PPBar.jpg");
-	roomPPDormitory = new Room("You can sleep in the dormitory... Or maybe not", "-script-", ""); //Nazgul in a dormitory?
-	roomPPGandalf = new Room("You are in the Gandalf's Room", "-script-", "");
+	roomPPDormitory = new Room("You can sleep in the dormitory... Or maybe not", "-script-", "src/gui/image/PPDormitory.jpg"); //Nazgul in a dormitory?
+	roomPPGandalf = new Room("You are in the Gandalf's Room", "-script-", "src/gui/image/PPGandalf.jpg");
 	roomPPStrider = new Room("You are in the Strider's Room", "-script-", "src/gui/image/PPStrider.jpg");
 	roomDarkAlley1 = new Room("A scary dark alley", "-script-", "src/gui/image/darkAlley1.jpg");
 	roomDarkAlley2 = new Room("A scary dark alley", "-script-", "src/gui/image/DarkAlley2.png");
@@ -186,7 +186,7 @@ public class Game {
 	// Link the exit world to previous level
 	roomRoadToBree.addExit("south", worlddoorShireToBree);
 	// Associate doors with rooms
-	roomBuckleburyFerry.addExit("East", doorBuckleburyFerryCityEntrance);
+	roomBuckleburyFerry.addExit("east", doorBuckleburyFerryCityEntrance);
 	roomCityEntrance.addExit("west", doorCityEntranceBuckleburyFerry);
 	roomCityEntrance.addExit("east", doorCityEntranceCityCenter);
 	roomCityEntrance.addExit("south", doorCityEntranceDarkAlley2);
