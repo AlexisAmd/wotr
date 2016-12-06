@@ -92,7 +92,7 @@ public class Game {
 	roomBagginsStreet2.addExit("west", doorBagginsStreet2SamHouse);
 	roomBagginsStreet2.addExit("south", doorBagginsStreet2RoadToBree);
 	roomSamHouse.addExit("east", doorSamHouseBagginsStreet2);
-	startRoom = roomBilboHouseStart;
+	
 	// Create all the items and binds them to their rooms.
 	Key keyToSamHouse;
 	Food foodPint, foodWine, foodCarrots, foodGrilledChicken, foodMeltCheese, foodSalad;
@@ -120,6 +120,7 @@ public class Game {
 	Magician npcGandalf;
 	Hobbit npcSam, npcPipin, npcMerry;
 	Enemy npcDrunkHobbit;
+	
 	// Create NPC
 	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10);
 	//Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, -50);
@@ -129,13 +130,15 @@ public class Game {
 	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can give you 5 health point thank to the power friendship ! ", -5, 0);
 	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend,  he can give you 5 health point thank to the power friendship ! ", -5, 0);
 	// Add NPC to rooms
-	roomBilboHouseStart.addNPC(npcGandalf);
-	
+	roomBagginsStreet1.addNPC(npcGandalf);
 	roomSamHouse.addNPC(npcSam);
 
 	room111thBirthday.addNPC(npcDrunkHobbit);
 	roomRoadToBree.addNPC(npcPipin);
 	roomRoadToBree.addNPC(npcMerry);
+	
+	
+	
 	// *********************LEVEL 2 - BREE************************************
 	// Declare rooms and doors
 	Room roomBuckleburyFerry, roomCityEntrance, roomCityCenter, roomPPBar, roomPPDormitory, roomPPGandalf,
@@ -202,7 +205,7 @@ public class Game {
 	// Declare items
 	Key keyGandalfRoom;
 	Food foodBeer50, foodBeer75, foodBeer100, foodFries;
-	// Create items
+	// Instanciate items
 	foodBeer50 = new Food ("Beer", "It is a good beer (50cL)", 10, 10, currentPlayer);
 	foodBeer75 = new Food ("Pint", "It is a good beer (75cL)", 12, 12, currentPlayer);
 	foodBeer100 = new Food ("Big Beer", "It is a good beer (100cL)", 15, 15, currentPlayer);
@@ -215,23 +218,25 @@ public class Game {
 	roomPPGandalf.addItem(foodBeer75);
 	roomPPGandalf.addItem(foodBeer50);
 	// Declare NPCs
-	Enemy npcNazgul1, npcNazgul2, npcNazgul3, npcThief;
-	Warrior npcStrider1, npcStrider2;
-	// Create NPCs
-	npcNazgul1 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, -5);
-	npcNazgul2 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, -5);
-	npcNazgul3 = new Enemy("Nazgul", "The Fear that they inspire is their best weapon", 20, -5);
-	npcThief = new Enemy("Thief", "He will steal you without realizing it", 10, 0);
-	npcStrider1 = new Warrior("Aragorn", "He can protect you against ennemies by killing them all.", 0, 0);
-	npcStrider2 = new Warrior("Faramir", "He can protect you against ennemies by killing them all. Faramir is Boromir's brother but lives the shadow of him...", 0, 0);
+	Enemy enemyNazgulSmall, enemyNazgulMedium, enemyNazgulBig, enemyThief;
+	Warrior warriorAragorn, warriorFaramir;
+	// Instanciate NPCs
+	enemyNazgulSmall = new Enemy("Baby Nazgul", "The Fear that they inspire is their best weapon", 10, -5);
+	enemyNazgulMedium = new Enemy("Medium Nazgul", "The Fear that they inspire is their best weapon", 16, -10);
+	enemyNazgulBig = new Enemy("Biggest Nazgul", "The Fear that they inspire is their best weapon", 23, -15);
+	enemyThief = new Enemy("Thief", "He will steal you without realizing it", 10, 0);
+	warriorAragorn = new Warrior("Aragorn", "He can protect you against ennemies by killing them all.", 0, 0);
+	warriorFaramir = new Warrior("Faramir", "He can protect you against ennemies by killing them all. Faramir is Boromir's brother but lives the shadow of him...", 0, 0);
 	// Add NPCs
-	roomBuckleburyFerry.addNPC(npcNazgul1);
-	roomDarkAlley2.addNPC(npcThief);
-	roomPPStrider.addNPC(npcStrider1);
-	roomBilboHouseStart.addNPC(npcStrider2);
-	//roomPPBar.addNPC(npcStrider2);
-	roomPPDormitory.addNPC(npcNazgul2);
-	roomPPGandalf.addNPC(npcNazgul3);
+	roomBuckleburyFerry.addNPC(enemyNazgulSmall);
+	roomDarkAlley2.addNPC(enemyThief);
+	roomPPStrider.addNPC(warriorAragorn);
+	roomPPBar.addNPC(warriorFaramir);
+	roomPPDormitory.addNPC(enemyNazgulMedium);
+	roomPPGandalf.addNPC(enemyNazgulBig);
+	
+	//====================END=================
+	startRoom = roomBilboHouseStart; //set the startroom
     }
     /**
      * Check if Frodo droped the ring in the vlocano and if he is always alive

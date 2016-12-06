@@ -180,6 +180,13 @@ public class Window extends JFrame {
 		for (Item item : new ArrayList<Item>(game.getPlayer().getCurrentRoom().getItemList())) {
 		    if (game.getPlayer().pickUpItem(item)) {
 			setScript(item.getName() + " has been picked up.");
+			JOptionPane.showMessageDialog(getRootPane(),
+				    item.getName() + "has been added to you inventory",
+				    item.getName()+" added", JOptionPane.INFORMATION_MESSAGE);
+		    }else{
+			JOptionPane.showMessageDialog(getRootPane(),
+				    item.getName()+" (weight: "+item.getWeight()+" ) " + "is too heavy for your inventory (current weight: "+game.getPlayer().getWeight()+"/"+game.getPlayer().getMaximumInventoyWeight()+ ".\n Drop or use you other items if you want ot pickit up. ",
+				    item.getName()+" not added", JOptionPane.INFORMATION_MESSAGE);
 		    }
 		    updateAll();
 		}
@@ -187,6 +194,11 @@ public class Window extends JFrame {
 		    if (game.getPlayer().pickUpNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) { // verification deja faite par le get mais on sait jamais
 			System.out.println(npc.getClass().getSimpleName());
 			setScript(npc.getName() + " has joined you community.");
+			JOptionPane.showMessageDialog(getRootPane(),
+				    npc.getName() + "has joined your fellowship \n"+npc.getDescription()+
+				    "\n - Health points: "+ npc.getHpPower()+
+				    "\n - Anti-corruption points: "+npc.getCpPower(),
+				    npc.getName()+" added", JOptionPane.INFORMATION_MESSAGE);
 		    } 
 		    updateAll();
 		}

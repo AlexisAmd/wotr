@@ -323,4 +323,12 @@ public class Player {
     			fellowship.getNPC(i).restorePower();}
     			
     		}
+
+    /**
+     * @return
+     */
+    public int getMaximumInventoyWeight() {
+	// TODO Auto-generated method stub
+	return maximumInventoryWeight;
+    }
 }
