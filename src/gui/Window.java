@@ -89,7 +89,7 @@ public class Window extends JFrame {
 	panelLeft.add(panelDirection);
 	panelDirection.setLayout(new BorderLayout(0, 0));
 	//west
-	btnWest = new JButton(new ImageIcon("src/gui/image/westArrow.png"));
+	btnWest = new JButton(new ImageIcon(this.getClass().getResource("/westArrow.png")));
 	btnWest.setMnemonic(KeyEvent.VK_LEFT);
 	btnWest.addKeyListener(new KeyAdapter() {
 		@Override
@@ -113,7 +113,7 @@ public class Window extends JFrame {
 	btnWest.setContentAreaFilled(false);
 	panelDirection.add(btnWest, BorderLayout.WEST);
 	//east
-	btnEast = new JButton(new ImageIcon("src/gui/image/eastArrow.png"));
+	btnEast = new JButton(new ImageIcon(this.getClass().getResource("/eastArrow.png")));
 	btnEast.setMnemonic(KeyEvent.VK_RIGHT);
 	btnEast.addKeyListener(new KeyAdapter() {
 		@Override
@@ -139,7 +139,7 @@ public class Window extends JFrame {
 	btnEast.setContentAreaFilled(false);
 	panelDirection.add(btnEast, BorderLayout.EAST);
 	//
-	btnNorth = new JButton(new ImageIcon("src/gui/image/northArrow.png"));
+	btnNorth = new JButton(new ImageIcon(this.getClass().getResource("/northArrow.png")));
 	btnNorth.setMnemonic(KeyEvent.VK_UP);
 	btnNorth.addKeyListener(new KeyAdapter() {
 		@Override
@@ -163,7 +163,7 @@ public class Window extends JFrame {
 	});
 	panelDirection.add(btnNorth, BorderLayout.NORTH);
 	//south
-	btnSouth = new JButton(new ImageIcon("src/gui/image/southArrow.png"));
+	btnSouth = new JButton(new ImageIcon(this.getClass().getResource("/southArrow.png")));
 	btnSouth.setMnemonic(KeyEvent.VK_DOWN);
 	
 	btnSouth.addKeyListener(new KeyAdapter() {
@@ -197,7 +197,7 @@ public class Window extends JFrame {
 	panelSU.setLayout(new GridLayout(3, 1, 0, 0));
 	// PANEL LEFT - Panel tools - Search
 	
-	btnSearch = new JButton(new ImageIcon(new ImageIcon("src/gui/image/eye-icon.png").getImage().getScaledInstance(70, 40, Image.SCALE_DEFAULT)));
+	btnSearch = new JButton(new ImageIcon(new ImageIcon(this.getClass().getResource("/eye-icon.png")).getImage().getScaledInstance(70, 40, Image.SCALE_DEFAULT)));
 	btnSearch.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
@@ -234,7 +234,7 @@ public class Window extends JFrame {
 	btnSearch.setContentAreaFilled(false);
 	panelSU.add(btnSearch);
 	// PANEL LEFT - Panel tools - PickUp
-	btnPickUp = new JButton(new ImageIcon("src/gui/image/Hand-icon2.png"));
+	btnPickUp = new JButton(new ImageIcon(this.getClass().getResource("/Hand-icon2.png")));
 	btnPickUp.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
@@ -270,7 +270,7 @@ public class Window extends JFrame {
 	btnPickUp.setContentAreaFilled(false);
 	panelSU.add(btnPickUp);
 	// PANEL LEFT - Panel tools - Map
-	btnframeMap = new JButton(new ImageIcon("src/gui/image/map2.png"));
+	btnframeMap = new JButton(new ImageIcon(this.getClass().getResource("/map2.png")));
 	btnframeMap.addMouseListener(new MouseAdapter() {
 	    @Override
 	    public void mouseClicked(MouseEvent e) {
@@ -279,14 +279,14 @@ public class Window extends JFrame {
 		frameMapImg.setVisible(true);
 		frameMapImg.setTitle("Map of the game");
 		JPanel panelImg = new JPanel();
-		JLabel myImg = new JLabel(new ImageIcon("src/gui/image/fullMapView.jpg"));
+		JLabel myImg = new JLabel(new ImageIcon(this.getClass().getResource("/fullMapView.jpg")));
 		panelImg.add(myImg);
 		frameMapImg.getContentPane().add(panelImg);
 		frameMapImg.pack();
 		frameMapImg.addMouseListener(new MouseAdapter() {
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
-			myImg.setIcon(new ImageIcon("src/gui/image/fullMapViewZoom.jpg"));
+			myImg.setIcon(new ImageIcon(this.getClass().getResource("/fullMapViewZoom.jpg")));
 			scrollBar = new JScrollPane();
 			scrollBar.setViewportView(myImg);
 			frameMapImg.getContentPane().add(scrollBar);
@@ -329,7 +329,7 @@ public class Window extends JFrame {
 	panelRoomName.add(txtpnRoomName);
 	//// PANEL LEFT - Panel Image
 	panelImage = new JPanel();
-	ImageHome = new JLabel(new ImageIcon("src/gui/image/HomePage2.jpg"));
+	ImageHome = new JLabel();//NE PAS METTRE D4IMAGE ICIII
 	panelImage.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 	panelImage.setBounds(12, 42, 732, 373);
 	panelImage.add(ImageHome);
@@ -373,7 +373,7 @@ public class Window extends JFrame {
 	iconPlayer.setBorder(new LineBorder(new Color(139, 69, 19), 1, true));
 	iconPlayer.setToolTipText("Frodo Baggins");
 	iconPlayer.setOpaque(true);
-	iconPlayer.setIcon(new ImageIcon(("src/gui/image/frodo.png")));
+	iconPlayer.setIcon(new ImageIcon((this.getClass().getResource("/frodo.png"))));
 	iconPlayer.setBounds(10, 12, 76, 74);
 	panelInfoTopPlayer.add(iconPlayer);
 	//
@@ -786,8 +786,8 @@ public class Window extends JFrame {
      * @param url the path to the image
      */
     public void updateImage(String url) {
-	//URL theURL = this.getClass().getResource(url);
-	ImageIcon image = new ImageIcon(url);
+	URL theURL = this.getClass().getResource(url);
+	ImageIcon image = new ImageIcon(theURL);
 	ImageHome.setIcon(image);
     }
 
