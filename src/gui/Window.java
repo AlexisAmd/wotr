@@ -872,10 +872,12 @@ public class Window extends JFrame {
 	
 	String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 	updateAll();
+	tryToAttack();
+	updateAll();
 	updatePromptWithRoomDescription();
 	updatePromptWithRoomScript();
 	setScript(textCurrentRoomExits);
-	tryToAttack();
+	
     }
 
     public void updateAll() {
@@ -884,13 +886,13 @@ public class Window extends JFrame {
 	if (!game.getPlayer().isAlive()) {
 	    JOptionPane.showMessageDialog(getRootPane(), "You are dead. It is GAME OVER !", "Game Over",
 		    JOptionPane.ERROR_MESSAGE);
-	    this.dispose();
+	    System.exit(1);
 	}
 	
 	if(game.win()){
 	    JOptionPane.showMessageDialog(getRootPane(), "Congratulation ! You win !!!\n You saved the middle earth againt the terrible Sauron.\n You can nw rest in peace with the elfs.", "YOU WIN",
 		    JOptionPane.INFORMATION_MESSAGE);
-	    this.dispose();
+	    System.exit(1);
 	    
 	};
 	
