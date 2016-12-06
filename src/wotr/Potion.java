@@ -8,12 +8,13 @@ package wotr;
  * @version 23/11/2016
  */
 public class Potion extends Item 
-{
-	private Player currentPlayer;
-	
+{	
 	 /**
      * Constructor for objects of class Potion
-     * @param name (name of the potion), description (its description), weight (its weight), player (the player associated)
+     * @param name (name of the potion)
+     * @param description (its description)
+     * @param weight (its weight)
+     * @param player (the player associated)
      */
 	public Potion(String name, String description, int weight, Player currentPlayer) {
 		super(name, description, weight, currentPlayer);
@@ -31,16 +32,17 @@ public class Potion extends Item
 	public boolean use(NPC npc){ 
         if (npc.getAlreadyUsed()){
         	return npc.restorePower();
-     
         }
         else {
         	return false;
         }
 	}
 	
-	/*
-     * Give all the attributes of the potion (non-Javadoc)
-     * @return name (name of the potion), description (its description), weight (its weight) 
+	/**
+     * Give all the attributes of the potion 
+     * @return name (name of the potion)
+     * @return description (its description)
+     * @return weight (its weight) 
      */
 	public String toString() {
 		return "Name : "+getName() + "\n"+
