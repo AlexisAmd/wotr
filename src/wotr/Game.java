@@ -1,9 +1,12 @@
 /**
 
 * This class is the main class of the "World of The ring" application.
-* "World of the ring" is a very simple adventure gamee.  
+* "World of the ring" is a very simple adventure game.  
 *
-* You are Frodo Baggins of the Shire. You must bring the Ring to Mordor to destroy it into the flames of Orodruin, the volcano at the north east of the mordor, house of the evil Sauron. Our game is a basic survival game. You must explore Middle Earth in order to find your way to Orodruin. Their will be many foes and obstacles on your way. But you carry the Ring which grants you the ability to be invisible.
+* You are Frodo Baggins of the Shire. You must bring the Ring to Mordor to destroy it into the flames of Orodruin, 
+* the volcano at the north east of the mordor, house of the evil Sauron. Our game is a basic survival game. 
+* You must explore Middle Earth in order to find your way to Orodruin. Their will be many foes and obstacles on your way. 
+* But you carry the Ring which grants you the ability to be invisible.
 *
 * This main class creates and initialises all the others: it creates all
 * rooms, NPC, items and starts the game.  
@@ -12,19 +15,16 @@
 * @version 22/11/2016
 */
 package wotr;
-
-import java.util.HashMap; //useless ?
-import javax.swing.*;
 import gui.Window;
 
 public class Game {
     private Player currentPlayer;
     private Room startRoom;
     private Window window;
-    private boolean win;
 
     /**
     * Create the game and initialise its internal map.
+    * @param window the GUI associated
     */
     public Game(Window window) {
 	createRooms();
@@ -234,8 +234,7 @@ public class Game {
 	roomPPGandalf.addNPC(npcNazgul3);
     }
     /**
-     * NON cette methode n'est pas sensée faire de l'affichage... en tout cas pas ici.
-     * elle est jsute sensée checker s'il reste de la vie
+     * Check if Frodo has always enough hp
      */
     public void win() {
 	//if ring in volcano and frodo alive then return true ! 
@@ -271,7 +270,7 @@ public class Game {
 		}
 
     /**
-     * @return
+     * @return currentPlayer the player associated to the game (Frodo)
      */
     public Player getPlayer() {
 	return currentPlayer;
