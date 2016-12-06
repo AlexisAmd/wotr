@@ -38,12 +38,12 @@ public class Player {
      */
     public Player() {
 	this.name = "Frodo";
-	this.hp = 50;
+	this.hp = 95;
 	this.percentCorruption = 0;
 	this.bag = new Bag("Baggins");
 	this.fellowship = new Fellowship();
 	this.currentRoom = null;
-	this.maximumInventoryWeight = 100;
+	this.maximumInventoryWeight = 50;
     }
 
     /**
