@@ -158,7 +158,7 @@ public class Game {
 	roomCityCenter = new Room("City center", "The center of the city of Bree", "src/gui/image/BreeCityCenter.jpg");
 	roomCityEntrance = new Room("The entrance of the city of Bree", "-script-", "src/gui/image/BreeCityEntrance.jpg");
 	roomPPBar = new Room("It is the most famous bar of Bree", "-script-", "src/gui/image/PPBar.jpg");
-	roomPPDormitory = new Room("You can sleep in the dormitory... Or maybe not", "-script-", "src/gui/image/PPDormitory.jpg"); //Nazgul in a dormitory?
+	roomPPDormitory = new Room("You can sleep in the dormitory... Or maybe not", "-script-", "src/gui/image/PPDormitory.png"); //Nazgul in a dormitory?
 	roomPPGandalf = new Room("You are in the Gandalf's Room", "-script-", "src/gui/image/PPGandalf.jpg");
 	roomPPStrider = new Room("You are in the Strider's Room", "-script-", "src/gui/image/PPStrider.jpg");
 	roomDarkAlley1 = new Room("A scary dark alley", "-script-", "src/gui/image/darkAlley1.jpg");
