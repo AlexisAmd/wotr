@@ -244,8 +244,44 @@ public class Game {
 	roomPPGandalf.addNPC(enemyNazgulBig);
 	
 	//===LAST LEVEL====
+	// Declare rooms and doors
+	Room roomMuddyRoad1of350,roomMuddyRoad2of350,roomMuddyRoad3of350,roomPortal,roomSauronsForge;
+	Door doorPPStriderroomMuddiRoad1of350,doorroomMuddyRoad1of350roomMuddyRoad2of350,doorroomMuddyRoad2of350roomMuddyRoad3of350,
+	doorroomMuddyRoad3of350roomPortal,doorroomPortalroomSauronsForge;
+	// Create rooms (description, script, image)
+	roomMuddyRoad1of350 = new Room("Muddy Road 1 of 350","Good Luck","src/gui/image/MuddyRoad1.jpg");
+	roomMuddyRoad2of350 = new Room("Muddy Road 2 of 350","wow the same boring room","src/gui/image/MuddyRoad2.jpg");
+	roomMuddyRoad3of350 = new Room("Muddy Road 3 of 350", "Borrrrrrrrrringgggg", "src/gui/image/MuddyRoad3.jpg");
+	roomPortal = new Room("Portaaaaaaaal","WOW Where is it going to lead me ?","portal.gif");
+	roomSauronsForge = new Room("Sauron's forge","OMG the legendary volcano of Sauron !","Volcan.jpg");
+			
+	// Create doors
+	doorPPStriderroomMuddiRoad1of350 = new Door(roomPPStrider, roomMuddyRoad1of350);
+	doorroomMuddyRoad1of350roomMuddyRoad2of350 = new Door(roomMuddyRoad1of350, roomMuddyRoad2of350);
+	doorroomMuddyRoad2of350roomMuddyRoad3of350 = new Door(roomMuddyRoad2of350, roomMuddyRoad3of350);
+	doorroomMuddyRoad3of350roomPortal = new Door(roomMuddyRoad3of350, roomPortal);
+	doorroomPortalroomSauronsForge = new Door(roomPortal, roomSauronsForge);
+		
+	// Associate doors with rooms
+	roomPPStrider.addExit("south", doorPPStriderroomMuddiRoad1of350);
+	roomMuddyRoad1of350.addExit("east", doorroomMuddyRoad1of350roomMuddyRoad2of350);
+	roomMuddyRoad2of350.addExit("east", doorroomMuddyRoad2of350roomMuddyRoad3of350);
+	roomMuddyRoad3of350.addExit("north", doorroomMuddyRoad3of350roomPortal);
+	roomPortal.addExit("east", doorroomPortalroomSauronsForge);
 	
-	
+	// Declare items
+	// Create items
+	// Add items to rooms
+	roomMuddyRoad1of350.addItem(foodSalad);
+	roomMuddyRoad2of350.addItem(foodCarrots);
+	// Declare NPCs
+	NPC HUGENazgul,TheBrotherOfTheHugeNazgul;
+	// Create NPCs
+	HUGENazgul = new Enemy("HUGE Nazgul", "A f****king huge nazgul", 15, 20);
+	TheBrotherOfTheHugeNazgul = new Enemy("The Brother of the HUGE nazgul","WOOOOW he's also huge AF",20,20);
+	// Add NPCs
+	roomMuddyRoad2of350.addNPC(HUGENazgul);
+	roomMuddyRoad3of350.addNPC(TheBrotherOfTheHugeNazgul);
 	//====================END=================
 	startRoom = roomBilboHouseStart; //set the startroom
     }
