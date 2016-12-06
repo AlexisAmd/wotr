@@ -98,15 +98,15 @@ public class Game {
 	Food foodPint, foodWine, foodCarrots, foodGrilledChicken, foodMeltCheese, foodSalad;
 	Potion potionElixir;
 	// Create items
-	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 90, 10, currentPlayer);
+	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 4, 6, currentPlayer);
 	foodPint = new Food("Beer pint", "A good pint for a good beverage !", 10, 10, currentPlayer);
 	foodWine = new Food("Large glass of wine", "The better wine of the shire", 5, 10, currentPlayer);
-	foodGrilledChicken = new Food("Grilled chicken", "A grilled chicken", 30, 10, currentPlayer);
-	foodSalad = new Food("Copious Salad", "Salad", 20, 10, currentPlayer);
-	foodCarrots = new Food("Crunchy carrots", "Carrots", 4, 10, currentPlayer);
+	foodGrilledChicken = new Food("Grilled chicken", "A grilled chicken", 15, 10, currentPlayer);
+	foodSalad = new Food("Copious Salad", "Salad", 5, 3, currentPlayer);
+	foodCarrots = new Food("Crunchy carrots", "Carrots", 4, 3, currentPlayer);
 	potionElixir = new Potion("Gandalf’s elixir",
 		"Gandalf created beverage that replicates his power. This elixir is used all over Middle Earth to restore the power of companions. Use this item wisely.",
-		5, currentPlayer);
+		3, currentPlayer);
 	keyToSamHouse = new Key("Sam's keys", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
@@ -127,8 +127,8 @@ public class Game {
 	
 	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0);
 	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight with you because he saws you looking after is beer...", 1, -5);
-	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can give you 5 health point thank to the power friendship ! ", -5, 0);
-	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend,  he can give you 5 health point thank to the power friendship ! ", -5, 0);
+	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can remove 5 corruption points thank to the power friendship ! ", -5, 0);
+	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend, he can remove 5 corruptions points thank to the power friendship ! ", -5, 0);
 	// Add NPC to rooms
 	roomBagginsStreet1.addNPC(npcGandalf);
 	roomSamHouse.addNPC(npcSam);
