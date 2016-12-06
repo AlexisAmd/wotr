@@ -155,14 +155,14 @@ public class Game {
 	// Create rooms (description, script, image)
 	roomBuckleburyFerry = new Room("Bucklebury Ferry", "Taking the ferry will allow you to avoid dark riders along the way",
 		"src/gui/image/roomBuckleburyFerry.jpg");
-	roomCityCenter = new Room("City center", "The center of the city of Bree", "");
-	roomCityEntrance = new Room("The entrance of the city of Bree", "-script-", "");
-	roomPPBar = new Room("It is the most famous bar of Bree", "-script-", "");
+	roomCityCenter = new Room("City center", "The center of the city of Bree", "src/gui/image/BreeCityEntrance.jpg");
+	roomCityEntrance = new Room("The entrance of the city of Bree", "-script-", "src/gui/image/BreeCityCenter.jpg");
+	roomPPBar = new Room("It is the most famous bar of Bree", "-script-", "src/gui/image/PPBar.jpg");
 	roomPPDormitory = new Room("You can sleep in the dormitory... Or maybe not", "-script-", ""); //Nazgul in a dormitory?
 	roomPPGandalf = new Room("You are in the Gandalf's Room", "-script-", "");
-	roomPPStrider = new Room("You are in the Strider's Room", "-script-", "");
-	roomDarkAlley1 = new Room("A scary dark alley", "-script-", "");
-	roomDarkAlley2 = new Room("A scary dark alley", "-script-", "");
+	roomPPStrider = new Room("You are in the Strider's Room", "-script-", "src/gui/image/PPStrider.jpg");
+	roomDarkAlley1 = new Room("A scary dark alley", "-script-", "src/gui/image/darkAlley1.jpg");
+	roomDarkAlley2 = new Room("A scary dark alley", "-script-", "src/gui/image/DarkAlley2.png");
 	// Create doors
 	worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
 	doorBuckleburyFerryCityEntrance = new Door(roomBuckleburyFerry, roomCityEntrance);
