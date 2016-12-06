@@ -21,6 +21,7 @@ public class Game {
     private Player currentPlayer;
     private Room startRoom;
     private Window window;
+    private MagicalItem magicalItemRing;
 
     /**
     * Create the game and initialise its internal map.
@@ -97,7 +98,9 @@ public class Game {
 	Key keyToSamHouse;
 	Food foodPint, foodWine, foodCarrots, foodGrilledChicken, foodMeltCheese, foodSalad;
 	Potion potionElixir;
+	
 	// Create items
+	magicalItemRing = new MagicalItem("Ring of power", "One ring to rules them all", 10, - 10, currentPlayer);
 	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 4, 6, currentPlayer);
 	foodPint = new Food("Beer pint", "A good pint for a good beverage !", 10, 10, currentPlayer);
 	foodWine = new Food("Large glass of wine", "The better wine of the shire", 5, 10, currentPlayer);
@@ -110,6 +113,8 @@ public class Game {
 	keyToSamHouse = new Key("Sam's keys", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
+	roomBilboHouseStart.addItem(magicalItemRing);
+	
 	roomGreenDragonInn.addItem(foodPint);
 	roomGreenDragonInn.addItem(foodWine);
 	roomGreenDragonInn.addItem(foodGrilledChicken);
@@ -238,14 +243,18 @@ public class Game {
 	roomPPDormitory.addNPC(enemyNazgulMedium);
 	roomPPGandalf.addNPC(enemyNazgulBig);
 	
+	//===LAST LEVEL====
+	
+	
 	//====================END=================
 	startRoom = roomBilboHouseStart; //set the startroom
     }
     /**
      * Check if Frodo droped the ring in the vlocano and if he is always alive
      */
-    public void win() {
-	//if ring in volcano and frodo alive then return true ! 
+    public boolean win() {
+	
+	return (currentPlayer.getCurrentRoom().getItemList().contains(magicalItemRing) && currentPlayer.getCurrentRoom().getDescription().equals("Sauron's Forge") );
     }
 
     /**
