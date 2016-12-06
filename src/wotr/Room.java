@@ -204,8 +204,7 @@ public class Room {
     /**
      * method to get the NextRoom
      * 
-     * @param direction
-     *            of the next room
+     * @param direction of the next room
      * @return the next room
      */
     public Room getNextRoom(String direction) {
@@ -218,6 +217,7 @@ public class Room {
 
     /**
      * Print avaible exit rooms Key : direction Object : Room
+     * @return txt the text to exit
      */
     public String toStringExits() {
 	String txt = "";
@@ -231,6 +231,7 @@ public class Room {
 
     /**
      * Return the description of the room
+     * @retur description the description of the room
      */
     public String toString() {
 	return "This room is the " + description + "\n";
