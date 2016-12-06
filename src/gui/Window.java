@@ -869,12 +869,13 @@ public class Window extends JFrame {
      * method wich contains all action performed after moving to an other room
      */
     public void routineGoRoom() {
-	tryToAttack();
+	
 	String textCurrentRoomExits = game.getPlayer().getCurrentRoom().toStringExits();
 	updateAll();
 	updatePromptWithRoomDescription();
 	updatePromptWithRoomScript();
 	setScript(textCurrentRoomExits);
+	tryToAttack();
     }
 
     public void updateAll() {
