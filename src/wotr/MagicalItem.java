@@ -10,40 +10,43 @@ package wotr;
  */
 public class MagicalItem extends Item {
     private int corruptionPower; // Can be positive as negative
-    //private Player currentPlayer; // act like a reference to the parent current item in order to use the method use() without breaking encapsulation with a get
-
+    
     /**
-     * Constructeur d'objets de classe MagicalItem
-     * @param name (name of the magicalItem), description (its description), weight (its weight), corruptionPower (its corruptionPower), player (the player associated)
+     * Constructor of the MagicalItem class
+     * @param name (name of the magicalItem)
+     * @param description (its description)
+     * @param weight (its weight)
+     * @param corruptionPower (its corruptionPower)
+     * @param player (the player associated)
      */
     public MagicalItem(String name, String description, int weight, int corruptionPower, Player currentPlayer) {
 	super(name, description, weight, currentPlayer);
 	this.corruptionPower = corruptionPower;
     }
 
-    /*
-     * Give all the attributes of the magicalItem(non-Javadoc)
+    /**
+     * Give all the attributes of the magicalItem
      * 
-     * @return name (name of the food), description (its description), weight (its weight), corruptionPower (its corruptionPower)
+     * @return name (name of the food)
+     * @return description (its description)
+     * @return weight (its weight)
+     * @return corruptionPower (its corruptionPower)
      */
     public String toString() {
 	return "Name : " + getName() + "\n" + "Description : " + getDescription() + "\n" + "Weight : " + getWeight()
 		+ "\n" + "Corruption power :" + corruptionPower + "\n";
     }
 
-    /*
+    /**
      * get the corruptionPower of magicalItem
-     * 
      * @return corruptionPower
-     * 
-     * 
      */
     public int getCorruptionPower() {
 	return this.corruptionPower;
     }
 
     /**
-     * When you use a magicalITem, your corruption points can be upgraded or downgraded
+     * When you use a magicalITem, your corruption points can be upgraded or reduce
      */
     public void use() {
 	getCurrentPlayer().addCorruption(this.corruptionPower);
