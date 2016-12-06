@@ -35,7 +35,7 @@ public class KeyLockedDoor extends LockedDoor {
 	 */
 	public Room getNextRoom(Room currentRoom) {
 		if (super.getLocked()) {
-			JOptionPane.showMessageDialog(null, "You need a key to open this door!", 
+			JOptionPane.showMessageDialog(null, "You need to use a key to open this door!", 
 				    "LockedDoor", JOptionPane.WARNING_MESSAGE);
 			return null; //locked
 		} else {
