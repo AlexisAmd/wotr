@@ -885,6 +885,14 @@ public class Window extends JFrame {
 		    JOptionPane.ERROR_MESSAGE);
 	    this.dispose();
 	}
+	
+	if(game.win()){
+	    JOptionPane.showMessageDialog(getRootPane(), "Congratulation ! You win !!!\n You saved the middle earth againt the terrible Sauron.\n You can nw rest in peace with the elfs.", "YOU WIN",
+		    JOptionPane.INFORMATION_MESSAGE);
+	    this.dispose();
+	    
+	};
+	
 	this.updateListNPC(); // a checker
 	this.updateInventory(); // a checker
 	this.updateDesItem();
