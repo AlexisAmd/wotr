@@ -256,7 +256,7 @@ public class Window extends JFrame {
 			System.out.println(npc.getClass().getSimpleName());
 			JOptionPane.showMessageDialog(getRootPane(),
 				npc.getName() + "has joined your fellowship \n" + npc.getDescription()
-					+ "\n - Health points: " + npc.getHpPower() + "\n - Anti-corruption points: "
+					+ "\n - Health points: " + npc.getHpPower() + "\n - Corruption points: "
 					+ npc.getCpPower(),
 				npc.getName() + " added", JOptionPane.INFORMATION_MESSAGE);
 		    }
