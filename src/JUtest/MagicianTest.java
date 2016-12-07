@@ -35,8 +35,8 @@ public class MagicianTest {
      */
 	public void setUp() {
 		Frodo = new Player(); //hp = 100, corruption = 0
-		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
-		magicianGandalf = new Magician("Gandalf", "A huge magician", 10, 10, Frodo);
+		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo, "script");
+		magicianGandalf = new Magician("Gandalf", "A huge magician", 10, 10);
 	}
 
 
