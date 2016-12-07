@@ -62,7 +62,7 @@ public class Window extends JFrame {
 	private JScrollPane scrollPaneDesInventory;
 	private JScrollPane scrollPaneListNPC;
 	private JScrollPane scrollPaneListInventory;
-	private boolean isSearched;
+	private boolean isSearched; //to be sure the user look in the room for object before taking them 
 
 	/**
 	 * Constructor of class window. Creates the window.
@@ -270,6 +270,11 @@ public class Window extends JFrame {
 						}
 						updateAll();
 					}
+				}
+				else{
+				    JOptionPane.showMessageDialog(getRootPane(),
+						"You must search for object before taking them.",
+						"pickUp error", JOptionPane.INFORMATION_MESSAGE);
 				}
 				isSearched = false;
 			}
