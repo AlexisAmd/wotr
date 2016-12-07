@@ -281,8 +281,8 @@ public class Game {
 	// Declare NPCs
 	NPC HUGENazgul,TheBrotherOfTheHugeNazgul;
 	// Create NPCs
-	HUGENazgul = new Enemy("HUGE Nazgul", "A huge nazgul", 15, -40);
-	TheBrotherOfTheHugeNazgul = new Enemy("The Brother of the HUGE nazgul","WOOOOW he's at least equally huge!",20,-60);
+	HUGENazgul = new Enemy("HUGE Nazgul", "A huge nazgul", 20, -20);
+	TheBrotherOfTheHugeNazgul = new Enemy("The Brother of the HUGE nazgul","WOOOOW he's at least equally huge!",30,-40);
 	// Add NPCs
 	roomMuddyRoad2of350.addNPC(HUGENazgul);
 	roomMuddyRoad3of350.addNPC(TheBrotherOfTheHugeNazgul);
