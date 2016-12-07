@@ -62,6 +62,7 @@ public class Window extends JFrame {
 	private JScrollPane scrollPaneDesInventory;
 	private JScrollPane scrollPaneListNPC;
 	private JScrollPane scrollPaneListInventory;
+	private boolean isSearched;
 
 	/**
 	 * Constructor of class window. Creates the window.
@@ -230,6 +231,7 @@ public class Window extends JFrame {
 					JOptionPane.showMessageDialog(getRootPane(), "Nobody is here, you\'re alone with yourself.",
 							"Nobody is here", JOptionPane.INFORMATION_MESSAGE);
 				}
+				isSearched = true;
 			}
 		});
 		btnSearch.setToolTipText("Search");
@@ -242,29 +244,32 @@ public class Window extends JFrame {
 		btnPickUp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				for (Item item : new ArrayList<Item>(game.getPlayer().getCurrentRoom().getItemList())) {
-					if (game.getPlayer().pickUpItem(item)) {
-						JOptionPane.showMessageDialog(getRootPane(), item.getName() + " has been added to you inventory",
-								item.getName() + " added", JOptionPane.INFORMATION_MESSAGE);
-					} else {
-						JOptionPane.showMessageDialog(getRootPane(), item.getName() + " (weight: " + item.getWeight()
-						+ " ) " + "is too heavy for your inventory (current weight: "
-						+ game.getPlayer().getWeight() + "/" + game.getPlayer().getMaximumInventoyWeight()
-						+ ".\n Drop or use you other items if you want ot pickit up. ",
-						item.getName() + " not added", JOptionPane.INFORMATION_MESSAGE);
+				if (isSearched) 
+				{
+					for (Item item : new ArrayList<Item>(game.getPlayer().getCurrentRoom().getItemList())) {
+						if (game.getPlayer().pickUpItem(item)) {
+							JOptionPane.showMessageDialog(getRootPane(), item.getName() + " has been added to you inventory",
+									item.getName() + " added", JOptionPane.INFORMATION_MESSAGE);
+						} else {
+							JOptionPane.showMessageDialog(getRootPane(), item.getName() + " (weight: " + item.getWeight()
+							+ " ) " + "is too heavy for your inventory (current weight: "
+							+ game.getPlayer().getWeight() + "/" + game.getPlayer().getMaximumInventoyWeight()
+							+ ".\n Drop or use you other items if you want ot pickit up. ",
+							item.getName() + " not added", JOptionPane.INFORMATION_MESSAGE);
+						}
+						updateAll();
 					}
-					updateAll();
-				}
-				for (NPC npc : new ArrayList<NPC>(game.getPlayer().getCurrentRoom().getNPCList())) {
-					if (game.getPlayer().pickUpNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) { // verification deja faite par le get mais on sait jamais
-						System.out.println(npc.getClass().getSimpleName());
-						JOptionPane.showMessageDialog(getRootPane(),
-								npc.getName() + "has joined your fellowship \n" + npc.getDescription()
-								+ "\n - Health points: " + npc.getHpPower() + "\n - Corruption points: "
-								+ npc.getCpPower(),
-								npc.getName() + " added", JOptionPane.INFORMATION_MESSAGE);
+					for (NPC npc : new ArrayList<NPC>(game.getPlayer().getCurrentRoom().getNPCList())) {
+						if (game.getPlayer().pickUpNPC(npc) && !npc.getClass().getSimpleName().equals("Enemy")) { // verification deja faite par le get mais on sait jamais
+							System.out.println(npc.getClass().getSimpleName());
+							JOptionPane.showMessageDialog(getRootPane(),
+									npc.getName() + "has joined your fellowship \n" + npc.getDescription()
+									+ "\n - Health points: " + npc.getHpPower() + "\n - Corruption points: "
+									+ npc.getCpPower(),
+									npc.getName() + " added", JOptionPane.INFORMATION_MESSAGE);
+						}
+						updateAll();
 					}
-					updateAll();
 				}
 			}
 		});
@@ -567,12 +572,10 @@ public class Window extends JFrame {
 						Key selectedKey = (Key) selectedItem;
 						Door door = selectedKey.getDoor();
 						if (game.getPlayer().getCurrentRoom().getExits().containsValue(door)) {
-							if (selectedItem.getName() != "Ring of power") {
-								game.getPlayer().use(selectedItem);
-								selectedItem = null;
-								JOptionPane.showMessageDialog(getRootPane(), "You unlocked the door to " + door.toString(),
-										"Wotr : Success", JOptionPane.INFORMATION_MESSAGE);
-							}
+							game.getPlayer().use(selectedItem);
+							selectedItem = null;
+							JOptionPane.showMessageDialog(getRootPane(), "You unlocked the door to " + door.toString(),
+									"Wotr : Success", JOptionPane.INFORMATION_MESSAGE);
 						} else {
 							JOptionPane.showMessageDialog(getRootPane(),
 									"Use can use this key (" + selectedItem.getName() + ") here.", "Wotr : warning",
@@ -618,10 +621,12 @@ public class Window extends JFrame {
 											"Impossible to use" + selectedItem.getName(), JOptionPane.INFORMATION_MESSAGE);
 						}
 					} else {// ce n'est ni une clef ni un anneau, donc de la food
-						game.getPlayer().use(selectedItem);
-						JOptionPane.showMessageDialog(getRootPane(), selectedItem.getName() + " has been used.",
-								selectedItem.getName() + " used.", JOptionPane.INFORMATION_MESSAGE);
-						selectedItem = null;
+						if (selectedItem.getName() != "Ring of power") {
+							game.getPlayer().use(selectedItem);
+							JOptionPane.showMessageDialog(getRootPane(), selectedItem.getName() + " has been used.",
+									selectedItem.getName() + " used.", JOptionPane.INFORMATION_MESSAGE);
+							selectedItem = null;
+						}
 					}
 				} else {
 					JOptionPane.showMessageDialog(getRootPane(), "Please select an item if you want to use it...",
