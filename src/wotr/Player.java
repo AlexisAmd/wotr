@@ -199,8 +199,8 @@ public class Player {
 	 */
 	public void use(Item item) {
 		if (item.getName() != "Ring of power") {
-			bag.delItem(item);
 			item.use();
+			bag.delItem(item);
 		}
 	}
 
