@@ -322,7 +322,16 @@ public class Game {
 		+ " game. You must explore Middle Earth in order to find your"
 		+ " way to Orodruin. Their will be many foes and obstacles"
 		+ " on your way.You need to be careful, "
-		+ "prepare yourself to commit you");
+		+ "prepare yourself.\n"
+		+ "At the left of your screen, the map icon gives you the road "
+		+ "to mordor. But rember \"faster is not always better\"...\n"
+		+ "\n"
+		+ "You're uncle Bilbo left some struff in this room, "
+		+ "click on the eye icon to see what."
+		+ "Then click on the hand icon to take this burden with you.\n"
+		+ "\n"
+		+ "Then you can explore the shire but don't forget to drop the Ring"
+		+ " of power in the fire of Orodruin.");
 		}
 
     /**
