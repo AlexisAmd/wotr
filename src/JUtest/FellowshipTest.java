@@ -23,7 +23,7 @@ public class FellowshipTest {
 	@Before
 	public void setUp(){
 		player = new Player();
-		npc = new NPC("Sam", "hobbit", 0, 100, player);
+		npc = new NPC("Sam", "hobbit", 0, 100, player, "script");
 		fellowship = new Fellowship();
 		fellowship.addNPC(npc);
 	}
@@ -42,7 +42,7 @@ public class FellowshipTest {
 	 */
 	@Test
 	public void testContains(){
-		NPC gandalf = new NPC("Gandalf", "magician", 0, 2000, player);
+		NPC gandalf = new NPC("Gandalf", "magician", 0, 2000, player, "script");
 		fellowship.addNPC(gandalf);
 		assertEquals(true, fellowship.contains(gandalf));
 	}
@@ -52,7 +52,7 @@ public class FellowshipTest {
 	 */
 	@Test
 	public void testNotContains(){
-		NPC aragorn = new NPC("aragorn", "warrior", 0, 2000, player);
+		NPC aragorn = new NPC("aragorn", "warrior", 0, 2000, player, "script");
 		assertEquals(false, fellowship.contains(aragorn));
 	}
 	
@@ -61,7 +61,7 @@ public class FellowshipTest {
 	 */
 	@Test 
 	public void testAddNpc(){
-		NPC aragorn = new NPC("Aragorn", "warrior", 0, 2000, player);
+		NPC aragorn = new NPC("Aragorn", "warrior", 0, 2000, player, "script");
 		fellowship.addNPC(aragorn);
 		assertEquals(true, fellowship.contains(aragorn));
 	}
@@ -71,7 +71,7 @@ public class FellowshipTest {
 	 */
 	@Test 
 	public void testGetNpc(){
-		NPC aragorn = new NPC("Aragorn", "warrior", 0, 2000, player);
+		NPC aragorn = new NPC("Aragorn", "warrior", 0, 2000, player, "script");
 		fellowship.addNPC(aragorn);
 		assertEquals(aragorn, fellowship.getNPC(1));
 	}
