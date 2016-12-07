@@ -252,8 +252,8 @@ public class Game {
 	roomMuddyRoad1of350 = new Room("Muddy Road 1 of 350","Good Luck","/MuddyRoad1.jpg");
 	roomMuddyRoad2of350 = new Room("Muddy Road 2 of 350","wow the same boring room","/MuddyRoad2.jpg");
 	roomMuddyRoad3of350 = new Room("Muddy Road 3 of 350", "Borrrrrrrrrringgggg", "/MuddyRoad3.jpg");
-	roomPortal = new Room("Portaaaaaaaal","WOW Where is it going to lead me ?","portal.gif");
-	roomSauronsForge = new Room("Sauron's forge","OMG the legendary volcano of Sauron !","Volcan.jpg");
+	roomPortal = new Room("Portaaaaaaaal","WOW Where is it going to lead me ?","/portal.gif");
+	roomSauronsForge = new Room("Sauron's forge","The legendary volcano of Sauron. Dropping the Ring will save the middle earth, it is you destiny!","/Volcan.jpg");
 			
 	// Create doors
 	doorPPStriderroomMuddiRoad1of350 = new Door(roomPPStrider, roomMuddyRoad1of350);
