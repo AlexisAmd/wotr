@@ -60,6 +60,8 @@ public class Window extends JFrame {
     private Item selectedItem;
     private JScrollPane scrollPaneDesNPC;
     private JScrollPane scrollPaneDesInventory;
+    private JScrollPane scrollPaneListNPC;
+    private JScrollPane scrollPaneListInventory;
 
     /**
      * Constructor of class window. Creates the window.
@@ -527,7 +529,12 @@ public class Window extends JFrame {
 	// PANELRIGHT - NPC - List
 	modelNPC = new DefaultListModel<String>();
 	modelNPC.addElement("");
+	
+	scrollPaneListNPC = new JScrollPane();
+	scrollPaneListNPC.setBounds(10, 22, 146, 163);
+	panelNPC.add(scrollPaneListNPC);
 	listNPC = new JList<String>(modelNPC);
+	scrollPaneListNPC.setViewportView(listNPC);
 	listNPC.setBackground(new Color(238, 232, 170));
 	listNPC.addListSelectionListener(new ListSelectionListener() {
 	    public void valueChanged(ListSelectionEvent arg0) {
@@ -542,8 +549,6 @@ public class Window extends JFrame {
 	});
 	listNPC.setFont(new Font("Monotype Corsiva", Font.PLAIN, 17));
 	listNPC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-	listNPC.setBounds(10, 22, 146, 163);
-	panelNPC.add(listNPC);
 	// PANELRIGHT - Inventory
 	panelInventory = new JPanel();
 	panelInventory.setBorder(new TitledBorder(null, "Inventory", TitledBorder.CENTER, TitledBorder.TOP, null,
@@ -658,7 +663,12 @@ public class Window extends JFrame {
 	// PANELRIGHT - Inventory - list
 	modelInventory = new DefaultListModel<String>();
 	modelInventory.addElement("");
+	
+	scrollPaneListInventory = new JScrollPane();
+	scrollPaneListInventory.setBounds(10, 21, 146, 164);
+	panelInventory.add(scrollPaneListInventory);
 	listInventory = new JList<String>(modelInventory);
+	scrollPaneListInventory.setViewportView(listInventory);
 	listInventory.setBackground(new Color(238, 232, 170));
 	listInventory.addListSelectionListener(new ListSelectionListener() {
 	    public void valueChanged(ListSelectionEvent e) {
@@ -673,8 +683,6 @@ public class Window extends JFrame {
 	});
 	listInventory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	listInventory.setFont(new Font("Monotype Corsiva", Font.PLAIN, 17));
-	listInventory.setBounds(10, 21, 146, 164);
-	panelInventory.add(listInventory);
     }
 
     /**

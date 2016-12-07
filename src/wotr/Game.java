@@ -164,7 +164,7 @@ public class Game {
 	roomCityEntrance = new Room("City Entrance", "The entrance of the city of Bree", "/BreeCityEntrance.jpg");
 	roomPPBar = new Room("Prancing Pony Bar", "It is the most famous bar of Bree", "/PPBar.jpg");
 	roomPPDormitory = new Room("Prancing Pony Dormitory", "You can sleep in the dormitory... Or maybe not", "/PPDormitory.png"); //Nazgul in a dormitory?
-	roomPPGandalf = new Room("Prancing Pony Gandalf's Room", "You are in the Gandalf's Room", "/PPGandalf.jpg");
+	roomPPGandalf = new Room("Prancing Pony Gandalf's Room", "You are in the Gandalf's Room", "/PPGangalf.jpg");
 	roomPPStrider = new Room("Prancing Pony Strider's Room", "You are in the Strider's Room", "/PPStrider.jpg");
 	roomDarkAlley1 = new Room("DarK Alley East", "A scary dark alley", "/darkAlley1.jpg");
 	roomDarkAlley2 = new Room("Dark Alley West", "A scary dark alley", "/DarkAlley2.png");
@@ -214,11 +214,11 @@ public class Game {
 	Key keyGandalfRoom;
 	Food foodBeer50, foodBeer75, foodBeer100, foodFries;
 	// Instanciate items
-	foodBeer50 = new Food ("Beer", "It is a good beer (50cL)", 10, 10, currentPlayer);
-	foodBeer75 = new Food ("Pint", "It is a good beer (75cL)", 12, 12, currentPlayer);
-	foodBeer100 = new Food ("Big Beer", "It is a good beer (100cL)", 15, 15, currentPlayer);
-	foodFries = new Food ("foodFries", "French fries", 10, 15, currentPlayer);
-	keyGandalfRoom = new Key("key of Gandalf's Room", "This key unlock Gandalf' s room", 2, currentPlayer, doorPPBarPPGandalf);
+	foodBeer50 = new Food ("Beer", "It is a good beer (50cL)", 10, 5, currentPlayer);
+	foodBeer75 = new Food ("Pint", "It is a good beer (75cL)", 12, 6, currentPlayer);
+	foodBeer100 = new Food ("Big Beer", "It is a good beer (100cL)", 15, 6, currentPlayer);
+	foodFries = new Food ("French Fries", "A Baraque' à frites in the middle earth. Yes, it is possible.", 10, 10, currentPlayer);
+	keyGandalfRoom = new Key("Key of Gandalf's Room", "This key unlock Gandalf' s room", 2, currentPlayer, doorPPBarPPGandalf);
 	// Add items to rooms
 	roomPPBar.addItem(foodFries);
 	roomPPBar.addItem(keyGandalfRoom);
@@ -229,9 +229,9 @@ public class Game {
 	Enemy enemyNazgulSmall, enemyNazgulMedium, enemyNazgulBig, enemyThief;
 	Warrior warriorAragorn, warriorFaramir;
 	// Instanciate NPCs
-	enemyNazgulSmall = new Enemy("Baby Nazgul", "The Fear that they inspire is their best weapon", 10, -5);
-	enemyNazgulMedium = new Enemy("Medium Nazgul", "The Fear that they inspire is their best weapon", 16, -10);
-	enemyNazgulBig = new Enemy("Biggest Nazgul", "The Fear that they inspire is their best weapon", 23, -15);
+	enemyNazgulSmall = new Enemy("Baby Nazgul", "The Fear that they inspire is their best weapon", 10, -10);
+	enemyNazgulMedium = new Enemy("Medium Nazgul", "The Fear that they inspire is their best weapon", 16, -15);
+	enemyNazgulBig = new Enemy("Biggest Nazgul", "The Fear that they inspire is their best weapon", 23, -20);
 	enemyThief = new Enemy("Thief", "He will steal you without realizing it", 10, 0);
 	warriorAragorn = new Warrior("Aragorn", "He can protect you against ennemies by killing them all.", 0, 0);
 	warriorFaramir = new Warrior("Faramir", "He can protect you against ennemies by killing them all. Faramir is Boromir's brother but lives the shadow of him...", 0, 0);
@@ -271,8 +271,11 @@ public class Game {
 	roomPortal.addExit("east", doorroomPortalroomSauronsForge);
 	
 	// Declare items
+	MagicalItem magicalItemCorruptionPotion;
 	// Create items
+	magicalItemCorruptionPotion = new MagicalItem("Elf potion", "Elfs put their science in this potion. It will protect you againt corruption.", 1, -10, currentPlayer);
 	// Add items to rooms
+	roomPPStrider.addItem(magicalItemCorruptionPotion);
 	roomMuddyRoad1of350.addItem(foodSalad);
 	roomMuddyRoad2of350.addItem(foodCarrots);
 	// Declare NPCs
