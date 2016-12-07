@@ -32,7 +32,7 @@ public class NPCTest {
 	     *@param hpPower : health points wich will be given or retrieved to Frodo
 	     *@param currentPlayer : //frodo
 	     */
-		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
+		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo, "script");
 	}
 
 	@Test

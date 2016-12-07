@@ -20,7 +20,7 @@ public class HobbitTest {
 	{
 		playerFrodo = new Player();
 		playerFrodo.setCorruption(30); //Set the percent corruption of the player
-		npcSam = new Hobbit("Samwise Gamgee", "Description", -20, 0, playerFrodo);
+		npcSam = new Hobbit("Samwise Gamgee", "Description", -20, 0);
 	}
 	
 		@Test

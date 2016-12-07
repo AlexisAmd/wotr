@@ -28,8 +28,8 @@ public class WarriorTest {
     @Before
     public void setUp() {
 	Frodo = new Player(); // hp = 100, corruption = 0
-	npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
-	Aragorn = new Warrior("Aragorn", "Brave", -2, 0, Frodo);
+	npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo, "script");
+	Aragorn = new Warrior("Aragorn", "Brave", -2, 0);
 	Forest = new Room("forest");
 	Frodo.setCurrentRoom(Forest);
 	Forest.addNPC(npcSam);

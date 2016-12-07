@@ -37,7 +37,7 @@ public class RoomTest extends TestCase {
 		doorMyRoomNextRoom = new Door(myRoom, nextRoom);
 		doorNextRoomMyRoom = new Door(nextRoom, myRoom);
 		//NPC
-		myNPC = new NPC("NPCname","NPCdecription",15,50,currentPlayer);
+		myNPC = new NPC("NPCname","NPCdecription",15,50,currentPlayer, "script");
 		
 		
 		

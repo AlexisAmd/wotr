@@ -37,7 +37,7 @@ public class PlayerTest {
 	public void setUp()
 	{
 		myPlayer = new Player();
-		myNPC = new Magician("Gandalf", "Malicious magician", 0, 100, null);
+		myNPC = new Magician("Gandalf", "Malicious magician", 0, 100);
 		myFood = new Food("Beer", "Tasty Beverage", 1, 30, null);
 		myRoom = new Room("kithen");
 		myRoom.addItem(myFood);

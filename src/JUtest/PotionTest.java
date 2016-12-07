@@ -22,7 +22,7 @@ public class PotionTest {
 	public void setUp()
 	{
 		potionLife = new Potion("Potion1", "restore power", 12, Frodo);
-		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo);
+		npcSam = new NPC("Sam", "Best Friend of Frodo", 5, 2, Frodo, "script");
 
 	}
 	
