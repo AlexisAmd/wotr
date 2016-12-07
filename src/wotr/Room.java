@@ -34,26 +34,23 @@ public class Room {
 	this.itemList = new ArrayList<>();// ItemList in each room containing the list of item
 	this.NPCList = new ArrayList<>();//
     }
-    
-    
+
     /**
      * Overide room, construcor with a script bu no image
      * @param description of the room
      * @param script of th room
      */
-
     public Room(String description, String script) {
 	this(description);
 	this.script = script;
-
     }
+
     /**
      * Overide room: constructor with a script and an image
      * @param description of the room
      * @param script of th room
      * @param img of the room
      */
-
     public Room(String description, String script, String img) {
 	this(description);
 	this.script = script;
@@ -221,10 +218,9 @@ public class Room {
      */
     public String toStringExits() {
 	String txt = "";
-	for (HashMap.Entry<String, Door> entry : roomHM.entrySet())
-	{
-	   txt += entry.getKey() + " - ";
-	   txt += entry.getValue().toString() + "\n";
+	for (HashMap.Entry<String, Door> entry : roomHM.entrySet()) {
+	    txt += entry.getKey() + " - ";
+	    txt += entry.getValue().toString() + "\n";
 	}
 	return txt;
     }

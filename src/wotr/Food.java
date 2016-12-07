@@ -7,10 +7,9 @@
  * @version (un numÃ©ro de version ou une date)
  */
 package wotr;
-public class Food extends Item
-{
-    
-    private int calory; //positive integer
+
+public class Food extends Item {
+    private int calory; // positive integer
 
     /**
      * Constructor of the class food
@@ -20,10 +19,9 @@ public class Food extends Item
      * @param calory (its calory)
      * @param player (the player associated)
      */
-    public Food(String name, String description, int weight, int calory, Player currentPlayer)
-    {
-        super(name, description,  weight, currentPlayer);
-        this.calory = calory; //CANT BE A NEGATIVE VALUE
+    public Food(String name, String description, int weight, int calory, Player currentPlayer) {
+	super(name, description, weight, currentPlayer);
+	this.calory = calory; // CANT BE A NEGATIVE VALUE
     }
 
     /**
@@ -33,23 +31,23 @@ public class Food extends Item
      * @return  weight (its weight)
      * @return calory (its calory) 
      */
-    public String toString()
-    {
-        return "Name : "+getName()+"\n"+"Description : "+getDescription()+"\n"+"Weight : "+getWeight()+"\n" +"Calory : "+getCalory();
+    public String toString() {
+	return "Name : " + getName() + "\n" + "Description : " + getDescription() + "\n" + "Weight : " + getWeight()
+		+ "\n" + "Calory : " + getCalory();
     }
-    
+
     /**
      * get calory of food
      * @return calory the calory of the food
      */
-    public int getCalory(){
-        return this.calory;
+    public int getCalory() {
+	return this.calory;
     }
 
     /**
      * When you use a food, your hp is upgraded depending on calories
      */
-    public void use(){
-        super.getCurrentPlayer().addHp(this.calory); //n'est pas trop sensé marcher
+    public void use() {
+	super.getCurrentPlayer().addHp(this.calory); // n'est pas trop sensé marcher
     }
 }

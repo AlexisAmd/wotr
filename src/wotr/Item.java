@@ -6,6 +6,7 @@
 * @version 22/11/2016
 */
 package wotr;
+
 public abstract class Item {
     // name of the item
     private String name;
@@ -24,10 +25,10 @@ public abstract class Item {
     * @param currentplayer
     */
     public Item(String name, String description, int weight, Player currentPlayer) {
-        this.name = name;
-        this.description = description;
-        this.weight = weight;
-        this.currentPlayer = currentPlayer;
+	this.name = name;
+	this.description = description;
+	this.weight = weight;
+	this.currentPlayer = currentPlayer;
     }
 
     /**
@@ -35,7 +36,7 @@ public abstract class Item {
      * @return name of the item
      */
     public String getName() {
-        return name;
+	return name;
     }
 
     /**
@@ -43,7 +44,7 @@ public abstract class Item {
      * @return description of the item
      */
     public String getDescription() {
-        return description;
+	return description;
     }
 
     /**
@@ -51,30 +52,30 @@ public abstract class Item {
      * @return weight of the item
      */
     public int getWeight() {
-        return weight;
+	return weight;
     }
-    
+
     /**
      * displays name, description and weight of the item
      * @return a string with the name, the description and the weight of the item
      */
     public String toString() {
-        return "Name : "+getName() + "\n"+"Description : "+getDescription() + "\n"+"Weight : "+getWeight() + "\n";
-
+	return "Name : " + getName() + "\n" + "Description : " + getDescription() + "\n" + "Weight : " + getWeight()
+		+ "\n";
     }
-    
+
     /**
      * get the current player
      * @return the current player
      */
-     public Player getCurrentPlayer(){
-    	 return currentPlayer;
-     }
-    
+    public Player getCurrentPlayer() {
+	return currentPlayer;
+    }
+
     /**
     *Common method to use item. When used, an item performs an action on a door or on a player or on a NPC
     */
-    public void use(){
+    public void use() {
     }
 
     /**
@@ -82,7 +83,5 @@ public abstract class Item {
      */
     public void setPlayer(Player player) {
 	currentPlayer = player;
-	
     }
-
 }
