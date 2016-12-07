@@ -198,9 +198,9 @@ public class Player {
 	 *            the item that the player wants to use
 	 */
 	public void use(Item item) {
-		item.use(); // useful for keys
 		if (item.getName() != "Ring of power") {
 			bag.delItem(item);
+			item.use();
 		}
 	}
 
