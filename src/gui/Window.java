@@ -367,7 +367,7 @@ public class Window extends JFrame {
 	textPanePlayer.setOpaque(false);
 	textPanePlayer.setFont(new Font("Monotype Corsiva", Font.PLAIN, 19));
 	textPanePlayer.setText(
-		"Faire une description styl\u00E9e de frodo ici, ou mettre une image. Game designer un avis ?");
+		"You are Frodo Baggins and you have to drop the ring in the Mordor.");
 	textPanePlayer.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 	textPanePlayer.setBounds(96, 12, 296, 74);
 	panelInfoTopPlayer.add(textPanePlayer);
@@ -917,7 +917,7 @@ public class Window extends JFrame {
 	}
 	
 	if(game.win()){
-	    JOptionPane.showMessageDialog(getRootPane(), "Congratulation ! You win !!!\n You saved the middle earth againt the terrible Sauron.\n You can nw rest in peace with the elfs.", "YOU WIN",
+	    JOptionPane.showMessageDialog(getRootPane(), "Congratulation ! You win !!!\n You saved the middle earth againt the terrible Sauron.\n You can now rest in peace with the elfs.", "YOU WIN",
 		    JOptionPane.INFORMATION_MESSAGE);
 	    System.exit(1);
 	    
