@@ -24,7 +24,7 @@ public class Game {
     private Ring ring;
 
     /**
-    * Create the game and initialise its internal map.
+    * Create the game and initialize its internal map.
     * @param window the GUI associated
     */
     public Game(Window window) {
@@ -39,7 +39,7 @@ public class Game {
      */
     public static void main(String[] args) {
 	Window window = new Window();
-	Game game = new Game(window); // instanciate a game
+	Game game = new Game(window); // instantiate a game
 	window.setGame(game); 
 	game.play();
     }
@@ -58,11 +58,11 @@ public class Game {
 	KeyLockedDoor doorBagginsStreet2SamHouse;
 	// Create the rooms (description, script, image)
 	roomBilboHouseStart = new Room("Bilbo’s house", "This house keeps a lot of secret and foreign stories", "/roomBilboHouseStart.jpg");
-	roomBagginsStreet1 = new Room("Hobbiton main's street north", "The main street of the Hobbiton, your place of birth.",
+	roomBagginsStreet1 = new Room("Hobbiton main's street north", "The main street of the Hobbiton, your birth place.",
 		"/roomBagginsStreet1.jpg");
-	roomBagginsStreet2 = new Room("Hobbiton main's street south" , "You should visit your friend Sam, someone left his keys to Bilbo's birthday party...",
+	roomBagginsStreet2 = new Room("Hobbiton main's street south" , "You should visit your friend Sam, he left his keys to Bilbo's birthday party...",
 		"/roomBagginsStreet2.jpg");
-	roomGreenDragonInn = new Room("The Fancy Poney", "A popular inn in the Shire", "/roomGreenDragonInn.jpg");
+	roomGreenDragonInn = new Room("The Green Dragon", "A popular inn in the Shire", "/roomGreenDragonInn.jpg");
 	roomSamHouse = new Room("Sam's house. ",
 		"Sam is your gardenner but also a good friend.", "/roomSamHouse.jpg");
 	room111thBirthday = new Room("Bilbo's party", "The aftermaths of your uncle’s 111th birthday party. It’s a mess.",
@@ -101,16 +101,16 @@ public class Game {
 	
 	// Create items
 	ring = new Ring(10,currentPlayer);
-	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 4, 6, currentPlayer);
-	foodPint = new Food("Beer pint", "A good pint for a good beverage !", 10, 10, currentPlayer);
+	foodMeltCheese = new Food("Melted cheese sandwich", "Your uncle is very fond of these things.", 4, 6, currentPlayer);
+	foodPint = new Food("Beer pint", "A good pint for a good beverage!", 10, 10, currentPlayer);
 	foodWine = new Food("Large glass of wine", "The better wine of the shire", 5, 10, currentPlayer);
-	foodGrilledChicken = new Food("Grilled chicken", "A grilled chicken", 15, 10, currentPlayer);
+	foodGrilledChicken = new Food("Grilled chicken", "A juicy grilled chicken", 15, 10, currentPlayer);
 	foodSalad = new Food("Copious Salad", "Salad", 5, 3, currentPlayer);
-	foodCarrots = new Food("Crunchy carrots", "Carrots", 4, 3, currentPlayer);
+	foodCarrots = new Food("Carrots", "A handful of carrots Pipin just stole.", 4, 3, currentPlayer);
 	potionElixir = new Potion("Gandalf’s elixir",
-		"Gandalf created beverage that replicates his power. This elixir is used all over Middle Earth to restore the power of companions. Use this item wisely.",
+		"Gandalf created a beverage that replicates his power. This elixir is used all over Middle Earth to restore the power of companions. Use this item wisely.",
 		3, currentPlayer);
-	keyToSamHouse = new Key("Sam's keys", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
+	keyToSamHouse = new Key("Sam's keys", "Unlocked Sam's house", 2, currentPlayer, doorBagginsStreet2SamHouse);
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
 	roomBilboHouseStart.addItem(ring);
@@ -122,21 +122,21 @@ public class Game {
 	roomRoadToBree.addItem(foodCarrots);
 	room111thBirthday.addItem(potionElixir);
 	room111thBirthday.addItem(keyToSamHouse);
-	//D&lcare npc
+	//Declare NPCs
 	Magician npcGandalf;
 	Hobbit npcSam, npcPipin, npcMerry;
 	Enemy npcDrunkHobbit;
 	Warrior warriorBraveHobbit;
 	
 	// Create NPC
-	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf ! The better magician !", 0, 10);
-	warriorBraveHobbit = new Warrior("Mr Brandbouc", "A old bilb'os friends", 0, 0);
+	npcGandalf = new Magician("Gandalf the Grey", "It is Gandalf! The friendliest magician!", 0, 10);
+	warriorBraveHobbit = new Warrior("Mr. Brandibouc", "Frodo's dear cousin.", 0, 0);
 	//Enemy sauron = new Enemy("Sauron", "the lord of the ring", 65, -50);
 	
-	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's bestfriend", -20, 0);
-	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight with you because he saws you looking after is beer...", 1, -5);
-	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can remove 5 corruption points thank to the power friendship ! ", -5, 0);
-	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend, he can remove 5 corruptions points thank to the power friendship ! ", -5, 0);
+	npcSam = new Hobbit("Samwise Gamgee", "The Frodo's best friend.", -20, 0);
+	npcDrunkHobbit = new Enemy("Drunk hobbit", "Just an unknow drunk who wants to fight because you looked at him funny", 1, -5);
+	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can remove 5 corruption points thanks to the power friendship! ", -5, 0);
+	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend, he can remove 5 corruption points thanks to the power friendship! ", -5, 0);
 	// Add NPC to rooms
 	
 	roomSamHouse.addNPC(npcSam);
@@ -158,16 +158,16 @@ public class Game {
 	KeyLockedDoor doorPPBarPPGandalf;
 	WorldDoor worlddoorShireToBree;
 	// Create rooms (description, script, image)
-	roomBuckleburyFerry = new Room("Bucklebury Ferry", "Taking the ferry will allow you to avoid dark riders along the way",
+	roomBuckleburyFerry = new Room("Bucklebury Ferry", "Taking the ferry will allow you to avoid dark riders along the way.",
 			"/roomBuckleburyFerry.jpg");
-	roomCityCenter = new Room("City center", "The center of the city of Bree", "/BreeCityCenter.jpg");
-	roomCityEntrance = new Room("City Entrance", "The entrance of the city of Bree", "/BreeCityEntrance.jpg");
-	roomPPBar = new Room("Prancing Pony Bar", "It is the most famous bar of Bree", "/PPBar.jpg");
-	roomPPDormitory = new Room("Prancing Pony Dormitory", "You can sleep in the dormitory... Or maybe not", "/PPDormitory.png"); //Nazgul in a dormitory?
-	roomPPGandalf = new Room("Prancing Pony Gandalf's Room", "You are in the Gandalf's Room", "/PPGangalf.jpg");
-	roomPPStrider = new Room("Prancing Pony Strider's Room", "You are in the Strider's Room", "/PPStrider.jpg");
-	roomDarkAlley1 = new Room("DarK Alley East", "A scary dark alley", "/darkAlley1.jpg");
-	roomDarkAlley2 = new Room("Dark Alley West", "A scary dark alley", "/DarkAlley2.png");
+	roomCityCenter = new Room("City center", "The center of the city of Bree. It looks like a grim and dark place at the moment.", "/BreeCityCenter.jpg");
+	roomCityEntrance = new Room("City Entrance", "The entrance of the city of Bree. Despite its uninviting  looks, it is a welcoming sight.", "/BreeCityEntrance.jpg");
+	roomPPBar = new Room("Prancing Pony Bar", "The only inn of the town. It's an odd assembly of dirty men and thiefs. One indidual looks particularly suspicious to you...", "/PPBar.jpg");
+	roomPPDormitory = new Room("Prancing Pony Dormitory", "The room you've rented. You could sleep here, but something tells you it's not a good idea.", "/PPDormitory.png"); //Nazgul in a dormitory?
+	roomPPGandalf = new Room("Prancing Pony Gandalf's Room", "You are in the Gandalf's Room.", "/PPGangalf.jpg");
+	roomPPStrider = new Room("Prancing Pony Strider's Room", "You are in the Strider's Room.", "/PPStrider.jpg");
+	roomDarkAlley1 = new Room("DarK Alley East", "A scary dark alley. You can expect to be roobed at any time here.", "/darkAlley1.jpg");
+	roomDarkAlley2 = new Room("Dark Alley West", "A scary dark alley.", "/DarkAlley2.png");
 	// Create doors
 	worlddoorShireToBree = new WorldDoor(roomRoadToBree, roomBuckleburyFerry);
 	doorBuckleburyFerryCityEntrance = new Door(roomBuckleburyFerry, roomCityEntrance);
@@ -229,12 +229,12 @@ public class Game {
 	Enemy enemyNazgulSmall, enemyNazgulMedium, enemyNazgulBig, enemyThief;
 	Warrior warriorAragorn, warriorFaramir;
 	// Instanciate NPCs
-	enemyNazgulSmall = new Enemy("Baby Nazgul", "The Fear that they inspire is their best weapon", 10, -10);
-	enemyNazgulMedium = new Enemy("Medium Nazgul", "The Fear that they inspire is their best weapon", 16, -15);
-	enemyNazgulBig = new Enemy("Biggest Nazgul", "The Fear that they inspire is their best weapon", 23, -20);
-	enemyThief = new Enemy("Thief", "He will steal you without realizing it", 10, 0);
-	warriorAragorn = new Warrior("Aragorn", "He can protect you against ennemies by killing them all.", 0, 0);
-	warriorFaramir = new Warrior("Faramir", "He can protect you against ennemies by killing them all. Faramir is Boromir's brother but lives the shadow of him...", 0, 0);
+	enemyNazgulSmall = new Enemy("Baby Nazgul", "The Fear that they inspire is their best weapon.", 10, -10);
+	enemyNazgulMedium = new Enemy("Medium Nazgul", "The Fear that they inspire is their best weapon.", 16, -15);
+	enemyNazgulBig = new Enemy("Biggest Nazgul", "The Fear that they inspire is their best weapon.", 23, -20);
+	enemyThief = new Enemy("Thief", "He will rob you blind before you can move a finger.", 10, 0);
+	warriorAragorn = new Warrior("Aragorn", "He can protect you against one ennemy.", 0, 0);
+	warriorFaramir = new Warrior("Faramir", "He can protect you against one enemy. Faramir is Boromir's brother but lives under his shadow.", 0, 0);
 	// Add NPCs
 	roomBuckleburyFerry.addNPC(enemyNazgulSmall);
 	roomDarkAlley2.addNPC(enemyThief);
@@ -250,11 +250,11 @@ public class Game {
 	Door doorPPStriderroomMuddiRoad1of350,doorroomMuddyRoad1of350roomMuddyRoad2of350,doorroomMuddyRoad2of350roomMuddyRoad3of350,
 	doorroomMuddyRoad3of350roomPortal,doorroomPortalroomSauronsForge;
 	// Create rooms (description, script, image)
-	roomMuddyRoad1of350 = new Room("Muddy Road 1 of 350","Good Luck","/MuddyRoad1.jpg");
-	roomMuddyRoad2of350 = new Room("Muddy Road 2 of 350","It is the same boring room","/MuddyRoad2.jpg");
-	roomMuddyRoad3of350 = new Room("Muddy Road 3 of 350", "Borrrrrrrrrringgggg", "/MuddyRoad3.jpg");
-	roomPortal = new Room("Spatiotemporal Portal","WOW Where is it going to lead me ?","/portal.gif");
-	roomSauronsForge = new Room("Sauron's forge","The legendary volcano of Sauron. Dropping the Ring will save the middle earth, it is you destiny!","/Volcan.jpg");
+	roomMuddyRoad1of350 = new Room("Muddy Road 1 of 350","Good Luck!","/MuddyRoad1.jpg");
+	roomMuddyRoad2of350 = new Room("Muddy Road 2 of 350","It is the same boring road.","/MuddyRoad2.jpg");
+	roomMuddyRoad3of350 = new Room("Muddy Road 3 of 350", "Borrrrrrrrrringgggg...", "/MuddyRoad3.jpg");
+	roomPortal = new Room("Spatiotemporal Portal","WOW Where is it going to lead me?","/portal.gif");
+	roomSauronsForge = new Room("Sauron's forge","The legendary volcano of Sauron. Dropping the Ring will save the middle earth, it is your destiny!","/Volcan.jpg");
 			
 	// Create doors
 	doorPPStriderroomMuddiRoad1of350 = new Door(roomPPStrider, roomMuddyRoad1of350);
@@ -273,7 +273,7 @@ public class Game {
 	// Declare items
 	MagicalItem magicalItemCorruptionPotion;
 	// Create items
-	magicalItemCorruptionPotion = new MagicalItem("Elf potion", "Elfs put their science in this potion. It will protect you againt corruption.", 1, -10, currentPlayer);
+	magicalItemCorruptionPotion = new MagicalItem("Elven potion", "Elfs put their all their knowledge in this concoction. It will protect you againt corruption.", 1, -10, currentPlayer);
 	// Add items to rooms
 	roomPPStrider.addItem(magicalItemCorruptionPotion);
 	roomMuddyRoad1of350.addItem(foodSalad);
@@ -281,16 +281,16 @@ public class Game {
 	// Declare NPCs
 	NPC HUGENazgul,TheBrotherOfTheHugeNazgul;
 	// Create NPCs
-	HUGENazgul = new Enemy("HUGE Nazgul", "A f****king huge nazgul", 15, -40);
-	TheBrotherOfTheHugeNazgul = new Enemy("The Brother of the HUGE nazgul","WOOOOW he's also huge AF",20,-60);
+	HUGENazgul = new Enemy("HUGE Nazgul", "A huge nazgul", 15, -40);
+	TheBrotherOfTheHugeNazgul = new Enemy("The Brother of the HUGE nazgul","WOOOOW he's at least equally huge!",20,-60);
 	// Add NPCs
 	roomMuddyRoad2of350.addNPC(HUGENazgul);
 	roomMuddyRoad3of350.addNPC(TheBrotherOfTheHugeNazgul);
 	//====================END=================
-	startRoom = roomBilboHouseStart; //set the startroom
+	startRoom = roomBilboHouseStart; //set the startRoom
     }
     /**
-     * Check if Frodo droped the ring in the vlocano and if he is always alive
+     * Check if Frodo dropped the ring in the volcano and if he is always alive
      */
     public boolean win() {
 	
@@ -298,7 +298,7 @@ public class Game {
     }
 
     /**
-     * Main play routine.  Loops until end of play.
+     * Main play routine. Loops until end of play.
      */
     public void play() {
 	printWelcome();
@@ -311,18 +311,17 @@ public class Game {
      * Print out the opening message for the player.
      */
     private void printWelcome() {
-	window.setScript("Welcome to the Lord of the Ring: A Frodo's"
-		+ " Journey. You are Frodo and Bilbo gave you a strange ring."
-		+ " Gandalf revealed that it is the One Ring, the most powerful"
-		+ " ring which belongs to Sauron, the Lord of Mordor."
-		+ " You are Frodo Baggins of the Shire. You must bring"
-		+ " the Ring to Mordor to destroy it into the flames"
-		+ " of Orodruin, the volcano at the north east of the"
-		+ " mordor, house of the evil Sauron. Our game is a basic survival"
-		+ " game. You must explore Middle Earth in order to find your"
-		+ " way to Orodruin. Their will be many foes and obstacles"
-		+ " on your way.You need to be careful, "
-		+ "prepare yourself.\n"
+	window.setScript("Welcome to the World of the Ring: Frodo's"
+		+ " Choice. You are Frodo Baggins of the Shire. Your uncle Bilbo gave you a strange ring."
+		+ " Your friend Gandalf the magician revealed that it is the One Ring that the evil Sauron"
+		+ " would use to reconquer the Middle Earth. You must bring the Ring to Mordor to destroy it into"
+		+ " the flames of Orodruin, the volcano where it was first created. To do that you will have"
+		+ " to face the terrible dangers of Middle Earth and the numerous foes that Sauron"
+		+ " will throw at you. Our game is a basic survival game, you are a weak Hobbit and the influence"
+		+ " of the ring grows on you at every step. Thankfully, the Ring also grants you the ability"
+		+ " to become invisible. You can also count on your friends to protect you to the end. It's a"
+		+ " dangerous way to Mordor and you can expect to give your life in your quest. You need to be"
+		+ " careful, and prepare yourself well.\n"
 		+ "At the left of your screen, the map icon gives you the road "
 		+ "to mordor. But rember \"faster is not always better\"...\n"
 		+ "\n"
