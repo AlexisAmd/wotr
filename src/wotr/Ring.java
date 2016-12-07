@@ -16,7 +16,7 @@ public class Ring extends Item
      * @param player (the player associated)
      */
 	public Ring(int corruption, Player currentPlayer) {
-		super("Ring of Power", "This ring is the powerfull ring of the world. You need to destroy it to free middle earth against shadows", 10, currentPlayer);
+		super("Ring of Power", "This ring is the powerfull ring of the world. You need to destroy it to free middle earth against shadows. Don't loose is !!!", 10, currentPlayer);
 	this.corruption = corruption;
 	}
 	
