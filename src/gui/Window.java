@@ -385,6 +385,7 @@ public class Window extends JFrame {
 	// PANELRIGHT - Info player - Bottom
 	panelinfoBottom.setLayout(null);
 	progressBarHealth = new JProgressBar();
+	progressBarHealth.setBorderPainted(false);
 	progressBarHealth.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	progressBarHealth.setOpaque(true);
 	progressBarHealth.setStringPainted(true);
@@ -396,6 +397,7 @@ public class Window extends JFrame {
 	panelinfoBottom.add(progressBarHealth);
 	//
 	progressBarCorruption = new JProgressBar();
+	progressBarCorruption.setBorderPainted(false);
 	progressBarCorruption.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	progressBarCorruption.setOpaque(true);
 	progressBarCorruption.setToolTipText("Corruption points, if they are equal to 100 you're dead !");
@@ -406,6 +408,7 @@ public class Window extends JFrame {
 	panelinfoBottom.add(progressBarCorruption);
 	//
 	progressBarWeight = new JProgressBar();
+	progressBarWeight.setBorderPainted(false);
 	progressBarWeight.setBackground(Color.WHITE);
 	progressBarWeight.setStringPainted(true);
 	progressBarWeight.setToolTipText("Weight of your bag.");

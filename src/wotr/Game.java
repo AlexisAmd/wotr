@@ -138,7 +138,7 @@ public class Game {
 	npcPipin = new Hobbit("Perigirn Took", "Pipin is a good friend, he can remove 5 corruption points thank to the power friendship ! ", -5, 0);
 	npcMerry = new Hobbit("Meriadoc Brandibouc", "Merry is a good friend, he can remove 5 corruptions points thank to the power friendship ! ", -5, 0);
 	// Add NPC to rooms
-	roomBagginsStreet1.addNPC(npcGandalf);
+	
 	roomSamHouse.addNPC(npcSam);
 	room111thBirthday.addNPC(npcDrunkHobbit);
 	roomRoadToBree.addNPC(npcPipin);
@@ -242,6 +242,7 @@ public class Game {
 	roomPPBar.addNPC(warriorFaramir);
 	roomPPDormitory.addNPC(enemyNazgulMedium);
 	roomPPGandalf.addNPC(enemyNazgulBig);
+	roomPPGandalf.addNPC(npcGandalf);
 	
 	//===LAST LEVEL====
 	// Declare rooms and doors
@@ -250,9 +251,9 @@ public class Game {
 	doorroomMuddyRoad3of350roomPortal,doorroomPortalroomSauronsForge;
 	// Create rooms (description, script, image)
 	roomMuddyRoad1of350 = new Room("Muddy Road 1 of 350","Good Luck","/MuddyRoad1.jpg");
-	roomMuddyRoad2of350 = new Room("Muddy Road 2 of 350","wow the same boring room","/MuddyRoad2.jpg");
+	roomMuddyRoad2of350 = new Room("Muddy Road 2 of 350","It is the same boring room","/MuddyRoad2.jpg");
 	roomMuddyRoad3of350 = new Room("Muddy Road 3 of 350", "Borrrrrrrrrringgggg", "/MuddyRoad3.jpg");
-	roomPortal = new Room("Portaaaaaaaal","WOW Where is it going to lead me ?","/portal.gif");
+	roomPortal = new Room("Spatiotemporal Portal","WOW Where is it going to lead me ?","/portal.gif");
 	roomSauronsForge = new Room("Sauron's forge","The legendary volcano of Sauron. Dropping the Ring will save the middle earth, it is you destiny!","/Volcan.jpg");
 			
 	// Create doors
@@ -317,8 +318,7 @@ public class Game {
 		+ " mordor, house of the evil Sauron. Our game is a basic survival"
 		+ " game. You must explore Middle Earth in order to find your"
 		+ " way to Orodruin. Their will be many foes and obstacles"
-		+ " on your way. But you carry the Ring which grants you the "
-		+ "ability to be invisible. You need to be careful, "
+		+ " on your way.You need to be careful, "
 		+ "prepare yourself to commit you");
 		}
 
