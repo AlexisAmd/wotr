@@ -58,6 +58,8 @@ public class Window extends JFrame {
     private JList<String> listNPC, listInventory;
     private NPC selectedNPC;
     private Item selectedItem;
+    private JScrollPane scrollPaneDesNPC;
+    private JScrollPane scrollPaneDesInventory;
 
     /**
      * Constructor of class window. Creates the window.
@@ -212,7 +214,7 @@ public class Window extends JFrame {
 		    JOptionPane.showMessageDialog(getRootPane(), txt, "Avaible items", JOptionPane.INFORMATION_MESSAGE);
 		} else {
 		    JOptionPane.showMessageDialog(getRootPane(),
-			    "Nothing is present here,perhaps you will be  lucky next time !", "Nothing here",
+			    "Nothing is present here, perhaps you will be  lucky next time !", "Nothing here",
 			    JOptionPane.INFORMATION_MESSAGE);
 		}
 		if (!arrayNPC.isEmpty()) {
@@ -507,15 +509,18 @@ public class Window extends JFrame {
 	btnDropNPC.setFont(new Font("Roboto", Font.PLAIN, 14));
 	btnDropNPC.setBounds(284, 22, 108, 39);
 	panelNPC.add(btnDropNPC);
+	
+	scrollPaneDesNPC = new JScrollPane();
+	scrollPaneDesNPC.setBounds(166, 72, 226, 113);
+	panelNPC.add(scrollPaneDesNPC);
 	// PANELRIGHT - NPC - Description
 	textPaneDesNPC = new JTextPane();
+	scrollPaneDesNPC.setViewportView(textPaneDesNPC);
 	textPaneDesNPC.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	textPaneDesNPC.setBackground(new Color(238, 232, 170));
 	textPaneDesNPC.setSelectedTextColor(new Color(25, 25, 112));
 	textPaneDesNPC.setText("Description");
 	textPaneDesNPC.setEditable(false);
-	textPaneDesNPC.setBounds(166, 72, 226, 113);
-	panelNPC.add(textPaneDesNPC);
 	// PANELRIGHT - NPC - List
 	modelNPC = new DefaultListModel<String>();
 	modelNPC.addElement("");
@@ -636,14 +641,17 @@ public class Window extends JFrame {
 	btnDropItem.setFont(new Font("Roboto", Font.PLAIN, 16));
 	btnDropItem.setBounds(284, 21, 108, 40);
 	panelInventory.add(btnDropItem);
+	
+	scrollPaneDesInventory = new JScrollPane();
+	scrollPaneDesInventory.setBounds(166, 72, 226, 113);
+	panelInventory.add(scrollPaneDesInventory);
 	// PANELRIGHT - Inventory - description
 	textPaneDesInventory = new JTextPane();
+	scrollPaneDesInventory.setViewportView(textPaneDesInventory);
 	textPaneDesInventory.setFont(new Font("Monotype Corsiva", Font.PLAIN, 18));
 	textPaneDesInventory.setBackground(new Color(238, 232, 170));
 	textPaneDesInventory.setText("Description");
 	textPaneDesInventory.setEditable(false);
-	textPaneDesInventory.setBounds(166, 72, 226, 113);
-	panelInventory.add(textPaneDesInventory);
 	// PANELRIGHT - Inventory - list
 	modelInventory = new DefaultListModel<String>();
 	modelInventory.addElement("");
