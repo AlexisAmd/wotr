@@ -271,6 +271,7 @@ public class Window extends JFrame {
 						updateAll();
 					}
 				}
+				isSearched = false;
 			}
 		});
 		btnPickUp.setToolTipText("Pick Up");
