@@ -21,7 +21,7 @@ public class Game {
     private Player currentPlayer;
     private Room startRoom;
     private Window window;
-    private MagicalItem magicalItemRing;
+    private Ring ring;
 
     /**
     * Create the game and initialise its internal map.
@@ -100,7 +100,7 @@ public class Game {
 	Potion potionElixir;
 	
 	// Create items
-	magicalItemRing = new MagicalItem("Ring of power", "One ring to rules them all", 10, - 10, currentPlayer);
+	ring = new Ring(10,currentPlayer);
 	foodMeltCheese = new Food("Melted cheese sandwich", "A rather... HEAVY meal.", 4, 6, currentPlayer);
 	foodPint = new Food("Beer pint", "A good pint for a good beverage !", 10, 10, currentPlayer);
 	foodWine = new Food("Large glass of wine", "The better wine of the shire", 5, 10, currentPlayer);
@@ -113,7 +113,7 @@ public class Game {
 	keyToSamHouse = new Key("Sam's keys", "Unlocked Sam' house", 2, currentPlayer, doorBagginsStreet2SamHouse);
 	// Add items to rooms
 	roomBilboHouseStart.addItem(foodMeltCheese);
-	roomBilboHouseStart.addItem(magicalItemRing);
+	roomBilboHouseStart.addItem(ring);
 	
 	roomGreenDragonInn.addItem(foodPint);
 	roomGreenDragonInn.addItem(foodWine);
@@ -294,7 +294,7 @@ public class Game {
      */
     public boolean win() {
 	
-	return (currentPlayer.isAlive() && currentPlayer.getCurrentRoom().getItemList().contains(magicalItemRing) && currentPlayer.getCurrentRoom().getDescription().equalsIgnoreCase("Sauron's Forge") );
+	return (currentPlayer.isAlive() && currentPlayer.getCurrentRoom().getItemList().contains(ring) && currentPlayer.getCurrentRoom().getDescription().equalsIgnoreCase("Sauron's Forge") );
     }
 
     /**

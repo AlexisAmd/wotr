@@ -193,14 +193,18 @@ public class Player {
 	/**
 	 * Allow the player to use an item. Items can have an action on the world
 	 * and/or on the player's HP and/or CP.  Once used the objected is droped in the current room
+	 * Ring is not droped when used
 	 * 
 	 * @param item
 	 *            the item that the player wants to use
 	 */
 	public void use(Item item) {
-		if (item.getName() != "Ring of power") {
+		if (!item.getClass().getSimpleName().equalsIgnoreCase("Ring")) {
 			item.use();
 			bag.delItem(item);
+			
+		}else{//s c'est une clef
+		    item.use();
 		}
 	}
 

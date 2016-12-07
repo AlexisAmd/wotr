@@ -735,6 +735,21 @@ public class Window extends JFrame {
 	public void setBtnSouth(boolean b) {
 		btnSouth.setEnabled(b);
 	}
+	
+	/**
+	 * method to set the butn use for item to disabled if selected items is the ring
+	 * @param selectedItem
+	 */
+	public void updateUseRing(Item selectedItem){
+	    try {
+		if(selectedItem.getClass().getSimpleName().equalsIgnoreCase("Ring")){
+		btnUseItem.setEnabled(false);
+		}
+	    } catch (Exception e) {
+		
+		//Pas de soucis c'est normal
+	    }
+	}
 
 	/**
 	 * @param textPanePlayer
@@ -916,6 +931,7 @@ public class Window extends JFrame {
 	}
 
 	public void updateAll() {
+	    this.updateUseRing(selectedItem);
 		this.updateProgressBar();
 		// check if dead
 		if (!game.getPlayer().isAlive()) {
