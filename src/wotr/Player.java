@@ -37,7 +37,7 @@ public class Player {
 	 *
 	 */
 	public Player() {
-		this.name = "Frodo";
+		this.setName("Frodo");
 		this.hp = 95;
 		this.percentCorruption = 0;
 		this.bag = new Bag("Baggins");
@@ -84,7 +84,7 @@ public class Player {
 		hp += nb;
 		if (hp > 100) // Sets HP if it exceeds its range.
 			hp = 100;
-		else if (hp < 0)
+		else if (hp < 0)// Sets HP if it exceeds its range.
 			hp = 0;
 	}
 
@@ -336,5 +336,19 @@ public class Player {
 	public int getMaximumInventoyWeight() {
 		// TODO Auto-generated method stub
 		return maximumInventoryWeight;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+	    return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+	    this.name = name;
 	}
 }

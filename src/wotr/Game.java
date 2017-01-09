@@ -229,7 +229,7 @@ public class Game {
 	Enemy enemyNazgulSmall, enemyNazgulMedium, enemyNazgulBig, enemyThief;
 	Warrior warriorAragorn, warriorFaramir;
 	// Instanciate NPCs
-	enemyNazgulSmall = new Enemy("Baby Nazgul", "The Fear that they inspire is their best weapon.", 10, -10);
+	enemyNazgulSmall = new Enemy("Baby Nazgul", "The Fear that they inspire is their best weapon.", 20, -20);
 	enemyNazgulMedium = new Enemy("Medium Nazgul", "The Fear that they inspire is their best weapon.", 16, -15);
 	enemyNazgulBig = new Enemy("Biggest Nazgul", "The Fear that they inspire is their best weapon.", 23, -20);
 	enemyThief = new Enemy("Thief", "He will rob you blind before you can move a finger.", 10, 0);
